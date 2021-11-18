@@ -31,15 +31,19 @@ If the NPM dependencies are not automatically installed, run:
 
 `npm install govuk-frontend --save-dev`
 
-### Publish the assets
+### Publish files
 
-Any of the following optional parts may be published via `php artisan vendor:publish`:
+The following files may be published via `php artisan vendor:publish`:
 
-* Blade components and templates (/resources/views/vendor/govuk)
-* Configuration file (/config/govuk.php)
-* Fonts, images, and other assets (/resources/...)
+| Tag          | Contents                            | Output path |
+| ------------ | ----------------------------------- | ----------- |
+| govuk-assets | Fonts, images, and other assets     | /resources/... |
+| govuk-blade  | Blade components and page templates | /resources/views/vendor/govuk |
+| govuk-config | Configuration file                  | /config/govuk.php |
 
-### Hook up the CSS and JS
+You should only need to publish these if you wish to make changes to the default components.
+
+### Hook up the CSS, JS, and assets
 
 ???
 
@@ -68,6 +72,14 @@ return GovukPage::custom(...);
 ```
 
 ### Components
+
+```html
+<x-govuk::h1 size="m">My heading 1 text</x-govuk::h1>
+<x-govuk::p bold lead small>My paragraph text</x-govuk::p>
+<x-govuk::ul spaced bulleted>
+    <li>...</li>
+</x-govuk::ul>
+```
 
 ### Extensions and additions
 
