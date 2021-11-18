@@ -12,7 +12,7 @@ class GovukServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/govuk.php',
+            __DIR__.'/../../config/govuk.php',
             'govuk'
         );
     }
@@ -20,7 +20,7 @@ class GovukServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadViewsFrom(
-            __DIR__.'/../resources/views', 'govuk'
+            __DIR__.'/../../resources/views', 'govuk'
         );
         
         /*$this->loadViewComponentsAs('govuk', [
@@ -28,11 +28,11 @@ class GovukServiceProvider extends ServiceProvider
         ]);*/
         
         $this->publishes([
-            __DIR__.'/../config/govuk.php' => config_path('govuk.php'),
+            __DIR__.'/../../config/govuk.php' => config_path('govuk.php'),
         ], 'govuk-config');
         
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/govuk'),
+            __DIR__.'/../../resources/views' => resource_path('views/vendor/govuk'),
         ], 'govuk-views');
     }
 }
