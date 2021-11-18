@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AnthonyEdmonds\\GovukLaravel\\GovukServiceProvider"
+                "AnthonyEdmonds\\GovukLaravel\\Providers\\GovukServiceProvider"
             ]
         },
         "npm": {
