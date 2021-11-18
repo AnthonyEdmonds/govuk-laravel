@@ -1,0 +1,35 @@
+{
+    "name": "anthonyedmonds/govuk-laravel",
+    "description": "Use the GOV.UK Design System within the Laravel ecosystem, complete with Blade components and templates!",
+    "keywords": ["laravel", "gov.uk", "design system", "blade component", "blade template"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthony Edmonds",
+            "email": "anthony.edmonds@live.co.uk"
+        }
+    ],
+    "require": {
+        "php": "^8",
+        "illuminate/support": "^8.71"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "AnthonyEdmonds\\GovukLaravel\\": "src/app"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AnthonyEdmonds\\GovukLaravel\\GovukServiceProvider"
+            ]
+        },
+        "npm": {
+            "govuk-frontend": "^3.14.0"
+        }
+    }
+}
