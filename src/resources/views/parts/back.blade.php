@@ -1,3 +1,3 @@
 @isset($back)
-    <x-back :href="$back" />
+    <x-govuk::back :href="$back" />
 @endisset

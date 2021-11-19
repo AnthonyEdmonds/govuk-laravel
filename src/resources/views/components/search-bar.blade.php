@@ -6,8 +6,8 @@
     'searchTypeOptions' => [],
 ])
 
-<x-form action="{{ route('search.results') }}" method="get">
-    <x-form-group
+<x-govuk::form action="{{ route('search.results') }}" method="get">
+    <x-govuk::form-group
         name="search_term"
         :label="$label"
         label-size="m"
@@ -24,23 +24,23 @@
                 value="{{ old('search_term', $searchTerm) }}"
             />
 
-            <x-button>
-                <x-icon icon="search" label="Search" />
-            </x-button>
+            <x-govuk::button>
+                <x-govuk::icon icon="search" label="Search" />
+            </x-govuk::button>
         </div>
-    </x-form-group>
+    </x-govuk::form-group>
 
     @if($advanced === true)
-        <x-select-input
+        <x-govuk::select-input
             name="search_type"
             label="Which type of thing are you looking for?"
             :options="$searchTypeOptions"
             :value="$searchType"
-        ></x-select-input>
+        ></x-govuk::select-input>
     @elseif($searchType !== null)
-        <x-hidden-input
+        <x-govuk::hidden-input
             name="search_type"
             :value="$searchType"
         />
     @endif
-</x-form>
+</x-govuk::form>

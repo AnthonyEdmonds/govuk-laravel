@@ -1,4 +1,4 @@
 @isset($hideTitle)
 @else
-    <x-h1>{{ $title }}</x-h1>
+    <x-govuk::h1>{{ $title }}</x-govuk::h1>
 @endisset

@@ -22,9 +22,9 @@
         }
     @endphp
 
-    <x-notification-banner :title="$title" :colour="$colour">
+    <x-govuk::notification-banner :title="$title" :colour="$colour">
         <p class="govuk-body">{{ $message['message'] }}</p>
-    </x-notification-banner>
+    </x-govuk::notification-banner>
 @endforeach
 
 {{ session()->forget('flash_notification') }}
