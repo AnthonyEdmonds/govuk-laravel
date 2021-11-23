@@ -1,6 +1,6 @@
 @props([
     'caption',
-    'captionSize' => 'm'
+    'captionSize' => 'm',
     'data',
     'emptyMessage' => 'No results found',
 ])
