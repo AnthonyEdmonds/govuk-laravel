@@ -7,5 +7,5 @@
         }
     @endphp
 
-    <x-error-summary :messages="$messages" />
+    <x-govuk::error-summary :messages="$messages" />
 @endif

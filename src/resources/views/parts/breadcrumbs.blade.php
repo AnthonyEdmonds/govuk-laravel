@@ -6,5 +6,5 @@
         );
     @endphp
 
-    <x-breadcrumbs :breadcrumbs="$breadcrumbs" />
+    <x-govuk::breadcrumbs :breadcrumbs="$breadcrumbs" />
 @endisset

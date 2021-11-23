@@ -26,7 +26,7 @@
     $value = old($name, $value);
 @endphp
 
-<x-form-group
+<x-govuk::form-group
     :hint="$hint"
     :id="$id"
     :label="$label"
@@ -52,4 +52,4 @@
             </option>
         @endforeach
     </select>
-</x-form-group>
+</x-govuk::form-group>

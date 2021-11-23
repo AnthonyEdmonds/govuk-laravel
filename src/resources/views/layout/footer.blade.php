@@ -2,7 +2,7 @@
     <div class="govuk-width-container ">
         <div class="govuk-footer__meta">
             <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-                <x-h2 size="s">Help & Support</x-h2>
+                <x-govuk::h2 size="s">Help & Support</x-govuk::h2>
 
                 <ul class="govuk-footer__list govuk-!-margin-bottom-3">
                     <li class="govuk-footer__list-item">

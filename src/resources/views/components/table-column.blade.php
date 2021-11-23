@@ -1,13 +1,18 @@
 @props([
     'heading' => false,
+    'hide' => null,
     'label' => '',
     'numeric' => false,
 ])
 
-~~{{ $label }}|{{ $numeric === true ? '1' : '0' }}~~
+@php
+    $content = [
+        'heading' => $heading === true,
+        'hide' => strlen($hide) > 1 ? $hide : null,
+        'html' => $slot->toHtml(),
+        'label' => $label,
+        'numeric' => $numeric === true,
+    ];
+@endphp
 
-@if($heading === true)
-    <x-table-cell-header :numeric="$numeric" scope="row">{!! $slot !!}</x-table-cell-header>
-@else
-    <x-table-cell-row :numeric="$numeric">{!! $slot !!}</x-table-cell-row>
-@endif
+~~{!! json_encode($content) !!}~~

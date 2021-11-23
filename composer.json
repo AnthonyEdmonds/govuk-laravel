@@ -18,11 +18,17 @@
         "illuminate/support": "^8"
     },
     "require-dev": {
-        "orchestra/testbench": "^6"
+        "orchestra/testbench": "^6",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
             "AnthonyEdmonds\\GovukLaravel\\": "src/app"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AnthonyEdmonds\\GovukLaravel\\Tests\\": "tests/"
         }
     },
     "extra": {

@@ -34,7 +34,7 @@
     }
 @endphp
 
-<x-form-group
+<x-govuk::form-group
     :count="$count"
     :hint="$hint"
     :id="$id"
@@ -56,4 +56,4 @@
         rows="{{ $rows }}"
         spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
     >{{ old($name, $value) }}</textarea>
-</x-form-group>
+</x-govuk::form-group>

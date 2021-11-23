@@ -39,7 +39,7 @@
     }
 @endphp
 
-<x-form-group
+<x-govuk::form-group
     :count="$count"
     :hint="$hint"
     :id="$id"
@@ -62,4 +62,4 @@
         type="{{ $type }}"
         value="{{ old($name, $value) }}"
     />
-</x-form-group>
+</x-govuk::form-group>
