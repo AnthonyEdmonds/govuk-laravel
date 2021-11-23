@@ -22,10 +22,6 @@ class GovukServiceProvider extends ServiceProvider
         $this->loadViewsFrom(
             __DIR__.'/../../resources/views', 'govuk'
         );
-        
-        $this->loadViewComponentsAs('govuk', [
-            Table::class,
-        ]);
 
         /* TODO Publish fonts, placeholder images, JS, CSS
         $this->publishes([
