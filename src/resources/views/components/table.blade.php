@@ -51,4 +51,10 @@
     <x-govuk::table.header
         :columns="$columns"
     />
+
+    <x-govuk::table.body
+        :columns="$columns"
+        :empty-message="$emptyMessage"
+        :rows="$rows"
+    />
 </table>

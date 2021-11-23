@@ -1,19 +1,17 @@
 @props([
     'colour' => null,
-    'column' => [
-        'heading' => false,
-        'numeric' => false,
-    ],
     'colspan' => 1,
+    'heading' => false,
+    'numeric' => false,
     'rowspan' => 1,
 ])
 
 @php
-    $tag = $column['heading'] === true ? 'th' : 'td';
-    $type = $column['heading'] === true ? 'header' : 'cell';
+    $tag = $heading === true ? 'th' : 'td';
+    $type = $heading === true ? 'header' : 'cell';
     $cellClasses = "govuk-table__{$type}";
     
-    if ($column['numeric'] == true) {
+    if ($numeric == true) {
         $cellClasses .= " govuk-table__{$type}--numeric";
     }
 

@@ -79,6 +79,24 @@ return GovukPage::custom(...);
 <x-govuk::ul spaced bulleted>
     <li>...</li>
 </x-govuk::ul>
+
+<x-govuk::table
+    caption="Users"
+    :data="$users"
+    empty-message="No Users with Roles found"
+>
+    <x-govuk::table-column label="Name">
+        ~name
+    </x-govuk::table-column>
+
+    <x-govuk::table-column label="Roles">
+        ~roles
+    </x-govuk::table-column>
+
+    <x-govuk::table-column label="" numeric hide="~isAdmin">
+        <x-govuk::a href="~link">Manage<x-govuk::hidden> ~name</x-govuk::hidden></x-govuk::a>
+    </x-govuk::table-column>
+</x-govuk::table>
 ```
 
 ### Extensions and additions
