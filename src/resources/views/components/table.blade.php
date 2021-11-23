@@ -12,18 +12,21 @@
 
     // Columns
     $columns = [];
+    $html = $slot->toHtml();
             
-    while ($start = strpos($slot, '~~')) {
-        $end = strpos($slot, '~~', $start + 1);
+    while (($start = strpos($html, '~~')) !== false) {
+        $end = strpos($html, '~~', $start + 1);
         $length = $end - $start;
 
-        $columns[] = json_decode(substr($slot, $start + 2, $length - 2), true);
-        $slot = substr_replace($slot, '', $start, $length + 2);
+        $columns[] = json_decode(substr($html, $start + 2, $length - 2), true);
+        $html = substr_replace($html, '', $start, $length + 2);
     }
     
     // Pagination
-    if ($data instanceof AbstractPaginator === true) {
-        $pagination = $data->links();
+    if ($data instanceof ResourceCollection === true) {
+        $pagination = $data->resource->toArray();
+    } elseif ($data instanceof AbstractPaginator === true) {
+        $pagination = $data->toArray();
     } else {
         $pagination = [];
     }
@@ -32,7 +35,7 @@
     if (is_array($data) === true) {
         $rows = $data;
     } elseif ($data instanceof ResourceCollection === true) {
-        $rows = $data->collection->toArray();
+        $rows = $data->toArray(request());
     } elseif ($data instanceof Collection === true) {
         $rows = $data->toArray();
     } else {
@@ -41,11 +44,11 @@
 @endphp
 
 <table class="govuk-table">
-    <caption
-            class="govuk-table__caption govuk-table__caption--{{ $captionSize }}"
-    >
+    <caption class="govuk-table__caption govuk-table__caption--{{ $captionSize }}">
         {{ $caption }}
     </caption>
 
-    @dd($data, $rows, $pagination, $columns)
+    <x-govuk::table.header
+        :columns="$columns"
+    />
 </table>
