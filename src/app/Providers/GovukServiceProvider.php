@@ -2,12 +2,12 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Providers;
 
+use AnthonyEdmonds\GovukLaravel\View\Components\Table;
 use Illuminate\Support\ServiceProvider;
 
 class GovukServiceProvider extends ServiceProvider
 {
     // TODO loadRoutesFrom?
-    // TODO Publish assets, such as fonts and logo placeholders
     
     public function register(): void
     {
@@ -23,9 +23,9 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/views', 'govuk'
         );
         
-        /*$this->loadViewComponentsAs('govuk', [
-            TODO
-        ]);*/
+        $this->loadViewComponentsAs('govuk', [
+            Table::class,
+        ]);
 
         /* TODO Publish fonts, placeholder images, JS, CSS
         $this->publishes([

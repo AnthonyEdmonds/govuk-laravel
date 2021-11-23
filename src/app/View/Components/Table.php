@@ -29,7 +29,17 @@ class Table extends Component
         return function (array $data): string {
             $this->columns = $this->getColumns($data['slot']);
             
-            return 'govuk::table';
+            return '
+                <table class="govuk-table">
+                    <caption
+                        class="govuk-table__caption govuk-table__caption--{{ $captionSize }}"
+                    >
+                        {{ $caption }}
+                    </caption>
+                    
+                    @dd($data, $rows, $pagination)
+                </table>
+            ';
         };
     }
 
