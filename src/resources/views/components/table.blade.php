@@ -3,6 +3,7 @@
     'captionSize' => 'm',
     'data',
     'emptyMessage' => 'No results found',
+    'paginator' => null,
 ])
 
 @php
@@ -24,11 +25,9 @@
     
     // Pagination
     if ($data instanceof ResourceCollection === true) {
-        $pagination = $data->resource->toArray();
+        $paginator = $data->resource->toArray();
     } elseif ($data instanceof AbstractPaginator === true) {
-        $pagination = $data->toArray();
-    } else {
-        $pagination = [];
+        $paginator = $data->toArray();
     }
     
     // Rows
@@ -58,3 +57,10 @@
         :rows="$rows"
     />
 </table>
+
+@if($paginator !== null)
+    <x-govuk::pagination
+        :label="$caption"
+        :paginator="$paginator"
+    />
+@endif
