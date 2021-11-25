@@ -25,7 +25,7 @@ class Page
     protected ?string $caption = null;
     protected ?string $content = null;
     protected ?string $method = null;
-    protected string $template = 'blank';
+    protected string $template = 'custom';
     protected string $title = 'Section title or question';
     protected bool $hideTitle = false;
     
@@ -69,6 +69,15 @@ class Page
         return $this;
     }
     
+    public function setBreadcrumbs(array $breadcrumbs = []): self
+    {
+        foreach ($breadcrumbs as $label => $route) {
+            $this->addBreadcrumb($label, $route);
+        }
+        
+        return $this;
+    }
+    
     public function setButtonLabel(string $label = null): self
     {
         $this->buttonLabel = $label;
@@ -90,9 +99,9 @@ class Page
         return $this;
     }
     
-    public function setContent(string $content = null): self
+    public function setContent(string $blade = null): self
     {
-        $this->content = $content;
+        $this->content = $blade;
         return $this;
     }
     

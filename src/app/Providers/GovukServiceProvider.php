@@ -23,7 +23,7 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/views', 'govuk'
         );
 
-        /* TODO Publish fonts, placeholder images, JS, CSS
+        /* TODO Publish fonts, placeholder images
         $this->publishes([
             __DIR__.'/../../resources/views' => resource_path('views/vendor/govuk'),
         ], 'govuk-assets');

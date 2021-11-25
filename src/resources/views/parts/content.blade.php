@@ -1,3 +1,3 @@
-@if($content !== null)
+@isset($content)
     @include($content)
-@endif
+@endisset

@@ -76,10 +76,23 @@ Show a confirmation page with a confirm and back button, with additional context
 
 ### Building custom pages
 
+To create a blank page with custom content, you can call the `custom` method, passing in a blade that contains any or all of the following sections:
+
+* Heading
+* Content
+* Aside
+
 ```php
-return GovukPage::blank(...);
 return GovukPage::custom(...);
 ```
+
+If you need to pass extra variables to the View, chain `->with(...)` onto the end of the call to `custom`.
+
+You can also create a custom page using the `Page` class, which contains setters to fully construct a new page.
+
+If you want to create a page from completely from scratch, you can copy `resources/views/templates/template.blade.php` and modify it as required.
+
+Be sure to pass any required variables to the blade, as per the `Page` class.
 
 ### Components
 

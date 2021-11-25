@@ -1,20 +1,15 @@
-@extends('layout.page')
+@extends('govuk::layout.page')
 
-@php
-    // Each of these parameters are optional - use them where needed
-    $back = route('where-to-go-back-to');
-    $breadcrumbs = [
-        'Label of link' => route('the-route'),
-    ];
-    $caption = 'Section / stage indicator (optional)';
-    $title = 'Section title or question';
-    $hideTitle = true;
-@endphp
+@section('header')
+    // Your header content here
+    // Remove sections that you don't need
+@endsection
 
 @section('content')
-    // Main content
+    // Your content here
+    // Be sure to pass in any required variables!
 @endsection
 
 @section('aside')
-    // Related content
+    // Your sidebar here
 @endsection
