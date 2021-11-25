@@ -4,6 +4,7 @@
     'preventDoubleClick' => false,
     'secondary' => false,
     'start' => false,
+    'type' => null,
     'warning' => false,
 ])
 
@@ -14,15 +15,15 @@
         $classes .= ' govuk-button--disabled';
     }
 
-    if ($secondary === true) {
+    if ($secondary === true || $type === 'secondary') {
         $classes .= ' govuk-button--secondary';
     }
 
-    if ($start === true) {
+    if ($start === true || $type === 'start') {
         $classes .= ' govuk-button--start';
     }
 
-    if ($warning === true) {
+    if ($warning === true || $type === 'warning') {
         $classes .= ' govuk-button--warning';
     }
 

@@ -70,6 +70,10 @@ return GovukPage::summary(...);
 return GovukPage::tasklist(...);
 ```
 
+#### Confirm Page
+
+Show a confirmation page with a confirm and back button, with additional context via a content blade.
+
 ### Building custom pages
 
 ```php
