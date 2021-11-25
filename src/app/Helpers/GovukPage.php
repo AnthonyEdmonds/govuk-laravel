@@ -40,9 +40,12 @@ class GovukPage
         // TODO
     }
 
-    public static function error(): View
+    public static function error(string $title, string $contentBlade): View
     {
-        // TODO
+        return Page::create($title)
+            ->setBack(back()->getTargetUrl())
+            ->setContent($contentBlade)
+            ->toView();
     }
     
     public static function question(): View

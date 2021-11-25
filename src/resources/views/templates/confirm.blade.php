@@ -1,9 +1,7 @@
 @extends('govuk::layout.page')
 
 @section('content')
-    @if($content !== null)
-        @include($content)
-    @endif
+    @include('govuk::parts.content')
 
     <x-govuk::section-break />
 
