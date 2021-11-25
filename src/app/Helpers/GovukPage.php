@@ -7,11 +7,6 @@ use Illuminate\Contracts\View\View;
 
 class GovukPage
 {
-    public static function blank(): View
-    {
-        // TODO
-    }
-
     public static function confirm(
         string $title,
         string $contentBlade,
@@ -34,15 +29,29 @@ class GovukPage
             ->setTemplate('confirm')
             ->toView();
     }
-    
-    public static function custom(): View
-    {
-        // TODO
-    }
 
-    public static function error(): View
+    public static function custom(
+        string $title,
+        string $contentBlade,
+        array $breadcrumbs,
+        string $caption = null
+    ): View
     {
-        // TODO
+        return Page::create($title)
+            ->setBreadcrumbs($breadcrumbs)
+            ->setCaption($caption)
+            ->setContent($contentBlade)
+            ->setTemplate('custom')
+            ->toView();
+    }
+    
+    public static function error(string $title, string $contentBlade): View
+    {
+        return Page::create($title)
+            ->setBack(back()->getTargetUrl())
+            ->setContent($contentBlade)
+            ->setTemplate('error')
+            ->toView();
     }
     
     public static function question(): View

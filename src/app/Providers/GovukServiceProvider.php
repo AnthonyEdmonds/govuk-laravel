@@ -2,13 +2,10 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Providers;
 
-use AnthonyEdmonds\GovukLaravel\View\Components\Table;
 use Illuminate\Support\ServiceProvider;
 
 class GovukServiceProvider extends ServiceProvider
 {
-    // TODO loadRoutesFrom?
-    
     public function register(): void
     {
         $this->mergeConfigFrom(
@@ -22,13 +19,7 @@ class GovukServiceProvider extends ServiceProvider
         $this->loadViewsFrom(
             __DIR__.'/../../resources/views', 'govuk'
         );
-
-        /* TODO Publish fonts, placeholder images, JS, CSS
-        $this->publishes([
-            __DIR__.'/../../resources/views' => resource_path('views/vendor/govuk'),
-        ], 'govuk-assets');
-        */
-
+        
         $this->publishes([
             __DIR__.'/../../resources/views' => resource_path('views/vendor/govuk'),
         ], 'govuk-blade');
@@ -36,5 +27,9 @@ class GovukServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../config/govuk.php' => config_path('govuk.php'),
         ], 'govuk-config');
+
+        $this->publishes([
+            __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
+        ], 'govuk-errors');
     }
 }
