@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
+use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use Illuminate\Contracts\View\View;
 
 class GovukPage
@@ -11,9 +12,27 @@ class GovukPage
         // TODO
     }
 
-    public static function confirm(): View
+    public static function confirm(
+        string $title,
+        string $contentBlade,
+        string $backRoute,
+        string $actionRoute,
+        string $buttonLabel,
+        string $method = 'post',
+        string $buttonType = Page::NORMAL_BUTTON,
+        string $caption = null
+    ): View
     {
-        // TODO
+        return Page::create($title)
+            ->setAction($actionRoute)
+            ->setBack($backRoute)
+            ->setButtonLabel($buttonLabel)
+            ->setButtonType($buttonType)
+            ->setCaption($caption)
+            ->setContent($contentBlade)
+            ->setMethod($method)
+            ->setTemplate('confirm')
+            ->toView();
     }
     
     public static function custom(): View
