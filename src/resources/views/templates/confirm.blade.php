@@ -9,7 +9,7 @@
 
     <x-govuk::form action="{{ $action }}" method="{{ $method }}">
         <x-govuk::button-group>
-            <x-govuk::button type="$buttonType">
+            <x-govuk::button :type="$buttonType">
                 {{ $buttonLabel }}
             </x-govuk::button>
 
