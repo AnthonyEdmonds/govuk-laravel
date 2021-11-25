@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">
-    @include('layout.head')
+    @include('govuk::layout.head')
 
     <body class="govuk-template__body">
         <script>
@@ -9,22 +9,22 @@
 
         <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
-        @include('layout.header')
+        @include('govuk::layout.header')
 
         <div class="govuk-width-container ">
-            @include('parts.testing')
-            @include('parts.impersonation')
+            @include('govuk::parts.testing')
+            @include('govuk::parts.impersonation')
             @yield('heading')
-            @include('parts.breadcrumbs')
-            @include('parts.back')
+            @include('govuk::parts.breadcrumbs')
+            @include('govuk::parts.back')
             @include('flash::message')
-            @include('parts.errors')
+            @include('govuk::parts.errors')
 
             <main class="govuk-main-wrapper " id="main-content" role="main">
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-two-thirds">
-                        @include('parts.caption')
-                        @include('parts.title')
+                        @include('govuk::parts.caption')
+                        @include('govuk::parts.title')
                         @yield('content')
                     </div>
 
@@ -35,7 +35,7 @@
             </main>
         </div>
 
-        @include('layout.footer')
-        @include('layout.foot')
+        @include('govuk::layout.footer')
+        @include('govuk::layout.foot')
     </body>
 </html>

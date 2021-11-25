@@ -15,9 +15,9 @@ class GovukPage
     public static function confirm(
         string $title,
         string $contentBlade,
-        string $backRoute,
-        string $actionRoute,
         string $buttonLabel,
+        string $actionRoute,
+        string $backRoute,
         string $method = 'post',
         string $buttonType = Page::NORMAL_BUTTON,
         string $caption = null

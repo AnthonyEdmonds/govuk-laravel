@@ -124,6 +124,7 @@ class Page
     public function toArray(): array
     {
         return [
+            'action' => $this->action,
             'back' => $this->back,
             'breadcrumbs' => $this->breadcrumbs,
             'buttonLabel' => $this->buttonLabel,
@@ -131,6 +132,7 @@ class Page
             'caption' => $this->caption,
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,
+            'method' => $this->method,
             'template' => $this->template,
             'title' => $this->title,
         ];
@@ -138,6 +140,6 @@ class Page
     
     public function toView(): View
     {
-        return view("templates.{$this->template}", $this->toArray());
+        return view("templates::{$this->template}", $this->toArray());
     }
 }

@@ -1,4 +1,4 @@
-@extends('layout.govuk')
+@extends('layout.page')
 
 @php
     // Each of these parameters are optional - use them where needed
