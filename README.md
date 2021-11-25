@@ -37,9 +37,9 @@ The following files may be published via `php artisan vendor:publish`:
 
 | Tag          | Contents                            | Output path |
 | ------------ | ----------------------------------- | ----------- |
-| govuk-assets | Fonts, images, and other assets     | /resources/... |
 | govuk-blade  | Blade components and page templates | /resources/views/vendor/govuk |
 | govuk-config | Configuration file                  | /config/govuk.php |
+| govuk-errors | Error pages for 401 through 503     | /resources/views/errors |
 
 You should only need to publish these if you wish to make changes to the default components.
 
@@ -90,7 +90,7 @@ If you need to pass extra variables to the View, chain `->with(...)` onto the en
 
 You can also create a custom page using the `Page` class, which contains setters to fully construct a new page.
 
-If you want to create a page from completely from scratch, you can copy `resources/views/templates/template.blade.php` and modify it as required.
+If you want to create a page from completely from scratch, you can extend `govuk::layout.page` or copy `resources/views/templates/template.blade.php` and modify it as required.
 
 Be sure to pass any required variables to the blade, as per the `Page` class.
 

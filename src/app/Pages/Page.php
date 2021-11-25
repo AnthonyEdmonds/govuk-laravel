@@ -44,7 +44,7 @@ class Page
     public function addBreadcrumb(string $label, string $route): self
     {
         $this->back = null;
-        $this->breadcrumbs[] = [$label => $route]; 
+        $this->breadcrumbs[$label] = $route; 
         
         return $this;
     }
