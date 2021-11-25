@@ -140,6 +140,6 @@ class Page
     
     public function toView(): View
     {
-        return view("templates::{$this->template}", $this->toArray());
+        return view("govuk::templates.{$this->template}", $this->toArray());
     }
 }
