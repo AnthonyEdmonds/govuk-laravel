@@ -47,6 +47,12 @@ You should only need to publish these if you wish to make changes to the default
 
 ???
 
+Import the `govuk-laravel` scss styles in your main `resources/scss/app.scss` file:
+
+```scss
+@import '../../vendor/anthonyedmonds/govuk-laravel/src/resources/scss/govuk-laravel.scss';
+```
+
 ## Documentation
 
 ### Config
