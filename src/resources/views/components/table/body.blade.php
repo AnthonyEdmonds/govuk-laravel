@@ -5,8 +5,12 @@
 ])
 
 @php
-    function renderContent(array $column, array $row): string
+    function renderContent(array $column, $row): string
     {
+        if (is_array($row) !== true) {
+            $row = (array)$row;
+        }
+        
         $content = $column['html'];
         
         foreach ($row as $key => $value) {
