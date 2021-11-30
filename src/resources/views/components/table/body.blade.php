@@ -4,27 +4,6 @@
     'rows' => [],
 ])
 
-@php
-    function renderContent(array $column, $row): string
-    {
-        if (is_array($row) !== true) {
-            $row = (array)$row;
-        }
-        
-        $content = $column['html'];
-        
-        foreach ($row as $key => $value) {
-            if ("~$key" === $column['hide'] && $value == true) {
-                return '';
-            }
-            
-            $content = str_replace("~$key", $value, $content);
-        }
-        
-        return $content;
-    }
-@endphp
-
 <tbody class="govuk-table__body">
     @empty($rows)
         <x-govuk::table.row>
@@ -43,7 +22,7 @@
                         :heading="$column['heading']"
                         :numeric="$column['numeric']"
                     >
-                        {!! renderContent($column, $row) !!}
+                        {!! AnthonyEdmonds\GovukLaravel\Helpers\GovukComponent::renderTableContent($column, $row) !!}
                     </x-govuk::table.cell>
                 @endforeach
             </x-govuk::table.row>
