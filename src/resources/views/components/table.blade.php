@@ -25,7 +25,12 @@
     
     // Pagination
     if ($data instanceof ResourceCollection === true) {
-        $paginator = $data->resource->toArray();
+        $pagination = $data->resource->toArray();
+        
+        if (isset($pagination['current_page']) === true) {
+            $paginator = $pagination;
+        }
+        
     } elseif ($data instanceof AbstractPaginator === true) {
         $paginator = $data->toArray();
     }
