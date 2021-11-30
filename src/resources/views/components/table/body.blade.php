@@ -28,7 +28,7 @@
                 colour="dark-grey"
                 colspan="{{ count($columns) }}"
             >
-                {{ $emptyMessage }}
+                {!! $emptyMessage !!}
             </x-govuk::table.cell>
         </x-govuk::table.row>
     @else
