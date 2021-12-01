@@ -1,4 +1,4 @@
-@extends('errors.support', [
+@extends('govuk::templates.error', [
     'back' => back()->getTargetUrl(),
     'title' => 'Too many requests',
 ])

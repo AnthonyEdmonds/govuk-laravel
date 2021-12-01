@@ -1,4 +1,4 @@
-@extends('errors.support', [
+@extends('govuk::templates.error', [
     'back' => back()->getTargetUrl(),
     'title' => 'Page expired',
 ])
