@@ -1,28 +1,21 @@
 @php
     use Illuminate\Support\Facades\Auth;
 
-    $navigation = [];
+    $nav = config('govuk.navigation');
     $user = Auth::user();
-
-    if ($user !== null) {
-        $navigation['Search'] = route('search.start');
-
-        if ($user->can('access_admin') === true) {
-            $navigation['Admin'] = route('admin.dashboard');
-        }
-
-        $navigation['Sign Out'] = route('sign-out');
-    }
 @endphp
 
 <header class="govuk-header" role="banner" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
         <div class="govuk-header__logo">
-            <a href="{{ route('dashboard') }}" class="govuk-header__link govuk-header__link--homepage">
+            <a
+                href="{{ route(config('govuk.icon.route')) }}"
+                class="govuk-header__link govuk-header__link--homepage"
+            >
                 <span class="govuk-header__logotype">
                     <img
-                        src="{{ asset('images/logo-white.svg') }}"
-                        alt="Network Rail"
+                        src="{{ asset(config('govuk.icon.asset')) }}"
+                        alt="{{ config('govuk.icon.alt') }}"
                         class="govuk-!-padding-2"
                         height="44"
                     />
@@ -31,8 +24,11 @@
         </div>
 
         <div class="govuk-header__content">
-            <a href="{{ route('dashboard') }}" class="govuk-header__link govuk-header__link--service-name">
-                Heatmap Submission System
+            <a
+                href="{{ route(config('govuk.icon.route')) }}"
+                class="govuk-header__link govuk-header__link--service-name"
+            >
+                {{ env('APP_NAME', 'Welcome') }}
             </a>
 
             <button
@@ -46,13 +42,17 @@
 
             <nav>
                 <ul id="navigation" class="govuk-header__navigation " aria-label="Navigation menu">
-                    @foreach($navigation as $label => $url)
-                        <li class="govuk-header__navigation-item">
-                            <a class="govuk-header__link" href="{{ $url }}">
-                                {{ $label }}
-                            </a>
-                        </li>
-                    @endforeach
+                    @if($user !== null)
+                        @foreach($nav as $label => $details)
+                            @can($details['null'] ?? null)
+                                <li class="govuk-header__navigation-item">
+                                    <a class="govuk-header__link" href="{{ route($details['route']) }}">
+                                        {{ $label }}
+                                    </a>
+                                </li>
+                            @endcan
+                        @endforeach
+                    @endif
                 </ul>
             </nav>
         </div>

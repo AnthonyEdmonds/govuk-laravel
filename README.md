@@ -41,7 +41,9 @@ The following files may be published via `php artisan vendor:publish`:
 | govuk-config | Configuration file                  | /config/govuk.php |
 | govuk-errors | Error pages for 401 through 503     | /resources/views/errors |
 
-You should only need to publish these if you wish to make changes to the default components.
+`govuk-config` and `govuk-errors` should be published.
+
+Only publish `govuk-blade` if you wish to make changes to the components and templates.
 
 ### Hook up the CSS, JS, and assets
 
@@ -57,7 +59,8 @@ Import the `govuk-laravel` scss styles in your main `resources/scss/app.scss` fi
 
 ### Config
 
-No configuration options are currently available.
+* icon - Configure the logo in the top-left corner of the page
+* navigation - Configure the links to show in the main navigation bar, with optional permission controls
 
 ### Creating standard pages
 
