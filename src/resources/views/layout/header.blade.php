@@ -44,7 +44,7 @@
                 <ul id="navigation" class="govuk-header__navigation " aria-label="Navigation menu">
                     @if($user !== null)
                         @foreach($nav as $label => $details)
-                            @can($details['null'] ?? null)
+                            @can($details['can'] ?? null)
                                 <li class="govuk-header__navigation-item">
                                     <a class="govuk-header__link" href="{{ route($details['route']) }}">
                                         {{ $label }}
