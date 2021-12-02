@@ -24,4 +24,9 @@ class GovukForm
 
         return Session::get($key);
     }
+    
+    public static function clear(string $key): void
+    {
+        Session::forget($key);
+    }
 }
