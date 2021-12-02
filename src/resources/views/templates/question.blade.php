@@ -6,7 +6,7 @@
     <x-govuk::section-break />
 
     <x-govuk::form action="{{ $action }}" method="{{ $method }}">
-        {{ $question->toBlade() }}
+        {!! $question->toBlade() !!}
         
         <x-govuk::button :type="$buttonType">
             {{ $buttonLabel }}

@@ -3,6 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Questions;
 
 use ErrorException;
+use Illuminate\View\ComponentAttributeBag;
 
 class Question
 {
@@ -16,7 +17,7 @@ class Question
         self::TEXT_AREA,
         self::TEXT_INPUT
     ];
-    
+
     public string $autocomplete = 'on';
     public ?int $count = null;
     public ?string $hint = null;
@@ -30,14 +31,14 @@ class Question
     public int $rows = 5;
     public bool $spellcheck = false;
     public bool $threshold = false;
-    public string $title = 'false';
+    public bool $title = false;
     public string $type = 'text';
     public ?string $value = null;
     public ?int $width = null;
     public ?int $words = null;
 
     protected string $format;
-    
+
     // Setup
     public function __construct(
         string $label,
@@ -49,7 +50,7 @@ class Question
         if (in_array($format, self::QUESTION_FORMATS) === false) {
             throw new ErrorException("$format is not a valid GOV.UK Question type");
         }
-        
+
         $this->label = $label;
         $this->name = $name;
         $this->id = $id ?? $name;
@@ -60,26 +61,26 @@ class Question
     {
         return new self($label, $name, $format, $id);
     }
-    
+
     // Setters
     public function autocomplete(string $autocomplete = 'on'): self
     {
         $this->autocomplete = $autocomplete;
         return $this;
     }
-    
+
     public function count(int $count = null): self
     {
         $this->count = $count;
         return $this;
     }
-    
+
     public function hint(string $hint): self
     {
         $this->hint = $hint;
         return $this;
     }
-    
+
     public function inputMode(string $mode): self
     {
         $this->inputMode = $mode;
@@ -121,31 +122,31 @@ class Question
         $this->threshold = $enabled;
         return $this;
     }
-    
-    public function title(string $title): self
+
+    public function isTitle(): self
     {
-        $this->title = $title;
+        $this->title = true;
         return $this;
     }
-    
+
     public function type(string $type): self
     {
         $this->type = $type;
         return $this;
     }
-    
+
     public function value(string $value): self
     {
         $this->$value = $value;
         return $this;
     }
-    
+
     public function width(int $width): self
     {
         $this->width = $width;
         return $this;
     }
-    
+
     public function words(int $words): self
     {
         $this->words = $words;
@@ -177,9 +178,11 @@ class Question
             'words' => $this->words,
         ];
     }
-    
+
     public function toBlade(): string
     {
-        return view("govuk::{$this->format}", $this->toArray())->render();
+        return view("govuk::components.{$this->format}", $this->toArray())
+            ->with('attributes', new ComponentAttributeBag())
+            ->render();
     }
 }

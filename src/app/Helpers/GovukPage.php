@@ -73,7 +73,7 @@ class GovukPage
             ->setButtonType($buttonType)
             ->setContent($blade)
             ->setMethod($method)
-            ->setQuestion($question)
+            ->setQuestion($question->isTitle())
             ->setTemplate('question')
             ->toView();
     }
