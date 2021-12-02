@@ -65,6 +65,10 @@ class GovukPage
         string $buttonType = Page::NORMAL_BUTTON
     ): View
     {
+        $question
+            ->isTitle()
+            ->labelSize('l');
+        
         return Page::create($question->label)
             ->hideTitle()
             ->setAction($action)
@@ -73,7 +77,7 @@ class GovukPage
             ->setButtonType($buttonType)
             ->setContent($blade)
             ->setMethod($method)
-            ->setQuestion($question->isTitle())
+            ->setQuestion($question)
             ->setTemplate('question')
             ->toView();
     }
