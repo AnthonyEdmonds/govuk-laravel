@@ -57,10 +57,10 @@ class GovukPage
     
     public static function question(
         Question $question,
-        string $blade,
         string $buttonLabel,
         string $action,
         string $back,
+        string $blade = null,
         string $method = 'post',
         string $buttonType = Page::NORMAL_BUTTON
     ): View
