@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Pages;
 
+use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use Illuminate\Contracts\View\View;
 
 class Page
@@ -25,6 +26,7 @@ class Page
     protected ?string $caption = null;
     protected ?string $content = null;
     protected ?string $method = null;
+    protected ?Question $question = null;
     protected string $template = 'custom';
     protected string $title = 'Section title or question';
     protected bool $hideTitle = false;
@@ -111,6 +113,12 @@ class Page
         return $this;
     }
     
+    public function setQuestion(Question $question = null): self
+    {
+        $this->question = $question;
+        return $this;
+    }
+    
     public function setTemplate(string $template): self
     {
         $this->template = $template;
@@ -142,6 +150,7 @@ class Page
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,
             'method' => $this->method,
+            'question' => $this->question,
             'template' => $this->template,
             'title' => $this->title,
         ];

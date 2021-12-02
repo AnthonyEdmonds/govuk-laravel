@@ -3,28 +3,29 @@
 namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
+use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use Illuminate\Contracts\View\View;
 
 class GovukPage
 {
     public static function confirm(
         string $title,
-        string $contentBlade,
+        string $blade,
         string $buttonLabel,
-        string $actionRoute,
-        string $backRoute,
+        string $action,
+        string $back,
         string $method = 'post',
         string $buttonType = Page::NORMAL_BUTTON,
         string $caption = null
     ): View
     {
         return Page::create($title)
-            ->setAction($actionRoute)
-            ->setBack($backRoute)
+            ->setAction($action)
+            ->setBack($back)
             ->setButtonLabel($buttonLabel)
             ->setButtonType($buttonType)
             ->setCaption($caption)
-            ->setContent($contentBlade)
+            ->setContent($blade)
             ->setMethod($method)
             ->setTemplate('confirm')
             ->toView();
@@ -54,9 +55,27 @@ class GovukPage
             ->toView();
     }
     
-    public static function question(): View
+    public static function question(
+        Question $question,
+        string $blade,
+        string $buttonLabel,
+        string $action,
+        string $back,
+        string $method = 'post',
+        string $buttonType = Page::NORMAL_BUTTON
+    ): View
     {
-        // TODO
+        return Page::create($question->label)
+            ->hideTitle()
+            ->setAction($action)
+            ->setBack($back)
+            ->setButtonLabel($buttonLabel)
+            ->setButtonType($buttonType)
+            ->setContent($blade)
+            ->setMethod($method)
+            ->setQuestion($question)
+            ->setTemplate('question')
+            ->toView();
     }
 
     public static function start(): View
