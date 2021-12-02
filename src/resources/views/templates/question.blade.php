@@ -1,10 +1,6 @@
 @extends('govuk::layout.page')
 
 @section('content')
-    @include('govuk::parts.content')
-
-    <x-govuk::section-break />
-
     <x-govuk::form action="{{ $action }}" method="{{ $method }}">
         {!! $question->toBlade() !!}
         
@@ -12,4 +8,7 @@
             {{ $buttonLabel }}
         </x-govuk::button>
     </x-govuk::form>
+
+    <x-govuk::section-break />
+    @include('govuk::parts.content')
 @endsection
