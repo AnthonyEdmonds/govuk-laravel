@@ -137,7 +137,7 @@ class Question
 
     public function value(string $value): self
     {
-        $this->$value = $value;
+        $this->value = $value;
         return $this;
     }
 
