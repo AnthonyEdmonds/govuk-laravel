@@ -11,7 +11,7 @@ class Words implements Rule
 
     public function passes($attribute, $value): bool
     {
-        return substr_count($value, ' ') <= $this->words;
+        return substr_count($value, ' ') <= $this->words - 1;
     }
     
     public function message(): string
