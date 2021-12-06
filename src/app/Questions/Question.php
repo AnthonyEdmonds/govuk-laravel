@@ -135,7 +135,7 @@ class Question
         return $this;
     }
 
-    public function value(string $value): self
+    public function value(string $value = null): self
     {
         $this->value = $value;
         return $this;
