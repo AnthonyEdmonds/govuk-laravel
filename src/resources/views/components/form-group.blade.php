@@ -6,14 +6,14 @@
     'name',
     'title' => false,
 
-    'count' => false,
-    'threshold' => false,
-    'words' => false,
+    'count' => null,
+    'threshold' => null,
+    'words' => null,
 ])
 
 @php
     $groupClasses = 'govuk-form-group';
-    $hasCount = $count !== false || $words !== false;
+    $hasCount = $count !== null || $words !== null;
 
     if ($errors->has($name) === true) {
         $groupClasses .= ' govuk-form-group--error';
@@ -25,11 +25,11 @@
         class="govuk-character-count"
         data-module="govuk-character-count"
 
-        @if($threshold !== false)
+        @if($threshold !== null)
             data-threshold="{{ $threshold }}"
         @endif
 
-        @if($words !== false)
+        @if($words !== null)
             data-maxwords="{{ $words }}"
         @else
             data-maxlength="{{ $count }}"

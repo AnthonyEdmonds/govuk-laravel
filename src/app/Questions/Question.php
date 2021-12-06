@@ -30,7 +30,7 @@ class Question
     public ?string $placeholder = null;
     public int $rows = 5;
     public bool $spellcheck = false;
-    public bool $threshold = false;
+    public ?int $threshold = null;
     public bool $title = false;
     public string $type = 'text';
     public ?string $value = null;
@@ -117,9 +117,17 @@ class Question
         return $this;
     }
 
-    public function threshold(bool $enabled): self
+    public function threshold(int $percent): self
     {
-        $this->threshold = $enabled;
+        if ($percent <= 0) {
+            $percent = 0;
+        }
+        
+        if ($percent >= 100) {
+            $percent = 100;
+        }
+        
+        $this->threshold = $percent;
         return $this;
     }
 

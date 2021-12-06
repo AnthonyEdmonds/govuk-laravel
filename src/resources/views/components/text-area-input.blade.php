@@ -1,6 +1,6 @@
 @props([
     'autocomplete' => 'on',
-    'count' => false,
+    'count' => null,
     'hint' => null,
     'id' => $name,
     'inputmode' => 'text',
@@ -10,10 +10,10 @@
     'placeholder' => null,
     'rows' => 5,
     'spellcheck' => 'false',
-    'threshold' => false,
+    'threshold' => null,
     'title' => false,
     'value' => null,
-    'words' => false,
+    'words' => null,
 ])
 
 @php
@@ -24,7 +24,7 @@
         $ariaDescription .= "{$id}-hint";
     }
 
-    if ($count !== false || $words !== false) {
+    if ($count !== null || $words !== null) {
         $inputClasses .= ' govuk-js-character-count';
     }
 

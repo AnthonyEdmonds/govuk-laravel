@@ -1,6 +1,6 @@
 @props([
     'autocomplete' => 'on',
-    'count' => false,
+    'count' => null,
     'hint' => null,
     'id' => $name,
     'inputmode' => 'text',
@@ -9,12 +9,12 @@
     'name',
     'placeholder' => null,
     'spellcheck' => 'false',
-    'threshold' => false,
+    'threshold' => null,
     'title' => false,
     'type' => 'text',
     'value' => null,
     'width' => null,
-    'words' => false,
+    'words' => null,
 ])
 
 @php
@@ -29,7 +29,7 @@
         $inputClasses .= " govuk-input--width-$width";
     }
 
-    if ($count !== false || $words !== false) {
+    if ($count !== null || $words !== null) {
         $inputClasses .= ' govuk-js-character-count';
     }
 
