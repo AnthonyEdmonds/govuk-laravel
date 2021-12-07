@@ -8,11 +8,13 @@ use Illuminate\View\ComponentAttributeBag;
 class Question
 {
     const HIDDEN = 'hidden-input';
+    const RADIOS = 'radios-input';
     const SELECT = 'select-input';
     const TEXT_AREA = 'text-area-input';
     const TEXT_INPUT = 'text-input';
     const QUESTION_FORMATS = [
         self::HIDDEN,
+        self::RADIOS,
         self::SELECT,
         self::TEXT_AREA,
         self::TEXT_INPUT
@@ -22,7 +24,9 @@ class Question
     public ?int $count = null;
     public ?string $hint = null;
     public string $id;
+    public bool $isInline = false;
     public string $inputmode = 'text';
+    public bool $isTitle = false;
     public string $label;
     public string $labelSize = 's';
     public string $name;
@@ -31,7 +35,6 @@ class Question
     public int $rows = 5;
     public bool $spellcheck = false;
     public ?int $threshold = null;
-    public bool $title = false;
     public string $type = 'text';
     public ?string $value = null;
     public ?int $width = null;
@@ -87,6 +90,18 @@ class Question
         return $this;
     }
 
+    public function isInline(): self
+    {
+        $this->isInline = true;
+        return $this;
+    }
+    
+    public function isTitle(): self
+    {
+        $this->isTitle = true;
+        return $this;
+    }
+
     public function labelSize(string $size): self
     {
         $this->labelSize = $size;
@@ -130,13 +145,7 @@ class Question
         $this->threshold = $percent;
         return $this;
     }
-
-    public function isTitle(): self
-    {
-        $this->title = true;
-        return $this;
-    }
-
+    
     public function type(string $type): self
     {
         $this->type = $type;
@@ -171,6 +180,8 @@ class Question
             'hint' => $this->hint,
             'id' => $this->id,
             'inputmode' => $this->inputmode,
+            'isInline' => $this->isInline,
+            'isTitle' => $this->isTitle,
             'label' => $this->label,
             'labelSize' => $this->labelSize,
             'name' => $this->name,
@@ -179,7 +190,6 @@ class Question
             'rows' => $this->rows,
             'spellcheck' => $this->spellcheck,
             'threshold' => $this->threshold,
-            'title' => $this->title,
             'type' => $this->type,
             'value' => $this->value,
             'width' => $this->width,

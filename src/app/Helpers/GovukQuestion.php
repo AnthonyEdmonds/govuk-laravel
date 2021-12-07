@@ -43,9 +43,20 @@ class GovukQuestion
             ->type($type);
     }
     
-    public static function radios(): Question
+    public static function radios(
+        string $label,
+        string $name,
+        array $options,
+        string $id = null
+    ): Question
     {
-        // TODO
+        return Question::create(
+            $label,
+            $name,
+            Question::RADIOS,
+            $id
+        )
+            ->options($options);
     }
     
     public static function select(): Question

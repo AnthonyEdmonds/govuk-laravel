@@ -6,7 +6,7 @@
     'labelSize' => 's',
     'name',
     'options' => [],
-    'title' => false,
+    'isTitle' => false,
     'value' => null,
 ])
 
@@ -26,14 +26,16 @@
     $value = old($name, $value);
 @endphp
 
-<x-govuk::form-group
-    :hint="$hint"
-    :id="$id"
-    :label="$label"
-    :label-size="$labelSize"
-    :name="$name"
-    :title="$title"
->
+<x-govuk::form-group :name="$name">
+    <x-govuk::form-group.label
+        :id="$id"
+        :label="$label"
+        :label-size="$labelSize"
+        :isTitle="$isTitle"
+    />
+    <x-govuk::form-group.hint :id="$id" :hint="$hint" />
+    <x-govuk::form-group.error :id="$id" :name="$name" />
+    
     <select
         aria-describedby="{{ $ariaDescription }}"
         autocomplete="{{ $autocomplete }}"

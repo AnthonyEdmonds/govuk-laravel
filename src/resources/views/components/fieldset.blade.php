@@ -1,13 +1,20 @@
 @props([
-    'title',
-    'size' => 'l',
+    'isTitle' => true,
+    'label',
+    'labelSize' => 'l',
 ])
 
 <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--{{ $size }}">
-        <h1 class="govuk-fieldset__heading">
-            {{ $title }}
-        </h1>
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--{{ $labelSize }}">
+        @if($isTitle === true)
+            <h1 class="govuk-fieldset__heading">
+        @endif
+                
+            {{ $label }}
+                
+        @if($isTitle === true)
+            </h1>
+        @endif
     </legend>
 
     {!! $slot !!}

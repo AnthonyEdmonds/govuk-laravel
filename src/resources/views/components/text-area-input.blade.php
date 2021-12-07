@@ -11,7 +11,7 @@
     'rows' => 5,
     'spellcheck' => 'false',
     'threshold' => null,
-    'title' => false,
+    'isTitle' => false,
     'value' => null,
     'words' => null,
 ])
@@ -34,26 +34,33 @@
     }
 @endphp
 
-<x-govuk::form-group
+<x-govuk::form-group.count
     :count="$count"
-    :hint="$hint"
-    :id="$id"
-    :label="$label"
-    :label-size="$labelSize"
-    :name="$name"
     :threshold="$threshold"
-    :title="$title"
     :words="$words"
 >
-    <textarea
-        aria-describedby="{{ $ariaDescription }}"
-        autocomplete="{{ $autocomplete }}"
-        class="{{ $inputClasses }}"
-        id="{{ $id }}"
-        inputmode="{{ $inputmode }}"
-        name="{{ $name }}"
-        placeholder="{{ $placeholder }}"
-        rows="{{ $rows }}"
-        spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
-    >{{ old($name, $value) }}</textarea>
-</x-govuk::form-group>
+    <x-govuk::form-group :name="$name">
+        <x-govuk::form-group.label
+            :id="$id"
+            :label="$label"
+            :label-size="$labelSize"
+            :isTitle="$isTitle"
+        />
+        <x-govuk::form-group.hint :id="$id" :hint="$hint" />
+        <x-govuk::form-group.error :id="$id" :name="$name" />
+        
+        <textarea
+            aria-describedby="{{ $ariaDescription }}"
+            autocomplete="{{ $autocomplete }}"
+            class="{{ $inputClasses }}"
+            id="{{ $id }}"
+            inputmode="{{ $inputmode }}"
+            name="{{ $name }}"
+            placeholder="{{ $placeholder }}"
+            rows="{{ $rows }}"
+            spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
+        >{{ old($name, $value) }}</textarea>
+
+        <x-govuk::form-group.counter :id="$id" />
+    </x-govuk::form-group>
+</x-govuk::form-group.count>
