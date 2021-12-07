@@ -7,7 +7,7 @@ return [
         'asset' => 'images/logo.svg',
         'route' => 'dashboard',
     ],
-    
+
     /* Which links to show in the top navigation bar, along with any permissions checks */
     'navigation' => [
         'Sign out' => [

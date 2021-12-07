@@ -17,8 +17,7 @@ class GovukPage
         string $method = 'post',
         string $buttonType = Page::NORMAL_BUTTON,
         string $caption = null
-    ): View
-    {
+    ): View {
         return Page::create($title)
             ->setAction($action)
             ->setBack($back)
@@ -36,8 +35,7 @@ class GovukPage
         string $contentBlade,
         array $breadcrumbs,
         string $caption = null
-    ): View
-    {
+    ): View {
         return Page::create($title)
             ->setBreadcrumbs($breadcrumbs)
             ->setCaption($caption)
@@ -45,7 +43,7 @@ class GovukPage
             ->setTemplate('custom')
             ->toView();
     }
-    
+
     public static function error(string $title, string $contentBlade): View
     {
         return Page::create($title)
@@ -54,7 +52,7 @@ class GovukPage
             ->setTemplate('error')
             ->toView();
     }
-    
+
     public static function question(
         Question $question,
         string $buttonLabel,
@@ -63,12 +61,11 @@ class GovukPage
         string $blade = null,
         string $method = 'post',
         string $buttonType = Page::NORMAL_BUTTON
-    ): View
-    {
+    ): View {
         $question
             ->isTitle()
             ->labelSize('l');
-        
+
         return Page::create($question->label)
             ->hideTitle()
             ->setAction($action)

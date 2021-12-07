@@ -7,12 +7,12 @@ use Illuminate\View\ComponentAttributeBag;
 
 class Question
 {
-    const HIDDEN = 'hidden-input';
-    const RADIOS = 'radios-input';
-    const SELECT = 'select-input';
-    const TEXT_AREA = 'text-area-input';
-    const TEXT_INPUT = 'text-input';
-    const QUESTION_FORMATS = [
+    public const HIDDEN = 'hidden-input';
+    public const RADIOS = 'radios-input';
+    public const SELECT = 'select-input';
+    public const TEXT_AREA = 'text-area-input';
+    public const TEXT_INPUT = 'text-input';
+    public const QUESTION_FORMATS = [
         self::HIDDEN,
         self::RADIOS,
         self::SELECT,
@@ -48,8 +48,7 @@ class Question
         string $name,
         string $format,
         string $id = null
-    )
-    {
+    ) {
         if (in_array($format, self::QUESTION_FORMATS) === false) {
             throw new ErrorException("$format is not a valid GOV.UK Question type");
         }
@@ -95,7 +94,7 @@ class Question
         $this->isInline = true;
         return $this;
     }
-    
+
     public function isTitle(): self
     {
         $this->isTitle = true;
@@ -137,15 +136,15 @@ class Question
         if ($percent <= 0) {
             $percent = 0;
         }
-        
+
         if ($percent >= 100) {
             $percent = 100;
         }
-        
+
         $this->threshold = $percent;
         return $this;
     }
-    
+
     public function type(string $type): self
     {
         $this->type = $type;

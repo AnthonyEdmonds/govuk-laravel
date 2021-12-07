@@ -1,0 +1,23 @@
+{
+    "name": "govuk-laravel",
+    "description": "Use the GOV.UK Design System within the Laravel ecosystem, complete with Blade components and templates!",
+    "keywords": [
+        "laravel",
+        "gov.uk",
+        "design system",
+        "blade component",
+        "blade template"
+    ],
+    "author": "Anthony Edmonds",
+    "license": "MIT",
+    "homepage": "https://github.com/AnthonyEdmonds/govuk-laravel",
+    "scripts": {
+        "test": "php vendor/bin/phpunit",
+        "php-cs-fixer": "php vendor/bin/php-cs-fixer fix",
+        "php-stan": "php vendor/bin/phpstan analyse -c phpstan.neon",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "husky": "^7.0.4"
+    }
+}

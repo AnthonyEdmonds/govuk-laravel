@@ -14,7 +14,7 @@ class GovukForm
     {
         Session::put($key, $model);
     }
-    
+
     /* Retrieve a form model from the User's session */
     public static function get(string $key): Model
     {
@@ -24,7 +24,7 @@ class GovukForm
 
         return Session::get($key);
     }
-    
+
     public static function clear(string $key): void
     {
         Session::forget($key);

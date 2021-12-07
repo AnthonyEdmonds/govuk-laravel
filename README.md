@@ -6,54 +6,20 @@ GOV.UK Laravel is a community resource of the [GOV.UK Design System](https://des
 
 Published under the MIT licence.
 
-## Installation
-
-### What's in the box?
+## What's in the box?
 
 * [GOV.UK Design System](https://design-system.service.gov.uk) version 3.14
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
 * Laravel 8 Blade components of the GOV.UK Design System components
 * Laravel 8 Blade templates of the main GOV.UK Design System pages
+* Laravel 8 Rules for validating the number of words in a string
 * PHP 8.0 Classes to support the creation of standard and custom pages
 
-### Get the library
+## Docs
+[Installation](docs/install.md)
+[Roadmap](docs/roadmap.md)
 
-This library features two parts:
-
-* PHP classes, components, and assets
-* GOV.UK Frontend CSS and JS
-
-Both parts can be installed using Composer:
-
-`composer require anthonyedmonds\govuk-laravel`
-
-If the NPM dependencies are not automatically installed, run:
-
-`npm install govuk-frontend --save-dev`
-
-### Publish files
-
-The following files may be published via `php artisan vendor:publish`:
-
-| Tag          | Contents                            | Output path |
-| ------------ | ----------------------------------- | ----------- |
-| govuk-blade  | Blade components and page templates | /resources/views/vendor/govuk |
-| govuk-config | Configuration file                  | /config/govuk.php |
-| govuk-errors | Error pages for 401 through 503     | /resources/views/errors |
-
-`govuk-config` and `govuk-errors` should be published.
-
-Only publish `govuk-blade` if you wish to make changes to the components and templates.
-
-### Hook up the CSS, JS, and assets
-
-???
-
-Import the `govuk-laravel` scss styles in your main `resources/scss/app.scss` file:
-
-```scss
-@import '../../vendor/anthonyedmonds/govuk-laravel/src/resources/scss/govuk-laravel.scss';
-```
+[Rules](docs/rules.md)
 
 ## Documentation
 
