@@ -9,7 +9,7 @@
 @php
     // TODO Conditional inputs
     
-    $divider = true === $option['divider'] ?? false;
+    $divider = $option['divider'] ?? false === true;
     $hint = $option['hint'] ?? null;
     $value = is_array($option) === true ? $option['value'] : $option;
     
