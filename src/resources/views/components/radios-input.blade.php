@@ -31,13 +31,13 @@
         <x-govuk::form-group.error :id="$id" :name="$name" />
         
         <div class="{{ $inputClasses }}">
-            @foreach($options as $label => $option)
+            @foreach($options as $optionValue => $option)
                 <x-govuk::input.radio
                     id="{{ $id }}_{{ $loop->iteration }}"
-                    :label="$label"
                     :name="$name"
                     :option="$option"
                     :selected="$value"
+                    :value="$optionValue"
                 />
             @endforeach
         </div>

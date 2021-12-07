@@ -1,9 +1,9 @@
 @props([
     'id' => $name,
-    'label',
     'name',
     'option',
     'selected' => null,
+    'value'
 ])
 
 @php
@@ -11,7 +11,7 @@
     
     $divider = $option['divider'] ?? false === true;
     $hint = $option['hint'] ?? null;
-    $value = is_array($option) === true ? $option['value'] : $option;
+    $label = is_array($option) === true ? $option['label'] : $option;
     $isChecked = $value == $selected;
 @endphp
 
@@ -25,6 +25,9 @@
             name="{{ $name }}"
             type="radio"
             value="{{ $value }}"
+            @if($isChecked === true)
+                checked
+            @endif
         />
     
         <label
