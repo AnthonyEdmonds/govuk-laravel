@@ -15,12 +15,18 @@ Published under the MIT licence.
 * Laravel 8 Rules for validating the number of words in a string
 * PHP 8.0 Classes to support the creation of standard and custom pages
 
-## Docs
-[Installation](docs/install.md)
-[Roadmap](docs/roadmap.md)
+## Documentation
 
-[Rules](docs/rules.md)
+### Getting Started
+* [Installation](docs/install.md)
+* [Roadmap](docs/roadmap.md)
 
+### GOV.UK Design System
+
+### Laravel
+* [Rules](docs/rules.md)
+
+# To be relocated from this point
 ## Documentation
 
 ### Config
