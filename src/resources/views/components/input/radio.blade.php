@@ -12,7 +12,6 @@
     $divider = $option['divider'] ?? false === true;
     $hint = $option['hint'] ?? null;
     $value = is_array($option) === true ? $option['value'] : $option;
-    
     $isChecked = $value == $selected;
 @endphp
 
@@ -25,7 +24,7 @@
             id="{{ $id }}"
             name="{{ $name }}"
             type="radio"
-            value="england"
+            value="{{ $value }}"
         />
     
         <label
