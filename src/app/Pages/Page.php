@@ -26,7 +26,7 @@ class Page
     protected ?string $caption = null;
     protected ?string $content = null;
     protected ?string $method = null;
-    protected ?Question $question = null;
+    protected ?array $questions = null;
     protected string $template = 'custom';
     protected string $title = 'Section title or question';
     protected bool $hideTitle = false;
@@ -115,7 +115,13 @@ class Page
 
     public function setQuestion(Question $question = null): self
     {
-        $this->question = $question;
+        $this->questions = [$question];
+        return $this;
+    }
+    
+    public function setQuestions(array $questions = null): self
+    {
+        $this->questions = $questions;
         return $this;
     }
 
@@ -150,7 +156,7 @@ class Page
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,
             'method' => $this->method,
-            'question' => $this->question,
+            'questions' => $this->questions,
             'template' => $this->template,
             'title' => $this->title,
         ];

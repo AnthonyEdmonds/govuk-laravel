@@ -79,6 +79,29 @@ class GovukPage
             ->toView();
     }
 
+    public static function questions(
+        string $title,
+        array $questions,
+        string $buttonLabel,
+        string $action,
+        string $back,
+        string $blade = null,
+        string $method = 'post',
+        string $buttonType = Page::NORMAL_BUTTON
+    ): View {
+
+        return Page::create($title)
+            ->setAction($action)
+            ->setBack($back)
+            ->setButtonLabel($buttonLabel)
+            ->setButtonType($buttonType)
+            ->setContent($blade)
+            ->setMethod($method)
+            ->setQuestions($questions)
+            ->setTemplate('question')
+            ->toView();
+    }
+
     public static function start(): View
     {
         // TODO
