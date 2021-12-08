@@ -29,6 +29,9 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * Summary list
 * Tabs
 
+* Custom components
+  * search-bar
+
 ## Laravel
 
 * Document custom components / helpers
