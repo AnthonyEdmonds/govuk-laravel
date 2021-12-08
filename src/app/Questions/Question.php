@@ -83,9 +83,9 @@ class Question
         return $this;
     }
 
-    public function inputMode(string $mode): self
+    public function inputmode(string $mode): self
     {
-        $this->inputMode = $mode;
+        $this->inputmode = $mode;
         return $this;
     }
 
