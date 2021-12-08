@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">
     @include('govuk::layout.head')
+    @include('govuk::parts.content')
 
     <body class="govuk-template__body">
         <script>
@@ -25,7 +26,9 @@
                     <div class="govuk-grid-column-two-thirds">
                         @include('govuk::parts.caption')
                         @include('govuk::parts.title')
-                        @yield('content')
+                        @yield('before-main')
+                        @yield('main')
+                        @yield('after-main')
                     </div>
 
                     <aside class="govuk-grid-column-one-third">

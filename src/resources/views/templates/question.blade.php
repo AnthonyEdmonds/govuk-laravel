@@ -1,11 +1,6 @@
 @extends('govuk::layout.page')
 
-@section('content')
-    @if($hideTitle === false)
-        @include('govuk::parts.content')
-        <x-govuk::section-break />
-    @endif
-    
+@section('main')
     <x-govuk::form action="{{ $action }}" method="{{ $method }}">
         @foreach($questions as $question)
             {!! $question->toBlade() !!}
@@ -15,9 +10,4 @@
             {{ $buttonLabel }}
         </x-govuk::button>
     </x-govuk::form>
-
-    @if($hideTitle === true)
-        <x-govuk::section-break />
-        @include('govuk::parts.content')
-    @endif
 @endsection

@@ -23,6 +23,7 @@ class Page
     protected ?array $breadcrumbs = null;
     protected ?string $buttonLabel = null;
     protected string $buttonType = self::NORMAL_BUTTON;
+    protected string $cancelLabel = 'Cancel and back';
     protected ?string $caption = null;
     protected ?string $content = null;
     protected ?string $method = null;
@@ -95,6 +96,12 @@ class Page
         return $this;
     }
 
+    public function setCancelLabel(string $label): self
+    {
+        $this->cancelLabel = $label;
+        return $this;
+    }
+    
     public function setCaption(string $caption = null): self
     {
         $this->caption = $caption;
@@ -152,6 +159,7 @@ class Page
             'breadcrumbs' => $this->breadcrumbs,
             'buttonLabel' => $this->buttonLabel,
             'buttonType' => $this->buttonType,
+            'cancelLabel' => $this->cancelLabel,
             'caption' => $this->caption,
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,

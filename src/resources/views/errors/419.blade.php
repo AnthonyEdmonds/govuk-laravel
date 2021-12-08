@@ -3,6 +3,6 @@
     'title' => 'Page expired',
 ])
 
-@section('content')
+@section('main')
     <x-govuk::p>If you left the page open or your computer idle for a while, go back, refresh the page, and try again.</x-govuk::p>
 @endsection
