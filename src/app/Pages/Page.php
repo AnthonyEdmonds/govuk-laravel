@@ -101,7 +101,7 @@ class Page
         $this->cancelLabel = $label;
         return $this;
     }
-    
+
     public function setCaption(string $caption = null): self
     {
         $this->caption = $caption;
