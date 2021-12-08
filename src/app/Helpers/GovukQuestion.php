@@ -55,9 +55,20 @@ class GovukQuestion
             ->options($options);
     }
 
-    public static function select(): Question
+    public static function select(
+        string $label,
+        string $name,
+        array $options,
+        string $id = null
+    ): Question
     {
-        // TODO
+        return Question::create(
+            $label,
+            $name,
+            Question::SELECT,
+            $id
+        )
+            ->options($options);
     }
 
     public static function textarea(
