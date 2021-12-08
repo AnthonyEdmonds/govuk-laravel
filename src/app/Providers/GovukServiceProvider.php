@@ -43,10 +43,22 @@ class GovukServiceProvider extends ServiceProvider
 
     protected function bootRules(): void
     {
-        Validator::extend('max_words', MaxWords::class);
-        Validator::extend('min_words', MinWords::class);
-        Validator::extend('words_between', WordsBetween::class);
+        /* Does not work in the way I want it to. How to pass min and max, and get the message to the validator?
+        Validator::extend('max_words', function ($attribute, $value, $parameters, $validator) {
+            $rule = new MaxWords($parameters[0]);
+            return $rule->passes($attribute, $value);
+        });
 
+        Validator::extend('min_words', function ($attribute, $value, $parameters, $validator) {
+            $rule = new MinWords($parameters[0]);
+            return $rule->passes($attribute, $value);
+        });
+
+        Validator::extend('words_between', function ($attribute, $value, $parameters, $validator) {
+            $rule = new WordsBetween($parameters[0], $parameters[1]);
+            return $rule->passes($attribute, $value);
+        });
+        */
         Rule::macro('maxWords', function (int $max) {
             return new MaxWords($max);
         });

@@ -2,7 +2,7 @@
 
 If you are using an input with a words counter, you may wish to ensure that the limit is enforced server-side with some rules.
 
-Each rule can be used inline, as a macro, or as an instance.
+Each rule can be used ~~inline,~~ as a macro, or as an instance.
 
 ## MaxWords
 
