@@ -26,6 +26,10 @@ Published under the MIT licence.
 ### Laravel
 * [Rules](docs/rules.md)
 
+## Contribution
+
+Feel free to submit ideas and features as issues, and raise pull requests.
+
 # To be relocated from this point
 ## Documentation
 
@@ -105,6 +109,4 @@ Be sure to pass any required variables to the blade, as per the `Page` class.
 
 #### Buttons styled as links
 
-## Contribution
 
-Feel free to submit ideas and features as issues, and raise pull requests.
