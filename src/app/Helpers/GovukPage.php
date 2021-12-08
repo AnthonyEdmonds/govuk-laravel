@@ -84,7 +84,7 @@ class GovukPage
         array $questions,
         string $buttonLabel,
         string $action,
-        string $back,
+        string $back = null,
         string $blade = null,
         string $method = 'post',
         string $buttonType = Page::NORMAL_BUTTON
