@@ -1,7 +1,7 @@
 @props([
     'id' => $name,
     'name',
-    'value' => null,
+    'value',
 ])
 
 <input

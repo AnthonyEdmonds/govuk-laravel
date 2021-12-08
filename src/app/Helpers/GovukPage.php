@@ -89,7 +89,6 @@ class GovukPage
         string $method = 'post',
         string $buttonType = Page::NORMAL_BUTTON
     ): View {
-
         return Page::create($title)
             ->setAction($action)
             ->setBack($back)

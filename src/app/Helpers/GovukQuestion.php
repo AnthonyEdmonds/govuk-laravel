@@ -12,13 +12,12 @@ class GovukQuestion
     }
 
     public static function hidden(
-        string $label,
         string $name,
         string $value,
         string $id = null
     ): Question {
         return Question::create(
-            $label,
+            '',
             $name,
             Question::HIDDEN,
             $id

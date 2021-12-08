@@ -118,7 +118,7 @@ class Page
         $this->questions = [$question];
         return $this;
     }
-    
+
     public function setQuestions(array $questions = null): self
     {
         $this->questions = $questions;
