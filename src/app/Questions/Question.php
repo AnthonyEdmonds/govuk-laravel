@@ -117,13 +117,19 @@ class Question
         $this->label = $label;
         return $this;
     }
-    
+
     public function labelSize(string $size): self
     {
         $this->labelSize = $size;
         return $this;
     }
 
+    public function name(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+    
     public function options(array $options): self
     {
         $this->options = $options;
