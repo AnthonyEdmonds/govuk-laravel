@@ -58,7 +58,7 @@
         
         <div class="govuk-input__wrapper">
             @if($prefix !== null)
-                <div class="govuk-input__suffix" aria-hidden="true">{{ $prefix }}</div>
+                <div class="govuk-input__prefix" aria-hidden="true">{{ $prefix }}</div>
             @endif
             
             <input

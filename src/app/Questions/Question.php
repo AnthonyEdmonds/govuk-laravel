@@ -129,7 +129,7 @@ class Question
         $this->name = $name;
         return $this;
     }
-    
+
     public function options(array $options): self
     {
         $this->options = $options;
