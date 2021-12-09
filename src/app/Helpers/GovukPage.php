@@ -101,18 +101,21 @@ class GovukPage
             ->toView();
     }
 
-    public static function start(): View
+    public static function start(string $title): View
     {
         // TODO
+        return Page::create($title)->toView();
     }
 
-    public static function summary(): View
+    public static function summary(string $title): View
     {
         // TODO
+        return Page::create($title)->toView();
     }
 
-    public static function tasklist(): View
+    public static function tasklist(string $title): View
     {
         // TODO
+        return Page::create($title)->toView();
     }
 }

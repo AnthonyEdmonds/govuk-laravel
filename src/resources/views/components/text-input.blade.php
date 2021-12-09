@@ -8,7 +8,9 @@
     'labelSize' => 's',
     'name',
     'placeholder' => null,
+    'prefix' => null,
     'spellcheck' => 'false',
+    'suffix' => null,
     'threshold' => null,
     'isTitle' => false,
     'type' => 'text',
@@ -54,18 +56,28 @@
         <x-govuk::form-group.hint :id="$id" :hint="$hint" />
         <x-govuk::form-group.error :id="$id" :name="$name" />
         
-        <input
-            aria-describedby="{{ $ariaDescription }}"
-            autocomplete="{{ $autocomplete }}"
-            class="{{ $inputClasses }}"
-            id="{{ $id }}"
-            inputmode="{{ $inputmode }}"
-            name="{{ $name }}"
-            placeholder="{{ $placeholder }}"
-            spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
-            type="{{ $type }}"
-            value="{{ old($name, $value) }}"
-        />
+        <div class="govuk-input__wrapper">
+            @if($prefix !== null)
+                <div class="govuk-input__suffix" aria-hidden="true">{{ $prefix }}</div>
+            @endif
+            
+            <input
+                aria-describedby="{{ $ariaDescription }}"
+                autocomplete="{{ $autocomplete }}"
+                class="{{ $inputClasses }}"
+                id="{{ $id }}"
+                inputmode="{{ $inputmode }}"
+                name="{{ $name }}"
+                placeholder="{{ $placeholder }}"
+                spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
+                type="{{ $type }}"
+                value="{{ old($name, $value) }}"
+            />
+            
+            @if($suffix !== null)
+                <div class="govuk-input__suffix" aria-hidden="true">{{ $suffix }}</div>
+            @endif
+        </div>
         
         <x-govuk::form-group.counter :id="$id" />
     </x-govuk::form-group>

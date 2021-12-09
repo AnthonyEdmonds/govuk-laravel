@@ -9,6 +9,7 @@ class GovukQuestion
     public static function checkboxes(): Question
     {
         // TODO
+        return Question::create('incomplete', 'not ready', 'aargh');
     }
 
     public static function hidden(

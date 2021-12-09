@@ -32,8 +32,10 @@ class Question
     public string $name;
     public array $options = [];
     public ?string $placeholder = null;
+    public ?string $prefix = null;
     public int $rows = 5;
     public bool $spellcheck = false;
+    public ?string $suffix = null;
     public ?int $threshold = null;
     public string $type = 'text';
     public ?string $value = null;
@@ -119,6 +121,12 @@ class Question
         return $this;
     }
 
+    public function prefix(string $prefix): self
+    {
+        $this->prefix = $prefix;
+        return $this;
+    }
+
     public function rows(int $rows): self
     {
         $this->rows = $rows;
@@ -128,6 +136,12 @@ class Question
     public function spellcheck(bool $enabled): self
     {
         $this->spellcheck = $enabled;
+        return $this;
+    }
+
+    public function suffix(string $suffix): self
+    {
+        $this->suffix = $suffix;
         return $this;
     }
 
@@ -186,8 +200,10 @@ class Question
             'name' => $this->name,
             'options' => $this->options,
             'placeholder' => $this->placeholder,
+            'prefix' => $this->prefix,
             'rows' => $this->rows,
             'spellcheck' => $this->spellcheck,
+            'suffix' => $this->suffix,
             'threshold' => $this->threshold,
             'type' => $this->type,
             'value' => $this->value,
