@@ -38,7 +38,7 @@ class Question
     public ?string $suffix = null;
     public ?int $threshold = null;
     public string $type = 'text';
-    public ?string $value = null;
+    public mixed $value = null;
     public ?int $width = null;
     public ?int $words = null;
 
@@ -165,7 +165,7 @@ class Question
         return $this;
     }
 
-    public function value(string $value = null): self
+    public function value(mixed $value = null): self
     {
         $this->value = $value;
         return $this;
