@@ -11,13 +11,23 @@
 ])
 
 @php
+    $hasConditionalInputs = false;
+    foreach ($options as $option) {
+        if (isset($option['inputs']) === true) {
+            $hasConditionalInputs = true;
+            break;
+        }
+    }
+
     $ariaDescription = '';
     $inputClasses = 'govuk-radios';
-    
-    if ($isInline === true) {
+
+    if ($hasConditionalInputs === true) {
+        $inputClasses .= ' govuk-radios--conditional';
+    } elseif ($isInline === true) {
         $inputClasses .= ' govuk-radios--inline';
     }
-    
+
     $value = old($name, $value);
 @endphp
 
@@ -29,8 +39,8 @@
     >
         <x-govuk::form-group.hint :id="$id" :hint="$hint" />
         <x-govuk::form-group.error :id="$id" :name="$name" />
-        
-        <div class="{{ $inputClasses }}">
+
+        <div class="{{ $inputClasses }}" data-module="govuk-radios">
             @foreach($options as $optionValue => $option)
                 <x-govuk::input.radio
                     id="{{ $id }}_{{ $loop->iteration }}"

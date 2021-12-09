@@ -22,6 +22,7 @@ Published under the MIT licence.
 * [Roadmap](docs/roadmap.md)
 
 ### GOV.UK Design System
+* [Components](docs/components.md)
 * [Page Layouts](docs/layout.md)
 
 ### Laravel

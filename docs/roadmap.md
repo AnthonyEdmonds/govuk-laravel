@@ -24,8 +24,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * Footer and Header as components
 * Inset text
 * Panel
-* Radios
-    * Conditional inputs
 * Skip link
 * Summary list
 * Tabs

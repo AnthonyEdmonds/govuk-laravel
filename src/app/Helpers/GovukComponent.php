@@ -4,6 +4,7 @@ namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
 class GovukComponent
 {
+    /* Replace any row placeholders based on the table column markup */
     public static function renderTableContent(array $column, $row): string
     {
         if (is_array($row) !== true) {
@@ -21,5 +22,17 @@ class GovukComponent
         }
 
         return $content;
+    }
+    
+    /* Convert a keyed array to an HTML attributes string */
+    public static function toAttributes(array $array): string
+    {
+        $attributes = [];
+        
+        foreach ($array as $key => $value) {
+            $attributes[] = "{$key}=\"$value\"";
+        }
+
+        return implode(' ', $attributes);
     }
 }

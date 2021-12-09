@@ -7,12 +7,13 @@
 ])
 
 @php
-    // TODO Conditional inputs
-    
     $divider = $option['divider'] ?? false === true;
     $hint = $option['hint'] ?? null;
     $label = is_array($option) === true ? $option['label'] : $option;
     $isChecked = $value == $selected;
+
+    $inputs = $option['inputs'] ?? null;
+    $hasInputs = $inputs !== null;
 @endphp
 
 @if($divider === true)
@@ -25,22 +26,45 @@
             name="{{ $name }}"
             type="radio"
             value="{{ $value }}"
+
             @if($isChecked === true)
-                checked
+            checked
+            @endif
+
+            @if($hasInputs === true)
+            data-aria-controls="conditional-{{ $name }}"
             @endif
         />
-    
+
         <label
             class="govuk-label govuk-radios__label"
             for="{{ $id }}"
         >
             {{ $label }}
         </label>
-    
+
         @if($hint !== null)
             <div id="{{ $id }}-hint" class="govuk-hint govuk-radios__hint">
                 {{ $hint }}
             </div>
         @endif
     </div>
+
+    @if($hasInputs === true)
+        <div
+            class="govuk-radios__conditional govuk-radios__conditional--hidden"
+            id="conditional-{{ $name }}"
+        >
+            @foreach($inputs as $input)
+                {!!
+                    \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::input(
+                        $input['label'],
+                        $input['name']
+                    )
+                        ->fromArray($input)
+                        ->toBlade()
+                !!}
+            @endforeach
+        </div>
+    @endif
 @endif

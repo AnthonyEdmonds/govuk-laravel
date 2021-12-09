@@ -78,6 +78,15 @@ class Question
         $this->count = $count;
         return $this;
     }
+    
+    public function fromArray(array $settings): self
+    {
+        foreach ($settings as $property => $value) {
+            $this->$property = $value;
+        }
+        
+        return $this;
+    }
 
     public function hint(string $hint): self
     {
