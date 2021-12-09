@@ -23,12 +23,12 @@ class GovukComponent
 
         return $content;
     }
-    
+
     /* Convert a keyed array to an HTML attributes string */
     public static function toAttributes(array $array): string
     {
         $attributes = [];
-        
+
         foreach ($array as $key => $value) {
             $attributes[] = "{$key}=\"$value\"";
         }

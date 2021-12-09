@@ -78,13 +78,13 @@ class Question
         $this->count = $count;
         return $this;
     }
-    
+
     public function fromArray(array $settings): self
     {
         foreach ($settings as $property => $value) {
             $this->$property = $value;
         }
-        
+
         return $this;
     }
 
@@ -112,6 +112,12 @@ class Question
         return $this;
     }
 
+    public function label(string $label): self
+    {
+        $this->label = $label;
+        return $this;
+    }
+    
     public function labelSize(string $size): self
     {
         $this->labelSize = $size;
