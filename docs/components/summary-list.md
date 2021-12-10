@@ -45,12 +45,28 @@ If you want to use actions, provide an array with a `value` key for the detail, 
 
 ```php
 [
-    'My label' => [
+    'First label' => 'First value',
+    
+    'Second label' => [
+        'Second value',
+        'And another value'
+    ],
+    
+    'Third label' => [
         'value' => 'A value',
         'action' => [
-            'label' => 'Action label',
+            'label' => 'Edit',
+            'hidden' => 'name', // Describe the action for screen readers
             'route' => 'a.route.name',
+            
+            // Use a button for the action instead of an anchor 
+            'asButton' => true,
+            'method' => 'post',
         ],
     ],
 ]
 ```
+
+## Subcomponents
+
+* summary-list-item
