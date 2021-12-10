@@ -23,9 +23,12 @@
     
     @isset($action)
         <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> name</span>
-            </a>
+            <x-govuk::a href="{{ $action['url'] }}">
+                {{ $action['label'] }}
+                @isset($action['hidden'])
+                    <x-govuk::hidden>{{ $action['hidden'] }}</x-govuk::hidden>
+                @endisset
+            </x-govuk::a>
         </dd>
     @endisset
 </div>

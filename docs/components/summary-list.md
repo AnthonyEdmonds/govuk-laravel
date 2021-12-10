@@ -55,9 +55,9 @@ If you want to use actions, provide an array with a `value` key for the detail, 
     'Third label' => [
         'value' => 'A value',
         'action' => [
-            'label' => 'Edit',
+            'label' => 'Change',
             'hidden' => 'name', // Describe the action for screen readers
-            'route' => 'a.route.name',
+            'url' => 'https://my.com/route',
             
             // Use a button for the action instead of an anchor 
             'asButton' => true,
