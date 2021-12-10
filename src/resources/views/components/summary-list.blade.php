@@ -4,11 +4,20 @@
 ])
 
 @php
+    $defaultAction = null;
     $listClasses = 'govuk-summary-list';
 
     if ($noBorders === true) {
         $listClasses .= ' govuk-summary-list--no-border';
     }
+     
+    foreach ($list as $item) {
+        if (isset($item['action']) === true) {
+            $defaultAction = true;
+            break;
+        }
+    }
+    // If any list items has an action, all must have action slot
 @endphp
 
 <dl class="{{ $listClasses }}">
@@ -16,7 +25,7 @@
         <x-govuk::summary-list.item
             :key="$key"
             :value="$data['value'] ?? $data"
-            :action="$data['action'] ?? null"
+            :action="$data['action'] ?? $defaultAction"
         />
     @endforeach
 </dl>
