@@ -17,7 +17,6 @@
             break;
         }
     }
-    // If any list items has an action, all must have action slot
 @endphp
 
 <dl class="{{ $listClasses }}">

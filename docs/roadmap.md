@@ -25,7 +25,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * Inset text
 * Panel
 * Skip link
-* Summary list
 * Tabs
 
 * Custom components
@@ -110,6 +109,7 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * search-bar
         * section-break
         * select-input
+        * summary-list
         * table
         * table-column
         * tag

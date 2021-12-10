@@ -24,12 +24,23 @@
     @isset($action)
         <dd class="govuk-summary-list__actions">
             @if ($action !== true)
-                <x-govuk::a href="{{ $action['url'] }}">
-                    {{ $action['label'] }}
-                    @isset($action['hidden'])
-                        <x-govuk::hidden>{{ $action['hidden'] }}</x-govuk::hidden>
-                    @endisset
-                </x-govuk::a>
+                @if ($action['asButton'] === true)
+                    <x-govuk::form :action="$action['url']" :method="$action['method'] ?? 'post'">
+                        <x-govuk::button as-link>
+                            {{ $action['label'] }}
+                            @isset($action['hidden'])
+                                <x-govuk::hidden>{{ $action['hidden'] }}</x-govuk::hidden>
+                            @endisset
+                        </x-govuk::button>
+                    </x-govuk::form>
+                @else
+                    <x-govuk::a href="{{ $action['url'] }}">
+                        {{ $action['label'] }}
+                        @isset($action['hidden'])
+                            <x-govuk::hidden>{{ $action['hidden'] }}</x-govuk::hidden>
+                        @endisset
+                    </x-govuk::a>
+                @endif
             @endif
         </dd>
     @endisset

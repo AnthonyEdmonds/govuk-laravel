@@ -1,10 +1,8 @@
 # Summary List
 
-Create a descriptive list of keys and values.
+Create a descriptive list of keys and values, with optional actions.
 
 Particularly useful for summarising the details held within a model, or a User's answers to a form.
-
-Actions can be assigned to each row to allow editing, or deeper navigation.
 
 ```html
 <x-govuk::summary-list
@@ -32,6 +30,7 @@ The summary list must be provided as a keyed array where the index key is the la
 ```
 
 If you need to provide multiple values, pass the values as an array:
+
 ```php
 [
     'My label' => [
@@ -45,23 +44,29 @@ If you want to use actions, provide an array with a `value` key for the detail, 
 
 ```php
 [
-    'First label' => 'First value',
-    
-    'Second label' => [
-        'Second value',
-        'And another value'
-    ],
-    
-    'Third label' => [
+    'My label' => [
         'value' => 'A value',
         'action' => [
             'label' => 'Change',
-            'hidden' => 'name', // Describe the action for screen readers
+            'hidden' => 'name', // Optional, to describe the action for screen readers
             'url' => 'https://my.com/route',
-            
-            // Use a button for the action instead of an anchor 
+        ],
+    ],
+]
+```
+
+You may also set the action to use a `button` element styled as a link, if you need to submit a non-GET request:
+
+```php
+[
+    'My label' => [
+        'value' => 'A value',
+        'action' => [
+            'label' => 'Change',
+            'hidden' => 'name',
+            'url' => 'https://my.com/route',
             'asButton' => true,
-            'method' => 'post',
+            'method' => 'post', // Optional, defaults to post
         ],
     ],
 ]
@@ -69,4 +74,4 @@ If you want to use actions, provide an array with a `value` key for the detail, 
 
 ## Subcomponents
 
-* summary-list-item
+* summary-list.item
