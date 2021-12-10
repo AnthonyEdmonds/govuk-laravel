@@ -24,7 +24,7 @@
     @isset($action)
         <dd class="govuk-summary-list__actions">
             @if ($action !== true)
-                @if ($action['asButton'] === true)
+                @if ($action['asButton'] ?? false === true)
                     <x-govuk::form :action="$action['url']" :method="$action['method'] ?? 'post'">
                         <x-govuk::button as-link>
                             {{ $action['label'] }}
