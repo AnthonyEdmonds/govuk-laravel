@@ -18,7 +18,32 @@ Each component supports every option provided by the GOV.UK Design System via an
 
 Please reference the [GOV.UK Design System components](https://design-system.service.gov.uk/components/) page for information on how and when to use certain components, and previews of the various options.
 
-## GOV.UK Design System Components
+## Typography
+* [a](components/a.md)
+* [h1](components/h1.md)
+* [h2](components/h2.md)
+* [h3](components/h3.md)
+* [h4](components/h4.md)
+* [hidden](components/hidden.md)
+* [p](components/p.md)
+* [ul](components/ul.md)
+
+## Layout
+* [grid-column](components/grid-column.md)
+* [grid-row](components/grid-row.md)
+
+## Forms and inputs
+
+* [fieldset](components/fieldset.md)
+* [form](components/form.md)
+* [form-group](components/form-group.md)
+* [hidden-input](components/hidden-input.md)
+* [radios](components/radios.md)
+* [select](components/select.md)
+* [text-input](components/text-input.md)
+* [textarea](components/textarea.md)
+
+## Other components
 
 * [accordion](components/accordion.md)
 * [back-link](components/back-link.md)
@@ -28,27 +53,15 @@ Please reference the [GOV.UK Design System components](https://design-system.ser
 * [cookie-banner](components/cookie-banner.md)
 * [details](components/details.md)
 * [error-summary](components/error-summary.md)
-* [fieldset](components/fieldset.md)
-* [form](components/form.md)
 * [notification-banner](components/notification-banner.md)
 * [phase-banner](components/phase-banner.md)
-* [radios](components/radios.md)
 * [section-break](components/section-break.md)
-* [select](components/select.md)
 * [summary-list](components/summary-list.md)
+* [table](components/table.md)
+* [tag](components/tag.md)
+* [warning-text](components/warning-text.md)
 
-## Custom Components
-
-* [a](components/a.md)
-* [grid-column](components/grid-column.md)
-* [grid-row](components/grid-row.md)
-* [form-group](components/form-group.md)
-* [h1](components/h1.md)
-* [h2](components/h2.md)
-* [h3](components/h3.md)
-* [h4](components/h4.md)
-* [hidden](components/hidden.md)
-* [hidden-input](components/hidden-input.md)
+## Custom components
 * [icon](components/icon.md)
-* [p](components/p.md)
 * [pagination](components/pagination.md)
+

@@ -1,6 +1,6 @@
 @props([
     'colour' => 'blue',
-    'tag',
+    'label',
     'phase' => false,
 ])
 
@@ -13,5 +13,5 @@
 @endphp
 
 <strong class="{{ $tagClasses }}">
-    {{ $tag }}
+    {{ $label }}
 </strong>

@@ -1,4 +1,4 @@
-# a
+# Anchor
 
 Create an `<a>` tag with the appropriate classes already applied.
 

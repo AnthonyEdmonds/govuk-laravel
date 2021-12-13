@@ -1,4 +1,4 @@
-# Component Name
+# Paragraph
 
 Create a `<p>` tag with the appropriate classes already applied.
 

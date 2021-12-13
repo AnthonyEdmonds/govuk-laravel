@@ -153,14 +153,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * Questions
     * Question
 * Views
-    * Components
-        * table
-        * table-column
-        * tag
-        * textarea
-        * text-input
-        * ul
-        * warning-text
     * Errors
     * Parts
         * Back
