@@ -27,7 +27,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * Date input
 * File upload
 * Footer and Header as components
-* Inset text
 * Panel
 * Skip link
 * Tabs

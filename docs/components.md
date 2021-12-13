@@ -25,6 +25,7 @@ Please reference the [GOV.UK Design System components](https://design-system.ser
 * [h3](components/h3.md)
 * [h4](components/h4.md)
 * [hidden](components/hidden.md)
+* [inset-text](components/inset-text.md)
 * [p](components/p.md)
 * [ul](components/ul.md)
 
