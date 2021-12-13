@@ -8,9 +8,9 @@ use Illuminate\View\ComponentAttributeBag;
 class Question
 {
     public const HIDDEN = 'hidden-input';
-    public const RADIOS = 'radios-input';
-    public const SELECT = 'select-input';
-    public const TEXT_AREA = 'text-area-input';
+    public const RADIOS = 'radios';
+    public const SELECT = 'select';
+    public const TEXT_AREA = 'textarea';
     public const TEXT_INPUT = 'text-input';
     public const QUESTION_FORMATS = [
         self::HIDDEN,

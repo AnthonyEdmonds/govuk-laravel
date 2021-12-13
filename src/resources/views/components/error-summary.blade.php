@@ -15,9 +15,9 @@
 
     <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
-            @foreach($messages as $name => $message)
+            @foreach($messages as $id => $message)
                 <li>
-                    <a href="#{{ $name }}">{{ $message }}</a>
+                    <a href="#{{ $id }}">{{ $message }}</a>
                 </li>
             @endforeach
         </ul>

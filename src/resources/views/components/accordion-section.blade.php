@@ -3,9 +3,9 @@
 ])
 
 @props([
+    'label',
     'subid' => uniqid(),
     'summary' => null,
-    'title',
 ])
 
 <div class="govuk-accordion__section ">
@@ -15,7 +15,7 @@
                 class="govuk-accordion__section-button"
                 id="accordion-{{ $id }}-heading-{{ $subid }}"
             >
-                {{ $title }}
+                {{ $label }}
             </span>
         </h2>
 
