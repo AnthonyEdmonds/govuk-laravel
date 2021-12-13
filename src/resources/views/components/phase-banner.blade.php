@@ -1,6 +1,6 @@
 @props([
-    'phase',
     'colour' => 'blue',
+    'phase',
 ])
 
 <div class="govuk-phase-banner">

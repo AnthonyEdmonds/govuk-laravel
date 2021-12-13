@@ -5,8 +5,14 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## Issues
 
 * CSS does not wrap unrealistic long words
-* A space after link components
-* Inline rules do not extend the Validator as expected, need to research
+* Space after link components
+* Inline rules do not extend the Validator as expected
+
+## Enhancements
+
+* Additional conditional input support for radios
+
+# Road to v1
 
 ## Setup
 
@@ -104,15 +110,14 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * p
         * pagination
         * phase-banner
-        * radios-input
-        * search-bar
+        * radios
         * section-break
-        * select-input
+        * select
         * summary-list
         * table
         * table-column
         * tag
-        * text-area-input
+        * textarea
         * text-input
         * ul
         * warning-text
@@ -149,28 +154,10 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * Question
 * Views
     * Components
-        * form-group
-        * grid-column
-        * grid-row
-        * h1
-        * h2
-        * h3
-        * h4
-        * hidden
-        * hidden-input
-        * icon
-        * notification-banner
-        * p
-        * pagination
-        * phase-banner
-        * radios-input
-        * search-bar
-        * section-break
-        * select-input
         * table
         * table-column
         * tag
-        * text-area-input
+        * textarea
         * text-input
         * ul
         * warning-text

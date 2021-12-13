@@ -1,6 +1,6 @@
 @props([
-    'title' => 'Information',
     'colour' => 'dark-blue',
+    'title' => 'Information',
 ])
 
 <div
@@ -10,7 +10,10 @@
     data-module="govuk-notification-banner"
 >
     <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        <h2
+            class="govuk-notification-banner__title"
+            id="govuk-notification-banner-title"
+        >
             {{ $title }}
         </h2>
     </div>

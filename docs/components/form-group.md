@@ -18,6 +18,14 @@ All `input` components provided by GOV.UK Laravel are pre-wrapped.
 | ---- | ------ | -------- | ----------- |
 | name | string | Required | The `name` of the wrapped input element |
 
+## Subcomponents
+
+* form-group.count
+* form-group.counter
+* form-group.error
+* form-group.hint
+* form-group.label
+
 ## Also see
 
 * [checkboxes](checkboxes.md)
