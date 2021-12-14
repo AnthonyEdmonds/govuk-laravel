@@ -48,5 +48,5 @@
         </div>
     </x-govuk::form-group>
 
-    {!! $slot !!}
+    {{ $slot }}
 </x-govuk::form>

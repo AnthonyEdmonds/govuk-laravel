@@ -4,6 +4,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -50,6 +51,6 @@ trait SetsViewVariables
 
     public function setViewSlot(string $html = ''): void
     {
-        View::share('slot', $html);
+        View::share('slot', new HtmlString($html));
     }
 }

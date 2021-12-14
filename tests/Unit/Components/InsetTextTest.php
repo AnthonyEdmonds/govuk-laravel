@@ -8,14 +8,7 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class InsetTextTest extends TestCase
 {
-    public function testRendersComponent(): void
-    {
-        $this->makeInsetText()
-            ->first('div')
-            ->hasClass('govuk-inset-text');
-    }
-
-    public function testHasContent(): void
+    public function testRendersSlot(): void
     {
         $this->makeInsetText()
             ->first('div')
