@@ -8,7 +8,7 @@
             document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
         </script>
 
-        <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+        <x-govuk::skip-link />
 
         @include('govuk::layout.header')
 
@@ -21,7 +21,7 @@
             @include('flash::message')
             @include('govuk::parts.errors')
 
-            <main class="govuk-main-wrapper " id="main-content" role="main">
+            <main class="govuk-main-wrapper " id="content" role="main">
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-two-thirds">
                         @include('govuk::parts.caption')
