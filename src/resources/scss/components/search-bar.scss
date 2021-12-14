@@ -1,0 +1,15 @@
+div.app-search-bar {
+    display: flex;
+    box-shadow: 0 2px 0 #002d18;
+    margin-bottom: govuk-spacing(6);
+
+    & > input {
+
+    }
+
+    & > button {
+        box-shadow: none;
+        margin: 0;
+        width: auto;
+    }
+}

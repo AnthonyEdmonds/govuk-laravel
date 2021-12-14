@@ -14,13 +14,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 # Road to v1
 
-## Setup
-
-* JS include
-* CSS Colour variables
-* Font asset
-* Logo asset / placeholders
-
 ## GOV.UK Design System
 
 * Checkboxes

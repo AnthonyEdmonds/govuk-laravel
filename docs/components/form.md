@@ -32,4 +32,3 @@ The `@csrf` and `@method` Laravel components are automatically included when the
 * [select](select.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)
-

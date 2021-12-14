@@ -65,4 +65,4 @@ Please reference the [GOV.UK Design System components](https://design-system.ser
 ## Custom components
 * [icon](components/icon.md)
 * [pagination](components/pagination.md)
-
+* [search-bar](components/search-bar.md)

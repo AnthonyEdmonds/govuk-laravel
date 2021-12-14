@@ -1,0 +1,16 @@
+@each $name, $colour in $govuk-colours {
+    // Font Colours
+    .app-\!-font-#{$name} {
+        color: $colour !important;
+    }
+
+    // Background Colours
+    .app-\!-background-#{$name} {
+        background-color: $colour !important;
+    }
+
+    // Borders
+    .app-\!-border-#{$name} {
+        border-color: $colour !important;
+    }
+}
