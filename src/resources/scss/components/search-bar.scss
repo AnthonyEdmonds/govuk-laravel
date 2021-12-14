@@ -3,13 +3,15 @@ div.app-search-bar {
     box-shadow: 0 2px 0 #002d18;
     margin-bottom: govuk-spacing(6);
 
-    & > input {
-
-    }
-
     & > button {
         box-shadow: none;
         margin: 0;
         width: auto;
+
+        & > svg {
+            fill: white;
+            margin: -1rem;
+            width: 3rem;
+        }
     }
 }
