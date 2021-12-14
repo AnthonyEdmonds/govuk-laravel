@@ -15,7 +15,8 @@
     ],
     "require": {
         "php": "^8",
-        "illuminate/support": "^8"
+        "illuminate/support": "^8",
+        "nunomaduro/laravel-mojito": "^0.2.8"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.3",
