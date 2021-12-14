@@ -16,7 +16,7 @@
     }
 
     if ($colour !== null) {
-        $cellClasses .= " app-!-font-govuk-{$colour}";
+        $cellClasses .= " app-!-font-{$colour}";
     }
 @endphp
 

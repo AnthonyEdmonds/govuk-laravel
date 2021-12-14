@@ -1,10 +1,10 @@
 @props([
-    'colour' => 'dark-blue',
+    'colour' => 'blue',
     'title' => 'Information',
 ])
 
 <div
-    class="govuk-notification-banner app-!-background-govuk-{{ $colour }} app-!-border-govuk-{{ $colour }}"
+    class="govuk-notification-banner app-!-background-{{ $colour }} app-!-border-{{ $colour }}"
     role="region"
     aria-labelledby="govuk-notification-banner-title"
     data-module="govuk-notification-banner"

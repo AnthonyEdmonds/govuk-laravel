@@ -15,9 +15,5 @@ Create an informational banner of any colour, such as a completion or failure me
 
 | Name   | Type   | Default     | Description |
 | ------ | ------ | ----------- | ----------- |
-| colour | string | dark-blue   | The colour of the banner |
+| colour | string | blue        | Any GOV.UK colour |
 | title  | string | Information | The title of the banner |
-
-### Colour
-
-Colour can be any valid GOV.UK colour as defined in the scss.
