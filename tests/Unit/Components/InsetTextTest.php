@@ -3,7 +3,6 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Testing\TestView;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class InsetTextTest extends TestCase
