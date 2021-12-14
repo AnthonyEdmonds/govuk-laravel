@@ -18,6 +18,8 @@ Each component supports every option provided by the GOV.UK Design System via an
 
 Please reference the [GOV.UK Design System components](https://design-system.service.gov.uk/components/) page for information on how and when to use certain components, and previews of the various options.
 
+Input and form elements take advantage of Laravel's inbuilt validation and error handling, retrieving error messages and previously entered values where possible. 
+
 ## Typography
 * [a](components/a.md)
 * [h1](components/h1.md)
@@ -55,6 +57,7 @@ Please reference the [GOV.UK Design System components](https://design-system.ser
 * [details](components/details.md)
 * [error-summary](components/error-summary.md)
 * [notification-banner](components/notification-banner.md)
+* [panel](components/panel.md)
 * [phase-banner](components/phase-banner.md)
 * [section-break](components/section-break.md)
 * [summary-list](components/summary-list.md)
@@ -65,4 +68,4 @@ Please reference the [GOV.UK Design System components](https://design-system.ser
 ## Custom components
 * [icon](components/icon.md)
 * [pagination](components/pagination.md)
-
+* [search-bar](components/search-bar.md)

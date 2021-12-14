@@ -23,6 +23,7 @@ Published under the MIT licence.
 
 ### GOV.UK Design System
 * [Components](docs/components.md)
+* [Extensions](docs/extensions.md)
 * [Page Layouts](docs/layout.md)
 
 ### Laravel
@@ -102,13 +103,3 @@ Be sure to pass any required variables to the blade, as per the `Page` class.
     </x-govuk::table-column>
 </x-govuk::table>
 ```
-
-### Extensions and additions
-
-#### Global colour settings
-
-#### Override CSS classes
-
-#### Buttons styled as links
-
-

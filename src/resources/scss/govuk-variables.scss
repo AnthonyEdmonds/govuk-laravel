@@ -1,0 +1,24 @@
+// Use this file to override the default style associations in the GOV.UK Design System
+@import '~govuk-frontend/govuk/helpers/_colour.scss';
+
+// GOV.UK Font
+$govuk-font-family: 'Inter', 'Helvetica', 'Arial', 'sans-serif';
+
+// GOV.UK Colour Association
+$govuk-text-colour: govuk-colour('black');
+$govuk-secondary-text-colour: govuk-colour('dark-grey');
+
+$govuk-link-colour: govuk-colour('blue');
+$govuk-link-hover-colour: govuk-colour('dark-blue');
+$govuk-link-visited-colour: govuk-colour('purple');
+$govuk-link-active-colour: govuk-colour('black');
+
+$govuk-border-colour: govuk-colour('mid-grey');;
+$govuk-input-border-colour: govuk-colour('black');
+
+$govuk-focus-colour: govuk-colour('yellow');
+$govuk-focus-text-colour: govuk-colour('black');
+
+$govuk-brand-colour: govuk-colour('blue');
+$govuk-error-colour: govuk-colour('red');
+$govuk-success-colour: govuk-colour('green');

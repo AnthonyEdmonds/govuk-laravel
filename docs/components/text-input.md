@@ -66,5 +66,6 @@ This element is pre-wrapped with `count` and `form-group` components, with `labe
 * [form](form.md)
 * [hidden-input](hidden-input.md)
 * [radios](radios.md)
+* [search-bar](search-bar.md)
 * [select](select.md)
 * [textarea](textarea.md)
