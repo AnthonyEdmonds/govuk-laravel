@@ -39,6 +39,15 @@ class GovukServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
         ], 'govuk-errors');
+
+        $this->publishes([
+            __DIR__.'/../../resources/scss/inter.scss' => resource_path('scss/inter.scss'),
+            __DIR__.'/../../resources/fonts/inter' => resource_path('fonts/inter'),
+        ], 'govuk-fonts');
+
+        $this->publishes([
+            __DIR__.'/../../resources/scss/govuk-variables.scss' => resource_path('scss/govuk-variables.scss'),
+        ], 'govuk-scss');
     }
 
     protected function bootRules(): void

@@ -1,2 +1,9 @@
-@import 'colours.scss';
+@charset "utf-8";
+
+// GOV.UK Styles
+@import 'extensions.scss';
+
+// Custom Components
+@import 'components/button.scss';
 @import 'components/pagination.scss';
+@import 'components/search-bar.scss';

@@ -1,0 +1,30 @@
+button.app-button--as-link {
+    @extend .govuk-link;
+
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: $govuk-link-colour;
+    text-decoration: underline;
+
+    &:hover {
+        background-color: transparent;
+        color: $govuk-link-hover-colour;
+        text-decoration: underline;
+    }
+
+    &:visited {
+        background-color: transparent;
+        color: $govuk-link-visited-colour;
+        text-decoration: underline;
+    }
+
+    &:active {
+        background-color: transparent;
+        color: $govuk-link-active-colour;
+        text-decoration: underline;
+        top: 0;
+    }
+}

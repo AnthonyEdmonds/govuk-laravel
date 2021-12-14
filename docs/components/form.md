@@ -29,7 +29,7 @@ The `@csrf` and `@method` Laravel components are automatically included when the
 * [file-upload](file-upload.md)
 * [hidden-input](hidden-input.md)
 * [radios](radios.md)
+* [search-bar](search-bar.md)
 * [select](select.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)
-

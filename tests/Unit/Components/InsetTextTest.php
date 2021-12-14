@@ -4,27 +4,21 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Testing\TestView;
+use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class InsetTextTest extends TestCase
 {
-    public function testRendersComponent(): void
+    public function testRendersSlot(): void
     {
         $this->makeInsetText()
-            ->assertSee('govuk-inset-text');
+            ->first('div')
+            ->contains('My inset text');
     }
 
-    public function testHasContent(): void
+    protected function makeInsetText(): ViewAssertion
     {
-        $this->makeInsetText()
-            ->assertSee('My inset text');
-    }
+        $this->setViewSlot('My inset text');
 
-    protected function makeInsetText(): TestView
-    {
-        return $this->blade('
-            <x-govuk::inset-text>
-                My inset text
-            </x-govuk::inset-text>
-        ');
+        return $this->assertView('govuk::components.inset-text');
     }
 }
