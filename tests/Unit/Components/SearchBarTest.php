@@ -3,11 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Http\Request;
-use Illuminate\Session\Store;
-use Mockery\Mock;
 use NunoMaduro\LaravelMojito\ViewAssertion;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class SearchBarTest extends TestCase
 {
