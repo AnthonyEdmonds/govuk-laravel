@@ -63,6 +63,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [skip-link](components/skip-link.md)
 * [summary-list](components/summary-list.md)
 * [table](components/table.md)
+* [tabs](components/tabs.md)
 * [tag](components/tag.md)
 * [warning-text](components/warning-text.md)
 
