@@ -49,8 +49,21 @@ trait SetsViewVariables
         View::share('errors', $errorBag);
     }
 
-    public function setViewSlot(string $html = ''): void
+    /* View rendering method taken from Illuminate\Foundation\Testing\Concerns\InteractsWithViews */
+    public function setViewSlot(string $html = '', array $data = []): void
     {
-        View::share('slot', new HtmlString($html));
+        $tempDirectory = sys_get_temp_dir();
+
+        if (in_array($tempDirectory, View::getFinder()->getPaths()) === false) {
+            View::addLocation(sys_get_temp_dir());
+        }
+
+        $tempFileInfo = pathinfo(tempnam($tempDirectory, 'laravel-blade'));
+        $tempFile = $tempFileInfo['dirname'].'/'.$tempFileInfo['filename'].'.blade.php';
+        file_put_contents($tempFile, $html);
+
+        View::share('slot', new HtmlString(
+            view($tempFileInfo['filename'], $data)->render()
+        ));
     }
 }
