@@ -54,7 +54,9 @@ trait SetsViewVariables
     {
         $tempDirectory = sys_get_temp_dir();
 
+        /* @phpstan-ignore-next-line */
         if (in_array($tempDirectory, View::getFinder()->getPaths()) === false) {
+            /* @phpstan-ignore-next-line */
             View::addLocation(sys_get_temp_dir());
         }
 

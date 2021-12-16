@@ -2,11 +2,12 @@
     'hint' => null,
     'id' => $name,
     'isInline' => false,
+    'isSmall' => false,
+    'isTitle' => false,
     'label',
     'labelSize' => 'l',
     'name',
     'options' => [],
-    'isTitle' => false,
     'value' => null,
 ])
 
@@ -21,6 +22,10 @@
 
     $ariaDescription = '';
     $inputClasses = 'govuk-radios';
+
+    if ($isSmall === true) {
+        $inputClasses .= ' govuk-radios--small';
+    }
 
     if ($hasConditionalInputs === true) {
         $inputClasses .= ' govuk-radios--conditional';

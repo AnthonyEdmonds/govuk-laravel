@@ -5,7 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
-class TabPanelTest extends TestCase
+class TabsTest extends TestCase
 {
     public function testHasTitle(): void
     {
