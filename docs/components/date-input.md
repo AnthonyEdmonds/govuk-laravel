@@ -14,6 +14,7 @@ Create a series of inline `input` elements for entering a date, with toggleable 
     no-day
     no-month
     no-year
+    :values="$values"
 />
 ```
 
@@ -31,6 +32,7 @@ Create a series of inline `input` elements for entering a date, with toggleable 
 | noDay        | bool   | false    | Hide the day input |
 | noMonth      | bool   | false    | Hide the month input |
 | noYear       | bool   | false    | Hide the year input |
+| values       | array  | []       | The current values of the inputs |
 
 ### Autocomplete
 
@@ -41,6 +43,18 @@ This component will automatically add the appropriate suffix to each input.
 ### ID and Name
 
 This component will automatically suffix the `id` and `name` of each input with `-day`. `-month`, and `-year`.
+
+### Values
+
+You may provide the current values of the inputs with a keyed array:
+
+```php
+[
+    'day' => 31,
+    'month' => 12,
+    'year' => 2021,
+]
+```
 
 ## Also see
 

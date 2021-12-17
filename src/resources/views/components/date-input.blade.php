@@ -9,6 +9,7 @@
     'noDay' => false,
     'noMonth' => false,
     'noYear' => false,
+    'values' => [],
 ])
 
 @php
@@ -38,7 +39,7 @@
     }
 @endphp
 
-<x-govuk::form-group>
+<x-govuk::form-group :name="$name">
     <x-govuk::fieldset
         :id="$id"
         :is-title="$isTitle"
@@ -64,6 +65,7 @@
                             autocomplete="{{ $autocompleteDay }}"
                             pattern="[0-9]*"
                             inputmode="numeric"
+                            value="{{ $values['day'] ?? '' }}"
                         />
                     </div>
                 </div>
@@ -84,6 +86,7 @@
                             autocomplete="{{ $autocompleteMonth }}"
                             pattern="[0-9]*"
                             inputmode="numeric"
+                            value="{{ $values['month'] ?? '' }}"
                         />
                     </div>
                 </div>
@@ -104,6 +107,7 @@
                             autocomplete="{{ $autocompleteYear }}"
                             pattern="[0-9]*"
                             inputmode="numeric"
+                            value="{{ $values['year'] ?? '' }}"
                         />
                     </div>
                 </div>
