@@ -40,6 +40,7 @@
 
 <x-govuk::form-group :name="$name">
     <x-govuk::fieldset
+        :id="$id"
         :isTitle="$isTitle"
         :label="$label"
         :labelSize="$labelSize"

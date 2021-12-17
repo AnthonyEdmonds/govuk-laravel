@@ -21,9 +21,9 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 ## GOV.UK Design System
 
-* Date input
 * File upload
 * Footer and Header as components
+* Remove icon
 
 ## Laravel
 

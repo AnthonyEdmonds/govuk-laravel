@@ -1,4 +1,4 @@
-# Component Name
+# Back Link
 
 Provide a simple `back` navigation link in lieu of a breadcrumb, useful for forms and pages with a linear flow.
 

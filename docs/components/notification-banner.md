@@ -1,4 +1,4 @@
-# Component Name
+# Notification Banner
 
 Create an informational banner of any colour, such as a completion or failure message. 
 
