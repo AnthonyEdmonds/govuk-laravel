@@ -98,7 +98,7 @@ Support for other input types may be added in the future.
 ## Also see
 
 * [checkboxes](checkboxes.md)
-* [date](date.md)
+* [date-input](date-input.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)

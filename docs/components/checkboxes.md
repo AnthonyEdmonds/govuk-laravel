@@ -58,7 +58,7 @@ When `exclusive` is applied to a checkbox, it will de-select any other checkboxe
 
 ## Also see
 
-* [date](date.md)
+* [date-input](date-input.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)
