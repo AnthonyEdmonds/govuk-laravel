@@ -46,6 +46,7 @@ The keyed array passed into options should have the key as the value of the `opt
 ## Also see
 
 * [checkboxes](checkboxes.md)
+* [date](date.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)

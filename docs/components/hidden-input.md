@@ -21,6 +21,7 @@ Create a hidden input for a form.
 ## Also see
 
 * [checkboxes](checkboxes.md)
+* [date](date.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)

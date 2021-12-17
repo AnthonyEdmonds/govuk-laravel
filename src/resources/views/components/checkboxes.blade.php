@@ -1,7 +1,6 @@
 @props([
     'hint' => null,
     'id' => $name,
-    'isInline' => false,
     'isSmall' => false,
     'isTitle' => false,
     'label',
@@ -21,19 +20,22 @@
     }
 
     $ariaDescription = '';
-    $inputClasses = 'govuk-radios';
+    $inputClasses = 'govuk-checkboxes';
 
     if ($isSmall === true) {
-        $inputClasses .= ' govuk-radios--small';
+        $inputClasses .= ' govuk-checkboxes--small';
     }
 
     if ($hasConditionalInputs === true) {
-        $inputClasses .= ' govuk-radios--conditional';
-    } elseif ($isInline === true) {
-        $inputClasses .= ' govuk-radios--inline';
+        $inputClasses .= ' govuk-checkboxes--conditional';
     }
 
     $value = old($name, $value);
+    if (is_array($value) === false) {
+        $value = $value !== null
+            ? [$value]
+            : [];
+    }
 @endphp
 
 <x-govuk::form-group :name="$name">
@@ -45,13 +47,13 @@
         <x-govuk::form-group.hint :id="$id" :hint="$hint" />
         <x-govuk::form-group.error :id="$id" :name="$name" />
 
-        <div class="{{ $inputClasses }}" data-module="govuk-radios">
+        <div class="{{ $inputClasses }}" data-module="govuk-checkboxes">
             @foreach($options as $optionValue => $option)
-                <x-govuk::input.radio
+                <x-govuk::input.checkbox
                     id="{{ $id }}_{{ $loop->iteration }}"
                     :name="$name"
                     :option="$option"
-                    :selected="$value"
+                    :selections="$value"
                     :value="$optionValue"
                 />
             @endforeach

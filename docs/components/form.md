@@ -25,6 +25,7 @@ The `@csrf` and `@method` Laravel components are automatically included when the
 
 * [button](button.md)
 * [checkboxes](checkboxes.md)
+* [date](date.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [hidden-input](hidden-input.md)

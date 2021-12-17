@@ -7,11 +7,12 @@ Create a radios
     hint="Select an option from the list below"
     id="input-id"
     is-inline
+    is-small
+    is-title
     label="Which option applies?"
     label-size="l"
     name="input-name"
     :options="$options"
-    is-title
     value="selectedValue"
 />
 ```
@@ -25,11 +26,12 @@ Radios is pre-wrapped within a `form-group` and a `fieldset` component, with a `
 | hint      | string | null     | A descriptive hint for the input |
 | id        | string | $name    | The ID of the input element |
 | isInline  | bool   | false    | Whether the radio buttons should be presented side by side |
+| isSmall   | bool   | false    | Whether the radio buttons should be smaller |
+| isTitle   | bool   | false    | Whether the label is also the page title |
 | label     | string | Required | The main label of the input |
 | labelSize | string | l        | How large the label should be |
 | name      | string | Required | The name of the input element |
 | options   | array  | []       | A keyed array |
-| isTitle   | bool   | false    | Whether the label is also the page title |
 | value     | string | null     | The value of the current selection | 
 
 ### Options
@@ -96,6 +98,7 @@ Support for other input types may be added in the future.
 ## Also see
 
 * [checkboxes](checkboxes.md)
+* [date](date.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)
