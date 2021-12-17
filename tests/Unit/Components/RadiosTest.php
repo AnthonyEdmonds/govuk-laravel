@@ -137,6 +137,13 @@ class RadiosTest extends TestCase
             ->contains('Conditional one');
     }
 
+    public function testHasDivider(): void
+    {
+        $this->makeConditionalRadios()
+            ->last('div .govuk-radios__divider')
+            ->contains('or');
+    }
+
     public function testStylesLabelAsTitle(): void
     {
         $this->makeConditionalRadios()
@@ -185,6 +192,10 @@ class RadiosTest extends TestCase
                             'name' => 'conditional-one',
                         ],
                     ],
+                ],
+                'value-two' => [
+                    'divider' => true,
+                    'label' => 'or',
                 ],
             ],
         ]);

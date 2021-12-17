@@ -37,7 +37,10 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 
 ## Forms and inputs
 
+* [checkboxes](components/checkboxes.md)
+* [date](date.md)
 * [fieldset](components/fieldset.md)
+* [file-upload](file-upload.md)
 * [form](components/form.md)
 * [form-group](components/form-group.md)
 * [hidden-input](components/hidden-input.md)

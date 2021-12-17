@@ -1,33 +1,69 @@
 # Checkboxes
 
-Provide a brief description of the component, followed by a code example.
+Create a checkboxes input, with identical options to the [radios](radios.md) component.
 
 ```html
-<x-govuk::
-    
+<x-govuk::checkboxes
+    hint="Select one or more options from the list below"
+    id="input-id"
+    is-inline
+    is-small
+    is-title
+    label="Which options apply?"
+    label-size="l"
+    name="input-name"
+    :options="$options"
+    :value="$selectedValues"
 />
 ```
 
+The only key differences between `checkboxes` and `radios` are:
+
+* The `exclusive` key on the `options` prop
+* You may pass an array of values to the `value` prop
+
 ## Props
 
-| Name | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-|  |  |  |  |
+As per `radios`, except:
 
-### Advanced Prop Details
+* You may pass `exclusive` as a key in the `options` prop
+* You may pass an array to `value` for multiple selected checkboxes
 
-Provide any extra details required for more advanced prop usage.
+### Options
 
-## Slots
+When `exclusive` is applied to a checkbox, it will de-select any other checkboxes. This is useful for a "none of the above" style option.
 
-| Name  | Location | Usage |
-| ----- | -------- | ----- |
-| $slot |  |  |
+```php
+[
+    'value-1' => [
+        'exclusive' => true,
+        'hint' => 'Only one of these options...',
+        'label' => 'This one',
+    ],
+    'value-2' => [
+        'divider' => true,
+        'label' => 'or',
+    ],
+    'value-3' => [
+        'exclusive' => true,
+        'hint' => '... can be selected',
+        'label' => 'That one',
+    ],
+]
+```
 
 ## Subcomponents
 
-* A list of any subcomponents used by this component
+* input.checkbox
 
 ## Also see
 
-* [](.md)
+* [date](date.md)
+* [fieldset](fieldset.md)
+* [file-upload](file-upload.md)
+* [form](form.md)
+* [hidden-input](hidden-input.md)
+* [radios](radios.md)
+* [select](select.md)
+* [text-input](text-input.md)
+* [textarea](textarea.md)
