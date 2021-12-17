@@ -1,12 +1,11 @@
 # Checkboxes
 
-Create a checkboxes input, with identical options to the [radios](radios.md) component.
+Create a checkboxes input, with almost identical options to the [radios](radios.md) component.
 
 ```html
 <x-govuk::checkboxes
     hint="Select one or more options from the list below"
     id="input-id"
-    is-inline
     is-small
     is-title
     label="Which options apply?"
@@ -19,8 +18,9 @@ Create a checkboxes input, with identical options to the [radios](radios.md) com
 
 The only key differences between `checkboxes` and `radios` are:
 
-* The `exclusive` key on the `options` prop
+* You may pass the `exclusive` key on an option in the `options` prop
 * You may pass an array of values to the `value` prop
+* You cannot use the `is-inline` prop
 
 ## Props
 
@@ -28,6 +28,7 @@ As per `radios`, except:
 
 * You may pass `exclusive` as a key in the `options` prop
 * You may pass an array to `value` for multiple selected checkboxes
+* You cannot use `is-inline`
 
 ### Options
 
@@ -36,15 +37,14 @@ When `exclusive` is applied to a checkbox, it will de-select any other checkboxe
 ```php
 [
     'value-1' => [
-        'exclusive' => true,
         'hint' => 'Only one of these options...',
         'label' => 'This one',
     ],
-    'value-2' => [
+    'divider-1' => [
         'divider' => true,
         'label' => 'or',
     ],
-    'value-3' => [
+    'value-2' => [
         'exclusive' => true,
         'hint' => '... can be selected',
         'label' => 'That one',

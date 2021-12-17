@@ -12,7 +12,6 @@
     $label = is_array($option) === true ? $option['label'] : $option;
     $isChecked = in_array($value, $selections) === true;
     $isExclusive = $option['exclusive'] ?? false === true;
-
     $inputs = $option['inputs'] ?? null;
     $hasInputs = $inputs !== null;
 @endphp

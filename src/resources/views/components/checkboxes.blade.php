@@ -1,7 +1,6 @@
 @props([
     'hint' => null,
     'id' => $name,
-    'isInline' => false,
     'isSmall' => false,
     'isTitle' => false,
     'label',
@@ -29,8 +28,6 @@
 
     if ($hasConditionalInputs === true) {
         $inputClasses .= ' govuk-checkboxes--conditional';
-    } elseif ($isInline === true) {
-        $inputClasses .= ' govuk-checkboxes--inline';
     }
 
     $value = old($name, $value);
