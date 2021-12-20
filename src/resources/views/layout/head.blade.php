@@ -1,17 +1,17 @@
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>
         @isset($title)
             {{ $title }} -
         @endif
-        Heatmap Submission System
+        {{ env('APP_NAME', 'Welcome') }}
     </title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0b0c0c">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0c0c" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/favicon/apple-icon-57x57.png') }}" />
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/favicon/apple-icon-60x60.png') }}" />
@@ -27,7 +27,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('images/favicon/favicon-96x96nr.png') }}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16nr.png') }}" />
 
-    <meta name="msapplication-TileColor" content="#e35100" />
+    <meta name="msapplication-TileColor" content="#1d70b8" />
     <link rel="manifest" href="{{ asset('images/favicon/manifest.json') }}" />
     <meta name="msapplication-TileImage" content="{{ asset('images/favicon/ms-icon-144x144nr.png') }}" />
 </head>

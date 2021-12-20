@@ -16,7 +16,7 @@ class InsetTextTest extends TestCase
 
     protected function makeInsetText(): ViewAssertion
     {
-        $this->setViewSlot('My inset text');
+        $this->setViewSlot('slot', 'My inset text');
 
         return $this->assertView('govuk::components.inset-text');
     }

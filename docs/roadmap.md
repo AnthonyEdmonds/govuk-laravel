@@ -22,13 +22,11 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## GOV.UK Design System
 
 * File upload
-* Footer and Header as components
 
 ## Laravel
 
 * Modify the Laravel error messages language file to match the examples in https://design-system.service.gov.uk/components/text-input/
 * Config
-    * Footer contents
     * Enable / disable impersonation and other page parts
 * GovukPage
     * Start

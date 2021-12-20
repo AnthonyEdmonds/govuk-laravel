@@ -1,16 +1,33 @@
-@each $name, $colour in $govuk-colours {
-    // Font Colours
-    .app-\!-font-#{$name} {
-        color: $colour !important;
+// Colour overrides
+    @each $name, $colour in $govuk-colours {
+        // Font Colours
+        .app-\!-font-#{$name} {
+            color: $colour !important;
+        }
+
+        // Background Colours
+        .app-\!-background-#{$name} {
+            background-color: $colour !important;
+        }
+
+        // Borders
+        .app-\!-border-#{$name} {
+            border-color: $colour !important;
+        }
     }
 
-    // Background Colours
-    .app-\!-background-#{$name} {
-        background-color: $colour !important;
+// Grid columns
+    div.govuk-grid-column-two-quarters {
+        box-sizing: border-box;
+        width: 50%;
+        float: left;
     }
 
-    // Borders
-    .app-\!-border-#{$name} {
-        border-color: $colour !important;
+// Footer navigation margins
+    div.govuk-footer__navigation > div {
+        margin-left: 0;
+        margin-right: 0;
+
+        padding-left: $govuk-gutter-half;
+        padding-right: $govuk-gutter-half;
     }
-}

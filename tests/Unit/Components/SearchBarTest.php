@@ -85,7 +85,7 @@ class SearchBarTest extends TestCase
     {
         $this->setViewAttributes();
         $this->setViewErrors();
-        $this->setViewSlot('<p>My slot</p>');
+        $this->setViewSlot('slot', '<p>My slot</p>');
 
         return $this->assertView('govuk::components.search-bar', [
             'action' => 'my-action',
