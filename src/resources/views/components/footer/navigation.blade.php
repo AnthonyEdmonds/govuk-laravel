@@ -3,9 +3,15 @@
 ])
 
 @php
-    $divisor = match(count($navigation)) {
-        6 => 'sixth',
-        5 => 'fifth',
+    $totalColumns = count($navigation);
+
+    foreach ($navigation as $links) {
+        if (isset($links['columns']) === true) {
+            $totalColumns += $links['columns'] - 1;
+        }
+    }
+
+    $divisor = match($totalColumns) {
         4 => 'quarter',
         3 => 'third',
         2 => 'half',
@@ -21,12 +27,12 @@
                 $columns = $links['columns'] ?? 0;
 
                 $width = match($columns) {
-                    5 => "five-{$divisor}s",
-                    4 => "four-{$divisor}s",
                     3 => "three-{$divisor}s",
                     2 => "two-{$divisor}s",
                     1 => "one-{$divisor}",
-                    default => $divisor
+                    default => $totalColumns > 1
+                        ? "one-{$divisor}"
+                        : $divisor
                 };
             @endphp
 
