@@ -36,10 +36,11 @@ class PanelTest extends TestCase
     protected function makePanel(): ViewAssertion
     {
         $this->setViewAttributes();
-        $this->setViewSlot('
-            Your reference number
-            <br/><strong>HDJ2123F</strong>
-        ');
+        $this->setViewSlot(
+            'slot',
+            'Your reference number
+            <br/><strong>HDJ2123F</strong>'
+        );
 
         return $this->assertView('govuk::components.panel', [
             'colour' => 'dark-blue',

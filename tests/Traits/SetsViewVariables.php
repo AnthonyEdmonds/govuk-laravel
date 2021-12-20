@@ -50,7 +50,11 @@ trait SetsViewVariables
     }
 
     /* View rendering method taken from Illuminate\Foundation\Testing\Concerns\InteractsWithViews */
-    public function setViewSlot(string $html = '', array $data = []): void
+    public function setViewSlot(
+        string $slotName = 'slot',
+        string $html = '',
+        array $data = []
+    ): void
     {
         $tempDirectory = sys_get_temp_dir();
 
@@ -64,7 +68,7 @@ trait SetsViewVariables
         $tempFile = $tempFileInfo['dirname'].'/'.$tempFileInfo['filename'].'.blade.php';
         file_put_contents($tempFile, $html);
 
-        View::share('slot', new HtmlString(
+        View::share($slotName, new HtmlString(
             view($tempFileInfo['filename'], $data)->render()
         ));
     }

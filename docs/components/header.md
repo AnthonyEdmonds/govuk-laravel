@@ -16,7 +16,7 @@ Create a page header, complete with logo, name, and navigation links.
 />
 ```
 
-A header is provided on the default page template, which can be modified in `/resources/views/vendor/govuk/layout/header.blade.php`.
+A header is provided on the default page template `/resources/views/vendor/govuk/layout/header.blade.php`.
 
 ## Props
 
@@ -40,7 +40,7 @@ A keyed array, where the label is the key, and the value is the route:
 ]
 ```
 
-For conditional navigation provide a keyed array as the value, with a `route` key and other setting keys:
+For conditional navigation you may provide a keyed array as the value, with a `route` key and other setting keys:
 
 ```php
 [

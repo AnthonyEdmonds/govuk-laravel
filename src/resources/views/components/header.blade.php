@@ -7,10 +7,6 @@
     'serviceName' => null,
 ])
 
-@php
-    $user = Illuminate\Support\Facades\Auth::user();
-@endphp
-
 <header
     class="govuk-header"
     role="banner"
@@ -58,21 +54,19 @@
                     class="govuk-header__navigation"
                     aria-label="Navigation menu"
                 >
-                    @if($user !== null)
-                        @foreach($links as $label => $link)
-                            @can($link['can'] ?? null)
-                                <li class="govuk-header__navigation-item">
-                                    <a
-                                        class="govuk-header__link"
-                                        href="{{ route($link['route'] ?? $link) }}"
-                                        target="{{ $link['target'] ?? false === true ? '_blank' : '_self' }}"
-                                    >
-                                        {{ $label }}
-                                    </a>
-                                </li>
-                            @endcan
-                        @endforeach
-                    @endif
+                    @foreach($links as $label => $link)
+                        @can($link['can'] ?? null)
+                            <li class="govuk-header__navigation-item">
+                                <a
+                                    class="govuk-header__link"
+                                    href="{{ route($link['route'] ?? $link) }}"
+                                    target="{{ $link['blank'] ?? false === true ? '_blank' : '_self' }}"
+                                >
+                                    {{ $label }}
+                                </a>
+                            </li>
+                        @endcan
+                    @endforeach
                 </ul>
             </nav>
         </div>

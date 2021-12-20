@@ -19,6 +19,7 @@ Published under the MIT licence.
 
 ### Getting Started
 * [Installation](docs/install.md)
+* [Configuration](docs/configuration.md)
 * [Roadmap](docs/roadmap.md)
 
 ### GOV.UK Design System

@@ -7,7 +7,10 @@
     'navigationLinks' => [],
 ])
 
-<footer class="govuk-footer" role="contentinfo">
+<footer
+    class="govuk-footer"
+    role="contentinfo"
+>
     <div class="govuk-width-container">
         <x-govuk::footer.navigation
             :navigation="$navigationLinks"
