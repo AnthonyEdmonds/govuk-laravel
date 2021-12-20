@@ -29,25 +29,20 @@ class GovukServiceProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
+            __DIR__.'/../../config/govuk.php' => config_path('govuk.php'),
+            __DIR__.'/../../resources/scss/govuk-variables.scss' => resource_path('scss/govuk-variables.scss'),
+            __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
+            __DIR__.'/../../resources/views/layout' => resource_path('views/vendor/govuk/layout'),
+        ], 'govuk-core');
+
+        $this->publishes([
             __DIR__.'/../../resources/views' => resource_path('views/vendor/govuk'),
         ], 'govuk-blade');
-
-        $this->publishes([
-            __DIR__.'/../../config/govuk.php' => config_path('govuk.php'),
-        ], 'govuk-config');
-
-        $this->publishes([
-            __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
-        ], 'govuk-errors');
 
         $this->publishes([
             __DIR__.'/../../resources/scss/inter.scss' => resource_path('scss/inter.scss'),
             __DIR__.'/../../resources/fonts/inter' => resource_path('fonts/inter'),
         ], 'govuk-fonts');
-
-        $this->publishes([
-            __DIR__.'/../../resources/scss/govuk-variables.scss' => resource_path('scss/govuk-variables.scss'),
-        ], 'govuk-scss');
     }
 
     protected function bootRules(): void

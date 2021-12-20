@@ -17,23 +17,37 @@ If the NPM dependencies are not automatically installed, run:
 
 ## Publish files
 
-The following files may be published via `php artisan vendor:publish`:
+Several options are available via `php artisan vendor:publish`.
 
-| Tag          | Contents                            | Output path |
-| ------------ | ----------------------------------- | ----------- |
-| govuk-blade  | Blade components and page templates | /resources/views/vendor/govuk |
-| govuk-config | Configuration file                  | /config/govuk.php |
-| govuk-errors | Error pages for 401 through 503     | /resources/views/errors |
-| govuk-fonts  | Inter font and .scss file           | /resources/fonts and /resources/scss |
-| govuk-scss   | Override file for custom colours    | /resources/scss |
+All essential files are provided in `govuk-core`.
 
-Only publish `govuk-blade` if you wish to make changes to the components and templates.
+### govuk-core
+
+This command will publish the config, error pages, scss, and layout files:
+
+* /config/govuk.php
+* /resources/scss
+* /resources/views/errors
+* /resources/views/layout
+
+### govuk-font
+
+This command will publish Inter font and its .scss file:
+
+* /resources/fonts
+* /resources/scss
+
+### govuk-blade
+
+This command will publish the Blade components and page templates, if you need to customise them:
+
+* /resources/views/vendor/govuk
 
 ## Hook up the CSS, JS, and assets
 
 ### JS
 
-Add the GOV.UK Design System JavaScript to `resources/js/app.js` as normal.
+Add the GOV.UK Design System JavaScript to `/resources/js/app.js` as normal.
 
 ```js
 import { initAll } from 'govuk-frontend';
@@ -42,9 +56,9 @@ initAll();
 
 ### SCSS
 
-Import the GOV.UK Design System followed by the GOV.UK Laravel scss styles in `resources/scss/app.scss` file.
+Import the GOV.UK Design System followed by the GOV.UK Laravel scss styles in `/resources/scss/app.scss` file.
 
-If you want to override the default GOV.UK Design System colours and fonts, publish `govuk-scss`, amend the `govuk-variables.scss` file, and import it before both the GOV.UK Design System and GOV.UK Laravel.
+If you want to override the default GOV.UK Design System colours and fonts, amend `/resources/scss/govuk-variables.scss` file and import it before both the GOV.UK Design System and GOV.UK Laravel.
 
 ```scss
 @import 'govuk-variables.scss';
@@ -54,7 +68,7 @@ If you want to override the default GOV.UK Design System colours and fonts, publ
 
 ### Font
 
-Publish `govuk-font` to copy [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font, and import the related `fonts.scss` file in `resources/scss/app.scss` before the GOV.UK Design System.
+Publish `govuk-font` to copy [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font, and import the related `fonts.scss` file in `/resources/scss/app.scss` before the GOV.UK Design System.
 
 ```scss
 @import 'inter.scss';
