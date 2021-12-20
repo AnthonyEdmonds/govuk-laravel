@@ -23,3 +23,9 @@ Colour override classes have been provided for every GOV.UK Design System colour
     app-!-font-green
 "></div>
 ```
+
+## Grid Column Widths
+
+For easier programmatic layout, additional column widths have been added to fill the gaps:
+
+* govuk-grid-column-two-quarters (as per `one-half`)
