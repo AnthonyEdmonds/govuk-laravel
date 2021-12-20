@@ -22,3 +22,12 @@
         width: 50%;
         float: left;
     }
+
+// Footer navigation margins
+    div.govuk-footer__navigation > div {
+        margin-left: 0;
+        margin-right: 0;
+
+        padding-left: $govuk-gutter-half;
+        padding-right: $govuk-gutter-half;
+    }
