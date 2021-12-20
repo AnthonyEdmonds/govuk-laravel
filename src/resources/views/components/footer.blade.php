@@ -20,17 +20,23 @@
             :logo="$licenceLogo"
             :width="$licenceLogoWidth"
         >
-            <x-slot name="information">
-                {{ $information }}
-            </x-slot>
+            @isset($information)
+                <x-slot name="information">
+                    {{ $information }}
+                </x-slot>
+            @endisset
 
-            <x-slot name="licence">
-                {{ $licence }}
-            </x-slot>
+            @isset($licence)
+                <x-slot name="licence">
+                    {{ $licence }}
+                </x-slot>
+            @endisset
 
-            <x-slot name="logos">
-                {{ $logos }}
-            </x-slot>
+            @isset($logos)
+                <x-slot name="logos">
+                    {{ $logos }}
+                </x-slot>
+            @endisset
         </x-govuk::footer.meta>
     </div>
 </footer>

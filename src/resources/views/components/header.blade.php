@@ -36,7 +36,7 @@
         <div class="govuk-header__content">
             @isset($serviceName)
                 <a
-                    href="{{ route(config('govuk.icon.route')) }}"
+                    href="{{ route($logoRoute) }}"
                     class="govuk-header__link govuk-header__link--service-name"
                 >
                     {{ $serviceName }}

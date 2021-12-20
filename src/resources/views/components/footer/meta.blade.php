@@ -30,20 +30,26 @@
             </ul>
         @endif
 
-        <div class="govuk-footer__meta-custom">
-            {{ $information }}
+        @isset($information)
+            <div class="govuk-footer__meta-custom">
+                {{ $information }}
+            </div>
+        @endisset
+
+        @isset($licence)
+            <x-govuk::footer.licence
+                :height="$height"
+                :logo="$logo"
+                :width="$width"
+            >
+                {{ $licence }}
+            </x-govuk::footer.licence>
+        @endisset
+    </div>
+
+    @isset($logos)
+        <div class="govuk-footer__meta-item">
+            {{ $logos }}
         </div>
-
-        <x-govuk::footer.licence
-            :height="$height"
-            :logo="$logo"
-            :width="$width"
-        >
-            {{ $licence }}
-        </x-govuk::footer.licence>
-    </div>
-
-    <div class="govuk-footer__meta-item">
-        {{ $logos }}
-    </div>
+    @endisset
 </div>
