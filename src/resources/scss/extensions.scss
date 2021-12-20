@@ -18,6 +18,7 @@
 
 // Grid columns
     div.govuk-grid-column-two-quarters {
+        box-sizing: border-box;
         width: 50%;
         float: left;
     }
