@@ -15,6 +15,19 @@ If the NPM dependencies are not automatically installed, run:
 
 `npm install govuk-frontend --save-dev`
 
+## Service Provider
+
+The GOV.UK Laravel service provider will automatically be loaded.
+
+You can manually load the service provider by adding it to your `config/app.php`:
+
+```php
+'providers' => [
+    // ...
+    AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider::class,
+],
+```
+
 ## Publish files
 
 Several options are available via `php artisan vendor:publish`.
