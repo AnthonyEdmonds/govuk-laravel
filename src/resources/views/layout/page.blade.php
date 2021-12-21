@@ -18,7 +18,7 @@
             @yield('heading')
             @include('govuk::parts.breadcrumbs')
             @include('govuk::parts.back')
-            @include('flash::message')
+            @include('govuk::parts.flash')
             @include('govuk::parts.errors')
 
             <main class="govuk-main-wrapper " id="content" role="main">
