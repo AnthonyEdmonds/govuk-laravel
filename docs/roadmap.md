@@ -26,8 +26,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## Laravel
 
 * Modify the Laravel error messages language file to match the examples in https://design-system.service.gov.uk/components/text-input/
-* Config
-    * Enable / disable impersonation and other page parts
 * GovukPage
     * Start
     * Summary
@@ -117,7 +115,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 ## Docs to Backfill
 
-* Config
 * Helpers
     * GovukComponent
     * GovukForm
@@ -125,8 +122,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * GovukQuestion
 * Pages
     * Page
-* Providers
-    * GovukServiceProvider
 * Questions
     * Question
 * Views
