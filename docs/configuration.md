@@ -48,4 +48,4 @@ Default elements are provided for ease of editing.
 
 ### Foot
 
-'foot.blade.php' contains the call to load the `app.js` JavaScript file.
+`foot.blade.php` contains the call to load the `app.js` JavaScript file.
