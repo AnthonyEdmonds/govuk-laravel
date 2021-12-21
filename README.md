@@ -35,14 +35,8 @@ Published under the MIT licence.
 Feel free to submit ideas and features as issues, and raise pull requests.
 
 # To be relocated from this point
-## Documentation
 
-### Config
-
-* icon - Configure the logo in the top-left corner of the page
-* navigation - Configure the links to show in the main navigation bar, with optional permission controls
-
-### Creating standard pages
+## Creating standard pages
 
 ```php
 return GovukPage::confirm(...);
@@ -53,11 +47,11 @@ return GovukPage::summary(...);
 return GovukPage::tasklist(...);
 ```
 
-#### Confirm Page
+### Confirm Page
 
 Show a confirmation page with a confirm and back button, with additional context via a content blade.
 
-### Building custom pages
+## Building custom pages
 
 To create a blank page with custom content, you can call the `custom` method, passing in a blade that contains any or all of the following sections:
 
@@ -77,7 +71,7 @@ If you want to create a page from completely from scratch, you can extend `govuk
 
 Be sure to pass any required variables to the blade, as per the `Page` class.
 
-### Components
+## Components
 
 ```html
 <x-govuk::h1 size="m">My heading 1 text</x-govuk::h1>
