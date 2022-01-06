@@ -1,6 +1,6 @@
 @extends('govuk::layout.page')
 
-@section('main')
+@section('before-main')
     @isset($exception)
         <x-govuk::h2>{{ $exception->getMessage() }}</x-govuk::h2>
     @endisset
