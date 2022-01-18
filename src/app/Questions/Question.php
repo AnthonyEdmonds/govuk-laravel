@@ -7,12 +7,14 @@ use Illuminate\View\ComponentAttributeBag;
 
 class Question
 {
+    public const CHECKBOXES = 'checkboxes';
     public const HIDDEN = 'hidden-input';
     public const RADIOS = 'radios';
     public const SELECT = 'select';
     public const TEXT_AREA = 'textarea';
     public const TEXT_INPUT = 'text-input';
     public const QUESTION_FORMATS = [
+        self::CHECKBOXES,
         self::HIDDEN,
         self::RADIOS,
         self::SELECT,

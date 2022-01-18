@@ -30,8 +30,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * Start
     * Summary
     * Tasklist
-* GovukQuestion
-    * Checkboxes 
 
 ## Tests to Backfill
 

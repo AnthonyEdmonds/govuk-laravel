@@ -6,10 +6,15 @@ use AnthonyEdmonds\GovukLaravel\Questions\Question;
 
 class GovukQuestion
 {
-    public static function checkboxes(): Question
+    public static function checkboxes(
+        string $label,
+        string $name,
+        array $options,
+        string $id = null,
+    ): Question
     {
-        // TODO
-        return Question::create('incomplete', 'not ready', 'aargh');
+        return Question::create($label, $name, Question::CHECKBOXES, $id)
+            ->options($options);
     }
 
     public static function hidden(
