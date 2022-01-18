@@ -11,8 +11,7 @@ class GovukQuestion
         string $name,
         array $options,
         string $id = null,
-    ): Question
-    {
+    ): Question {
         return Question::create($label, $name, Question::CHECKBOXES, $id)
             ->options($options);
     }

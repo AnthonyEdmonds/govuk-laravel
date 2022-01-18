@@ -57,12 +57,12 @@ class CheckboxesTest extends TestCase
         $this
             ->makeSimpleCheckboxes()
             ->first('input')
-            ->hasAttribute('name', 'my-name');
+            ->hasAttribute('name', 'my-name[]');
 
         $this
             ->makeSimpleCheckboxes()
             ->last('input')
-            ->hasAttribute('name', 'my-name');
+            ->hasAttribute('name', 'my-name[]');
     }
 
     public function testSelectsCurrentValue(): void
