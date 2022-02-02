@@ -43,7 +43,7 @@ Each table contains several `table-column` components, which define the layout o
 | ------------ | ------------------------------------- | ---------------- | ----------- |
 | caption      | string                                | Required         | A description of the table contents |
 | captionSize  | string                                | m                | How large the caption should be |
-| data         | array, ResourceCollection, Collection | Required         | An array of arrays |
+| data         | array, ResourceCollection, JsonResource, Collection | Required         | An array of arrays |
 | emptyMessage | string                                | No results found | The message to show when the `data` is empty |
 | paginator    | array or AbstractPaginator            | null             | The table pagination information |
 
@@ -93,6 +93,8 @@ You may use this with any markup, such as the Laravel route helper:
 #### Using objects
 
 You may provide a Collection or ResourceCollection, which will be automatically converted to an array.
+
+If you provide a JsonResource, it will be converted to an array and wrapped.
 
 The component will attempt to cast any other objects passed into the `data` prop as an array.
 
