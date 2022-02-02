@@ -7,6 +7,7 @@
 ])
 
 @php
+    use Illuminate\Http\Resources\Json\JsonResource;
     use Illuminate\Http\Resources\Json\ResourceCollection;
     use Illuminate\Pagination\AbstractPaginator;
     use Illuminate\Support\Collection;
@@ -40,6 +41,8 @@
         $rows = $data;
     } elseif ($data instanceof ResourceCollection === true) {
         $rows = $data->toArray(request());
+    } elseif ($data instanceof JsonResource === true) {
+        $rows = [$data->toArray(request())];
     } elseif ($data instanceof Collection === true) {
         $rows = $data->toArray();
     } else {
