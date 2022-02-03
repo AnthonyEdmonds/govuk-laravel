@@ -6,8 +6,12 @@
             {!! $question->toBlade() !!}
         @endforeach
         
-        <x-govuk::button :type="$buttonType">
-            {{ $buttonLabel }}
-        </x-govuk::button>
+        <x-govuk::button-group>
+            <x-govuk::button :type="$buttonType">
+                {{ $buttonLabel }}
+            </x-govuk::button>
+            
+            @yield('buttons')
+        </x-govuk::button-group>
     </x-govuk::form>
 @endsection

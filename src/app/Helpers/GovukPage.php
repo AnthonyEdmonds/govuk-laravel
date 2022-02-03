@@ -32,14 +32,14 @@ class GovukPage
 
     public static function custom(
         string $title,
-        string $contentBlade,
+        string $blade,
         array $breadcrumbs,
         string $caption = null
     ): View {
         return Page::create($title)
             ->setBreadcrumbs($breadcrumbs)
             ->setCaption($caption)
-            ->setContent($contentBlade)
+            ->setContent($blade)
             ->setTemplate('custom')
             ->toView();
     }
@@ -58,8 +58,8 @@ class GovukPage
         string $buttonLabel,
         string $action,
         string $back,
-        string $blade = null,
         string $method = 'post',
+        string $blade = null,
         string $buttonType = Page::NORMAL_BUTTON
     ): View {
         $question
@@ -85,8 +85,8 @@ class GovukPage
         string $buttonLabel,
         string $action,
         string $back = null,
-        string $blade = null,
         string $method = 'post',
+        string $blade = null,
         string $buttonType = Page::NORMAL_BUTTON
     ): View {
         return Page::create($title)
