@@ -22,6 +22,7 @@
 @php
     $ariaDescription = '';
     $inputClasses = 'govuk-input';
+    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
 
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";
@@ -35,7 +36,7 @@
         $inputClasses .= ' govuk-js-character-count';
     }
 
-    if ($errors->has($name) === true) {
+    if ($errors->has($oldName) === true) {
         $ariaDescription .= " {$id}-error";
         $inputClasses .= ' govuk-input--error';
     }
@@ -71,7 +72,7 @@
                 placeholder="{{ $placeholder }}"
                 spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
                 type="{{ $type }}"
-                value="{{ old($name, $value) }}"
+                value="{{ old($oldName, $value) }}"
             />
             
             @if($suffix !== null)

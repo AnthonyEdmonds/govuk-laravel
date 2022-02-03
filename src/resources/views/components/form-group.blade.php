@@ -5,7 +5,7 @@
 @php
     $groupClasses = 'govuk-form-group';
 
-    if ($errors->has($name) === true) {
+    if ($errors->has(\AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name)) === true) {
         $groupClasses .= ' govuk-form-group--error';
     }
 @endphp

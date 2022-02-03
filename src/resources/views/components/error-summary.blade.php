@@ -17,7 +17,7 @@
         <ul class="govuk-list govuk-error-summary__list">
             @foreach($messages as $id => $message)
                 <li>
-                    <a href="#{{ $id }}">{{ $message }}</a>
+                    <a href="#{{ \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::dotsToBrackets($id) }}">{{ $message }}</a>
                 </li>
             @endforeach
         </ul>
