@@ -21,6 +21,7 @@
 
     $ariaDescription = '';
     $inputClasses = 'govuk-checkboxes';
+    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
 
     if ($isSmall === true) {
         $inputClasses .= ' govuk-checkboxes--small';
@@ -30,7 +31,7 @@
         $inputClasses .= ' govuk-checkboxes--conditional';
     }
 
-    $value = old($name, $value);
+    $value = old($oldName, $value);
     if (is_array($value) === false) {
         $value = $value !== null
             ? [$value]

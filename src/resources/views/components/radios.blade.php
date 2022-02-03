@@ -22,6 +22,7 @@
 
     $ariaDescription = '';
     $inputClasses = 'govuk-radios';
+    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
 
     if ($isSmall === true) {
         $inputClasses .= ' govuk-radios--small';
@@ -33,7 +34,7 @@
         $inputClasses .= ' govuk-radios--inline';
     }
 
-    $value = old($name, $value);
+    $value = old($oldName, $value);
 @endphp
 
 <x-govuk::form-group :name="$name">

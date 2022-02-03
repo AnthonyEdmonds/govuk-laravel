@@ -18,6 +18,7 @@
 @php
     $ariaDescription = '';
     $inputClasses = 'govuk-textarea';
+    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
 
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";
@@ -27,7 +28,7 @@
         $inputClasses .= ' govuk-js-character-count';
     }
 
-    if ($errors->has($name) === true) {
+    if ($errors->has($oldName) === true) {
         $ariaDescription .= " {$id}-error";
         $inputClasses .= ' govuk-textarea--error';
     }
@@ -58,7 +59,7 @@
             placeholder="{{ $placeholder }}"
             rows="{{ $rows }}"
             spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
-        >{{ old($name, $value) }}</textarea>
+        >{{ old($oldName, $value) }}</textarea>
 
         <x-govuk::form-group.counter :id="$id" />
     </x-govuk::form-group>

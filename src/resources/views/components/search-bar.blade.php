@@ -31,7 +31,7 @@
                 name="{{ $name }}"
                 spellcheck="false"
                 type="search"
-                value="{{ old($name, $value) }}"
+                value="{{ old(\AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name), $value) }}"
             />
 
             <x-govuk::button aria-label="Search">

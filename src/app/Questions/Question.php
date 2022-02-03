@@ -90,9 +90,15 @@ class Question
         return $this;
     }
 
-    public function hint(string $hint): self
+    public function hint(string $hint = null): self
     {
         $this->hint = $hint;
+        return $this;
+    }
+    
+    public function id(string $id): self
+    {
+        $this->id = $id;
         return $this;
     }
 

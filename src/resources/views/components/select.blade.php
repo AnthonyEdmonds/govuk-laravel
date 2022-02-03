@@ -13,17 +13,18 @@
 @php
     $ariaDescription = '';
     $inputClasses = 'govuk-select';
+    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
 
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";
     }
 
-    if ($errors->has($name) === true) {
+    if ($errors->has($oldName) === true) {
         $ariaDescription .= " {$id}-error";
         $inputClasses .= ' govuk-select--error';
     }
 
-    $value = old($name, $value);
+    $value = old($oldName, $value);
 @endphp
 
 <x-govuk::form-group :name="$name">
