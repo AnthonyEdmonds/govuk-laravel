@@ -5,13 +5,15 @@
         @foreach($questions as $question)
             {!! $question->toBlade() !!}
         @endforeach
-        
+
         <x-govuk::button-group>
-            <x-govuk::button :type="$buttonType">
-                {{ $buttonLabel }}
+            <x-govuk::button :type="$submitButtonType">
+                {{ $submitButtonLabel }}
             </x-govuk::button>
             
-            @yield('buttons')
+            @if($otherButtonHref !== null)
+                <x-govuk::a href="{{ $otherButtonHref }}">{{ $otherButtonLabel }}</x-govuk::a>
+            @endif
         </x-govuk::button-group>
     </x-govuk::form>
 @endsection

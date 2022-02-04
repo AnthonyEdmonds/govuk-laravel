@@ -5,6 +5,9 @@ namespace AnthonyEdmonds\GovukLaravel\Pages;
 use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use Illuminate\Contracts\View\View;
 
+// TODO Change to implement view in some way, not sure how.
+// TODO For the moment, just return the page class and append ->toView() when called.
+
 class Page
 {
     public const BUTTON_TYPES = [
@@ -17,19 +20,21 @@ class Page
     public const SECONDARY_BUTTON = 'secondary';
     public const START_BUTTON = 'start';
     public const WARNING_BUTTON = 'warning';
+    public const OTHER_BUTTON_LABEL = 'Cancel and back';
 
     protected ?string $action = null;
     protected ?string $back = null;
     protected ?array $breadcrumbs = null;
-    protected ?string $buttonLabel = null;
-    protected string $buttonType = self::NORMAL_BUTTON;
-    protected string $cancelLabel = 'Cancel and back';
+    protected ?string $submitButtonLabel = null;
+    protected string $submitButtonType = self::NORMAL_BUTTON;
+    protected ?string $otherButtonHref = null;
+    protected ?string $otherButtonLabel = self::OTHER_BUTTON_LABEL;
     protected ?string $caption = null;
     protected ?string $content = null;
     protected ?string $method = null;
     protected ?array $questions = null;
     protected string $template = 'custom';
-    protected string $title = 'Section title or question';
+    protected string $title;
     protected bool $hideTitle = false;
 
     // Setup
@@ -81,24 +86,30 @@ class Page
         return $this;
     }
 
-    public function setButtonLabel(string $label = null): self
+    public function setSubmitButtonLabel(string $label = null): self
     {
-        $this->buttonLabel = $label;
+        $this->submitButtonLabel = $label;
         return $this;
     }
 
-    public function setButtonType(string $type): self
+    public function setSubmitButtonType(string $type): self
     {
-        $this->buttonType = in_array($type, self::BUTTON_TYPES, true) === true
+        $this->submitButtonType = in_array($type, self::BUTTON_TYPES, true) === true
             ? $type
             : self::NORMAL_BUTTON;
 
         return $this;
     }
 
-    public function setCancelLabel(string $label): self
+    public function setOtherButtonHref(string $href = null): self
     {
-        $this->cancelLabel = $label;
+        $this->otherButtonHref = $href;
+        return $this;
+    }
+    
+    public function setOtherButtonLabel(string $label = null): self
+    {
+        $this->otherButtonLabel = $label;
         return $this;
     }
 
@@ -157,9 +168,10 @@ class Page
             'action' => $this->action,
             'back' => $this->back,
             'breadcrumbs' => $this->breadcrumbs,
-            'buttonLabel' => $this->buttonLabel,
-            'buttonType' => $this->buttonType,
-            'cancelLabel' => $this->cancelLabel,
+            'submitButtonLabel' => $this->submitButtonLabel,
+            'submitButtonType' => $this->submitButtonType,
+            'otherButtonHref' => $this->otherButtonHref,
+            'otherButtonLabel' => $this->otherButtonLabel,
             'caption' => $this->caption,
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,

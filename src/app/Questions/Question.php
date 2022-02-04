@@ -95,7 +95,7 @@ class Question
         $this->hint = $hint;
         return $this;
     }
-    
+
     public function id(string $id): self
     {
         $this->id = $id;

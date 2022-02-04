@@ -39,7 +39,3 @@ When passing custom content into a GovukPage your blade may define any of the se
 // When calling the content...
 GovukPage::custom('My title')->content('my-custom-content');
 ```
-
-## Buttons
-
-Both `question` and `questions` type pages have a special section called `buttons` that allows for the addition of buttons alongside the default submit button, placed within a `button-group`.
