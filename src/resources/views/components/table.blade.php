@@ -43,6 +43,8 @@
         $rows = $data->toArray(request());
     } elseif ($data instanceof JsonResource === true) {
         $rows = [$data->toArray(request())];
+    } elseif ($data instanceof AbstractPaginator === true) {
+        $rows = $data->items();
     } elseif ($data instanceof Collection === true) {
         $rows = $data->toArray();
     } else {

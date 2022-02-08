@@ -106,7 +106,7 @@ class Page
         $this->otherButtonHref = $href;
         return $this;
     }
-    
+
     public function setOtherButtonLabel(string $label = null): self
     {
         $this->otherButtonLabel = $label;
