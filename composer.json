@@ -15,14 +15,14 @@
     ],
     "require": {
         "php": "^8",
-        "illuminate/support": "^8",
-        "nunomaduro/laravel-mojito": "^0.2.8"
+        "illuminate/support": "^9",
+        "nunomaduro/laravel-mojito": "^0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.3",
-        "orchestra/testbench": "^6",
-        "phpstan/phpstan": "^1.2",
-        "phpunit/phpunit": "^9.5"
+        "friendsofphp/php-cs-fixer": "^3",
+        "orchestra/testbench": "^7",
+        "phpstan/phpstan": "^1",
+        "phpunit/phpunit": "^9"
     },
     "autoload": {
         "psr-4": {
