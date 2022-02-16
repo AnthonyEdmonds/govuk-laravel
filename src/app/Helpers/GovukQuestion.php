@@ -18,7 +18,7 @@ class GovukQuestion
 
     public static function hidden(
         string $name,
-        string $value,
+        ?string $value,
         string $id = null
     ): Question {
         return Question::create(
@@ -27,7 +27,7 @@ class GovukQuestion
             Question::HIDDEN,
             $id
         )
-            ->value($value);
+            ->value($value ?? '');
     }
 
     public static function input(
