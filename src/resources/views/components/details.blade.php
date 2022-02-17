@@ -5,7 +5,7 @@
 <details class="govuk-details" data-module="govuk-details">
     <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-            {{ $label }}
+            {!! $label !!}
         </span>
     </summary>
 
