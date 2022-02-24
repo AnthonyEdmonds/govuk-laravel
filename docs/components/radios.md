@@ -1,6 +1,6 @@
 # Radios
 
-Create a radios
+Create an HTML radios input.
 
 ```html
 <x-govuk::radios
@@ -18,6 +18,8 @@ Create a radios
 ```
 
 Radios is pre-wrapped within a `form-group` and a `fieldset` component, with a `hint` and an `error` subcomponent.
+
+Radios also features a leading `hidden` input which contains a null value, to catch incomplete values where they are not allowed to be null within a larger group.
 
 ## Props
 

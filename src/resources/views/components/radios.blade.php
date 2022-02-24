@@ -47,6 +47,12 @@
         <x-govuk::form-group.error :id="$id" :name="$name" />
 
         <div class="{{ $inputClasses }}" data-module="govuk-radios">
+            <x-govuk::hidden-input
+                id="{{ $id }}_0"
+                :name="$name"
+                value=""
+            />
+
             @foreach($options as $optionValue => $option)
                 <x-govuk::input.radio
                     id="{{ $id }}_{{ $loop->iteration }}"
