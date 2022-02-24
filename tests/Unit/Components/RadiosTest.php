@@ -11,17 +11,12 @@ class RadiosTest extends TestCase
     {
         $this
             ->makeSimpleRadios()
-            ->first('div .govuk-hint')
+            ->last('div .govuk-hint')
             ->contains('My hint');
     }
 
     public function testHasId(): void
     {
-        $this
-            ->makeSimpleRadios()
-            ->first('input')
-            ->hasAttribute('id', 'my-id_1');
-
         $this
             ->makeSimpleRadios()
             ->last('input')
