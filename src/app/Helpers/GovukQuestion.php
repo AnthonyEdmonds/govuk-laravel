@@ -18,7 +18,7 @@ class GovukQuestion
 
     public static function hidden(
         string $name,
-        string $value,
+        ?string $value,
         string $id = null
     ): Question {
         return Question::create(
@@ -27,7 +27,7 @@ class GovukQuestion
             Question::HIDDEN,
             $id
         )
-            ->value($value);
+            ->value($value ?? '');
     }
 
     public static function input(
@@ -86,5 +86,41 @@ class GovukQuestion
             Question::TEXT_AREA,
             $id
         );
+    }
+
+    public static function dotsToBrackets(string $name): string
+    {
+        if (str_contains($name, '.') === false) {
+            return $name;
+        }
+
+        $pieces = explode('.', $name);
+        $name = '';
+
+        foreach ($pieces as $piece) {
+            $name .= $name === ''
+                ? $piece
+                : "[$piece]";
+        }
+
+        return $name;
+    }
+
+    public static function bracketsToDots(string $name): string
+    {
+        if (str_contains($name, '[') === false || str_contains($name, ']') === false) {
+            return $name;
+        }
+
+        $pieces = explode('[', $name);
+        $name = '';
+
+        foreach ($pieces as $piece) {
+            $name .= $name === ''
+                ? $piece
+                : '.' . rtrim($piece, ']');
+        }
+
+        return $name;
     }
 }

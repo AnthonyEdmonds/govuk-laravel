@@ -4,64 +4,66 @@ namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Questions\Question;
-use Illuminate\Contracts\View\View;
 
 class GovukPage
 {
     public static function confirm(
         string $title,
         string $blade,
-        string $buttonLabel,
+        string $submitButtonLabel,
         string $action,
         string $back,
         string $method = 'post',
-        string $buttonType = Page::NORMAL_BUTTON,
+        string $otherButtonLabel = null,
+        string $otherButtonHref = null,
+        string $submitButtonType = Page::NORMAL_BUTTON,
         string $caption = null
-    ): View {
+    ): Page {
         return Page::create($title)
             ->setAction($action)
             ->setBack($back)
-            ->setButtonLabel($buttonLabel)
-            ->setButtonType($buttonType)
+            ->setSubmitButtonLabel($submitButtonLabel)
+            ->setSubmitButtonType($submitButtonType)
+            ->setOtherButtonHref($otherButtonHref ?? $back)
+            ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setCaption($caption)
             ->setContent($blade)
             ->setMethod($method)
-            ->setTemplate('confirm')
-            ->toView();
+            ->setTemplate('confirm');
     }
 
     public static function custom(
         string $title,
-        string $contentBlade,
+        string $blade,
         array $breadcrumbs,
         string $caption = null
-    ): View {
+    ): Page {
         return Page::create($title)
             ->setBreadcrumbs($breadcrumbs)
             ->setCaption($caption)
-            ->setContent($contentBlade)
-            ->setTemplate('custom')
-            ->toView();
+            ->setContent($blade)
+            ->setTemplate('custom');
     }
 
-    public static function error(string $title, string $contentBlade): View
+    public static function error(string $title, string $contentBlade): Page
     {
         return Page::create($title)
             ->setBack(back()->getTargetUrl())
             ->setContent($contentBlade)
-            ->setTemplate('error')
-            ->toView();
+            ->setTemplate('error');
     }
 
     public static function question(
         Question $question,
-        string $buttonLabel,
+        string $submitButtonLabel,
         string $action,
         string $back,
-        string $blade = null,
         string $method = 'post',
-        string $buttonType = Page::NORMAL_BUTTON
-    ): View {
+        string $blade = null,
+        string $otherButtonLabel = null,
+        string $otherButtonHref = null,
+        string $submitButtonType = Page::NORMAL_BUTTON
+    ): Page {
         $question
             ->isTitle()
             ->labelSize('l');
@@ -70,52 +72,56 @@ class GovukPage
             ->hideTitle()
             ->setAction($action)
             ->setBack($back)
-            ->setButtonLabel($buttonLabel)
-            ->setButtonType($buttonType)
+            ->setSubmitButtonLabel($submitButtonLabel)
+            ->setSubmitButtonType($submitButtonType)
+            ->setOtherButtonHref($otherButtonHref)
+            ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setContent($blade)
             ->setMethod($method)
             ->setQuestion($question)
-            ->setTemplate('question')
-            ->toView();
+            ->setTemplate('question');
     }
 
     public static function questions(
         string $title,
         array $questions,
-        string $buttonLabel,
+        string $submitButtonLabel,
         string $action,
         string $back = null,
-        string $blade = null,
         string $method = 'post',
-        string $buttonType = Page::NORMAL_BUTTON
-    ): View {
+        string $blade = null,
+        string $otherButtonLabel = null,
+        string $otherButtonHref = null,
+        string $submitButtonType = Page::NORMAL_BUTTON
+    ): Page {
         return Page::create($title)
             ->setAction($action)
             ->setBack($back)
-            ->setButtonLabel($buttonLabel)
-            ->setButtonType($buttonType)
+            ->setSubmitButtonLabel($submitButtonLabel)
+            ->setSubmitButtonType($submitButtonType)
+            ->setOtherButtonHref($otherButtonHref)
+            ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setContent($blade)
             ->setMethod($method)
             ->setQuestions($questions)
-            ->setTemplate('question')
-            ->toView();
+            ->setTemplate('question');
     }
 
-    public static function start(string $title): View
+    public static function start(string $title): Page
     {
         // TODO
-        return Page::create($title)->toView();
+        return Page::create($title);
     }
 
-    public static function summary(string $title): View
+    public static function summary(string $title): Page
     {
         // TODO
-        return Page::create($title)->toView();
+        return Page::create($title);
     }
 
-    public static function tasklist(string $title): View
+    public static function tasklist(string $title): Page
     {
         // TODO
-        return Page::create($title)->toView();
+        return Page::create($title);
     }
 }
