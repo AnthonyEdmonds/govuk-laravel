@@ -32,7 +32,7 @@
             @endif
 
             @if($hasInputs === true)
-            data-aria-controls="conditional-{{ $name }}"
+            data-aria-controls="conditional-{{ $id }}"
             @endif
         />
 
@@ -53,7 +53,7 @@
     @if($hasInputs === true)
         <div
             class="govuk-radios__conditional govuk-radios__conditional--hidden"
-            id="conditional-{{ $name }}"
+            id="conditional-{{ $id }}"
         >
             @foreach($inputs as $input)
                 {!!
