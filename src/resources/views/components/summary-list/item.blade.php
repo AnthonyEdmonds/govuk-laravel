@@ -17,7 +17,7 @@
     
     <dd class="govuk-summary-list__value">
         @foreach($value as $entry)
-            <x-govuk::p>{{ $entry }}</x-govuk::p>
+            <x-govuk::p>{!! $entry !!}</x-govuk::p>
         @endforeach
     </dd>
     
