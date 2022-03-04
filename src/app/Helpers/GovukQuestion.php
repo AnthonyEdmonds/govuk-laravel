@@ -16,6 +16,21 @@ class GovukQuestion
             ->options($options);
     }
 
+    public static function file(
+        string $label,
+        string $name,
+        string $accept = '*',
+        string $id = null,
+    ): Question {
+        return Question::create(
+            $label,
+            $name,
+            Question::FILE,
+            $id
+        )
+            ->accept($accept);
+    }
+
     public static function hidden(
         string $name,
         ?string $value,

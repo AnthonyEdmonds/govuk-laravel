@@ -8,6 +8,7 @@ use Illuminate\View\ComponentAttributeBag;
 class Question
 {
     public const CHECKBOXES = 'checkboxes';
+    public const FILE = 'file-upload';
     public const HIDDEN = 'hidden-input';
     public const RADIOS = 'radios';
     public const SELECT = 'select';
@@ -15,6 +16,7 @@ class Question
     public const TEXT_INPUT = 'text-input';
     public const QUESTION_FORMATS = [
         self::CHECKBOXES,
+        self::FILE,
         self::HIDDEN,
         self::RADIOS,
         self::SELECT,
@@ -22,6 +24,7 @@ class Question
         self::TEXT_INPUT
     ];
 
+    public string $accept = '*';
     public string $autocomplete = 'on';
     public ?int $count = null;
     public ?string $hint = null;
@@ -69,6 +72,12 @@ class Question
     }
 
     // Setters
+    public function accept(string $accept = '*'): self
+    {
+        $this->accept = $accept;
+        return $this;
+    }
+
     public function autocomplete(string $autocomplete = 'on'): self
     {
         $this->autocomplete = $autocomplete;
@@ -216,6 +225,7 @@ class Question
     public function toArray(): array
     {
         return [
+            'accept' => $this->accept,
             'autocomplete' => $this->autocomplete,
             'count' => $this->count,
             'format' => $this->format,
