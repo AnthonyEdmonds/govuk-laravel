@@ -18,6 +18,10 @@ class GovukComponent
                 return '';
             }
 
+            if (is_scalar($value) !== true) {
+                continue;
+            }
+
             $content = str_replace("~$key", $value, $content);
         }
 
