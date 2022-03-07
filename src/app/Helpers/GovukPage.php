@@ -113,10 +113,29 @@ class GovukPage
         return Page::create($title);
     }
 
-    public static function summary(string $title): Page
-    {
-        // TODO
-        return Page::create($title);
+    public static function summary(
+        string $title,
+        array $summary,
+        string $submitButtonLabel,
+        string $action,
+        string $back = null,
+        string $method = 'post',
+        string $blade = null,
+        string $otherButtonLabel = null,
+        string $otherButtonHref = null,
+        string $submitButtonType = Page::NORMAL_BUTTON
+    ): Page {
+        return Page::create($title)
+            ->setAction($action)
+            ->setBack($back)
+            ->setSubmitButtonLabel($submitButtonLabel)
+            ->setSubmitButtonType($submitButtonType)
+            ->setOtherButtonHref($otherButtonHref)
+            ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
+            ->setContent($blade)
+            ->setMethod($method)
+            ->setSummary($summary)
+            ->setTemplate('question');
     }
 
     public static function tasklist(string $title): Page

@@ -29,7 +29,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * Modify the Laravel error messages language file to match the examples in https://design-system.service.gov.uk/components/text-input/
 * GovukPage
     * Start
-    * Summary
     * Tasklist
 
 ## Tests to Backfill

@@ -33,6 +33,7 @@ class Page
     protected ?string $content = null;
     protected ?string $method = null;
     protected ?array $questions = null;
+    protected ?array $summary = null;
     protected string $template = 'custom';
     protected string $title;
     protected bool $hideTitle = false;
@@ -143,6 +144,12 @@ class Page
         return $this;
     }
 
+    public function setSummary(array $summary = null): self
+    {
+        $this->summary = $summary;
+        return $this;
+    }
+
     public function setTemplate(string $template): self
     {
         $this->template = $template;
@@ -177,6 +184,7 @@ class Page
             'hideTitle' => $this->hideTitle,
             'method' => $this->method,
             'questions' => $this->questions,
+            'summary' => $this->summary,
             'template' => $this->template,
             'title' => $this->title,
         ];
