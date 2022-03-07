@@ -135,7 +135,7 @@ class GovukPage
             ->setContent($blade)
             ->setMethod($method)
             ->setSummary($summary)
-            ->setTemplate('question');
+            ->setTemplate('summary');
     }
 
     public static function tasklist(string $title): Page
