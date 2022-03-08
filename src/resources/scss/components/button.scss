@@ -2,14 +2,15 @@ button.app-button--as-link {
     @extend .govuk-link;
 
     background-color: transparent;
-    vertical-align: baseline;
-    box-shadow: none;
     border: none;
+    box-shadow: none;
+    color: $govuk-link-colour;
     line-height: inherit;
     margin: 0;
     padding: 0;
-    color: $govuk-link-colour;
+    text-align: inherit;
     text-decoration: underline;
+    vertical-align: baseline;
 
     &:hover {
         background-color: transparent;
