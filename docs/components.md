@@ -28,6 +28,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [h4](components/h4.md)
 * [hidden](components/hidden.md)
 * [inset-text](components/inset-text.md)
+* [ol](components/ol.md)
 * [p](components/p.md)
 * [ul](components/ul.md)
 

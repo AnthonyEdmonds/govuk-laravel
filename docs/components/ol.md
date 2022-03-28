@@ -1,23 +1,21 @@
-# Unordered List
+# Ordered List
 
-Create a `ul` element, with optional spacing and bullets.
+Create an `ol` element, with optional spacing.
 
 ```html
-<x-govuk::ul
-    bulleted
+<x-govuk::ol
     spaced
 >
     <li>My list item</li>
     // More list items...
-</x-govuk::ul>
+</x-govuk::ol>
 ```
 
 ## Props
 
 | Name     | Type | Default | Description |
 | -------- | ---- | ------- | ----------- |
-| bulleted | bool | false   | Whether list items should have bullets |
 | spaced   | bool | false   | Whether list items should have extra space |
 
 ## Also see
-* [ol](ol.md)
+* [ul](ul.md)
