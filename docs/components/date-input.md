@@ -18,7 +18,7 @@ Create a series of inline `input` elements for entering a date, with toggleable 
 />
 ```
 
-A hidden input is also submitted with the base `name` and a `true` value, for easier presence validation.
+A hidden input is also submitted with the base `name` and a `true` value, for easier validation using the special date rules.
 
 ## Props
 
@@ -62,16 +62,19 @@ You may provide the current values of the inputs with a Carbon instance or a key
 
 A special [rule](../rules.md) is provided for validating dates submitted in multiple parts.
 
-Include the OnDate, AfterDate, BeforeDate, OnOrAfterDate, or OnOrBeforeDate on one of the inputs to validate the submitted value.
+Include the OnDate, AfterDate, BeforeDate, OnOrAfterDate, or OnOrBeforeDate rule on the main `name` validation.
 
 ```php
-'birth-day' => [
-    'required',
-    Rule::onOrBeforeDate(Carbon::now()),
-],
+[
+    'birth' => [
+        'required',
+        Rule::onOrBeforeDate(Carbon::now()),
+    ],
+    'birth-day' => [
+        // Not here
+    ]
+]
 ```
-
-Note that you only need to include the rule on one part of the date-input.
 
 ## Also see
 

@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class OnOrBeforeDateTest extends TestCase
 {
-    const ATTRIBUTE = 'my-date-day';
+    const ATTRIBUTE = 'my-date';
     const VALUE = 'not-used';
 
     protected Carbon $now;

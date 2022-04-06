@@ -8,6 +8,9 @@ use Illuminate\Contracts\Validation\Rule;
 
 abstract class DateRule implements Rule, DataAwareRule
 {
+    const ATTRIBUTE = 'my-date';
+    const VALUE = 'not-used';
+
     protected array $data;
     protected string $message;
 
@@ -21,7 +24,11 @@ abstract class DateRule implements Rule, DataAwareRule
 
     public function passes($attribute, $value): bool
     {
-        $enteredDate = $this->getEnteredDate($attribute);
+        $day = $this->data["$attribute-day"];
+        $month = $this->data["$attribute-month"];
+        $year = $this->data["$attribute-year"];
+
+        $enteredDate = Carbon::createFromFormat('Y-m-d', "$year-$month-$day");
 
         if ($enteredDate->isValid() === false) {
             $this->message = ':attribute is not a date that exists';
@@ -41,20 +48,5 @@ abstract class DateRule implements Rule, DataAwareRule
         $this->data = $data;
 
         return $this;
-    }
-
-    protected function getEnteredDate(string $attribute): Carbon
-    {
-        $prefix = substr(
-            $attribute,
-            0,
-            strrpos($attribute, '-')
-        );
-
-        $day = $this->data["$prefix-day"];
-        $month = $this->data["$prefix-month"];
-        $year = $this->data["$prefix-year"];
-
-        return Carbon::createFromFormat('Y-m-d', "$year-$month-$day");
     }
 }

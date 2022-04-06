@@ -6,9 +6,19 @@ Each rule can be used as a macro, or as an instance.
 
 The `date-input` component is slightly unusual from a Laravel validation point of view, as it is submitted in three parts.
 
-These rules check to make sure that the specified date exists, and only need to be applied to one part of the `date-input` validation.
+These rules check to make sure that the specified date exists, and must be applied to a rule against the main `name` of the input.
 
-Note that this rule only works with the full three-part `date-input` component.
+```php
+[
+    'birth' => [
+        'required',
+        new BeforeDate(Carbon::now()),
+    ],
+    'birth-day' => [
+        // Not here
+    ],
+]
+```
 
 ### OnDate
 

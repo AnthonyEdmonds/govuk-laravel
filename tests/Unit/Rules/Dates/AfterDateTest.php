@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class AfterDateTest extends TestCase
 {
-    const ATTRIBUTE = 'my-date-day';
+    const ATTRIBUTE = 'my-date';
     const VALUE = 'not-used';
 
     protected Carbon $now;
