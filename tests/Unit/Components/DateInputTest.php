@@ -13,7 +13,7 @@ class DateInputTest extends TestCase
         $this->makeDateInput([
             'autocomplete' => 'bday',
         ])
-            ->first('input')
+            ->first('input[type=text]')
             ->hasAttribute('autocomplete', 'bday-day');
     }
 
@@ -22,14 +22,14 @@ class DateInputTest extends TestCase
         $this->makeDateInput([
             'autocomplete' => 'cc-exp',
         ])
-            ->first('input')
+            ->first('input[type=text]')
             ->hasAttribute('autocomplete', 'cc-exp-month');;
     }
 
     public function testHasAutocomplete(): void
     {
         $this->makeDateInput()
-            ->first('input')
+            ->first('input[type=text]')
             ->hasAttribute('autocomplete', 'on');;
     }
 
@@ -43,7 +43,7 @@ class DateInputTest extends TestCase
     public function testHasId(): void
     {
         $this->makeDateInput()
-            ->first('input')
+            ->first('input[type=text]')
             ->hasAttribute('id', 'my-id-day');
     }
 
@@ -73,7 +73,7 @@ class DateInputTest extends TestCase
     public function testHasName(): void
     {
         $this->makeDateInput()
-            ->first('input')
+            ->first('input[type=text]')
             ->hasAttribute('name', 'my-name-day');
     }
 
@@ -110,7 +110,7 @@ class DateInputTest extends TestCase
     public function testHasDayValue(): void
     {
         $this->makeDateInput([
-            'values' => [
+            'value' => [
                 'day' => 31,
             ]
         ])
@@ -121,7 +121,7 @@ class DateInputTest extends TestCase
     public function testHasMonthValue(): void
     {
         $this->makeDateInput([
-            'values' => [
+            'value' => [
                 'month' => 12,
             ]
         ])
@@ -132,7 +132,7 @@ class DateInputTest extends TestCase
     public function testHasYearValue(): void
     {
         $this->makeDateInput([
-            'values' => [
+            'value' => [
                 'year' => 2000,
             ]
         ])
