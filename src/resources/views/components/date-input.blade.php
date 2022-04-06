@@ -9,11 +9,19 @@
     'noDay' => false,
     'noMonth' => false,
     'noYear' => false,
-    'values' => [],
+    'value' => [],
 ])
 
 @php
-    switch ($autocomplete) {
+    $dayName = "$name-day";
+    $monthName = "$name-month";
+    $yearName = "$name-year";
+
+    $dayId = "$id-day";
+    $monthId = "$id-month";
+    $yearId = "$id-year";
+
+    use Carbon\Carbon;switch ($autocomplete) {
         case 'bday':
         case 'bday-day':
         case 'bday-month':
@@ -37,8 +45,22 @@
             $autocompleteMonth = $autocomplete;
             $autocompleteYear = $autocomplete;
     }
-    
-    // TODO Old values
+
+    if (is_a($value, Carbon::class) === true) {
+        $dayValue = $value->day;
+        $monthValue = $value->month;
+        $yearValue = $value->year;
+    } else {
+        $dayValue = $value['day'] ?? null;
+        $monthValue = $value['month'] ?? null;
+        $yearValue = $value['year'] ?? null;
+    }
+
+    $values = [
+        'day' => old($dayName, $dayValue),
+        'month' => old($monthName, $monthValue),
+        'year' => old($yearName, $yearValue),
+    ];
 @endphp
 
 <x-govuk::form-group :name="$name">
@@ -50,6 +72,7 @@
     >
         <x-govuk::form-group.hint :id="$id" :hint="$hint" />
         <x-govuk::form-group.error :id="$id" :name="$name" />
+        <x-govuk::hidden-input :id="$id" :name="$name" value="1" />
 
         <div class="govuk-date-input" id="{{ $id }}">
             @if($noDay !== true)
@@ -57,12 +80,12 @@
                     <div class="govuk-form-group">
                         <label
                             class="govuk-label govuk-date-input__label"
-                            for="{{ $id }}-day"
+                            for="{{ $dayId }}"
                         >Day</label>
                         <input
                             class="govuk-input govuk-date-input__input govuk-input--width-2"
-                            id="{{ $id }}-day"
-                            name="{{ $name }}-day"
+                            id="{{ $dayId }}"
+                            name="{{ $dayName }}"
                             type="text"
                             autocomplete="{{ $autocompleteDay }}"
                             pattern="[0-9]*"
@@ -78,12 +101,12 @@
                     <div class="govuk-form-group">
                         <label
                             class="govuk-label govuk-date-input__label"
-                            for="{{ $id }}-month"
+                            for="{{ $monthId }}"
                         >Month</label>
                         <input
                             class="govuk-input govuk-date-input__input govuk-input--width-2"
-                            id="{{ $id }}-month"
-                            name="{{ $name }}-month"
+                            id="{{ $monthId }}"
+                            name="{{ $monthName }}"
                             type="text"
                             autocomplete="{{ $autocompleteMonth }}"
                             pattern="[0-9]*"
@@ -99,12 +122,12 @@
                     <div class="govuk-form-group">
                         <label
                             class="govuk-label govuk-date-input__label"
-                            for="{{ $id }}-year"
+                            for="{{ $yearId }}"
                         >Year</label>
                         <input
                             class="govuk-input govuk-date-input__input govuk-input--width-4"
-                            id="{{ $id }}-year"
-                            name="{{ $name }}-year"
+                            id="{{ $yearId }}"
+                            name="{{ $yearName }}"
                             type="text"
                             autocomplete="{{ $autocompleteYear }}"
                             pattern="[0-9]*"
