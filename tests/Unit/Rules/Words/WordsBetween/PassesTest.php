@@ -1,11 +1,9 @@
 <?php
 
-namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\WordsBetween;
+namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetween;
 
-use AnthonyEdmonds\GovukLaravel\Rules\WordsBetween;
+use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Support\Collection;
-use Illuminate\Testing\TestView;
 
 class PassesTest extends TestCase
 {

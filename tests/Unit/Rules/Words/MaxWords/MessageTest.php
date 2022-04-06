@@ -1,11 +1,9 @@
 <?php
 
-namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\MaxWords;
+namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\MaxWords;
 
-use AnthonyEdmonds\GovukLaravel\Rules\MaxWords;
+use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Support\Collection;
-use Illuminate\Testing\TestView;
 
 class MessageTest extends TestCase
 {

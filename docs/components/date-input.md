@@ -56,6 +56,21 @@ You may provide the current values of the inputs with a keyed array:
 ]
 ```
 
+## Validation
+
+A special [rule](../rules.md) is provided for validating dates submitted in multiple parts.
+
+Include the OnDate, AfterDate, BeforeDate, OnOrAfterDate, or OnOrBeforeDate on one of the inputs to validate the submitted value.
+
+```php
+'birth-day' => [
+    'required',
+    Rule::onOrBeforeDate(Carbon::now()),
+],
+```
+
+Note that you only need to include the rule on one part of the date-input.
+
 ## Also see
 
 * [checkboxes](checkboxes.md)

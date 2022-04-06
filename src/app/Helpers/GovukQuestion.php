@@ -16,6 +16,14 @@ class GovukQuestion
             ->options($options);
     }
 
+    public static function date(
+        string $label,
+        string $name,
+        string $id = null
+    ): Question {
+        return Question::create($label, $name, Question::DATE, $id);
+    }
+
     public static function file(
         string $label,
         string $name,

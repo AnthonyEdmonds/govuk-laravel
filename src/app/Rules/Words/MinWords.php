@@ -1,6 +1,6 @@
 <?php
 
-namespace AnthonyEdmonds\GovukLaravel\Rules;
+namespace AnthonyEdmonds\GovukLaravel\Rules\Words;
 
 use Illuminate\Contracts\Validation\Rule;
 
@@ -12,6 +12,11 @@ class MinWords implements Rule
 
     public function passes($attribute, $value): bool
     {
+        while (str_contains($value, '  ') === true) {
+            $value = trim($value);
+            $value = str_replace('  ', ' ', $value);
+        }
+
         return substr_count($value, ' ') >= $this->min - 1;
     }
 

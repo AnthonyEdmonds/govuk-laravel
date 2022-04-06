@@ -8,6 +8,7 @@ use Illuminate\View\ComponentAttributeBag;
 class Question
 {
     public const CHECKBOXES = 'checkboxes';
+    public const DATE = 'date-input';
     public const FILE = 'file-upload';
     public const HIDDEN = 'hidden-input';
     public const RADIOS = 'radios';
@@ -16,6 +17,7 @@ class Question
     public const TEXT_INPUT = 'text-input';
     public const QUESTION_FORMATS = [
         self::CHECKBOXES,
+        self::DATE,
         self::FILE,
         self::HIDDEN,
         self::RADIOS,

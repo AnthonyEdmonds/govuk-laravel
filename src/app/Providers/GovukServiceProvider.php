@@ -2,9 +2,15 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Providers;
 
-use AnthonyEdmonds\GovukLaravel\Rules\MaxWords;
-use AnthonyEdmonds\GovukLaravel\Rules\MinWords;
-use AnthonyEdmonds\GovukLaravel\Rules\WordsBetween;
+use AnthonyEdmonds\GovukLaravel\Rules\Dates\AfterDate;
+use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
+use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnDate;
+use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnOrAfterDate;
+use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnOrBeforeDate;
+use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
+use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
+use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rule;
@@ -63,6 +69,8 @@ class GovukServiceProvider extends ServiceProvider
             return $rule->passes($attribute, $value);
         });
         */
+
+        // Words
         Rule::macro('maxWords', function (int $max) {
             return new MaxWords($max);
         });
@@ -73,6 +81,27 @@ class GovukServiceProvider extends ServiceProvider
 
         Rule::macro('wordsBetween', function (int $min, int $max) {
             return new WordsBetween($min, $max);
+        });
+
+        // Dates
+        Rule::macro('onDate', function (Carbon $date) {
+            return new OnDate($date);
+        });
+
+        Rule::macro('afterDate', function (Carbon $date) {
+            return new AfterDate($date);
+        });
+
+        Rule::macro('beforeDate', function (Carbon $date) {
+            return new BeforeDate($date);
+        });
+
+        Rule::macro('onOrAfterDate', function (Carbon $date) {
+            return new OnOrAfterDate($date);
+        });
+
+        Rule::macro('onOrBeforeDate', function (Carbon $date) {
+            return new OnOrBeforeDate($date);
         });
     }
 

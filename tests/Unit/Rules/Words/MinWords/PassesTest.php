@@ -1,11 +1,9 @@
 <?php
 
-namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\MinWords;
+namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\MinWords;
 
-use AnthonyEdmonds\GovukLaravel\Rules\MinWords;
+use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Support\Collection;
-use Illuminate\Testing\TestView;
 
 class PassesTest extends TestCase
 {

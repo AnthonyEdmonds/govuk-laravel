@@ -25,6 +25,7 @@ class GovukForm
         return Session::get($key);
     }
 
+    /* Clear a form from the User's session */
     public static function clear(string $key): void
     {
         Session::forget($key);
