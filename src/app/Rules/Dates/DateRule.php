@@ -8,8 +8,8 @@ use Illuminate\Contracts\Validation\Rule;
 
 abstract class DateRule implements Rule, DataAwareRule
 {
-    const ATTRIBUTE = 'my-date';
-    const VALUE = 'not-used';
+    public const ATTRIBUTE = 'my-date';
+    public const VALUE = 'not-used';
 
     protected array $data;
     protected string $message;

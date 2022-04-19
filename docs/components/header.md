@@ -22,7 +22,7 @@ A header is provided on the default page template `/resources/views/vendor/govuk
 
 | Name        | Type   | Default      | Description |
 | ----------- | ------ | ------------ | ----------- |
-| links       | array  | []           | A keyed array |
+| links       | array  | []           | A keyed array of URLs |
 | logoAlt     | string | $serviceName | The `alt` description for the logo |
 | logoRoute   | string | home         | The route that the logo should link to when pressed |
 | logoImage   | string | Required     | The path to the logo image |
@@ -40,12 +40,13 @@ A keyed array, where the label is the key, and the value is the route:
 ]
 ```
 
-For conditional navigation you may provide a keyed array as the value, with a `route` key and other setting keys:
+For conditional navigation you may provide a keyed array with the label as the key, a `route` key, and any other setting keys:
 
 ```php
 [
     'Manage users' => [
         'blank' => true,
+        'auth' => true,
         'can' => 'manage_users',
         'route' => 'users.index',
     ],
@@ -53,8 +54,11 @@ For conditional navigation you may provide a keyed array as the value, with a `r
 ]
 ```
 
-* The `blank` key will open the link in a new window.
-* The `can` key will perform an `@can` check against the current User.
+* The `auth` key will either only show when a User is signed in when set to `true`, or only shown when a User is not signed in when set to any other value
+* The `blank` key will open the link in a new window
+* The `can` key will perform an `@can` check against the current User
+
+You may opt to include either `auth` or `can`, instead of using both.
 
 ## Also see
 

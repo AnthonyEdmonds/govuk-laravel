@@ -55,6 +55,18 @@
                     aria-label="Navigation menu"
                 >
                     @foreach($links as $label => $link)
+                        @isset($link['auth'])
+                            @if($link['auth'] === true)
+                                @if(\Illuminate\Support\Facades\Auth::check() === false)
+                                    @continue
+                                @endif
+                            @else
+                                @if(\Illuminate\Support\Facades\Auth::check() === true)
+                                    @continue
+                                @endif
+                            @endif
+                        @endisset
+
                         @can($link['can'] ?? null)
                             <li class="govuk-header__navigation-item">
                                 <a
