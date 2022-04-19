@@ -20,10 +20,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 # Road to v1
 
-## GOV.UK Design System
-
-* Update to new version
-
 ## Laravel
 
 * Modify the Laravel error messages language file to match the examples in https://design-system.service.gov.uk/components/text-input/

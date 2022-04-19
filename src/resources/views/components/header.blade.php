@@ -39,20 +39,22 @@
                 </a>
             @endisset
 
-            <button
-                type="button"
-                class="govuk-header__menu-button govuk-js-header-toggle"
-                aria-controls="navigation"
-                aria-label="Show or hide navigation menu"
+            <nav
+                class="govuk-header__navigation"
+                aria-label="Menu"
             >
-                Menu
-            </button>
+                <button
+                    type="button"
+                    class="govuk-header__menu-button govuk-js-header-toggle"
+                    aria-controls="navigation"
+                    aria-label="Show or hide navigation menu"
+                >
+                    Menu
+                </button>
 
-            <nav>
                 <ul
+                    class="govuk-header__navigation-list"
                     id="navigation"
-                    class="govuk-header__navigation"
-                    aria-label="Navigation menu"
                 >
                     @foreach($links as $label => $link)
                         @isset($link['auth'])

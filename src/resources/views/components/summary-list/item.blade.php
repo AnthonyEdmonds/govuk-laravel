@@ -8,9 +8,13 @@
     if (is_array($value) !== true) {
         $value = [$value];
     }
+
+    $rowClasses = $action !== null
+        ? 'govuk-summary-list__row'
+        : 'govuk-summary-list__row govuk-summary-list__row--no-actions';
 @endphp
 
-<div class="govuk-summary-list__row">
+<div class="{{ $rowClasses }}">
     <dt class="govuk-summary-list__key">
         {{ $key }}
     </dt>
