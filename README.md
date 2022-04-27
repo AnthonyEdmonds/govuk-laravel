@@ -8,7 +8,7 @@ Published under the MIT licence.
 
 ## What's in the box?
 
-* [GOV.UK Design System](https://design-system.service.gov.uk) version 3.14
+* [GOV.UK Design System](https://design-system.service.gov.uk) version 4.0.1
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
 * Laravel 8 Blade components of the GOV.UK Design System components
 * Laravel 8 Blade templates of the main GOV.UK Design System pages
