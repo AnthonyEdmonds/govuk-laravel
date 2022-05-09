@@ -5,10 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Pages;
 use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use Illuminate\Contracts\View\View;
 
-// TODO Change to implement view in some way, not sure how.
-// TODO For the moment, just return the page class and append ->toView() when called.
-
-class Page
+class Page implements View
 {
     public const BUTTON_TYPES = [
         self::NORMAL_BUTTON,
@@ -37,6 +34,7 @@ class Page
     protected string $template = 'custom';
     protected string $title;
     protected bool $hideTitle = false;
+    protected array $withs = [];
 
     // Setup
     public function __construct(string $title)
@@ -190,8 +188,26 @@ class Page
         ];
     }
 
-    public function toView(): View
+    // View Contract
+    public function render(): View
     {
-        return view("govuk::templates.{$this->template}", $this->toArray());
+        return view("govuk::templates.{$this->template}", $this->toArray(), $this->withs);
+    }
+
+    public function name(): string
+    {
+        return $this->content ?? $this->template;
+    }
+
+    public function with($key, $value = null): self
+    {
+        $this->withs[$key] = $value;
+
+        return $this;
+    }
+
+    public function getData(): array
+    {
+        return array_merge($this->toArray(), $this->withs);
     }
 }

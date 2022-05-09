@@ -1,6 +1,6 @@
 # Pages
 
-## Creating standard pages
+A set of standard page types are provided via the `GovukPage` helper, reducing the need to create custom views.
 
 ```php
 return GovukPage::confirm(...);
@@ -11,9 +11,21 @@ return GovukPage::summary(...);
 return GovukPage::tasklist(...);
 ```
 
-### Confirm Page
+These return a `Page` class which extends the Laravel `View` contract, and can be used as if it were a normal `view`.
 
-Show a confirmation page with a confirm and back button, with additional context via a content blade.
+```php
+public function index(): View
+{
+    return GovukPage::custom(
+        'My Title',
+        'my-custom-blade',
+        [
+            'My Breadcrumb' => route('home'),
+        ]
+    )
+        ->with('Just like a view', true);
+}
+```
 
 ## Building custom pages
 

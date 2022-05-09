@@ -16,7 +16,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * Confirm
 * Automatic / implicit form session handling
 * Index / List page
-* Add Renderable ability to Page class
 
 # Road to v1
 
@@ -130,4 +129,4 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * Impersonation
         * Testing
         * Title
-    
+        
