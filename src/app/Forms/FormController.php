@@ -17,7 +17,14 @@ class FormController extends Controller
     {
         //$this->authorize();
 
-        return GovukPage::start();
+        return GovukPage::start(
+            $form::TITLE,
+            $form::HAS_TASKS_PAGE === true
+                ? route('govuk-form.tasks', [$form::KEY])
+                : $form::firstStep(),
+            $form::START_BUTTON_LABEL,
+            $form::START_BLADE
+        );
     }
 
     public function tasks(string $form): View
@@ -38,7 +45,7 @@ class FormController extends Controller
     {
         //$this->authorize();
 
-        $form = new $form;
+        $form = new $form();
         $form->submit();
 
         return redirect()->route('govuk-form.confirmation', [

@@ -9,10 +9,16 @@ use Illuminate\Support\Facades\Session;
 abstract class Form
 {
     const KEY = 'form';
+
+    const TITLE = 'Form Title';
+    const START_BUTTON_LABEL = 'Start';
+    const START_BLADE = 'form.start';
+
     const HAS_START_PAGE = false;
     const HAS_TASKS_PAGE = false;
     const HAS_SUMMARY_PAGE = false;
     const HAS_SUCCESS_PAGE = false;
+
     const SECTIONS = [];
 
     protected string $currentPageKey = 'start';

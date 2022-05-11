@@ -121,10 +121,18 @@ class GovukPage
             ->setTemplate('question');
     }
 
-    public static function start(string $title): Page
-    {
-        // TODO
-        return Page::create($title);
+    public static function start(
+        string $title,
+        string $action,
+        string $buttonLabel,
+        string $blade
+    ): Page {
+        return Page::create($title)
+            ->setAction($action)
+            ->setSubmitButtonLabel($buttonLabel)
+            ->setSubmitButtonType(Page::START_BUTTON)
+            ->setContent($blade)
+            ->setTemplate('start');
     }
 
     public static function summary(
