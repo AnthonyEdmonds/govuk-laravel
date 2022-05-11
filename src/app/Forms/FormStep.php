@@ -3,8 +3,10 @@
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
+use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Route;
 
 abstract class FormStep implements View
 {
@@ -34,33 +36,24 @@ abstract class FormStep implements View
     {
         // TODO if existing
 
-        return true
-            ? route('govuk-form.update', [
-                $this->form::KEY,
-                $this::KEY
-            ])
-            : route('govuk-form.store', [
-                $this->form::KEY,
-                $this::KEY
-            ]);
+        return route(Route::currentRouteName(), [static::KEY]);
     }
 
     protected function submitMethod(): string
     {
         // TODO If new POST, if existing PUT
 
-        return true
-            ? 'PUT'
-            : 'POST';
+        return 'POST';
     }
 
     protected function backRoute(): string
     {
-        return $this->form->previousRoute();
+        // TODO PRevious route
+        return 'a';
     }
 
     // View Contract
-    public function render(): View
+    public function render(): string
     {
         $question = $this->question();
 
@@ -72,7 +65,7 @@ abstract class FormStep implements View
                 $this->backRoute(),
                 $this->submitMethod(),
                 static::BLADE,
-            )
+            )->render()
             : GovukPage::questions(
                 static::TITLE,
                 $question,
@@ -81,7 +74,7 @@ abstract class FormStep implements View
                 $this->backRoute(),
                 $this->submitMethod(),
                 static::BLADE,
-            );
+            )->render();
     }
 
     public function name(): string

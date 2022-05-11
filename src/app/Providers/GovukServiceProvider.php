@@ -62,23 +62,23 @@ class GovukServiceProvider extends ServiceProvider
                         if ($formClass::HAS_START_PAGE === true) {
                             Route::get('/start', 'start')
                                 ->name('start')
-                                ->defaults('formKey', $formClass);
+                                ->defaults('formClass', $formClass);
                         }
 
                         if ($formClass::HAS_SUMMARY_PAGE === true) {
                             Route::get('/summary', 'summary')
                                 ->name('summary')
-                                ->defaults('formKey', $formClass);
+                                ->defaults('formClass', $formClass);
                         }
 
                         Route::post('/submit', 'submit')
                             ->name('submit')
-                            ->defaults('formKey', $formClass);
+                            ->defaults('formClass', $formClass);
 
                         if ($formClass::HAS_CONFIRMATION_PAGE === true) {
                             Route::get('/confirmation', 'confirmation')
                                 ->name('confirmation')
-                                ->defaults('formKey', $formClass);
+                                ->defaults('formClass', $formClass);
                         }
 
                         // TODO Steps with only edit, and no create? Can there be a single method for both?
@@ -87,19 +87,19 @@ class GovukServiceProvider extends ServiceProvider
                             ->group(function () use ($formClass) {
                                 Route::get('/', 'create')
                                     ->name('create')
-                                    ->defaults('formKey', $formClass);
+                                    ->defaults('formClass', $formClass);
 
                                 Route::post('/', 'store')
                                     ->name('store')
-                                    ->defaults('formKey', $formClass);
+                                    ->defaults('formClass', $formClass);
 
                                 Route::get('/edit', 'edit')
                                     ->name('edit')
-                                    ->defaults('formKey', $formClass);
+                                    ->defaults('formClass', $formClass);
 
                                 Route::put('/edit', 'update')
                                     ->name('update')
-                                    ->defaults('formKey', $formClass);
+                                    ->defaults('formClass', $formClass);
                             });
                     });
             });

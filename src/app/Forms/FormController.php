@@ -27,7 +27,7 @@ class FormController extends Controller
         );
     }
 
-    public function create(string $formClass, string $step): View
+    public function create(string $step, string $formClass): View
     {
         //$this->authorize();
 
@@ -36,23 +36,23 @@ class FormController extends Controller
         return $form->getStepByKey($step);
     }
 
-    public function store(Request $request, string $formClass, string $step): RedirectResponse
+    public function store(Request $request, string $step, string $formClass): RedirectResponse
     {
         //$this->authorize();
 
-        return $formClass->next();
+        return redirect()->route($formClass->nextStepRoute());
     }
 
-    public function edit(string $formClass, string $step): View
+    public function edit(string $step, string $formClass): View
     {
         //$this->authorize();
     }
 
-    public function update(Request $request, string $formClass, string $step): RedirectResponse
+    public function update(Request $request, string $step, string $formClass): RedirectResponse
     {
         //$this->authorize();
 
-        return $formClass->next();
+        return redirect()->route($formClass->nextStepRoute());
     }
 
     public function summary(string $formClass): View

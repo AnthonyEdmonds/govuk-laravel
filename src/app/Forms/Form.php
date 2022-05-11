@@ -88,7 +88,7 @@ abstract class Form
         throw new FormStepNotFound("$section-$step");
     }
 
-    protected function getStepClassByKey(int $key): string
+    protected function getStepClassByKey(string $key): string
     {
         foreach (static::SECTIONS as $section) {
             if ($section::hasStepClassByKey($key) === true) {
