@@ -7,18 +7,18 @@ use Illuminate\Support\Facades\Session;
 
 abstract class Form
 {
-    const KEY = 'form';
+    public const KEY = 'form';
 
-    const TITLE = 'Form Title';
+    public const TITLE = 'Form Title';
 
-    const HAS_START_PAGE = true;
-    const START_BUTTON_LABEL = 'Start';
-    const START_BLADE = 'form.start';
+    public const HAS_START_PAGE = true;
+    public const START_BUTTON_LABEL = 'Start';
+    public const START_BLADE = 'form.start';
 
-    const HAS_SUMMARY_PAGE = true;
-    const HAS_CONFIRMATION_PAGE = true;
+    public const HAS_SUMMARY_PAGE = true;
+    public const HAS_CONFIRMATION_PAGE = true;
 
-    const SECTIONS = [];
+    public const SECTIONS = [];
 
     protected int $currentSection = 0;
     protected int $currentStep = 0;
@@ -99,12 +99,13 @@ abstract class Form
     protected function getRouteForStep(int $section, int $step): string
     {
         return route("$this->routeBase.create", [
-            $this->getStep(0, 0)::KEY
+            $this->getStepClassByIndex(0, 0)::KEY
         ]);
     }
 
-    protected function getStep(int $section, int $step): FormStep
+    protected function getStepClassByIndex(int $section, int $step): string
     {
-        return static::SECTIONS[$section]->getStep($step);
+        $section = static::SECTIONS[$section];
+        return $section::getStepClassByIndex($step);
     }
 }

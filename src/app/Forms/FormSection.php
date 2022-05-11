@@ -6,31 +6,27 @@ use AnthonyEdmonds\GovukLaravel\Exceptions\FormStepNotFound;
 
 abstract class FormSection
 {
-    const KEY = 'form-section';
-    const STEPS = [];
-
-    protected Form $form;
-
-    // Construction
-    public function __construct(Form $form)
-    {
-        $this->form = $form;
-    }
+    public const KEY = 'form-section';
+    public const STEPS = [];
 
     // Steps
-    public function getStep(int $index): FormStep
+    public static function getStepClassByIndex(int $index): string
     {
-        return static::STEPS[$index];
+        if (isset(static::STEPS[$index]) === true) {
+            return static::STEPS[$index];
+        }
+
+        throw new FormStepNotFound($index);
     }
 
-    public function getStepByKey(string $stepKey): FormStep
+    public static function getStepClassByKey(string $key): string
     {
         foreach (static::STEPS as $step) {
-            if ($step::KEY === $stepKey) {
+            if ($step::KEY === $key) {
                 return $step;
             }
         }
 
-        throw new FormStepNotFound($this->form, $this, $stepKey);
+        throw new FormStepNotFound($key);
     }
 }

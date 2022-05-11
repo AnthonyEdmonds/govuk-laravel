@@ -8,20 +8,18 @@ use Illuminate\Contracts\View\View;
 
 abstract class FormStep implements View
 {
-    const KEY = 'form-step';
-    const BLADE = null;
-    const BUTTON_LABEL = 'Continue';
-    const TITLE = null;
+    public const KEY = 'form-step';
+    public const BLADE = null;
+    public const BUTTON_LABEL = 'Continue';
+    public const TITLE = null;
 
     protected Form $form;
-    protected FormSection $formSection;
     protected array $withs;
 
     // Construction
-    public function __construct(Form $form, FormSection $formSection)
+    public function __construct(Form $form)
     {
         $this->form = $form;
-        $this->formSection = $formSection;
     }
 
     // Question
