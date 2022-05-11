@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\Session;
 
 abstract class Form
 {
-    const KEY = 'form';
+    public const KEY = 'form';
 
-    const TITLE = 'Form Title';
-    const START_BUTTON_LABEL = 'Start';
-    const START_BLADE = 'form.start';
+    public const TITLE = 'Form Title';
+    public const START_BUTTON_LABEL = 'Start';
+    public const START_BLADE = 'form.start';
 
-    const HAS_START_PAGE = false;
-    const HAS_TASKS_PAGE = false;
-    const HAS_SUMMARY_PAGE = false;
-    const HAS_SUCCESS_PAGE = false;
+    public const HAS_START_PAGE = false;
+    public const HAS_TASKS_PAGE = false;
+    public const HAS_SUMMARY_PAGE = false;
+    public const HAS_CONFIRMATION_PAGE = false;
 
-    const SECTIONS = [];
+    public const SECTIONS = [];
 
     protected string $currentPageKey = 'start';
 

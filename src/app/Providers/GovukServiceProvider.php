@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Providers;
 
+use AnthonyEdmonds\GovukLaravel\Forms\FormController;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\AfterDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnDate;
@@ -11,6 +12,7 @@ use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rule;
 
@@ -53,7 +55,61 @@ class GovukServiceProvider extends ServiceProvider
 
     protected function bootRoutes(): void
     {
-        $this->loadRoutesFrom(__DIR__.'/../../routes/forms.php');
+        if (Route::hasMacro('govukForm') === false) {
+            Route::macro('govukForm', function (string $formClass) {
+                Route::controller(FormController::class)
+                    ->group(function () use ($formClass) {
+                        if ($formClass::HAS_START_PAGE === true) {
+                            Route::get('/start', 'start')
+                                ->name('start')
+                                ->defaults('formKey', $formClass);
+                        }
+
+                        if ($formClass::HAS_TASKS_PAGE === true) {
+                            Route::get('/tasks', 'tasks')
+                                ->name('tasks')
+                                ->defaults('formKey', $formClass);
+                        }
+
+                        if ($formClass::HAS_SUMMARY_PAGE === true) {
+                            Route::get('/summary', 'summary')
+                                ->name('summary')
+                                ->defaults('formKey', $formClass);
+                        }
+
+                        Route::post('/submit', 'submit')
+                            ->name('submit')
+                            ->defaults('formKey', $formClass);
+
+                        if ($formClass::HAS_CONFIRMATION_PAGE === true) {
+                            Route::get('/confirmation', 'confirmation')
+                                ->name('confirmation')
+                                ->defaults('formKey', $formClass);
+                        }
+
+                        // Steps with only edit, and no create? Can there be a single method for both?
+
+                        Route::prefix('/{step}')
+                            ->group(function () use ($formClass) {
+                                Route::get('/', 'create')
+                                    ->name('create')
+                                    ->defaults('formKey', $formClass);
+
+                                Route::post('/', 'store')
+                                    ->name('store')
+                                    ->defaults('formKey', $formClass);
+
+                                Route::get('/edit', 'edit')
+                                    ->name('edit')
+                                    ->defaults('formKey', $formClass);
+
+                                Route::put('/edit', 'update')
+                                    ->name('update')
+                                    ->defaults('formKey', $formClass);
+                            });
+                    });
+            });
+        }
     }
 
     protected function bootRules(): void

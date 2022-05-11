@@ -13,39 +13,39 @@ class FormController extends Controller
 {
     use AuthorizesRequests;
 
-    public function start(string $form): View
+    public function start(string $formClass): View
     {
         //$this->authorize();
 
         return GovukPage::start(
-            $form::TITLE,
-            $form::HAS_TASKS_PAGE === true
-                ? route('govuk-form.tasks', [$form::KEY])
-                : $form::firstStep(),
-            $form::START_BUTTON_LABEL,
-            $form::START_BLADE
+            $formClass::TITLE,
+            $formClass::HAS_TASKS_PAGE === true
+                ? route('govuk-form.tasks', [$formClass::KEY])
+                : $formClass::firstStep(),
+            $formClass::START_BUTTON_LABEL,
+            $formClass::START_BLADE
         );
     }
 
-    public function tasks(string $form): View
+    public function tasks(string $formClass): View
     {
         //$this->authorize();
 
         return GovukPage::tasklist();
     }
 
-    public function summary(string $form): View
+    public function summary(string $formClass): View
     {
         //$this->authorize();
 
         return GovukPage::summary();
     }
 
-    public function submit(string $form): RedirectResponse
+    public function submit(string $formClass): RedirectResponse
     {
         //$this->authorize();
 
-        $form = new $form();
+        $form = new $formClass();
         $form->submit();
 
         return redirect()->route('govuk-form.confirmation', [
@@ -53,36 +53,36 @@ class FormController extends Controller
         ]);
     }
 
-    public function confirmation(string $form): View
+    public function confirmation(string $formClass): View
     {
         //$this->authorize();
 
         return GovukPage::confirmation();
     }
 
-    public function create(string $form, string $step): View
+    public function create(string $formClass, string $step): View
     {
         //$this->authorize();
 
         request()->route('form');
     }
 
-    public function store(Request $request, string $form, string $step): RedirectResponse
+    public function store(Request $request, string $formClass, string $step): RedirectResponse
     {
         //$this->authorize();
 
-        return $form->next();
+        return $formClass->next();
     }
 
-    public function edit(string $form, string $step): View
+    public function edit(string $formClass, string $step): View
     {
         //$this->authorize();
     }
 
-    public function update(Request $request, string $form, string $step): RedirectResponse
+    public function update(Request $request, string $formClass, string $step): RedirectResponse
     {
         //$this->authorize();
 
-        return $form->next();
+        return $formClass->next();
     }
 }

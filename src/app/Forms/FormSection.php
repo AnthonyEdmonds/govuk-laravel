@@ -6,8 +6,8 @@ use Illuminate\Http\RedirectResponse;
 
 abstract class FormSection
 {
-    const KEY = 'form-section';
-    const STEPS = [];
+    public const KEY = 'form-section';
+    public const STEPS = [];
 
     protected Form $form;
 

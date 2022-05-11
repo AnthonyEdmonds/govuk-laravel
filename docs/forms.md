@@ -9,19 +9,25 @@
 
 ## Routes
 
-Generic routes are added to Laravel that allow any created forms to be accessed:
+Use the `govukForm` macro to add routes for the form:
 
-| Page         | Route                       | Method | Name                    |
-| ------------ | --------------------------- | ------ | ----------------------- |
-| Start        | /{form-key}/start           | get    | govuk-form.start        |
-| Task List    | /{form-key}/tasks           | get    | govuk-form.tasks        |
-| Summary      | /{form-key}/summary         | get    | govuk-form.summary      |
-| Submit       | /{form-key}/submit          | post   | govuk-form.submit       |
-| Confirmation | /{form-key}/confirmation    | get    | govuk-form.confirmation |
-| Create       | /{form-key}/{step-key}      | get    | govuk-form.create       |
-| Store        | /{form-key}/{step-key}      | post   | govuk-form.store        |
-| Edit         | /{form-key}/{step-key}/edit | get    | govuk-form.edit         |
-| Update       | /{form-key}/{step-key}/edit | put    | govuk-form.update       |
+```php
+Route::prefix('/my-form')
+    ->name('my-form.')
+    ->govukForm(MyForm::class);
+```
+
+| Page         | Route            | Method | Name         |
+| ------------ | ---------------- | ------ | ------------ |
+| Start        | /start           | get    | start        |
+| Task List    | /tasks           | get    | tasks        |
+| Summary      | /summary         | get    | summary      |
+| Submit       | /submit          | post   | submit       |
+| Confirmation | /confirmation    | get    | confirmation |
+| Create       | /{step-key}      | get    | create       |
+| Store        | /{step-key}      | post   | store        |
+| Edit         | /{step-key}/edit | get    | edit         |
+| Update       | /{step-key}/edit | put    | update       |
 
 Movement internally within the form is handled automatically by the `FormController`.
 
