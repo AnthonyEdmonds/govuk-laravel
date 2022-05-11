@@ -4,6 +4,7 @@ namespace AnthonyEdmonds\GovukLaravel\Forms;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
 abstract class Form
@@ -14,23 +15,33 @@ abstract class Form
     public const START_BUTTON_LABEL = 'Start';
     public const START_BLADE = 'form.start';
 
-    public const HAS_START_PAGE = false;
-    public const HAS_TASKS_PAGE = false;
-    public const HAS_SUMMARY_PAGE = false;
-    public const HAS_CONFIRMATION_PAGE = false;
+    public const HAS_START_PAGE = true;
+    public const HAS_TASKS_PAGE = true;
+    public const HAS_SUMMARY_PAGE = true;
+    public const HAS_CONFIRMATION_PAGE = true;
 
     public const SECTIONS = [];
 
-    protected string $currentPageKey = 'start';
+    protected int $currentSection = 0;
+    protected int $currentStep = 0;
+    protected ?string $routeBase = null;
 
     // Construction
     public function __construct()
     {
-        if (Session::has(self::KEY) === true) {
-            $form = Session::get(self::KEY);
+        $this->loadFromSession();
+        $this->setRouteBase();
+    }
 
-            $this->currentPageKey = $form['currentPageKey'];
-        }
+    // Routes
+    public function tasksRoute(): string
+    {
+        return route("$this->routeBase.tasks");
+    }
+
+    public function firstStepRoute(): string
+    {
+        return route("$this->routeBase.create");
     }
 
     // Actions
@@ -47,7 +58,34 @@ abstract class Form
     public function saveFormProgress(): void
     {
         Session::put(self::KEY, [
-            'currentPageKey' => $this->currentPageKey,
+            'currentSection' => $this->currentSection,
+            'currentStep' => $this->currentStep,
+            'routeBase' => $this->routeBase,
         ]);
+    }
+
+    // Utilities
+    protected function loadFromSession(): void
+    {
+        if (Session::has(self::KEY) === true) {
+            $formValues = Session::get(self::KEY);
+
+            foreach ($formValues as $key => $value) {
+                $this->$key = $value;
+            }
+        }
+    }
+
+    protected function setRouteBase(): void
+    {
+        if ($this->routeBase === null) {
+            $route = Route::currentRouteName();
+
+            $this->routeBase = substr(
+                $route,
+                0,
+                strrpos($route, '.')
+            );
+        }
     }
 }

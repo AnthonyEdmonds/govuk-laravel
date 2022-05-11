@@ -17,13 +17,15 @@ class FormController extends Controller
     {
         //$this->authorize();
 
+        $form = new $formClass();
+
         return GovukPage::start(
-            $formClass::TITLE,
-            $formClass::HAS_TASKS_PAGE === true
-                ? route('govuk-form.tasks', [$formClass::KEY])
-                : $formClass::firstStep(),
-            $formClass::START_BUTTON_LABEL,
-            $formClass::START_BLADE
+            $form::TITLE,
+            $form::HAS_TASKS_PAGE === true
+                ? $form->tasksRoute()
+                : $form->firstStepRoute(),
+            $form::START_BUTTON_LABEL,
+            $form::START_BLADE
         );
     }
 

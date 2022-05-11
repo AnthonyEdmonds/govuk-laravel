@@ -14,20 +14,24 @@ Use the `govukForm` macro to add routes for the form:
 ```php
 Route::prefix('/my-form')
     ->name('my-form.')
-    ->govukForm(MyForm::class);
+    ->group(function () {
+        Route::govukForm(MyForm::class);
+    });
 ```
 
-| Page         | Route            | Method | Name         |
-| ------------ | ---------------- | ------ | ------------ |
-| Start        | /start           | get    | start        |
-| Task List    | /tasks           | get    | tasks        |
-| Summary      | /summary         | get    | summary      |
-| Submit       | /submit          | post   | submit       |
-| Confirmation | /confirmation    | get    | confirmation |
-| Create       | /{step-key}      | get    | create       |
-| Store        | /{step-key}      | post   | store        |
-| Edit         | /{step-key}/edit | get    | edit         |
-| Update       | /{step-key}/edit | put    | update       |
+Routes will be automatically added for each of the features enabled on the form.
+
+| Page         | Route            | Method | Name         | Optional |
+| ------------ | ---------------- | ------ | ------------ | -------- |
+| Start        | /start           | get    | start        | Yes      |
+| Task List    | /tasks           | get    | tasks        | Yes      |
+| Summary      | /summary         | get    | summary      | Yes      |
+| Submit       | /submit          | post   | submit       | No       |
+| Confirmation | /confirmation    | get    | confirmation | Yes      |
+| Create       | /{step-key}      | get    | create       | No       |
+| Store        | /{step-key}      | post   | store        | No       |
+| Edit         | /{step-key}/edit | get    | edit         | No       |
+| Update       | /{step-key}/edit | put    | update       | No       |
 
 Movement internally within the form is handled automatically by the `FormController`.
 

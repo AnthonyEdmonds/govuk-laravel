@@ -1,7 +1,5 @@
 @extends('govuk::layout.page')
 
 @section('main')
-    <x-govuk::button :type="$submitButtonType" :href="$submitButtonHref">
-        {{ $submitButtonLabel }}
-    </x-govuk::button>
+    <x-govuk::a as-start-button :href="$action">{{ $submitButtonLabel }}</x-govuk::a>
 @endsection
