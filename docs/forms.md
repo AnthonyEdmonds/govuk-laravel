@@ -24,7 +24,6 @@ Routes will be automatically added for each of the features enabled on the form.
 | Page         | Route            | Method | Name         | Optional |
 | ------------ | ---------------- | ------ | ------------ | -------- |
 | Start        | /start           | get    | start        | Yes      |
-| Task List    | /tasks           | get    | tasks        | Yes      |
 | Summary      | /summary         | get    | summary      | Yes      |
 | Submit       | /submit          | post   | submit       | No       |
 | Confirmation | /confirmation    | get    | confirmation | Yes      |
@@ -36,8 +35,7 @@ Routes will be automatically added for each of the features enabled on the form.
 Movement internally within the form is handled automatically by the `FormController`.
 
 1. Users start by navigating to the `start` route
-2. Users are taken to the `tasks` route, and shown each section they need to complete
-3. Users `create` answers to each step in a section, before being returned to the `tasks` page
+3. Users `create` answers to each step in a section
 4. Once all sections are complete they are taken to the `summary` page
 5. Users may review and `edit` their answers.
 6. Users may then `submit` the form

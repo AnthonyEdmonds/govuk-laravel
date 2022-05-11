@@ -2,12 +2,12 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
-use Illuminate\Http\RedirectResponse;
+use AnthonyEdmonds\GovukLaravel\Exceptions\FormStepNotFound;
 
 abstract class FormSection
 {
-    public const KEY = 'form-section';
-    public const STEPS = [];
+    const KEY = 'form-section';
+    const STEPS = [];
 
     protected Form $form;
 
@@ -15,5 +15,22 @@ abstract class FormSection
     public function __construct(Form $form)
     {
         $this->form = $form;
+    }
+
+    // Steps
+    public function getStep(int $index): FormStep
+    {
+        return self::STEPS[$index];
+    }
+
+    public function getStepByKey(string $stepKey): FormStep
+    {
+        foreach (self::STEPS as $step) {
+            if ($step::KEY === $stepKey) {
+                return $step;
+            }
+        }
+
+        throw new FormStepNotFound($this->form, $this, $stepKey);
     }
 }

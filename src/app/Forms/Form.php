@@ -2,25 +2,23 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
 abstract class Form
 {
-    public const KEY = 'form';
+    const KEY = 'form';
 
-    public const TITLE = 'Form Title';
-    public const START_BUTTON_LABEL = 'Start';
-    public const START_BLADE = 'form.start';
+    const TITLE = 'Form Title';
 
-    public const HAS_START_PAGE = true;
-    public const HAS_TASKS_PAGE = true;
-    public const HAS_SUMMARY_PAGE = true;
-    public const HAS_CONFIRMATION_PAGE = true;
+    const HAS_START_PAGE = true;
+    const START_BUTTON_LABEL = 'Start';
+    const START_BLADE = 'form.start';
 
-    public const SECTIONS = [];
+    const HAS_SUMMARY_PAGE = true;
+    const HAS_CONFIRMATION_PAGE = true;
+
+    const SECTIONS = [];
 
     protected int $currentSection = 0;
     protected int $currentStep = 0;
@@ -34,14 +32,23 @@ abstract class Form
     }
 
     // Routes
-    public function tasksRoute(): string
-    {
-        return route("$this->routeBase.tasks");
-    }
-
     public function firstStepRoute(): string
     {
-        return route("$this->routeBase.create");
+        return $this->getRouteForStep(0, 0);
+    }
+
+    public function nextStepRoute(): string
+    {
+        // isAtEndOfSection
+
+        return $this->getRouteForStep();
+    }
+
+    public function previousStepRoute(): string
+    {
+        // isAtStartOfSection
+
+        return $this->getRouteForStep();
     }
 
     // Actions
@@ -87,5 +94,17 @@ abstract class Form
                 strrpos($route, '.')
             );
         }
+    }
+
+    protected function getRouteForStep(int $section, int $step): string
+    {
+        return route("$this->routeBase.create", [
+            $this->getStep(0, 0)::KEY
+        ]);
+    }
+
+    protected function getStep(int $section, int $step): FormStep
+    {
+        return self::SECTIONS[$section]->getStep($step);
     }
 }

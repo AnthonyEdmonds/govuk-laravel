@@ -13,6 +13,7 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * Additional conditional input support for radios
 * Automatic / implicit form session handling
 * Index / List page
+* Task List, once added as official component
 
 # Road to v1
 
@@ -22,8 +23,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 * GovukPage
     * Confirmation
     * Feedback
-    * Start
-    * Tasklist
 
 ## Tests to Backfill
 

@@ -65,12 +65,6 @@ class GovukServiceProvider extends ServiceProvider
                                 ->defaults('formKey', $formClass);
                         }
 
-                        if ($formClass::HAS_TASKS_PAGE === true) {
-                            Route::get('/tasks', 'tasks')
-                                ->name('tasks')
-                                ->defaults('formKey', $formClass);
-                        }
-
                         if ($formClass::HAS_SUMMARY_PAGE === true) {
                             Route::get('/summary', 'summary')
                                 ->name('summary')

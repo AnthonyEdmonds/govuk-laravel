@@ -159,10 +159,4 @@ class GovukPage
             ->setSummary($summary)
             ->setTemplate('summary');
     }
-
-    public static function tasklist(string $title): Page
-    {
-        // TODO
-        return Page::create($title);
-    }
 }

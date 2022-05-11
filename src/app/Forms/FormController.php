@@ -21,45 +21,10 @@ class FormController extends Controller
 
         return GovukPage::start(
             $form::TITLE,
-            $form::HAS_TASKS_PAGE === true
-                ? $form->tasksRoute()
-                : $form->firstStepRoute(),
+            $form->firstStepRoute(),
             $form::START_BUTTON_LABEL,
             $form::START_BLADE
         );
-    }
-
-    public function tasks(string $formClass): View
-    {
-        //$this->authorize();
-
-        return GovukPage::tasklist();
-    }
-
-    public function summary(string $formClass): View
-    {
-        //$this->authorize();
-
-        return GovukPage::summary();
-    }
-
-    public function submit(string $formClass): RedirectResponse
-    {
-        //$this->authorize();
-
-        $form = new $formClass();
-        $form->submit();
-
-        return redirect()->route('govuk-form.confirmation', [
-            $form::KEY
-        ]);
-    }
-
-    public function confirmation(string $formClass): View
-    {
-        //$this->authorize();
-
-        return GovukPage::confirmation();
     }
 
     public function create(string $formClass, string $step): View
@@ -86,5 +51,31 @@ class FormController extends Controller
         //$this->authorize();
 
         return $formClass->next();
+    }
+
+    public function summary(string $formClass): View
+    {
+        //$this->authorize();
+
+        return GovukPage::summary();
+    }
+
+    public function submit(string $formClass): RedirectResponse
+    {
+        //$this->authorize();
+
+        $form = new $formClass();
+        $form->submit();
+
+        return redirect()->route('govuk-form.confirmation', [
+            $form::KEY
+        ]);
+    }
+
+    public function confirmation(string $formClass): View
+    {
+        //$this->authorize();
+
+        return GovukPage::confirmation();
     }
 }

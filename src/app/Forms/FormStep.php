@@ -8,10 +8,10 @@ use Illuminate\Contracts\View\View;
 
 abstract class FormStep implements View
 {
-    public const KEY = 'form-step';
-    public const BLADE = null;
-    public const BUTTON_LABEL = 'Continue';
-    public const TITLE = null;
+    const KEY = 'form-step';
+    const BLADE = null;
+    const BUTTON_LABEL = 'Continue';
+    const TITLE = null;
 
     protected Form $form;
     protected FormSection $formSection;
