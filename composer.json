@@ -41,7 +41,7 @@
             ]
         },
         "npm": {
-            "govuk-frontend": "^3"
+            "govuk-frontend": "^4"
         }
     },
     "config": {

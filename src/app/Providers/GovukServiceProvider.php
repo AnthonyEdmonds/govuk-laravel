@@ -11,7 +11,6 @@ use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rule;
 
@@ -28,6 +27,7 @@ class GovukServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->bootPublishes();
+        $this->bootRoutes();
         $this->bootRules();
         $this->bootViews();
     }
@@ -49,6 +49,11 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/scss/inter.scss' => resource_path('scss/inter.scss'),
             __DIR__.'/../../resources/fonts/inter' => resource_path('fonts/inter'),
         ], 'govuk-fonts');
+    }
+
+    protected function bootRoutes(): void
+    {
+        $this->loadRoutesFrom(__DIR__.'/../../routes/forms.php');
     }
 
     protected function bootRules(): void

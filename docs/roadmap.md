@@ -11,9 +11,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## Enhancements
 
 * Additional conditional input support for radios
-* Add generic controllers, routes, and validation for common patterns
-    * Single question
-    * Confirm
 * Automatic / implicit form session handling
 * Index / List page
 
@@ -23,6 +20,8 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 * Modify the Laravel error messages language file to match the examples in https://design-system.service.gov.uk/components/text-input/
 * GovukPage
+    * Confirmation
+    * Feedback
     * Start
     * Tasklist
 

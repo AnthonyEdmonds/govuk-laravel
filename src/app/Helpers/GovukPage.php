@@ -32,6 +32,13 @@ class GovukPage
             ->setTemplate('confirm');
     }
 
+    public static function confirmation(string $title): Page
+    {
+        // TODO
+
+        return Page::create($title);
+    }
+
     public static function custom(
         string $title,
         string $blade,
@@ -51,6 +58,13 @@ class GovukPage
             ->setBack(back()->getTargetUrl())
             ->setContent($contentBlade)
             ->setTemplate('error');
+    }
+
+    public static function feedback(string $title): Page
+    {
+        // TODO
+
+        return Page::create($title);
     }
 
     public static function question(
