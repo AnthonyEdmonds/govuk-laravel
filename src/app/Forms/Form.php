@@ -59,12 +59,12 @@ abstract class Form
     // Session
     public function clearFormProgress(): void
     {
-        Session::forget(self::KEY);
+        Session::forget(static::KEY);
     }
 
     public function saveFormProgress(): void
     {
-        Session::put(self::KEY, [
+        Session::put(static::KEY, [
             'currentSection' => $this->currentSection,
             'currentStep' => $this->currentStep,
             'routeBase' => $this->routeBase,
@@ -74,8 +74,8 @@ abstract class Form
     // Utilities
     protected function loadFromSession(): void
     {
-        if (Session::has(self::KEY) === true) {
-            $formValues = Session::get(self::KEY);
+        if (Session::has(static::KEY) === true) {
+            $formValues = Session::get(static::KEY);
 
             foreach ($formValues as $key => $value) {
                 $this->$key = $value;
@@ -105,6 +105,6 @@ abstract class Form
 
     protected function getStep(int $section, int $step): FormStep
     {
-        return self::SECTIONS[$section]->getStep($step);
+        return static::SECTIONS[$section]->getStep($step);
     }
 }

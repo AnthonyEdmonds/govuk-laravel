@@ -20,12 +20,12 @@ abstract class FormSection
     // Steps
     public function getStep(int $index): FormStep
     {
-        return self::STEPS[$index];
+        return static::STEPS[$index];
     }
 
     public function getStepByKey(string $stepKey): FormStep
     {
-        foreach (self::STEPS as $step) {
+        foreach (static::STEPS as $step) {
             if ($step::KEY === $stepKey) {
                 return $step;
             }

@@ -69,29 +69,29 @@ abstract class FormStep implements View
         return $question instanceof Question === true
             ? GovukPage::question(
                 $question,
-                self::BUTTON_LABEL,
+                static::BUTTON_LABEL,
                 $this->submitRoute(),
                 $this->backRoute(),
                 $this->submitMethod(),
-                self::BLADE,
+                static::BLADE,
             )
             : GovukPage::questions(
-                self::TITLE,
+                static::TITLE,
                 $question,
-                self::BUTTON_LABEL,
+                static::BUTTON_LABEL,
                 $this->submitRoute(),
                 $this->backRoute(),
                 $this->submitMethod(),
-                self::BLADE,
+                static::BLADE,
             );
     }
 
     public function name(): string
     {
-        return self::KEY;
+        return static::KEY;
     }
 
-    public function with($key, $value = null): self
+    public function with($key, $value = null): static
     {
         $this->withs[$key] = $value;
         return $this;
