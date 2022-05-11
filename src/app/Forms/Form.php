@@ -2,8 +2,8 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
+use AnthonyEdmonds\GovukLaravel\Exceptions\FormStepNotFound;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
 
 abstract class Form
 {
@@ -20,15 +20,23 @@ abstract class Form
 
     public const SECTIONS = [];
 
-    protected int $currentSection = 0;
-    protected int $currentStep = 0;
-    protected ?string $routeBase = null;
+    protected string $routeBase;
 
     // Construction
     public function __construct()
     {
-        $this->loadFromSession();
         $this->setRouteBase();
+    }
+
+    // Actions
+    //abstract public function authorize(): bool;
+
+    //abstract public function submit(): void;
+
+    public function getStepByKey(string $key): FormStep
+    {
+        $stepClass = $this->getStepClassByKey($key);
+        return new $stepClass($this);
     }
 
     // Routes
@@ -51,49 +59,16 @@ abstract class Form
         return $this->getRouteForStep();
     }
 
-    // Actions
-    //abstract public function authorize(): bool;
-
-    //abstract public function submit(): void;
-
-    // Session
-    public function clearFormProgress(): void
-    {
-        Session::forget(static::KEY);
-    }
-
-    public function saveFormProgress(): void
-    {
-        Session::put(static::KEY, [
-            'currentSection' => $this->currentSection,
-            'currentStep' => $this->currentStep,
-            'routeBase' => $this->routeBase,
-        ]);
-    }
-
     // Utilities
-    protected function loadFromSession(): void
-    {
-        if (Session::has(static::KEY) === true) {
-            $formValues = Session::get(static::KEY);
-
-            foreach ($formValues as $key => $value) {
-                $this->$key = $value;
-            }
-        }
-    }
-
     protected function setRouteBase(): void
     {
-        if ($this->routeBase === null) {
-            $route = Route::currentRouteName();
+        $route = Route::currentRouteName();
 
-            $this->routeBase = substr(
-                $route,
-                0,
-                strrpos($route, '.')
-            );
-        }
+        $this->routeBase = substr(
+            $route,
+            0,
+            strrpos($route, '.')
+        );
     }
 
     protected function getRouteForStep(int $section, int $step): string
@@ -105,7 +80,22 @@ abstract class Form
 
     protected function getStepClassByIndex(int $section, int $step): string
     {
-        $section = static::SECTIONS[$section];
-        return $section::getStepClassByIndex($step);
+        if (isset(static::SECTIONS[$section]) === true) {
+            $section = static::SECTIONS[$section];
+            return $section::getStepClassByIndex($step);
+        }
+
+        throw new FormStepNotFound("$section-$step");
+    }
+
+    protected function getStepClassByKey(int $key): string
+    {
+        foreach (static::SECTIONS as $section) {
+            if ($section::hasStepClassByKey($key) === true) {
+                return $section::getStepClassByKey($key);
+            }
+        }
+
+        throw new FormStepNotFound($key);
     }
 }

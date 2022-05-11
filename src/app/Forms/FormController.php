@@ -31,7 +31,9 @@ class FormController extends Controller
     {
         //$this->authorize();
 
-        request()->route('form');
+        $form = new $formClass();
+
+        return $form->getStepByKey($step);
     }
 
     public function store(Request $request, string $formClass, string $step): RedirectResponse

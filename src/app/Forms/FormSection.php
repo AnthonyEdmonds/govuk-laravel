@@ -19,6 +19,11 @@ abstract class FormSection
         throw new FormStepNotFound($index);
     }
 
+    public static function hasStepClassByIndex(int $index): bool
+    {
+        return isset(static::STEPS[$index]) === true;
+    }
+
     public static function getStepClassByKey(string $key): string
     {
         foreach (static::STEPS as $step) {
@@ -28,5 +33,16 @@ abstract class FormSection
         }
 
         throw new FormStepNotFound($key);
+    }
+
+    public static function hasStepClassByKey(string $key): bool
+    {
+        foreach (static::STEPS as $step) {
+            if ($step::KEY === $key) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
