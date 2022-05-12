@@ -7,7 +7,7 @@ use AnthonyEdmonds\GovukLaravel\Forms\FormSection;
 class TestFormSection extends FormSection
 {
     const STEPS = [
-        TestFormStep::class,
-        TestFormStep::class,
+        TestFormStepQuestion::class,
+        TestFormStepQuestion::class,
     ];
 }

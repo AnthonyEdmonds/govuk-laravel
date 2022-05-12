@@ -14,6 +14,13 @@ abstract class TestCase extends BaseTestCase
     use SetsViewVariables;
     use WithFaker;
     
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->withoutMix();
+    }
+
     protected function getPackageProviders($app): array
     {
         return [

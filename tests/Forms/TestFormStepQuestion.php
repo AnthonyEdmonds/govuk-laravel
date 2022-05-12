@@ -3,13 +3,17 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Forms;
 
 use AnthonyEdmonds\GovukLaravel\Forms\FormStep;
+use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion;
 use AnthonyEdmonds\GovukLaravel\Questions\Question;
 
-class TestFormStep extends FormStep
+class TestFormStepQuestion extends FormStep
 {
     public function question(): array|Question
     {
-        // TODO: Implement question() method.
+        return GovukQuestion::input(
+            'My question?',
+            'question'
+        );
     }
 
     public function store(): void
