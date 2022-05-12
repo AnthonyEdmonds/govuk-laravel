@@ -27,7 +27,7 @@ abstract class Form
     {
         $this->setRouteBase();
     }
-    
+
     // Accessors
     public function getRouteBase(): string
     {

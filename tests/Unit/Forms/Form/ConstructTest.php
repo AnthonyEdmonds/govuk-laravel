@@ -24,7 +24,7 @@ class ConstructTest extends TestCase
     public function testSetsRouteBase(): void
     {
         $this->assertEquals(
-            'test.start',
+            'test.form',
             $this->form->getRouteBase()
         );
     }
