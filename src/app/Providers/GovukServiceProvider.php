@@ -83,7 +83,7 @@ class GovukServiceProvider extends ServiceProvider
 
                         // TODO Steps with only edit, and no create? Can there be a single method for both?
 
-                        Route::prefix('/{step}')
+                        Route::prefix('/{sectionKey}/{stepKey}')
                             ->group(function () use ($formClass) {
                                 Route::get('/', 'create')
                                     ->name('create')
@@ -97,7 +97,7 @@ class GovukServiceProvider extends ServiceProvider
                                     ->name('edit')
                                     ->defaults('formClass', $formClass);
 
-                                Route::put('/edit', 'update')
+                                Route::post('/edit', 'update')
                                     ->name('update')
                                     ->defaults('formClass', $formClass);
                             });

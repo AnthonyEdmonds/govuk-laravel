@@ -3,105 +3,144 @@
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
 use AnthonyEdmonds\GovukLaravel\Exceptions\FormStepNotFound;
-use Illuminate\Support\Facades\Route;
+use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
+use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
 
 abstract class Form
 {
-    public const KEY = 'form';
+    const STEPS = [];
 
-    public const TITLE = 'Form Title';
+    const KEY = 'my-form';
+    const TITLE = 'My Form';
 
-    public const HAS_START_PAGE = true;
-    public const START_BUTTON_LABEL = 'Start';
-    public const START_BLADE = 'form.start';
+    const BASE_ROUTE_NAME = 'my-form';
+    const EXIT_ROUTE_NAME = 'home';
 
-    public const HAS_SUMMARY_PAGE = true;
-    public const HAS_CONFIRMATION_PAGE = true;
+    const HAS_START_PAGE = true;
+    const START_BLADE_NAME = 'my-form.start';
+    const START_BUTTON_LABEL = 'Start';
 
-    public const SECTIONS = [];
+    const HAS_SUMMARY_PAGE = true;
+    const SUMMARY_BLADE_NAME = 'my-form.summary';
 
-    protected string $routeBase;
+    const HAS_CONFIRMATION_PAGE = true;
+    const CONFIRMATION_PAGE_NAME = 'my-form.confirmation';
 
-    // Construction
-    public function __construct()
+    // Abstracts
+    abstract public static function authorize(?Model $user, string $ability): bool;
+
+    abstract public static function exit(): RedirectResponse;
+
+    abstract public static function submit(): RedirectResponse;
+
+    // Pages
+    public static function confirmation(): View
     {
-        $this->setRouteBase();
+        return GovukPage::confirmation();
     }
 
-    // Accessors
-    public function getRouteBase(): string
+    public static function start(): View
     {
-        return $this->routeBase;
-    }
-
-    // Actions
-    //abstract public function authorize(): bool;
-
-    //abstract public function submit(): void;
-
-    public function getStepByKey(string $key): FormStep
-    {
-        $stepClass = $this->getStepClassByKey($key);
-        return new $stepClass($this);
-    }
-
-    // Routes
-    public function firstStepRoute(): string
-    {
-        return $this->getRouteForStep(0, 0);
-    }
-
-    public function nextStepRoute(): string
-    {
-        // isAtEndOfSection
-
-        return $this->getRouteForStep();
-    }
-
-    public function previousStepRoute(): string
-    {
-        // isAtStartOfSection
-
-        return $this->getRouteForStep();
-    }
-
-    // Utilities
-    protected function setRouteBase(): void
-    {
-        $route = Route::currentRouteName();
-
-        $this->routeBase = substr(
-            $route,
-            0,
-            strrpos($route, '.')
+        return GovukPage::start(
+            static::TITLE,
+            static::firstStep()->route(),
+            static::START_BUTTON_LABEL,
+            static::START_BLADE_NAME
         );
     }
 
-    protected function getRouteForStep(int $section, int $step): string
+    public static function step(string $stepKey): FormStep
     {
-        return route("$this->routeBase.create", [
-            $this->getStepClassByIndex(0, 0)::KEY
-        ]);
+        $stepClass = static::findStepByKey($stepKey);
+        return new $stepClass(static::class);
     }
 
-    protected function getStepClassByIndex(int $section, int $step): string
+    public static function summary(): View
     {
-        if (isset(static::SECTIONS[$section]) === true) {
-            $section = static::SECTIONS[$section];
-            return $section::getStepClassByIndex($step);
-        }
-
-        throw new FormStepNotFound("$section-$step");
+        return GovukPage::summary();
     }
 
-    protected function getStepClassByKey(string $key): string
+    // Actions
+    public static function next(string $stepKey): RedirectResponse
     {
-        foreach (static::SECTIONS as $section) {
-            if ($section::hasStepClassByKey($key) === true) {
-                return $section::getStepClassByKey($key);
+
+    }
+
+    public static function previous(string $stepKey): RedirectResponse
+    {
+
+    }
+
+    // Utilities
+    public static function findStepByKey(string $needle, ?bool $direction = null): array|false
+    {
+        $previousStep = false;
+        $steps = [];
+        $takeNext = false;
+
+        foreach (static::STEPS as $key => $step) {
+            if (is_array($step) === true) {
+                foreach ($step as $sectionKey => $sectionStep) {
+                    $steps[$sectionKey] = $sectionStep;
+                }
+            } else {
+                $steps[$key] = $step;
             }
         }
 
-        throw new FormStepNotFound($key);
+        foreach ($steps as $key => $step) {
+            if ($takeNext === true) {
+                return [$key => $step];
+            }
+
+            if ($key === $needle) {
+                if ($direction === true) {
+                    $takeNext = true;
+
+                } elseif ($direction === false) {
+                    return $previousStep;
+
+                } else {
+                    return [$key => $step];
+                }
+            }
+
+            if ($direction === false) {
+                $previousStep = [$key => $step];
+            }
+        }
+
+        return false;
+    }
+
+    public static function getFirstStep(): FormStep
+    {
+        $firstKey = array_key_first(static::STEPS);
+
+        if (is_array(static::STEPS[$firstKey]) === true) {
+            $firstSectionKey = array_key_first(static::STEPS[$firstKey]);
+            $firstStep = static::STEPS[$firstKey][$firstSectionKey];
+
+        } else {
+            $firstStep = static::STEPS[$firstKey];
+        }
+
+        return static::getStep($firstStep::KEY);
+    }
+
+    public static function getStepKeyAfter(string $stepKey): string
+    {
+        return array_key_first(
+            static::findStepByKey($stepKey, true)
+        );
+    }
+
+    public static function getStepKeyBefore(string $stepKey): string
+    {
+        return array_key_first(
+            static::findStepByKey($stepKey, false)
+        );
     }
 }

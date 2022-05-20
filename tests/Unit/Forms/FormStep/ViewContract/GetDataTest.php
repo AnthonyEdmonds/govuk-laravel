@@ -2,23 +2,23 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Forms\FormStep\ViewContract;
 
-use AnthonyEdmonds\GovukLaravel\Forms\Form;
-use AnthonyEdmonds\GovukLaravel\Forms\FormStep;
+use AnthonyEdmonds\GovukLaravel\Forms\FormOld;
+use AnthonyEdmonds\GovukLaravel\Forms\FormStepOld;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
-use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormStepQuestion;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormStepInsideSection;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
 class GetDataTest extends TestCase
 {
-    protected Form $form;
-    protected FormStep $step;
+    protected FormOld $form;
+    protected FormStepOld $step;
     
     protected function setUp(): void
     {
         parent::setUp();
         
         $this->form = new TestForm();
-        $this->step = new TestFormStepQuestion($this->form);
+        $this->step = new TestFormStepInsideSection($this->form);
         $this->step->with('my-key', 'my-value');
     }
     

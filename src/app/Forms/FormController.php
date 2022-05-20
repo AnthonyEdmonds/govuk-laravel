@@ -2,7 +2,6 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
-use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
@@ -15,69 +14,50 @@ class FormController extends Controller
 
     public function start(string $formClass): View
     {
-        //$this->authorize();
-
-        $form = new $formClass();
-
-        return GovukPage::start(
-            $form::TITLE,
-            $form->firstStepRoute(),
-            $form::START_BUTTON_LABEL,
-            $form::START_BLADE
-        );
+        $formClass::authorize('start');
+        return $formClass::start();
     }
 
-    public function create(string $step, string $formClass): View
+    public function create(string $sectionKey, string $stepKey, string $formClass): View
     {
-        //$this->authorize();
+        $formClass::authorize('create');
 
-        $form = new $formClass();
-
-        return $form->getStepByKey($step);
+        return $formClass::step($stepKey);
     }
 
-    public function store(Request $request, string $step, string $formClass): RedirectResponse
+    public function store(Request $request, string $sectionKey, string $stepKey, string $formClass): RedirectResponse
     {
-        //$this->authorize();
-
-        return redirect()->route($formClass->nextStepRoute());
+        $formClass::authorize('store');
+        return $formClass::nextPage();
     }
 
-    public function edit(string $step, string $formClass): View
+    public function edit(string $sectionKey, string $stepKey, string $formClass): View
     {
-        //$this->authorize();
+        $formClass::authorize('edit');
+        return $formClass::step($sectionKey, $stepKey);
     }
 
-    public function update(Request $request, string $step, string $formClass): RedirectResponse
+    public function update(Request $request, string $sectionKey, string $stepKey, string $formClass): RedirectResponse
     {
-        //$this->authorize();
-
-        return redirect()->route($formClass->nextStepRoute());
+        $formClass::authorize('update');
+        return $formClass::nextPage();
     }
 
     public function summary(string $formClass): View
     {
-        //$this->authorize();
-
-        return GovukPage::summary();
+        $formClass::authorize('start');
+        return $formClass::summary();
     }
 
     public function submit(string $formClass): RedirectResponse
     {
-        //$this->authorize();
-
-        $form = new $formClass();
-        $form->submit();
-
-        return redirect()->route('govuk-form.confirmation', [
-            $form::KEY
-        ]);
+        $formClass::authorize('submit');
+        return $formClass::submit();
     }
 
     public function confirmation(string $formClass): View
     {
-        //$this->authorize();
-
-        return GovukPage::confirmation();
+        $formClass::authorize('confirmation');
+        return $formClass::confirmation();
     }
 }

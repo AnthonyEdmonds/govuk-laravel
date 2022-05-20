@@ -6,8 +6,8 @@ use ErrorException;
 
 class FormStepNotFound extends ErrorException
 {
-    public function __construct(string $step)
+    public function __construct(string $formKey, string $stepKey)
     {
-        parent::__construct("$step was not found");
+        parent::__construct("\"$stepKey\" is not part of the \"$formKey\" form");
     }
 }

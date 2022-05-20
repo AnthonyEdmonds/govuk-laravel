@@ -2,11 +2,11 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Forms\FormStep\ViewContract;
 
-use AnthonyEdmonds\GovukLaravel\Forms\Form;
-use AnthonyEdmonds\GovukLaravel\Forms\FormStep;
+use AnthonyEdmonds\GovukLaravel\Forms\FormOld;
+use AnthonyEdmonds\GovukLaravel\Forms\FormStepOld;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
-use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormStepQuestion;
-use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormStepQuestions;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormStepInsideSection;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormStepOutsideSection;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Routing\RouteCollection;
 use Illuminate\Support\Facades\Route;
@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\URL;
 
 class RenderTest extends TestCase
 {
-    protected Form $form;
-    protected FormStep $step;
+    protected FormOld $form;
+    protected FormStepOld $step;
 
     protected function setUp(): void
     {
@@ -40,7 +40,7 @@ class RenderTest extends TestCase
 
     public function testOutputsQuestionsPageWhenArray(): void
     {
-        $this->step = new TestFormStepQuestions($this->form);
+        $this->step = new TestFormStepOutsideSection($this->form);
 
         $this->assertStringContainsString(
             'What are the answers?',
@@ -50,7 +50,7 @@ class RenderTest extends TestCase
 
     public function testOutputsQuestionPageWhenArray(): void
     {
-        $this->step = new TestFormStepQuestion($this->form);
+        $this->step = new TestFormStepInsideSection($this->form);
 
         $this->assertStringContainsString(
             'My question?',
