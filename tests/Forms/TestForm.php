@@ -8,7 +8,11 @@ use Illuminate\Http\RedirectResponse;
 
 class TestForm extends Form
 {
-    const STEPS = [
+    public const KEY = 'report';
+    
+    public const BASE_ROUTE_NAME = 'breaches';
+    
+    public const STEPS = [
         'before-section' => TestFormStepQuestions::class,
         [
             'inside-section' => TestFormStepQuestion::class,

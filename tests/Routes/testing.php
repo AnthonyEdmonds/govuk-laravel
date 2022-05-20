@@ -1,8 +1,10 @@
 <?php
 
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('my-form')
+Route::prefix('/breaches')
+    ->name('breaches.')
     ->group(function () {
-        Route::govukForm(\AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm::class);
+        Route::govukForm(TestForm::class);
     });

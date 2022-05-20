@@ -2,7 +2,6 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
-use AnthonyEdmonds\GovukLaravel\Exceptions\FormStepNotFound;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
@@ -10,31 +9,39 @@ use Illuminate\Http\RedirectResponse;
 
 abstract class Form
 {
-    const STEPS = [];
+    public const STEPS = [];
 
-    const KEY = 'my-form';
-    const TITLE = 'My Form';
+    public const KEY = 'my-form';
+    public const TITLE = 'My Form';
 
-    const BASE_ROUTE_NAME = 'my-form';
-    const EXIT_ROUTE_NAME = 'home';
+    public const BASE_ROUTE_NAME = null;
+    public const EXIT_ROUTE_NAME = 'home';
 
-    const HAS_START_PAGE = true;
-    const START_BLADE_NAME = 'my-form.start';
-    const START_BUTTON_LABEL = 'Start';
+    public const HAS_START_PAGE = true;
+    public const START_BLADE_NAME = 'my-form.start';
+    public const START_BUTTON_LABEL = 'Start';
 
-    const HAS_SUMMARY_PAGE = true;
-    const SUMMARY_BLADE_NAME = 'my-form.summary';
+    public const HAS_SUMMARY_PAGE = true;
+    public const SUMMARY_BLADE_NAME = 'my-form.summary';
 
-    const HAS_CONFIRMATION_PAGE = true;
-    const CONFIRMATION_PAGE_NAME = 'my-form.confirmation';
+    public const HAS_CONFIRMATION_PAGE = true;
+    public const CONFIRMATION_PAGE_NAME = 'my-form.confirmation';
 
-    // Abstracts
+    // Actions
     abstract public static function authorize(?Model $user, string $ability): bool;
 
     abstract public static function exit(): RedirectResponse;
 
     abstract public static function submit(): RedirectResponse;
 
+    public static function next(string $stepKey): RedirectResponse
+    {
+    }
+
+    public static function previous(string $stepKey): RedirectResponse
+    {
+    }
+    
     // Pages
     public static function confirmation(): View
     {
@@ -45,7 +52,7 @@ abstract class Form
     {
         return GovukPage::start(
             static::TITLE,
-            static::firstStep()->route(),
+            static::getFirstStepClass()::route(),
             static::START_BUTTON_LABEL,
             static::START_BLADE_NAME
         );
@@ -61,19 +68,40 @@ abstract class Form
     {
         return GovukPage::summary();
     }
-
-    // Actions
-    public static function next(string $stepKey): RedirectResponse
+    
+    // Routes
+    public static function confirmationRoute(): string
     {
-
+        return static::routeFor('confirmation');
+    }
+    
+    public static function startRoute(): string
+    {
+        return static::routeFor('start');
+    }
+    
+    public static function stepRoute(string $stepKey): string
+    {
+        return static::routeFor('step', [$stepKey]);
     }
 
-    public static function previous(string $stepKey): RedirectResponse
+    public static function summaryRoute(): string
     {
-
+        return static::routeFor('summary');
     }
 
-    // Utilities
+    protected static function routeFor(string $suffix, array $attributes = []): string
+    {
+        $name = static::KEY . ".$suffix";
+
+        if (static::BASE_ROUTE_NAME !== null) {
+            $name = static::BASE_ROUTE_NAME . '.' . $name;
+        }
+
+        return route($name, $attributes);
+    }
+
+    // Steps
     public static function findStepByKey(string $needle, ?bool $direction = null): array|false
     {
         $previousStep = false;
@@ -98,10 +126,8 @@ abstract class Form
             if ($key === $needle) {
                 if ($direction === true) {
                     $takeNext = true;
-
                 } elseif ($direction === false) {
                     return $previousStep;
-
                 } else {
                     return [$key => $step];
                 }
@@ -115,32 +141,30 @@ abstract class Form
         return false;
     }
 
-    public static function getFirstStep(): FormStep
+    public static function getFirstStepKey(): string
     {
         $firstKey = array_key_first(static::STEPS);
 
-        if (is_array(static::STEPS[$firstKey]) === true) {
-            $firstSectionKey = array_key_first(static::STEPS[$firstKey]);
-            $firstStep = static::STEPS[$firstKey][$firstSectionKey];
-
-        } else {
-            $firstStep = static::STEPS[$firstKey];
-        }
-
-        return static::getStep($firstStep::KEY);
+        return is_array(static::STEPS[$firstKey]) === true
+            ? array_key_first(static::STEPS[$firstKey])
+            : $firstKey;
     }
 
-    public static function getStepKeyAfter(string $stepKey): string
+    public static function getStepKeyAfter(string $stepKey): string|false
     {
-        return array_key_first(
-            static::findStepByKey($stepKey, true)
-        );
+        $step = static::findStepByKey($stepKey, true);
+
+        return $step === false
+            ? false
+            : array_key_first($step);
     }
 
-    public static function getStepKeyBefore(string $stepKey): string
+    public static function getStepKeyBefore(string $stepKey): string|false
     {
-        return array_key_first(
-            static::findStepByKey($stepKey, false)
-        );
+        $step = static::findStepByKey($stepKey, false);
+
+        return $step === false
+            ? false
+            : array_key_first($step);
     }
 }

@@ -58,6 +58,8 @@ class GovukServiceProvider extends ServiceProvider
         if (Route::hasMacro('govukForm') === false) {
             Route::macro('govukForm', function (string $formClass) {
                 Route::controller(FormController::class)
+                    ->prefix('/'.$formClass::KEY)
+                    ->name($formClass::KEY.'.')
                     ->group(function () use ($formClass) {
                         if ($formClass::HAS_START_PAGE === true) {
                             Route::get('/start', 'start')
@@ -83,22 +85,14 @@ class GovukServiceProvider extends ServiceProvider
 
                         // TODO Steps with only edit, and no create? Can there be a single method for both?
 
-                        Route::prefix('/{sectionKey}/{stepKey}')
+                        Route::prefix('/{stepKey}')
                             ->group(function () use ($formClass) {
-                                Route::get('/', 'create')
-                                    ->name('create')
+                                Route::get('/', 'step')
+                                    ->name('step')
                                     ->defaults('formClass', $formClass);
 
-                                Route::post('/', 'store')
-                                    ->name('store')
-                                    ->defaults('formClass', $formClass);
-
-                                Route::get('/edit', 'edit')
-                                    ->name('edit')
-                                    ->defaults('formClass', $formClass);
-
-                                Route::post('/edit', 'update')
-                                    ->name('update')
+                                Route::post('/', 'save')
+                                    ->name('step')
                                     ->defaults('formClass', $formClass);
                             });
                     });

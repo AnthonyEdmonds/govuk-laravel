@@ -18,31 +18,19 @@ class FormController extends Controller
         return $formClass::start();
     }
 
-    public function create(string $sectionKey, string $stepKey, string $formClass): View
+    public function step(string $stepKey, string $formClass): View
     {
         $formClass::authorize('create');
 
         return $formClass::step($stepKey);
     }
 
-    public function store(Request $request, string $sectionKey, string $stepKey, string $formClass): RedirectResponse
+    public function save(Request $request, string $stepKey, string $formClass): RedirectResponse
     {
         $formClass::authorize('store');
         return $formClass::nextPage();
     }
-
-    public function edit(string $sectionKey, string $stepKey, string $formClass): View
-    {
-        $formClass::authorize('edit');
-        return $formClass::step($sectionKey, $stepKey);
-    }
-
-    public function update(Request $request, string $sectionKey, string $stepKey, string $formClass): RedirectResponse
-    {
-        $formClass::authorize('update');
-        return $formClass::nextPage();
-    }
-
+    
     public function summary(string $formClass): View
     {
         $formClass::authorize('start');
