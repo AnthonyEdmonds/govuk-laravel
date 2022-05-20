@@ -61,27 +61,25 @@ class GovukServiceProvider extends ServiceProvider
                     ->prefix('/'.$formClass::KEY)
                     ->name($formClass::KEY.'.')
                     ->group(function () use ($formClass) {
-                        if ($formClass::HAS_START_PAGE === true) {
-                            Route::get('/start', 'start')
-                                ->name('start')
-                                ->defaults('formClass', $formClass);
-                        }
+                        Route::get('/start', 'start')
+                            ->name('start')
+                            ->defaults('formClass', $formClass);
 
-                        if ($formClass::HAS_SUMMARY_PAGE === true) {
-                            Route::get('/summary', 'summary')
-                                ->name('summary')
-                                ->defaults('formClass', $formClass);
-                        }
+                        Route::get('/summary', 'summary')
+                            ->name('summary')
+                            ->defaults('formClass', $formClass);
 
                         Route::post('/submit', 'submit')
                             ->name('submit')
                             ->defaults('formClass', $formClass);
 
-                        if ($formClass::HAS_CONFIRMATION_PAGE === true) {
-                            Route::get('/confirmation', 'confirmation')
-                                ->name('confirmation')
-                                ->defaults('formClass', $formClass);
-                        }
+                        Route::get('/confirmation', 'confirmation')
+                            ->name('confirmation')
+                            ->defaults('formClass', $formClass);
+
+                        Route::get('/exit', 'exit')
+                            ->name('exit')
+                            ->defaults('formClass', $formClass);
 
                         // TODO Steps with only edit, and no create? Can there be a single method for both?
 

@@ -10,7 +10,7 @@ class ConfirmationRouteTest extends TestCase
     public function test(): void
     {
         $this->assertEquals(
-            route('breaches.report.confirmation'),
+            'breaches.report.confirmation',
             TestForm::confirmationRoute()
         );
     }

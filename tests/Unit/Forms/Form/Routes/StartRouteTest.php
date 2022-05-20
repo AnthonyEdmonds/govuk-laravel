@@ -10,7 +10,7 @@ class StartRouteTest extends TestCase
     public function test(): void
     {
         $this->assertEquals(
-            route('breaches.report.start'),
+            'breaches.report.start',
             TestForm::startRoute()
         );
     }

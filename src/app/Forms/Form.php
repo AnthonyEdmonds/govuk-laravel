@@ -7,11 +7,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 
-// TODO We really need to figure out the model pass-in now.
-// Data could be loaded / saved using helper, or abstract function
-// Could also be left up to the user to define in the Submit / Edit methods...
-// Form step takes model / array, and returns model / array for storing...
-
 abstract class Form
 {
     public const STEPS = [];
@@ -29,14 +24,18 @@ abstract class Form
     // Actions
     abstract public static function authorize(?Model $user, string $ability): bool;
 
-    abstract public static function exit(): RedirectResponse;
+    abstract public static function clear(): void;
+
+    abstract public static function load(): Model|array;
+
+    abstract public static function save(Model|array $data): void;
 
     abstract public static function submit(): RedirectResponse;
 
     public static function next(string $page, string $stepKey = null): RedirectResponse
     {
         if ($page === 'confirmation') {
-            // TODO Exit controller method?
+            $route = static::exitRoute();
                 
         } elseif ($page === 'submit') {
             $route = static::confirmationRoute();
@@ -74,7 +73,7 @@ abstract class Form
             $route = static::stepRoute(static::getLastStepKey());
 
         } elseif ($page === 'start') {
-            // TODO Exit
+            $route = static::exitRoute();
 
         } elseif ($page === 'step' && $stepKey !== null) {
             if (static::isAtStartOfSection($stepKey) === true) {
@@ -88,13 +87,18 @@ abstract class Form
             $route = static::startRoute();
         }
 
-        return redirect($route);
+        return redirect()->route($route);
     }
 
     // Pages
     public static function confirmation(): View
     {
         return GovukPage::confirmation();
+    }
+
+    public static function exit(): RedirectResponse
+    {
+        return redirect()->route(static::exitRoute());
     }
 
     public static function start(): View
@@ -109,10 +113,8 @@ abstract class Form
 
     public static function step(string $stepKey): FormStep
     {
-        // TODO Pass in model / information / data
-        
         $stepClass = static::findStepByKey($stepKey);
-        return new $stepClass(static::class);
+        return new $stepClass(static::class, $stepKey, static::load());
     }
 
     public static function summary(): View
@@ -123,40 +125,39 @@ abstract class Form
     // Routes
     public static function confirmationRoute(): string
     {
-        return static::routeFor('confirmation');
+        return static::routeNameFor('confirmation');
+    }
+
+    public static function exitRoute(): string
+    {
+        return static::routeNameFor('exit');
     }
 
     public static function startRoute(): string
     {
-        return static::routeFor('start');
+        return static::routeNameFor('start');
     }
 
     public static function stepRoute(string $stepKey): string
     {
-        return static::routeFor('step', [$stepKey]);
+        return static::routeNameFor('step', [$stepKey]);
     }
     
     public static function submitRoute(): string
     {
-        return static::routeFor('submit');
+        return static::routeNameFor('submit');
     }
 
     public static function summaryRoute(): string
     {
-        return static::routeFor('summary');
+        return static::routeNameFor('summary');
     }
 
-    protected static function routeFor(string $suffix, array $attributes = []): string
+    protected static function routeNameFor(string $suffix): string
     {
-        // TODO return route name instead?
-        
-        $name = static::KEY . ".$suffix";
-
-        if (static::BASE_ROUTE_NAME !== null) {
-            $name = static::BASE_ROUTE_NAME . '.' . $name;
-        }
-
-        return route($name, $attributes);
+        return static::BASE_ROUTE_NAME !== null
+            ? static::BASE_ROUTE_NAME . '.' . static::KEY . '.' . $suffix
+            : static::KEY . '.' . $suffix;
     }
 
     // Steps
@@ -228,12 +229,49 @@ abstract class Form
     
     public static function isAtEndOfSection(string $stepKey): bool
     {
-        
+        $previousKey = null;
+
+        foreach (static::STEPS as $key => $step) {
+            if (is_array($step) === true) {
+                if ($previousKey === $stepKey) {
+                    return true;
+                }
+
+                if (array_key_last($step) === $stepKey) {
+                    return true;
+                }
+            }
+
+            $previousKey = $key;
+        }
+
+        return $previousKey === $stepKey;
     }
 
     public static function isAtStartOfSection(string $stepKey): bool
     {
+        $inSection = false;
 
+        foreach (static::STEPS as $key => $step) {
+            if (is_array($step) === true) {
+                if (array_key_first($step) === $stepKey) {
+                    return true;
+                }
+
+                $inSection = false;
+
+            } else {
+                if ($inSection === false) {
+                    if ($key === $stepKey) {
+                        return true;
+                    }
+
+                    $inSection = true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public static function isFirstStep(string $stepKey): bool

@@ -16,10 +16,11 @@ class TestForm extends Form
         'before-section' => TestFormStepQuestions::class,
         [
             'inside-section' => TestFormStepQuestion::class,
-            'other-inside' => TestFormStepQuestions::class,
+            'mid-section' => TestFormStepQuestions::class,
+            'other-inside' => TestFormStepQuestion::class,
         ],
-        'after-section' => TestFormStepQuestion::class,
-        'outside-section' => TestFormStepQuestions::class,
+        'after-section' => TestFormStepQuestions::class,
+        'outside-section' => TestFormStepQuestion::class,
     ];
 
     public static function authorize(?Model $user, string $ability): bool
@@ -35,5 +36,20 @@ class TestForm extends Form
     public static function submit(): RedirectResponse
     {
         // TODO: Implement submit() method.
+    }
+
+    public static function clear(): void
+    {
+        // TODO: Implement clear() method.
+    }
+
+    public static function load(): Model|array
+    {
+        // TODO: Implement load() method.
+    }
+
+    public static function save(Model|array $data): void
+    {
+        // TODO: Implement save() method.
     }
 }

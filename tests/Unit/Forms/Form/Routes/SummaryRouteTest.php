@@ -10,7 +10,7 @@ class SummaryRouteTest extends TestCase
     public function test(): void
     {
         $this->assertEquals(
-            route('breaches.report.summary'),
+            'breaches.report.summary',
             TestForm::summaryRoute()
         );
     }

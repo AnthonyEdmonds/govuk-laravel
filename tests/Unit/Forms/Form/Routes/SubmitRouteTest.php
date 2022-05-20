@@ -10,7 +10,7 @@ class SubmitRouteTest extends TestCase
     public function test(): void
     {
         $this->assertEquals(
-            route('breaches.report.submit'),
+            'breaches.report.submit',
             TestForm::submitRoute()
         );
     }

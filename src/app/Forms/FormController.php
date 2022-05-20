@@ -48,4 +48,10 @@ class FormController extends Controller
         $formClass::authorize('confirmation');
         return $formClass::confirmation();
     }
+
+    public function exit(string $formClass): RedirectResponse
+    {
+        $formClass::authorize('exit');
+        return $formClass::exit();
+    }
 }
