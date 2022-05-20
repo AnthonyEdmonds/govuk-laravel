@@ -30,7 +30,7 @@ class FormController extends Controller
         $formClass::authorize('store');
         return $formClass::nextPage();
     }
-    
+
     public function summary(string $formClass): View
     {
         $formClass::authorize('start');

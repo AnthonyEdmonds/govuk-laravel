@@ -7,6 +7,11 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 
+// TODO We really need to figure out the model pass-in now.
+// Data could be loaded / saved using helper, or abstract function
+// Could also be left up to the user to define in the Submit / Edit methods...
+// Form step takes model / array, and returns model / array for storing...
+
 abstract class Form
 {
     public const STEPS = [];
@@ -15,16 +20,10 @@ abstract class Form
     public const TITLE = 'My Form';
 
     public const BASE_ROUTE_NAME = null;
-    public const EXIT_ROUTE_NAME = 'home';
-
-    public const HAS_START_PAGE = true;
+    
     public const START_BLADE_NAME = 'my-form.start';
     public const START_BUTTON_LABEL = 'Start';
-
-    public const HAS_SUMMARY_PAGE = true;
     public const SUMMARY_BLADE_NAME = 'my-form.summary';
-
-    public const HAS_CONFIRMATION_PAGE = true;
     public const CONFIRMATION_PAGE_NAME = 'my-form.confirmation';
 
     // Actions
@@ -34,14 +33,64 @@ abstract class Form
 
     abstract public static function submit(): RedirectResponse;
 
-    public static function next(string $stepKey): RedirectResponse
+    public static function next(string $page, string $stepKey = null): RedirectResponse
     {
+        if ($page === 'confirmation') {
+            // TODO Exit controller method?
+                
+        } elseif ($page === 'submit') {
+            $route = static::confirmationRoute();
+                
+        } elseif ($page === 'summary') {
+            $route = static::submitRoute();
+            
+        } elseif ($page === 'start') {
+            $route = static::stepRoute(static::getFirstStepKey());
+            
+        } elseif ($page === 'step' && $stepKey !== null) {
+            if (static::isAtEndOfSection($stepKey) === true) {
+                // TODO Detect editing, model exists? But that would not work with drafts where the model is saved...
+            } elseif (static::isLastStep($stepKey) === true) {
+                $route = static::summaryRoute();
+            } else {
+                $route = static::stepRoute(static::getStepKeyAfter($stepKey));
+            }
+        } else {
+            $route = static::startRoute();
+        }
+        
+        return redirect($route);
     }
 
-    public static function previous(string $stepKey): RedirectResponse
+    public static function previous(string $page, string $stepKey = null): RedirectResponse
     {
+        if ($page === 'confirmation') {
+            // TODO Can't really go back from here... exit?
+
+        } elseif ($page === 'submit') {
+            $route = static::summaryRoute();
+
+        } elseif ($page === 'summary') {
+            $route = static::stepRoute(static::getLastStepKey());
+
+        } elseif ($page === 'start') {
+            // TODO Exit
+
+        } elseif ($page === 'step' && $stepKey !== null) {
+            if (static::isAtStartOfSection($stepKey) === true) {
+                // TODO Detect editing, model exists? But that would not work with drafts where the model is saved...
+            } elseif (static::isFirstStep($stepKey) === true) {
+                $route = static::startRoute();
+            } else {
+                $route = static::stepRoute(static::getStepKeyBefore($stepKey));
+            }
+        } else {
+            $route = static::startRoute();
+        }
+
+        return redirect($route);
     }
-    
+
     // Pages
     public static function confirmation(): View
     {
@@ -60,6 +109,8 @@ abstract class Form
 
     public static function step(string $stepKey): FormStep
     {
+        // TODO Pass in model / information / data
+        
         $stepClass = static::findStepByKey($stepKey);
         return new $stepClass(static::class);
     }
@@ -68,21 +119,26 @@ abstract class Form
     {
         return GovukPage::summary();
     }
-    
+
     // Routes
     public static function confirmationRoute(): string
     {
         return static::routeFor('confirmation');
     }
-    
+
     public static function startRoute(): string
     {
         return static::routeFor('start');
     }
-    
+
     public static function stepRoute(string $stepKey): string
     {
         return static::routeFor('step', [$stepKey]);
+    }
+    
+    public static function submitRoute(): string
+    {
+        return static::routeFor('submit');
     }
 
     public static function summaryRoute(): string
@@ -92,6 +148,8 @@ abstract class Form
 
     protected static function routeFor(string $suffix, array $attributes = []): string
     {
+        // TODO return route name instead?
+        
         $name = static::KEY . ".$suffix";
 
         if (static::BASE_ROUTE_NAME !== null) {
@@ -166,5 +224,25 @@ abstract class Form
         return $step === false
             ? false
             : array_key_first($step);
+    }
+    
+    public static function isAtEndOfSection(string $stepKey): bool
+    {
+        
+    }
+
+    public static function isAtStartOfSection(string $stepKey): bool
+    {
+
+    }
+
+    public static function isFirstStep(string $stepKey): bool
+    {
+        return static::getStepKeyBefore($stepKey) === false;
+    }
+    
+    public static function isLastStep(string $stepKey): bool
+    {
+        return static::getStepKeyAfter($stepKey) === false;
     }
 }

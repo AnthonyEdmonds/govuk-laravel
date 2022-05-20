@@ -5,6 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Forms;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class FormStep implements View
 {
@@ -12,22 +13,26 @@ abstract class FormStep implements View
     public const BUTTON_LABEL = 'Continue';
     public const TITLE = null;
 
+    protected Model|array $data;
     protected string $formClass;
+    protected string $stepKey;
     protected array $withs;
 
     // Construction
-    public function __construct(string $formClass)
+    public function __construct(string $formClass, string $stepKey, Model|array $data)
     {
+        $this->data = $data;
         $this->formClass = $formClass;
+        $this->stepKey = $stepKey;
     }
 
     // Question
-    abstract public function question(): array|Question;
+    abstract public function question(Model|array $data): array|Question;
 
-    abstract public function store(): void;
+    abstract public function store(Model|array $data): Model|array;
 
-    abstract public function update(): void;
-    
+    abstract public function update(Model|array $data): Model|array;
+
     // View Contract
     public function render(): string
     {
@@ -37,8 +42,8 @@ abstract class FormStep implements View
             ? GovukPage::question(
                 $question,
                 static::BUTTON_LABEL,
-                $this->getRoute(), // TODO Via Form
-                $this->backRoute(),
+                $this->formClass::stepRoute($this->stepKey),
+                $this->formClass::previous('step', $this->stepKey),
                 'POST',
                 static::BLADE,
             )->render()
@@ -46,8 +51,8 @@ abstract class FormStep implements View
                 static::TITLE,
                 $question,
                 static::BUTTON_LABEL,
-                $this->getRoute(),
-                $this->backRoute(),
+                $this->formClass::stepRoute($this->stepKey),
+                $this->formClass::previous('step', $this->stepKey),
                 'POST',
                 static::BLADE,
             )->render();
@@ -55,7 +60,7 @@ abstract class FormStep implements View
 
     public function name(): string
     {
-        return static::KEY;
+        return $this->stepKey;
     }
 
     public function with($key, $value = null): static
