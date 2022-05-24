@@ -23,6 +23,25 @@ class TestForm extends Form
         'outside-section' => TestFormStepQuestion::class,
     ];
 
+
+    public array $test = [
+        'start' => StartPage::class,
+        'section-name' => [
+            'q',
+            'q',
+        ],
+        'q',
+        'summary' => SummaryPage::class,
+        'confirmation' => ConfirmationPage::class,
+    ];
+
+    // Start form / initialise
+    // Save progress
+    // Clear progress
+    // All input goes through same uri, different method
+    // Proceed route set in FormStep constructor, passed in by Form automatically
+    // Make FormStep independent of Form, but controllable
+
     public static function authorize(?Model $user, string $ability): bool
     {
         // TODO: Implement authorize() method.
