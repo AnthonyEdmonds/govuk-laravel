@@ -29,14 +29,12 @@ abstract class FormStep implements View
     // Question
     abstract public function question(Model|array $data): array|Question;
 
-    abstract public function store(Model|array $data): Model|array;
-
-    abstract public function update(Model|array $data): Model|array;
+    abstract public function save(Model|array $data): Model|array;
 
     // View Contract
     public function render(): string
     {
-        $question = $this->question();
+        $question = $this->question($this->data);
 
         return $question instanceof Question === true
             ? GovukPage::question(

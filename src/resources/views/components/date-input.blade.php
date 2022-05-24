@@ -88,7 +88,6 @@
                             name="{{ $dayName }}"
                             type="text"
                             autocomplete="{{ $autocompleteDay }}"
-                            pattern="[0-9]*"
                             inputmode="numeric"
                             value="{{ $values['day'] ?? '' }}"
                         />
@@ -109,7 +108,6 @@
                             name="{{ $monthName }}"
                             type="text"
                             autocomplete="{{ $autocompleteMonth }}"
-                            pattern="[0-9]*"
                             inputmode="numeric"
                             value="{{ $values['month'] ?? '' }}"
                         />
@@ -130,7 +128,6 @@
                             name="{{ $yearName }}"
                             type="text"
                             autocomplete="{{ $autocompleteYear }}"
-                            pattern="[0-9]*"
                             inputmode="numeric"
                             value="{{ $values['year'] ?? '' }}"
                         />

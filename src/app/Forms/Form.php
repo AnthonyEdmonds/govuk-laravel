@@ -7,6 +7,23 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 
+// TODO Page flags to enable / disable
+// TODO FormController
+// TODO Authorize
+// TODO Next
+// TODO Previous
+// TODO FormStep Tests
+// TODO Confirmation Page
+// TODO Summary Page
+// TODO Page Tests
+// TODO Detect editing vs new
+    // First time through form
+    // Revising answer
+
+    // For editing, a second form should be made with the required steps
+    // Can re-use steps between them, can make further abstract to reuse load / save logic
+    // Allow for use of a FormStep by itself
+
 abstract class Form
 {
     public const STEPS = [];
@@ -15,7 +32,7 @@ abstract class Form
     public const TITLE = 'My Form';
 
     public const BASE_ROUTE_NAME = null;
-    
+
     public const START_BLADE_NAME = 'my-form.start';
     public const START_BUTTON_LABEL = 'Start';
     public const SUMMARY_BLADE_NAME = 'my-form.summary';
@@ -36,16 +53,12 @@ abstract class Form
     {
         if ($page === 'confirmation') {
             $route = static::exitRoute();
-                
         } elseif ($page === 'submit') {
             $route = static::confirmationRoute();
-                
         } elseif ($page === 'summary') {
             $route = static::submitRoute();
-            
         } elseif ($page === 'start') {
             $route = static::stepRoute(static::getFirstStepKey());
-            
         } elseif ($page === 'step' && $stepKey !== null) {
             if (static::isAtEndOfSection($stepKey) === true) {
                 // TODO Detect editing, model exists? But that would not work with drafts where the model is saved...
@@ -57,7 +70,7 @@ abstract class Form
         } else {
             $route = static::startRoute();
         }
-        
+
         return redirect($route);
     }
 
@@ -65,16 +78,12 @@ abstract class Form
     {
         if ($page === 'confirmation') {
             // TODO Can't really go back from here... exit?
-
         } elseif ($page === 'submit') {
             $route = static::summaryRoute();
-
         } elseif ($page === 'summary') {
             $route = static::stepRoute(static::getLastStepKey());
-
         } elseif ($page === 'start') {
             $route = static::exitRoute();
-
         } elseif ($page === 'step' && $stepKey !== null) {
             if (static::isAtStartOfSection($stepKey) === true) {
                 // TODO Detect editing, model exists? But that would not work with drafts where the model is saved...
@@ -142,7 +151,7 @@ abstract class Form
     {
         return static::routeNameFor('step', [$stepKey]);
     }
-    
+
     public static function submitRoute(): string
     {
         return static::routeNameFor('submit');
@@ -226,7 +235,7 @@ abstract class Form
             ? false
             : array_key_first($step);
     }
-    
+
     public static function isAtEndOfSection(string $stepKey): bool
     {
         $previousKey = null;
@@ -259,7 +268,6 @@ abstract class Form
                 }
 
                 $inSection = false;
-
             } else {
                 if ($inSection === false) {
                     if ($key === $stepKey) {
@@ -278,7 +286,7 @@ abstract class Form
     {
         return static::getStepKeyBefore($stepKey) === false;
     }
-    
+
     public static function isLastStep(string $stepKey): bool
     {
         return static::getStepKeyAfter($stepKey) === false;
