@@ -3,7 +3,6 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests;
 
 use AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider;
-use AnthonyEdmonds\GovukLaravel\Tests\Providers\RouteServiceProvider;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\FakesRoute;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\SetsViewVariables;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -28,7 +27,6 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             GovukServiceProvider::class,
-            RouteServiceProvider::class,
         ];
     }
 }

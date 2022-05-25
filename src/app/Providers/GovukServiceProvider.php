@@ -2,7 +2,6 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Providers;
 
-use AnthonyEdmonds\GovukLaravel\Forms\FormController;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\AfterDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnDate;
@@ -12,7 +11,6 @@ use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rule;
 
@@ -29,7 +27,6 @@ class GovukServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->bootPublishes();
-        $this->bootRoutes();
         $this->bootRules();
         $this->bootViews();
     }
@@ -51,51 +48,6 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/scss/inter.scss' => resource_path('scss/inter.scss'),
             __DIR__.'/../../resources/fonts/inter' => resource_path('fonts/inter'),
         ], 'govuk-fonts');
-    }
-
-    protected function bootRoutes(): void
-    {
-        if (Route::hasMacro('govukForm') === false) {
-            Route::macro('govukForm', function (string $formClass) {
-                Route::controller(FormController::class)
-                    ->prefix('/'.$formClass::KEY)
-                    ->name($formClass::KEY.'.')
-                    ->group(function () use ($formClass) {
-                        Route::get('/start', 'start')
-                            ->name('start')
-                            ->defaults('formClass', $formClass);
-
-                        Route::get('/summary', 'summary')
-                            ->name('summary')
-                            ->defaults('formClass', $formClass);
-
-                        Route::post('/submit', 'submit')
-                            ->name('submit')
-                            ->defaults('formClass', $formClass);
-
-                        Route::get('/confirmation', 'confirmation')
-                            ->name('confirmation')
-                            ->defaults('formClass', $formClass);
-
-                        Route::get('/exit', 'exit')
-                            ->name('exit')
-                            ->defaults('formClass', $formClass);
-
-                        // TODO Steps with only edit, and no create? Can there be a single method for both?
-
-                        Route::prefix('/{stepKey}')
-                            ->group(function () use ($formClass) {
-                                Route::get('/', 'step')
-                                    ->name('step')
-                                    ->defaults('formClass', $formClass);
-
-                                Route::post('/', 'save')
-                                    ->name('step')
-                                    ->defaults('formClass', $formClass);
-                            });
-                    });
-            });
-        }
     }
 
     protected function bootRules(): void
