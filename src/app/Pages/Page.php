@@ -189,9 +189,14 @@ class Page implements View
     }
 
     // View Contract
-    public function render(): View
+    public function render(): string
     {
-        return view("govuk::templates.{$this->template}", $this->toArray(), $this->withs);
+        return view(
+            "govuk::templates.{$this->template}",
+            $this->toArray(),
+            $this->withs
+        )
+            ->render();
     }
 
     public function name(): string

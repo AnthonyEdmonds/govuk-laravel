@@ -32,6 +32,13 @@ class GovukPage
             ->setTemplate('confirm');
     }
 
+    public static function confirmation(string $title): Page
+    {
+        // TODO
+
+        return Page::create($title);
+    }
+
     public static function custom(
         string $title,
         string $blade,
@@ -51,6 +58,13 @@ class GovukPage
             ->setBack(back()->getTargetUrl())
             ->setContent($contentBlade)
             ->setTemplate('error');
+    }
+
+    public static function feedback(string $title): Page
+    {
+        // TODO
+
+        return Page::create($title);
     }
 
     public static function question(
@@ -107,10 +121,18 @@ class GovukPage
             ->setTemplate('question');
     }
 
-    public static function start(string $title): Page
-    {
-        // TODO
-        return Page::create($title);
+    public static function start(
+        string $title,
+        string $action,
+        string $buttonLabel,
+        string $blade
+    ): Page {
+        return Page::create($title)
+            ->setAction($action)
+            ->setSubmitButtonLabel($buttonLabel)
+            ->setSubmitButtonType(Page::START_BUTTON)
+            ->setContent($blade)
+            ->setTemplate('start');
     }
 
     public static function summary(
@@ -136,11 +158,5 @@ class GovukPage
             ->setMethod($method)
             ->setSummary($summary)
             ->setTemplate('summary');
-    }
-
-    public static function tasklist(string $title): Page
-    {
-        // TODO
-        return Page::create($title);
     }
 }

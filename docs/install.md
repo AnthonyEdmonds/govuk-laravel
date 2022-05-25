@@ -67,6 +67,21 @@ import { initAll } from 'govuk-frontend';
 initAll();
 ```
 
+Add the following to `webpack.mix.js`; both JavaScript and TypeScript versions are provided as of 4.1.0:
+
+```js
+mix.webpackConfig({
+    module: {
+        rules: [
+            {
+                test: /\.mjs$/i,
+                resolve: { byDependency: { esm: { fullySpecified: false } } },
+            },
+        ],
+    },
+});
+```
+
 ### SCSS
 
 Import the GOV.UK Design System followed by the GOV.UK Laravel scss styles in `/resources/scss/app.scss` file.
