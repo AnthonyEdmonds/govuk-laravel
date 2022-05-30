@@ -16,7 +16,7 @@
     <ul>
         @if($prevPageUrl !== null)
             <li>
-                <x-govuk::a href="{{ $prevPageUrl }}">
+                <x-govuk::a href="{!! $prevPageUrl !!}">
                     <svg
                         class="govuk-!-margin-left-0"
                         xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@
     
         @if($currentPage > 1)
             <li>
-                <x-govuk::a href="{{ $firstPageUrl }}">
+                <x-govuk::a href="{!! $firstPageUrl !!}">
                     <x-govuk::hidden>Goto page </x-govuk::hidden>First
                 </x-govuk::a>
             </li>
@@ -42,7 +42,7 @@
         
         @if($nextPageUrl !== null)
             <li>
-                <x-govuk::a href="{{ $nextPageUrl }}">
+                <x-govuk::a href="{!! $nextPageUrl !!}">
                     Next<svg
                         class="govuk-!-margin-right-0"
                         xmlns="http://www.w3.org/2000/svg"
