@@ -1,5 +1,6 @@
 @props([
     'count' => null,
+    'id',
     'threshold' => null,
     'words' => null,
 ])
@@ -19,4 +20,9 @@
     @endif
 >
     {{ $slot }}
+
+    <div
+        id="{{ $id }}-info"
+        class="govuk-hint govuk-character-count__message "
+    ></div>
 </div>

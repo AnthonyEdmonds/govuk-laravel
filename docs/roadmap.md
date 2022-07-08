@@ -11,11 +11,15 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## Enhancements
 
 * Additional conditional input support for radios
-* Automatic / implicit form session handling
 * Index / List page
 * Task List, once added as official component
 
 # Road to v1
+
+## GOV.UK Design System
+
+* Add official pagination component
+* [4.2.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.2.0)
 
 ## Laravel
 

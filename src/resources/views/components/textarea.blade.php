@@ -36,6 +36,7 @@
 
 <x-govuk::form-group.count
     :count="$count"
+    :id="$id"
     :threshold="$threshold"
     :words="$words"
 >
@@ -60,7 +61,5 @@
             rows="{{ $rows }}"
             spellcheck="{{ $spellcheck == true ? 'true' : 'false' }}"
         >{{ old($oldName, $value) }}</textarea>
-
-        <x-govuk::form-group.counter :id="$id" />
     </x-govuk::form-group>
 </x-govuk::form-group.count>

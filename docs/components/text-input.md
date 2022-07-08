@@ -5,7 +5,6 @@ Create an `input` element of varying forms.
 ```html
 <x-govuk::text-input
     autocomplete="on"
-    count="50"
     hint="Enter a value between 30 - 50 characters"
     id="input-id"
     inputmode="text"
@@ -16,12 +15,10 @@ Create an `input` element of varying forms.
     prefix="£"
     spellcheck="on"
     suffix="per item"
-    threshold="50"
     isTitle
     type="text"
     value="Bob Bobbington"
     width="10"
-    words="50"
 />
 ```
 
@@ -32,7 +29,6 @@ This element is pre-wrapped with `count` and `form-group` components, with `labe
 | Name         | Type   | Default  | Description |
 | ------------ | ------ | -------- | ----------- |
 | autocomplete | string | on       | Which autocomplete mode to use |
-| count        | int    | null     | Show a character limit counter equal to `count` |
 | hint         | string | null     | A descriptive hint for the input |
 | id           | string | $name    | The ID of the input |
 | inputmode    | string | text     | Which virtual keyboard mode to use |
@@ -43,17 +39,13 @@ This element is pre-wrapped with `count` and `form-group` components, with `labe
 | prefix       | string | null     | Text to show to the left of the input |
 | spellcheck   | string | false    | Which spellcheck mode to use |
 | suffix       | string | null     | Text to show to the right of the input |
-| threshold    | int    | null     | Show the counter only after the threshold percentage is reached, such as `50` |
 | isTitle      | bool   | bool     | Whether the label is also the page title |
 | type         | string | text     | The type of input, such as `number` |
 | value        | string | null     | The current value of the input |
 | width        | int    | null     | How many characters you expect to be entered, one of: 2, 3, 4, 5, 10, or 20  |
-| words        | int    | null     | Show a word limit counter equal to `words` |
 
 ## Subcomponents
 
-* form-group.count
-* form-group.counter
 * form-group.error
 * form-group.hint
 * form-group.label

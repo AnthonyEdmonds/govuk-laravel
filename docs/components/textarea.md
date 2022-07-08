@@ -21,7 +21,7 @@ Create a `textarea` element.
 />
 ```
 
-This element is pre-wrapped with `count` and `form-group` components, with `label`, `hint`, `errors`, and `counter` subcomponents.
+This element is pre-wrapped with `count` and `form-group` components, with `label`, `hint`, and `errors` subcomponents.
 
 ## Props
 
@@ -46,7 +46,6 @@ This element is pre-wrapped with `count` and `form-group` components, with `labe
 ## Subcomponents
 
 * form-group.count
-* form-group.counter
 * form-group.error
 * form-group.hint
 * form-group.label
