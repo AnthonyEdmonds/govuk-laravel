@@ -3,13 +3,14 @@
 namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
 use AnthonyEdmonds\GovukLaravel\Questions\Question;
+use Illuminate\Support\Collection;
 
 class GovukQuestion
 {
     public static function checkboxes(
         string $label,
         string $name,
-        array $options,
+        array|Collection $options,
         string $id = null,
     ): Question {
         return Question::create($label, $name, Question::CHECKBOXES, $id)
@@ -71,7 +72,7 @@ class GovukQuestion
     public static function radios(
         string $label,
         string $name,
-        array $options,
+        array|Collection $options,
         string $id = null
     ): Question {
         return Question::create(
@@ -86,7 +87,7 @@ class GovukQuestion
     public static function select(
         string $label,
         string $name,
-        array $options,
+        array|Collection $options,
         string $id = null
     ): Question {
         return Question::create(

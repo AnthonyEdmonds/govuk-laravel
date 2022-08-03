@@ -3,6 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Questions;
 
 use ErrorException;
+use Illuminate\Support\Collection;
 use Illuminate\View\ComponentAttributeBag;
 
 class Question
@@ -149,9 +150,12 @@ class Question
         return $this;
     }
 
-    public function options(array $options): self
+    public function options(array|Collection $options): self
     {
-        $this->options = $options;
+        $this->options = is_array($options) === false
+            ? $options->toArray()
+            : $options;
+
         return $this;
     }
 
