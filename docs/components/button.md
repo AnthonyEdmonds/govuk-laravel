@@ -5,10 +5,10 @@ Create a `button` element for use with a form.
 ```html
 <x-govuk::button
     as-link
+    as-start-button
     disabled
     prevent-double-click
     secondary
-    start
     :type="$buttonType"
     warning
 >My Button</x-govuk::button>
@@ -19,10 +19,10 @@ Create a `button` element for use with a form.
 | Name               | Type   | Default | Description |
 | ------------------ | ------ | ------- | ----------- |
 | asLink             | bool   | false   | Style the button as an `<a>` element |
+| asStartButton      | bool   | false   | Style the button as "start" |
 | disabled           | bool   | false   | Whether the button is clickable |
 | preventDoubleClick | bool   | false   | Disable the button after it is clicked |
 | secondary          | bool   | false   | Style the button as "secondary" |
-| start              | bool   | false   | Style the button as "start" |
 | type               | string | null    | Apply the secondary, start, or warning styles with a variable |
 | warning            | bool   | false   | Style the button as "warning" |
 

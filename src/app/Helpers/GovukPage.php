@@ -123,12 +123,14 @@ class GovukPage
 
     public static function start(
         string $title,
+        string $blade,
         string $action,
         string $buttonLabel,
-        string $blade
+        string $method = 'get',
     ): Page {
         return Page::create($title)
             ->setAction($action)
+            ->setMethod($method)
             ->setSubmitButtonLabel($buttonLabel)
             ->setSubmitButtonType(Page::START_BUTTON)
             ->setContent($blade)

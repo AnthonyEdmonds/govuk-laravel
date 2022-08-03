@@ -1,9 +1,9 @@
 @props([
     'asLink' => false,
+    'asStartButton' => false,
     'disabled' => false,
     'preventDoubleClick' => false,
     'secondary' => false,
-    'start' => false,
     'type' => null,
     'warning' => false,
 ])
@@ -19,7 +19,7 @@
         $classes .= ' govuk-button--secondary';
     }
 
-    if ($start === true || $type === 'start') {
+    if ($asStartButton === true || $type === 'start') {
         $classes .= ' govuk-button--start';
     }
 
@@ -46,7 +46,7 @@
     @endif
 >
     {{ $slot }}
-    @if($start === true || $type === 'start')
+    @if($asStartButton === true || $type === 'start')
         <svg
             class="govuk-button__start-icon"
             xmlns="http://www.w3.org/2000/svg"
