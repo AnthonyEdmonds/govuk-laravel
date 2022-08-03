@@ -124,16 +124,18 @@ class GovukPage
     public static function start(
         string $title,
         string $blade,
+        array $breadcrumbs,
         string $action,
         string $buttonLabel,
         string $method = 'get',
     ): Page {
         return Page::create($title)
             ->setAction($action)
+            ->setBreadcrumbs($breadcrumbs)
+            ->setContent($blade)
             ->setMethod($method)
             ->setSubmitButtonLabel($buttonLabel)
             ->setSubmitButtonType(Page::START_BUTTON)
-            ->setContent($blade)
             ->setTemplate('start');
     }
 
