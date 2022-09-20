@@ -263,4 +263,9 @@ class Question
             ->with('attributes', new ComponentAttributeBag())
             ->render();
     }
+
+    public function getFormat(): string
+    {
+        return $this->format;
+    }
 }
