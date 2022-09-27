@@ -14,16 +14,15 @@ class ConstructTest extends TestCase
     {
         parent::setUp();
 
-        $this->question = new Question('label', 'world', Question::CHECKBOXES);
+        $this->question = new Question('Duck', 'Dave', Question::CHECKBOXES);
     }
 
-    public function testsThrowsExceptionWhenFormatInvalid(): void
+    public function testThrowsExceptionWhenFormatInvalid(): void
     {
         $this->expectException(ErrorException::class);
-        $this->expectExceptionMessage("tuesday is not a valid GOV.UK Question type");
+        $this->expectExceptionMessage('Grass is not a valid GOV.UK Question type');
 
-        $this->question = new Question('label', 'world', 'tuesday');
-
+        $this->question = new Question('Duck', 'Dave', 'Grass');
     }
 
     public function testSetsLabel(): void
@@ -33,7 +32,7 @@ class ConstructTest extends TestCase
 
     public function testSetsName(): void
     {
-        $this->assertEquals('world', $this->question->name);
+        $this->assertEquals('Dave', $this->question->name);
     }
 
     public function testSetsFormat(): void
