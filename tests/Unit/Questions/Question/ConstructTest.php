@@ -27,7 +27,7 @@ class ConstructTest extends TestCase
 
     public function testSetsLabel(): void
     {
-        $this->assertEquals('label', $this->question->label);
+        $this->assertEquals('Duck', $this->question->label);
     }
 
     public function testSetsName(): void
@@ -42,7 +42,7 @@ class ConstructTest extends TestCase
 
     public function testSetsIdWhenNull(): void
     {
-        $this->assertEquals('world', $this->question->id);
+        $this->assertEquals('Dave', $this->question->id);
     }
 
     public function testSetsIdWhenNotNull(): void
