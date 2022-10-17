@@ -39,3 +39,15 @@ When passing custom content into a GovukPage your blade may define any of the se
 // When calling the content...
 GovukPage::custom('My title')->content('my-custom-content');
 ```
+## Confirmation Page
+
+The confirmation page template has an additional section called `panel-body` which accepts the contents of the panel.
+
+```php
+@section('panel-body')
+    <x-govuk::p>
+        Your reference number is
+        <br/><strong>{{ $model->id }}</strong>
+    </x-govuk::p>
+@endsection
+```
