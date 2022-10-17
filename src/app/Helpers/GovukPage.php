@@ -35,6 +35,7 @@ class GovukPage
     public static function confirmation(string $title, string $blade, string $back = '/'): Page
     {
         return Page::create($title)
+            ->hideTitle()
             ->setBack($back)
             ->setContent($blade)
             ->setTemplate('confirmation');

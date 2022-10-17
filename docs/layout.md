@@ -16,7 +16,9 @@ It is worth noting that if the main content features a single question, where th
 
 ## GovukPages and content blades
 
-When passing custom content into a GovukPage your blade may define any of the sections except for `main`, as the `main` section is used for the template content.
+When passing a blade into certain GovukPages, your blade may define any of the sections except for `main`, as the `main` section is used for the template content.
+
+Confirmation and Custom pages are the exception, where you may define any section.
 
 ```php
 // my-custom-content.blade.php
@@ -38,16 +40,4 @@ When passing custom content into a GovukPage your blade may define any of the se
 
 // When calling the content...
 GovukPage::custom('My title')->content('my-custom-content');
-```
-## Confirmation Page
-
-The confirmation page template has an additional section called `panel-body` which accepts the contents of the panel.
-
-```php
-@section('panel-body')
-    <x-govuk::p>
-        Your reference number is
-        <br/><strong>{{ $model->id }}</strong>
-    </x-govuk::p>
-@endsection
 ```
