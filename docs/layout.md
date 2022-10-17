@@ -16,7 +16,9 @@ It is worth noting that if the main content features a single question, where th
 
 ## GovukPages and content blades
 
-When passing custom content into a GovukPage your blade may define any of the sections except for `main`, as the `main` section is used for the template content.
+When passing a blade into certain GovukPages, your blade may define any of the sections except for `main`, as the `main` section is used for the template content.
+
+Confirmation and Custom pages are the exception, where you may define any section.
 
 ```php
 // my-custom-content.blade.php

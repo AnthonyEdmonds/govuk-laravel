@@ -4,6 +4,7 @@ A set of standard page types are provided via the `GovukPage` helper, reducing t
 
 ```php
 return GovukPage::confirm(...);
+return GovukPage::confirmation(...)
 return GovukPage::error(...);
 return GovukPage::question(...);
 return GovukPage::start(...);
