@@ -8,6 +8,19 @@ class IsInLineTest extends TestCase
 {
     protected Question $question;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->question = new Question('Duck', 'Dave', Question::CHECKBOXES);
+        $this->question->isInline();
+    }
+
+    public function testIsInLineTest(): void
+    {
+        $this->assertEquals(true, $this->question->isInline);
+    }
+
 
 
 }

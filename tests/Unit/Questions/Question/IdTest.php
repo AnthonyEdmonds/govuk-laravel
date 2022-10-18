@@ -13,6 +13,7 @@ class IdTest extends TestCase
         parent::setUp();
 
         $this->question = new Question('Duck', 'Dave', Question::CHECKBOXES, 'Id');
+        $this->question->id('Id');
     }
 
     public function testId(): void
