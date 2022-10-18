@@ -13,6 +13,7 @@ class AutocompleteTest extends TestCase
         parent::setUp();
 
         $this->question = new Question('Duck', 'Dave', Question::CHECKBOXES);
+        $this->question->autocomplete();
     }
 
     public function testAutocomplete(): void
