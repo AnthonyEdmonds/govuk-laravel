@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Providers;
 
+use AnthonyEdmonds\GovukLaravel\Controllers\FormController;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\AfterDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnDate;
@@ -11,6 +12,7 @@ use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rule;
 
@@ -27,6 +29,7 @@ class GovukServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->bootPublishes();
+        $this->bootRoutes();
         $this->bootRules();
         $this->bootViews();
     }
@@ -50,9 +53,31 @@ class GovukServiceProvider extends ServiceProvider
         ], 'govuk-fonts');
     }
 
+    protected function bootRoutes(): void
+    {
+        Route::macro('govuk-form', function () {
+            Route::prefix('/forms/{formKey}')
+                ->name('forms.')
+                ->controller(FormController::class)
+                ->group(function () {
+                    Route::get('/start', 'start')->name('start');
+                    Route::post('/start', 'create');
+
+                    Route::get('/{mode}/summary/{subjectKey?}', 'summary')->name('summary');
+                    Route::post('/{mode}/summary/{subjectKey?}', 'submit');
+
+                    Route::get('/{mode}/confirmation/{subjectKey}', 'confirmation')->name('confirmation');
+
+                    Route::get('/{mode}/{questionKey}/{subjectKey?}', 'question')->name('question');
+                    Route::post('/{mode}/{questionKey}/{subjectKey?}', 'store');
+                    Route::put('/{mode}/{questionKey}/{subjectKey?}', 'update');
+                });
+        });
+    }
+
     protected function bootRules(): void
     {
-        /* Does not work in the way I want it to. How to pass min and max, and get the message to the validator?
+        /* TODO Does not work in the way I want it to. How to pass min and max, and get the message to the validator?
         Validator::extend('max_words', function ($attribute, $value, $parameters, $validator) {
             $rule = new MaxWords($parameters[0]);
             return $rule->passes($attribute, $value);
