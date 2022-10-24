@@ -6,6 +6,8 @@ use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Forms\Question as FormQuestion;
 use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
 
+// TODO Add Form quick links for start, etc
+
 trait HasForm
 {
     abstract public function form(): Form;
@@ -49,7 +51,7 @@ trait HasForm
                 'label' => 'Change',
                 'hidden' => $label,
                 'url' => route('forms.question', [
-                    $this->form()->key(),
+                    $this->form()::key(),
                     $this->exists === true
                         ? Form::EDIT
                         : Form::REVIEW,

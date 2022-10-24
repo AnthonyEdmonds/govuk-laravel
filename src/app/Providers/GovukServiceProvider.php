@@ -55,7 +55,7 @@ class GovukServiceProvider extends ServiceProvider
 
     protected function bootRoutes(): void
     {
-        Route::macro('govuk-form', function () {
+        Route::macro('govukLaravelForms', function () {
             Route::prefix('/forms/{formKey}')
                 ->name('forms.')
                 ->controller(FormController::class)
