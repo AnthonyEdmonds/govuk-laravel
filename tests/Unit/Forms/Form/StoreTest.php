@@ -27,7 +27,7 @@ class StoreTest extends TestCase
         $this->useForms();
 
         $this->subject = new FormModel();
-        GovukForm::set(TestForm::key(), $this->subject);
+        GovukForm::put(TestForm::key(), $this->subject);
 
         $this->form = new TestForm();
     }

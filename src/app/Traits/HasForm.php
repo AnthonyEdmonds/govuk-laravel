@@ -12,12 +12,14 @@ trait HasForm
 
     abstract public static function formClass(): string;
 
-    public function __construct()
+    public function form(): Form
     {
-        parent::__construct();
+        if (isset($this->form) === false) {
+            $formClass = static::formClass();
+            $this->form = new $formClass();
+        }
 
-        $formClass = static::formClass();
-        $this->form = new $formClass();
+        return $this->form;
     }
 
     public static function startFormRoute(): string
@@ -25,52 +27,54 @@ trait HasForm
         return route('forms.start', static::formClass()::key());
     }
 
-    public function toSummary(): array
+    public function toSummary(bool $showChange = false): array
     {
         $summary = [];
-        $questionClasses = $this->form->questions();
+        $questionClasses = $this->form()->questions();
 
         foreach ($questionClasses as $questionClass) {
             $formQuestion = new $questionClass();
             $question = $formQuestion->getQuestion($this);
 
-            $this->questionToSummaryEntry($summary, $formQuestion);
+            $this->questionToSummaryEntry($summary, $formQuestion, $showChange);
         }
 
         return $summary;
     }
 
-    protected function questionToSummaryEntry(array &$summary, FormQuestion $formQuestion): void
+    protected function questionToSummaryEntry(array &$summary, FormQuestion $formQuestion, bool $showChange): void
     {
         $govukQuestion = $formQuestion->getQuestion($this);
 
         if (is_array($govukQuestion) === true) {
             foreach ($govukQuestion as $subGovukQuestion) {
-                $this->summaryEntry($summary, $formQuestion, $subGovukQuestion);
+                $this->summaryEntry($summary, $formQuestion, $subGovukQuestion, $showChange);
             }
         } else {
-            $this->summaryEntry($summary, $formQuestion, $govukQuestion);
+            $this->summaryEntry($summary, $formQuestion, $govukQuestion, $showChange);
         }
     }
 
-    protected function summaryEntry(array &$summary, FormQuestion $formQuestion, GovukQuestion $govukQuestion): void
+    protected function summaryEntry(array &$summary, FormQuestion $formQuestion, GovukQuestion $govukQuestion, bool $showChange): void
     {
         $label = ucfirst(str_replace('_', ' ', $govukQuestion->name));
         $property = $govukQuestion->name;
 
         $summary[$label] = [
             'value' => $this->$property,
-            'action' => [
-                'label' => 'Change',
-                'hidden' => $label,
-                'url' => route('forms.question', [
-                    $this->form::key(),
-                    $this->exists === true
-                        ? Form::EDIT
-                        : Form::REVIEW,
-                    $formQuestion::key(),
-                ]),
-            ],
+            'action' => $showChange === true
+                ? [
+                    'label' => 'Change',
+                    'hidden' => $label,
+                    'url' => route('forms.question', [
+                        $this->form()::key(),
+                        $this->exists === true
+                            ? Form::EDIT
+                            : Form::REVIEW,
+                        $formQuestion::key(),
+                    ]),
+                ]
+                : null,
         ];
     }
 }

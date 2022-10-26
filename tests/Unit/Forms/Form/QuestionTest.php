@@ -22,7 +22,7 @@ class QuestionTest extends TestCase
 
         $this->useForms();
 
-        GovukForm::set(TestForm::key(), new FormModel());
+        GovukForm::put(TestForm::key(), new FormModel());
 
         $this->form = new TestForm();
         $this->page = $this->form->question(

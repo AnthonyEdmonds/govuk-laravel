@@ -35,7 +35,7 @@ class StoreTest extends TestCase
             'name' => 'potato',
         ]);
 
-        GovukForm::set(TestForm::key(), new FormModel());
+        GovukForm::put(TestForm::key(), new FormModel());
 
         $this->controller = new FormController();
     }

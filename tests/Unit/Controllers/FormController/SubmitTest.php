@@ -32,7 +32,7 @@ class SubmitTest extends TestCase
         $this->subject = new FormModel();
         $this->subject->name = 'Potato';
 
-        GovukForm::set(TestForm::key(), $this->subject);
+        GovukForm::put(TestForm::key(), $this->subject);
 
         $this->controller = new FormController();
     }

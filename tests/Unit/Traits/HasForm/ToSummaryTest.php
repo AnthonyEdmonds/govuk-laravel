@@ -47,7 +47,7 @@ class ToSummaryTest extends TestCase
                 array_column($this->data, 'value')
             )
         );
-        $this->summary = $this->model->toSummary();
+        $this->summary = $this->model->toSummary(true);
     }
 
     public function testKeysByLabel(): void
@@ -72,7 +72,7 @@ class ToSummaryTest extends TestCase
         }
     }
 
-    public function testHasAction(): void
+    public function testHasActionWhenTrue(): void
     {
         foreach ($this->data as $label => $data) {
             $label = $this->formatLabel($label);
@@ -90,6 +90,15 @@ class ToSummaryTest extends TestCase
                 ]),
                 $this->summary[$label]['action']['url']
             );
+        }
+    }
+
+    public function testActionNullWhenFalse(): void
+    {
+        $this->summary = $this->model->toSummary(false);
+
+        foreach ($this->summary as $entry) {
+            $this->assertNull($entry['action']);
         }
     }
 

@@ -41,7 +41,7 @@ class UpdateTest extends TestCase
         $this->subject->name = 'Potato';
         $this->subject->save();
 
-        GovukForm::set(TestForm::key(), $this->subject);
+        GovukForm::put(TestForm::key(), $this->subject);
 
         $this->controller = new FormController();
     }

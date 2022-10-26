@@ -28,7 +28,7 @@ class QuestionTest extends TestCase
         $this->user = new User();
         $this->signIn($this->user);
 
-        GovukForm::set(TestForm::key(), new FormModel());
+        GovukForm::put(TestForm::key(), new FormModel());
 
         $this->controller = new FormController();
     }

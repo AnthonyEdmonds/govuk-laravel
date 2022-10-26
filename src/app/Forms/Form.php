@@ -72,7 +72,7 @@ abstract class Form
 
     public function create(): RedirectResponse
     {
-        GovukForm::set(static::key(), $this->makeNewSubject());
+        GovukForm::put(static::key(), $this->makeNewSubject());
 
         return redirect($this->questionRoute(self::NEW, $this->getFirstQuestionKey()));
     }
@@ -132,7 +132,7 @@ abstract class Form
 
         $question->validate($request);
         $question->store($request, $subject);
-        GovukForm::set(static::key(), $subject);
+        GovukForm::put(static::key(), $subject);
 
         return redirect($this->getNextRoute($mode, $questionKey));
     }
