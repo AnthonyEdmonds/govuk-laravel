@@ -15,7 +15,7 @@
                 class="govuk-accordion__section-button"
                 id="accordion-{{ $id }}-heading-{{ $subid }}"
             >
-                {{ $label }}
+                {!! $label !!}
             </span>
         </h2>
 
@@ -24,7 +24,7 @@
                 class="govuk-accordion__section-summary govuk-body"
                  id="accordion-{{ $id }}-summary-{{ $subid }}"
             >
-                {{ $summary }}
+                {!! $summary !!}
             </div>
         @endisset
     </div>
@@ -34,6 +34,6 @@
         class="govuk-accordion__section-content"
         aria-labelledby="accordion-{{ $id }}-heading-{{ $subid }}"
     >
-        {{ $slot }}
+        {!! $slot !!}
     </div>
 </div>
