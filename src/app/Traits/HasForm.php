@@ -6,16 +6,29 @@ use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Forms\Question as FormQuestion;
 use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
 
-// TODO Add Form quick links for start, etc
-
 trait HasForm
 {
-    abstract public function form(): Form;
+    public Form $form;
+
+    abstract public static function formClass(): string;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $formClass = static::formClass();
+        $this->form = new $formClass();
+    }
+
+    public static function startFormRoute(): string
+    {
+        return route('forms.start', static::formClass()::key());
+    }
 
     public function toSummary(): array
     {
         $summary = [];
-        $questionClasses = $this->form()->questions();
+        $questionClasses = $this->form->questions();
 
         foreach ($questionClasses as $questionClass) {
             $formQuestion = new $questionClass();
@@ -51,7 +64,7 @@ trait HasForm
                 'label' => 'Change',
                 'hidden' => $label,
                 'url' => route('forms.question', [
-                    $this->form()::key(),
+                    $this->form::key(),
                     $this->exists === true
                         ? Form::EDIT
                         : Form::REVIEW,

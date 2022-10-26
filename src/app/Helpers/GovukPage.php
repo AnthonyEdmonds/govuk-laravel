@@ -125,7 +125,7 @@ class GovukPage
 
     public static function start(
         string $title,
-        string $blade,
+        ?string $blade,
         array $breadcrumbs,
         string $action,
         string $buttonLabel,

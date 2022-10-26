@@ -36,7 +36,11 @@ abstract class Form
 
     abstract protected function makeNewSubject(): Model;
 
-    abstract protected function submit(Model $subject): void;
+    abstract protected function submitStore(Model $subject): void;
+
+    abstract protected function submitUpdate(Model $subject): void;
+
+    abstract protected function confirmationBlade(): string;
 
     // Static
     public static function getForm(string $key): Form
@@ -49,7 +53,7 @@ abstract class Form
             }
         }
 
-        throw new ErrorException("$key has not been registered");
+        throw new ErrorException("The \"$key\" form has not been registered");
     }
 
     // Start
@@ -107,7 +111,7 @@ abstract class Form
                 $this->getOtherButtonLabel(),
                 $this->getOtherButtonRoute(),
                 $this->getSubmitButtonType(),
-            )
+            )->with('subject', $subject)
             : GovukPage::question(
                 $question,
                 $this->getSubmitButtonLabel($mode, $questionKey),
@@ -118,7 +122,7 @@ abstract class Form
                 $this->getOtherButtonLabel(),
                 $this->getOtherButtonRoute(),
                 $this->getSubmitButtonType(),
-            );
+            )->with('subject', $subject);
     }
 
     public function store(Request $request, string $mode, string $questionKey): RedirectResponse
@@ -145,6 +149,44 @@ abstract class Form
         return redirect($this->getNextRoute($mode, $questionKey, $subjectKey));
     }
 
+    protected function getSubmitButtonLabel(string $mode, string $questionKey): string
+    {
+        if ($mode === static::REVIEW || $mode === static::EDIT) {
+            return 'Save and back';
+        }
+
+        if ($this->isLastQuestion($questionKey) === true) {
+            return 'Save and review';
+        }
+
+        return 'Save and continue';
+    }
+
+    protected function getMethod(): string
+    {
+        return 'post';
+    }
+
+    protected function getBlade(): string|null
+    {
+        return null;
+    }
+
+    protected function getOtherButtonLabel(): string|null
+    {
+        return null;
+    }
+
+    protected function getOtherButtonRoute(): string|null
+    {
+        return null;
+    }
+
+    protected function getSubmitButtonType(): string
+    {
+        return Page::NORMAL_BUTTON;
+    }
+
     // Summary
     public function summary(string $mode, int|string|null $subjectKey = null): Page
     {
@@ -168,7 +210,10 @@ abstract class Form
     public function submitForm(string $mode, int|string|null $subjectKey = null): RedirectResponse
     {
         $subject = $this->getSubject($subjectKey);
-        $this->submit($subject);
+
+        $mode === self::EDIT
+            ? $this->submitUpdate($subject)
+            : $this->submitStore($subject);
 
         if ($subjectKey === null) {
             GovukForm::clear($this::key());
@@ -209,7 +254,7 @@ abstract class Form
 
         return GovukPage::confirmation(
             $this->confirmationTitle($subject),
-            'servers.confirmation',
+            $this->confirmationBlade(),
             $this->exitRoute(),
         )
             ->with('subject', $subject);
@@ -231,7 +276,7 @@ abstract class Form
     }
 
     // Questions
-    public function getQuestion(string $questionKey): Question
+    protected function getQuestion(string $questionKey): Question
     {
         foreach (static::questions() as $question) {
             if ($question::key() === $questionKey) {
@@ -363,49 +408,5 @@ abstract class Form
     protected function exitRoute(): string
     {
         return route('/');
-    }
-
-    // Utilities
-    protected function getBladeName(string $blade): string
-    {
-        return 'forms.' . static::key() . '.' . $blade;
-    }
-
-    protected function getSubmitButtonLabel(string $mode, string $questionKey): string
-    {
-        if ($mode === static::REVIEW || $mode === static::EDIT) {
-            return 'Save and back';
-        }
-
-        if ($this->isLastQuestion($questionKey) === true) {
-            return 'Save and review';
-        }
-
-        return 'Save and continue';
-    }
-
-    protected function getMethod(): string
-    {
-        return 'post';
-    }
-
-    protected function getBlade(): string|null
-    {
-        return null;
-    }
-
-    protected function getOtherButtonLabel(): string|null
-    {
-        return null;
-    }
-
-    protected function getOtherButtonRoute(): string|null
-    {
-        return null;
-    }
-
-    protected function getSubmitButtonType(): string
-    {
-        return Page::NORMAL_BUTTON;
     }
 }

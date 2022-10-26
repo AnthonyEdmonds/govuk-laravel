@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Session;
 /* Models can be created over several form steps using the User's session */
 class GovukForm
 {
+    /* Whether a form exists for the given key */
+    public static function has(string $key): bool
+    {
+        return Session::has($key);
+    }
+
     /* Put a form model into the User's session */
     public static function set(string $key, Model|array $form): void
     {
@@ -18,7 +24,7 @@ class GovukForm
     /* Retrieve a form model from the User's session */
     public static function get(string $key): Model|array
     {
-        if (Session::has($key) === false) {
+        if (self::has($key) === false) {
             throw new ErrorException('The form you are trying to access has expired. Please start again.');
         }
 

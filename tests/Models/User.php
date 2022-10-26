@@ -2,11 +2,9 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Models;
 
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User implements AuthenticatableContract
+class User extends Authenticatable
 {
-    use Authenticatable;
+    //
 }

@@ -33,6 +33,8 @@ Route::govukLaravelForms();
 
 You can then enter a form from one of three perspectives:
 
-1. Starting a new form `route('forms.start', MyForm::key())`
+1. Starting a new form `MyModel::startFormRoute() OR route('forms.start', MyForm::key())`
 2. Resuming a new form // TODO
 3. Editing an existing Model // TODO
+
+## How it works
