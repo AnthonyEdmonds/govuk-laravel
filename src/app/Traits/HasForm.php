@@ -12,9 +12,9 @@ trait HasForm
 
     abstract public static function formClass(): string;
 
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
-        parent::__construct();
+        parent::__construct($attributes);
 
         $formClass = static::formClass();
         $this->form = new $formClass();
