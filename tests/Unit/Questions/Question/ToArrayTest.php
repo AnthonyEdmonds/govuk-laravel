@@ -13,12 +13,17 @@ class ToArrayTest extends TestCase
         parent::setUp();
 
         $this->question = new Question('Duck', 'Dave', Question::CHECKBOXES);
-        $this->question->toArray();
     }
 
     public function testToArray(): void
     {
-        $this->assertEquals([], $this->question->toArray());
-
+        $attributes = $this->question->toArray();
+        foreach ($attributes as $attribute => $value) {
+            if ($attribute === 'format') {
+                $this->assertEquals($this->question->getFormat(), $value);
+            } else {
+                $this->assertEquals($this->question->$attribute, $value);
+            }
+        }
     }
 }
