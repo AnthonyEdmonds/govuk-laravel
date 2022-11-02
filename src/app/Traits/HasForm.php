@@ -22,11 +22,13 @@ trait HasForm
         return $this->form;
     }
 
+    // Routing
     public static function startFormRoute(): string
     {
         return route('forms.start', static::formClass()::key());
     }
 
+    // Summary
     public function toSummary(bool $showChange = false): array
     {
         $summary = [];

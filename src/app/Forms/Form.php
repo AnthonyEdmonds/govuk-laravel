@@ -2,10 +2,11 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
+use AnthonyEdmonds\GovukLaravel\Exceptions\FormNotFoundException;
+use AnthonyEdmonds\GovukLaravel\Exceptions\QuestionNotFoundException;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
-use ErrorException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
@@ -53,8 +54,11 @@ abstract class Form
             }
         }
 
-        throw new ErrorException("The \"$key\" form has not been registered");
+        throw new FormNotFoundException("The \"$key\" form has not been registered");
     }
+
+    // TODO When starting a form on a model that already exists, load model into session
+    // Update model at end of editing chain
 
     // Start
     public function start(): Page
@@ -284,7 +288,7 @@ abstract class Form
             }
         }
 
-        throw new ErrorException("$questionKey does not exist in the {$this->key} form");
+        throw new QuestionNotFoundException("$questionKey does not exist in the {$this->key} form");
     }
 
     protected function getFirstQuestionKey(): string
