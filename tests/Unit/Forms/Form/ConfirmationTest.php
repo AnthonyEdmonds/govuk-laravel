@@ -43,14 +43,6 @@ class ConfirmationTest extends TestCase
         );
     }
 
-    public function testHasBack(): void
-    {
-        $this->assertEquals(
-            route('/'),
-            $this->page->getData()['back']
-        );
-    }
-
     public function testHasMode(): void
     {
         $this->assertEquals(
