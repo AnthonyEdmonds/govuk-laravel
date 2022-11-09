@@ -32,7 +32,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 * Helpers
     * GovukComponent
-    * GovukForm
     * GovukPage
     * GovukQuestion
 * Pages

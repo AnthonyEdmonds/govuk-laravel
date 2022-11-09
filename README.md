@@ -10,9 +10,9 @@ Published under the MIT licence.
 
 * [GOV.UK Design System](https://design-system.service.gov.uk) version 4.1.0
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
-* Laravel 8 Blade components of the GOV.UK Design System components
-* Laravel 8 Blade templates of the main GOV.UK Design System pages
-* Laravel 8 Rules for validating the number of words in a string
+* Laravel 9 Blade components of the GOV.UK Design System components
+* Laravel 9 Blade templates of the main GOV.UK Design System pages
+* Laravel 9 Rules for validating the number of words in a string
 * PHP 8.0 Classes to support the creation of standard and custom pages
 
 ## Documentation
@@ -29,6 +29,7 @@ Published under the MIT licence.
 * [Pages](docs/pages.md)
 
 ### Laravel
+* [Forms](docs/forms.md)
 * [Rules](docs/rules.md)
 
 ## Contribution
