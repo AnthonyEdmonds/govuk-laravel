@@ -188,7 +188,7 @@ abstract class Form
 
         return GovukPage::summary(
             $this->summaryTitle($subject),
-            $subject->toSummary(),
+            $subject->toSummary(true),
             $this->summarySubmitLabel(),
             $this->summaryRoute($mode),
             $mode === self::EDIT
