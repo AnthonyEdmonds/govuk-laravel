@@ -37,12 +37,7 @@ class TestForm extends Form
         return new FormModel();
     }
 
-    protected function submitStore(Model $subject): void
-    {
-        $subject->save();
-    }
-
-    protected function submitUpdate(Model $subject): void
+    protected function submitForm(Model $subject, string $mode): void
     {
         $subject->save();
     }

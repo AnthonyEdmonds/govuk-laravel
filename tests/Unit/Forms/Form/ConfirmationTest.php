@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Forms\Form;
 
+use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
@@ -20,12 +21,10 @@ class ConfirmationTest extends TestCase
         $this->useForms();
         $this->useDatabase();
 
-        $this->subject = new FormModel();
-        $this->subject->name = 'Potato';
-        $this->subject->save();
+        $this->subject = FormModel::factory()->create();
 
         $this->form = new TestForm();
-        $this->page = $this->form->confirmation($this->subject->id);
+        $this->page = $this->form->confirmation(Form::EDIT, $this->subject->id);
     }
 
     public function testHasTitle(): void
@@ -49,6 +48,14 @@ class ConfirmationTest extends TestCase
         $this->assertEquals(
             route('/'),
             $this->page->getData()['back']
+        );
+    }
+
+    public function testHasMode(): void
+    {
+        $this->assertEquals(
+            Form::EDIT,
+            $this->page->getData()['mode'],
         );
     }
 

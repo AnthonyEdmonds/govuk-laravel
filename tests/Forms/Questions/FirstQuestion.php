@@ -25,12 +25,7 @@ class FirstQuestion extends Question
         );
     }
 
-    public function store(Request $request, Model $subject): void
-    {
-        $subject->name = $request->name;
-    }
-
-    public function update(Request $request, Model $subject): void
+    public function store(Request $request, Model $subject, string $mode): void
     {
         $subject->name = $request->name;
     }

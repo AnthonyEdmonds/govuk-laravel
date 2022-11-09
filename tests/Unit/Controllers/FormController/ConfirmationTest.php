@@ -28,9 +28,7 @@ class ConfirmationTest extends TestCase
         $this->user = new User();
         $this->signIn($this->user);
 
-        $this->subject = new FormModel();
-        $this->subject->name = 'Potato';
-        $this->subject->save();
+        $this->subject = FormModel::factory()->create();
 
         $this->controller = new FormController();
     }

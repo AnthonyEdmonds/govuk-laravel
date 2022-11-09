@@ -7,20 +7,25 @@ use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Routing\Route;
 
-class StartFormTest extends TestCase
+class EditFormRouteTest extends TestCase
 {
+    protected FormModel $subject;
+
     protected function setUp(): void
     {
         parent::setUp();
 
+        $this->useDatabase();
         $this->useForms();
+
+        $this->subject = FormModel::factory()->create();
     }
 
-    public function testGetsFormStartUrl(): void
+    public function testGetsFormEditUrl(): void
     {
         $this->assertEquals(
-            route('forms.start', TestForm::key()),
-            FormModel::startFormRoute()
+            route('forms.edit', [TestForm::key(), $this->subject->id]),
+            FormModel::editFormRoute($this->subject),
         );
     }
 }

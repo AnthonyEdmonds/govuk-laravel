@@ -2,10 +2,10 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Forms\Form;
 
+use AnthonyEdmonds\GovukLaravel\Exceptions\FormNotFoundException;
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use ErrorException;
 
 class GetFormTest extends TestCase
 {
@@ -26,7 +26,7 @@ class GetFormTest extends TestCase
 
     public function testThrowsExceptionWhenFormMissing(): void
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(FormNotFoundException::class);
         $this->expectExceptionMessage('The "potato" form has not been registered');
 
         Form::getForm('potato');

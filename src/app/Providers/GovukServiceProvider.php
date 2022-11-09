@@ -63,14 +63,15 @@ class GovukServiceProvider extends ServiceProvider
                     Route::get('/start', 'start')->name('start');
                     Route::post('/start', 'create');
 
-                    Route::get('/{mode}/summary/{subjectKey?}', 'summary')->name('summary');
-                    Route::post('/{mode}/summary/{subjectKey?}', 'submit');
+                    Route::get('/edit/{subjectKey}', 'edit')->name('edit');
+
+                    Route::get('/{mode}/summary', 'summary')->name('summary');
+                    Route::post('/{mode}/summary', 'submit');
 
                     Route::get('/{mode}/confirmation/{subjectKey}', 'confirmation')->name('confirmation');
 
-                    Route::get('/{mode}/{questionKey}/{subjectKey?}', 'question')->name('question');
-                    Route::post('/{mode}/{questionKey}/{subjectKey?}', 'store');
-                    Route::put('/{mode}/{questionKey}/{subjectKey?}', 'update');
+                    Route::get('/{mode}/{questionKey}', 'question')->name('question');
+                    Route::post('/{mode}/{questionKey}', 'store');
                 });
         });
     }

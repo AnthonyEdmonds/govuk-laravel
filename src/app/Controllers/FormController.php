@@ -33,12 +33,20 @@ class FormController extends BaseController
         return $form->create();
     }
 
-    public function question(string $formKey, string $mode, string $questionKey, int|string|null $subjectKey = null): View
+    public function edit(string $formKey, int|string $subjectKey): RedirectResponse
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
 
-        return $form->question($mode, $questionKey, $subjectKey);
+        return $form->edit($subjectKey);
+    }
+
+    public function question(string $formKey, string $mode, string $questionKey): View
+    {
+        $form = Form::getForm($formKey);
+        $form->checkAccess();
+
+        return $form->question($mode, $questionKey);
     }
 
     public function store(Request $request, string $formKey, string $mode, string $questionKey): RedirectResponse
@@ -49,28 +57,20 @@ class FormController extends BaseController
         return $form->store($request, $mode, $questionKey);
     }
 
-    public function update(Request $request, string $formKey, string $mode, string $questionKey, int|string $subjectKey): RedirectResponse
+    public function summary(string $formKey, string $mode): View
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
 
-        return $form->update($request, $mode, $questionKey, $subjectKey);
+        return $form->summary($mode);
     }
 
-    public function summary(string $formKey, string $mode, int|string $subjectKey = null): View
+    public function submit(string $formKey, string $mode): RedirectResponse
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
 
-        return $form->summary($mode, $subjectKey);
-    }
-
-    public function submit(string $formKey, string $mode, int|string $subjectKey = null): RedirectResponse
-    {
-        $form = Form::getForm($formKey);
-        $form->checkAccess();
-
-        return $form->submitForm($mode, $subjectKey);
+        return $form->submit($mode);
     }
 
     public function confirmation(string $formKey, string $mode, int|string $subjectKey): View
@@ -78,6 +78,6 @@ class FormController extends BaseController
         $form = Form::getForm($formKey);
         $form->checkAccess();
 
-        return $form->confirmation($subjectKey);
+        return $form->confirmation($mode, $subjectKey);
     }
 }

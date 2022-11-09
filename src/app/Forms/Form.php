@@ -37,9 +37,7 @@ abstract class Form
 
     abstract protected function makeNewSubject(): Model;
 
-    abstract protected function submitStore(Model $subject): void;
-
-    abstract protected function submitUpdate(Model $subject): void;
+    abstract protected function submitForm(Model $subject, string $mode): void;
 
     abstract protected function confirmationBlade(): string;
 
@@ -56,9 +54,6 @@ abstract class Form
 
         throw new FormNotFoundException("The \"$key\" form has not been registered");
     }
-
-    // TODO When starting a form on a model that already exists, load model into session
-    // Update model at end of editing chain
 
     // Start
     public function start(): Page
@@ -81,6 +76,13 @@ abstract class Form
         return redirect($this->questionRoute(self::NEW, $this->getFirstQuestionKey()));
     }
 
+    public function edit(int|string $subjectKey): RedirectResponse
+    {
+        GovukForm::put(static::key(), $this->loadSubjectFromDatabase($subjectKey));
+
+        return redirect($this->summaryRoute(self::EDIT));
+    }
+
     protected function startTitle(): string
     {
         return 'Begin your application';
@@ -97,10 +99,10 @@ abstract class Form
     }
 
     // Question
-    public function question(string $mode, string $questionKey, int|string|null $subjectKey = null): Page
+    public function question(string $mode, string $questionKey): Page
     {
         $questionClass = $this->getQuestion($questionKey);
-        $subject = $this->getSubject($subjectKey);
+        $subject = $this->getSubjectFromSession();
         $question = $questionClass->getQuestion($subject);
 
         return is_array($question) === true
@@ -108,8 +110,8 @@ abstract class Form
                 $questionClass->getTitle($subject),
                 $question,
                 $this->getSubmitButtonLabel($mode, $questionKey),
-                $this->questionRoute($mode, $questionKey, $subjectKey),
-                $this->getBackRoute($mode, $questionKey, $subjectKey),
+                $this->questionRoute($mode, $questionKey),
+                $this->getBackRoute($mode, $questionKey),
                 $this->getMethod(),
                 $this->getBlade(),
                 $this->getOtherButtonLabel(),
@@ -119,8 +121,8 @@ abstract class Form
             : GovukPage::question(
                 $question,
                 $this->getSubmitButtonLabel($mode, $questionKey),
-                $this->questionRoute($mode, $questionKey, $subjectKey),
-                $this->getBackRoute($mode, $questionKey, $subjectKey),
+                $this->questionRoute($mode, $questionKey),
+                $this->getBackRoute($mode, $questionKey),
                 $this->getMethod(),
                 $this->getBlade(),
                 $this->getOtherButtonLabel(),
@@ -132,25 +134,13 @@ abstract class Form
     public function store(Request $request, string $mode, string $questionKey): RedirectResponse
     {
         $question = $this->getQuestion($questionKey);
-        $subject = $this->getSubject(null);
+        $subject = $this->getSubjectFromSession();
 
         $question->validate($request);
-        $question->store($request, $subject);
+        $question->store($request, $subject, $mode);
         GovukForm::put(static::key(), $subject);
 
         return redirect($this->getNextRoute($mode, $questionKey));
-    }
-
-    public function update(Request $request, string $mode, string $questionKey, int|string|null $subjectKey): RedirectResponse
-    {
-        $question = $this->getQuestion($questionKey);
-        $subject = $this->getSubject($subjectKey);
-
-        $question->validate($request);
-        $question->update($request, $subject);
-        $subject->save();
-
-        return redirect($this->getNextRoute($mode, $questionKey, $subjectKey));
     }
 
     protected function getSubmitButtonLabel(string $mode, string $questionKey): string
@@ -192,18 +182,18 @@ abstract class Form
     }
 
     // Summary
-    public function summary(string $mode, int|string|null $subjectKey = null): Page
+    public function summary(string $mode): Page
     {
-        $subject = $this->getSubject($subjectKey);
+        $subject = $this->getSubjectFromSession();
 
         return GovukPage::summary(
             $this->summaryTitle($subject),
             $subject->toSummary(),
             $this->summarySubmitLabel(),
-            $this->summaryRoute($mode, $subjectKey),
+            $this->summaryRoute($mode),
             $mode === self::EDIT
                 ? $this->exitRoute()
-                : $this->questionRoute(self::NEW, $this->getLastQuestionKey(), $subjectKey),
+                : $this->questionRoute(self::NEW, $this->getLastQuestionKey()),
             'post',
             $this->summaryBlade(),
             $this->summaryCancelLabel(),
@@ -211,17 +201,12 @@ abstract class Form
         );
     }
 
-    public function submitForm(string $mode, int|string|null $subjectKey = null): RedirectResponse
+    public function submit(string $mode): RedirectResponse
     {
-        $subject = $this->getSubject($subjectKey);
+        $subject = $this->getSubjectFromSession();
+        $this->submitForm($subject, $mode);
 
-        $mode === self::EDIT
-            ? $this->submitUpdate($subject)
-            : $this->submitStore($subject);
-
-        if ($subjectKey === null) {
-            GovukForm::clear($this::key());
-        }
+        GovukForm::clear($this::key());
 
         return redirect($this->confirmationRoute($mode, $subject->id));
     }
@@ -252,15 +237,16 @@ abstract class Form
     }
 
     // Confirmation
-    public function confirmation(int|string $subjectKey): Page
+    public function confirmation(string $mode, int|string $subjectKey): Page
     {
-        $subject = $this->getSubject($subjectKey);
+        $subject = $this->loadSubjectFromDatabase($subjectKey);
 
         return GovukPage::confirmation(
             $this->confirmationTitle($subject),
             $this->confirmationBlade(),
             $this->exitRoute(),
         )
+            ->with('mode', $mode)
             ->with('subject', $subject);
     }
 
@@ -270,12 +256,13 @@ abstract class Form
     }
 
     // Subject
-    protected function getSubject(int|string|null $subjectKey = null): Model
+    protected function loadSubjectFromDatabase(int|string $subjectKey): Model
     {
-        if ($subjectKey !== null) {
-            return $this->makeNewSubject()::find($subjectKey);
-        }
+        return $this->makeNewSubject()::findOrFail($subjectKey);
+    }
 
+    protected function getSubjectFromSession(): Model
+    {
         return GovukForm::get(static::key());
     }
 
@@ -354,53 +341,51 @@ abstract class Form
     }
 
     // Routing
-    protected function getNextRoute(string $mode, string $questionKey = null, int|string|null $subjectKey = null): string
-    {
-        if ($mode === self::NEW) {
-            return $this->isLastQuestion($questionKey) === true
-                ? $this->summaryRoute($mode, $subjectKey)
-                : $this->questionRoute($mode, $this->getNextQuestionKey($questionKey), $subjectKey);
-        }
-
-        return $this->summaryRoute($mode, $subjectKey);
-    }
-
-    protected function getBackRoute(string $mode, string $questionKey = null, int|string|null $subjectKey = null): string
-    {
-        if ($mode === self::NEW) {
-            return $this->isFirstQuestion($questionKey) === true
-                ? $this->startRoute()
-                : $this->questionRoute($mode, $this->getPreviousQuestionKey($questionKey), $subjectKey);
-        }
-
-        return $this->summaryRoute($mode, $subjectKey);
-    }
-
     protected function startRoute(): string
     {
         return route('forms.start', static::key());
     }
 
-    protected function questionRoute(string $mode, string $questionKey, int|string|null $subjectKey = null): string
+    protected function getNextRoute(string $mode, string $questionKey = null): string
+    {
+        if ($mode === self::NEW) {
+            return $this->isLastQuestion($questionKey) === true
+                ? $this->summaryRoute($mode)
+                : $this->questionRoute($mode, $this->getNextQuestionKey($questionKey));
+        }
+
+        return $this->summaryRoute($mode);
+    }
+
+    protected function getBackRoute(string $mode, string $questionKey = null): string
+    {
+        if ($mode === self::NEW) {
+            return $this->isFirstQuestion($questionKey) === true
+                ? $this->startRoute()
+                : $this->questionRoute($mode, $this->getPreviousQuestionKey($questionKey));
+        }
+
+        return $this->summaryRoute($mode);
+    }
+
+    protected function questionRoute(string $mode, string $questionKey): string
     {
         return route('forms.question', [
             static::key(),
             $mode,
             $questionKey,
-            $subjectKey,
         ]);
     }
 
-    protected function summaryRoute(string $mode, int|string|null $subjectKey = null): string
+    protected function summaryRoute(string $mode): string
     {
         return route('forms.summary', [
             static::key(),
             $mode,
-            $subjectKey,
         ]);
     }
 
-    protected function confirmationRoute(string $mode, int|string|null $subjectKey = null): string
+    protected function confirmationRoute(string $mode, int|string $subjectKey): string
     {
         return route('forms.confirmation', [
             static::key(),

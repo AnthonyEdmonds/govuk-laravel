@@ -22,8 +22,7 @@ class SummaryTest extends TestCase
 
         $this->useForms();
 
-        $this->subject = new FormModel();
-        $this->subject->name = 'Potato';
+        $this->subject = FormModel::factory()->make();
         GovukForm::put(TestForm::key(), $this->subject);
 
         $this->form = new TestForm();

@@ -15,9 +15,7 @@ abstract class Question
 
     abstract public function getQuestion(Model $subject): GovukQuestion|array;
 
-    abstract public function store(Request $request, Model $subject): void;
-
-    abstract public function update(Request $request, Model $subject): void;
+    abstract public function store(Request $request, Model $subject, string $mode): void;
 
     abstract protected function getFormRequest(): FormRequest;
 

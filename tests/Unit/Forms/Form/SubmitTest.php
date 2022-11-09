@@ -9,7 +9,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Http\RedirectResponse;
 
-class SubmitFormTest extends TestCase
+class SubmitTest extends TestCase
 {
     protected FormModel $subject;
     protected RedirectResponse $response;
@@ -22,38 +22,22 @@ class SubmitFormTest extends TestCase
         $this->useForms();
         $this->useDatabase();
 
-        $this->subject = new FormModel();
-        $this->subject->name = 'Potato';
+        $this->subject = FormModel::factory()->make();
         GovukForm::put(TestForm::key(), $this->subject);
 
         $this->form = new TestForm();
+        $this->response = $this->form->submit(Form::NEW);
     }
 
-    public function testUpdatesWhenEdit(): void
+    public function testRunsSubmitForm(): void
     {
-        $this->submit(Form::EDIT);
-
-        // TODO Change form flow to load database into cache when starting form
-        // TODO Incrementally change model, then save at end
-
         $this->assertDatabaseHas('form_models', [
-            'name' => 'Carrot',
-        ]);
-    }
-
-    public function testStoresWhenNew(): void
-    {
-        $this->submit(Form::NEW);
-
-        $this->assertDatabaseHas('form_models', [
-            'name' => 'Potato',
+            'name' => $this->subject->name,
         ]);
     }
 
     public function testClearsCache(): void
     {
-        $this->submit(Form::NEW);
-
         $this->assertFalse(
             GovukForm::has(TestForm::key())
         );
@@ -61,8 +45,6 @@ class SubmitFormTest extends TestCase
 
     public function testRedirects(): void
     {
-        $this->submit(Form::NEW);
-
         $this->assertEquals(
             route('forms.confirmation', [
                 TestForm::key(),
@@ -71,10 +53,5 @@ class SubmitFormTest extends TestCase
             ]),
             $this->response->getTargetUrl()
         );
-    }
-
-    protected function submit(string $mode, int $subjectKey = null): void
-    {
-        $this->response = $this->form->submitForm($mode, $subjectKey);
     }
 }

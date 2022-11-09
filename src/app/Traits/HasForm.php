@@ -5,6 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Traits;
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Forms\Question as FormQuestion;
 use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
+use Illuminate\Database\Eloquent\Model;
 
 trait HasForm
 {
@@ -15,7 +16,7 @@ trait HasForm
     public function form(): Form
     {
         if (isset($this->form) === false) {
-            $formClass = static::formClass();
+            $formClass = self::formClass();
             $this->form = new $formClass();
         }
 
@@ -25,7 +26,12 @@ trait HasForm
     // Routing
     public static function startFormRoute(): string
     {
-        return route('forms.start', static::formClass()::key());
+        return route('forms.start', self::formClass()::key());
+    }
+
+    public static function editFormRoute(Model $subject): string
+    {
+        return route('forms.edit', [self::formClass()::key(), $subject->id]);
     }
 
     // Summary

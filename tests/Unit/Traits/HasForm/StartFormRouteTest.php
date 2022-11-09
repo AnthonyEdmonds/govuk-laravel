@@ -5,23 +5,22 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Traits\HasForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Routing\Route;
 
-class ConstructTest extends TestCase
+class StartFormRouteTest extends TestCase
 {
-    protected FormModel $model;
-
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->model = new FormModel();
+        $this->useForms();
     }
 
-    public function testCreatesForm(): void
+    public function testGetsFormStartUrl(): void
     {
-        $this->assertInstanceOf(
-            TestForm::class,
-            $this->model->form
+        $this->assertEquals(
+            route('forms.start', TestForm::key()),
+            FormModel::startFormRoute()
         );
     }
 }

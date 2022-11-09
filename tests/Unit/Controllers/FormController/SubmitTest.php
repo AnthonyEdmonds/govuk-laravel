@@ -29,8 +29,7 @@ class SubmitTest extends TestCase
         $this->user = new User();
         $this->signIn($this->user);
 
-        $this->subject = new FormModel();
-        $this->subject->name = 'Potato';
+        $this->subject = FormModel::factory()->make();
 
         GovukForm::put(TestForm::key(), $this->subject);
 
