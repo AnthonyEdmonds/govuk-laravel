@@ -244,7 +244,6 @@ abstract class Form
         return GovukPage::confirmation(
             $this->confirmationTitle($subject),
             $this->confirmationBlade(),
-            $this->exitRoute(),
         )
             ->with('mode', $mode)
             ->with('subject', $subject);
