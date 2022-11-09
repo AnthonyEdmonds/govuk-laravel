@@ -40,7 +40,7 @@ class SummaryTest extends TestCase
     public function testHasSummary(): void
     {
         $this->assertEquals(
-            $this->subject->toSummary(),
+            $this->subject->toSummary(true),
             $this->page->getData()['summary']
         );
     }
