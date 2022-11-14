@@ -20,6 +20,4 @@ class IdTest extends TestCase
     {
         $this->assertEquals('Id', $this->question->id);
     }
-
-
 }
