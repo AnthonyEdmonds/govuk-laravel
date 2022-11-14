@@ -16,10 +16,8 @@ class NameTest extends TestCase
         $this->question->name('Grant Shapps');
     }
 
-    public function testName(): void
+    public function testSetsName(): void
     {
         $this->assertEquals('Grant Shapps', $this->question->name);
     }
-
-
 }
