@@ -16,10 +16,8 @@ class PlaceholderTest extends TestCase
         $this->question->placeholder('Batman');
     }
 
-    public function testPlaceholder(): void
+    public function testSetsPlaceholder(): void
     {
         $this->assertEquals('Batman', $this->question->placeholder);
     }
-
-
 }
