@@ -16,7 +16,7 @@ class WidthTest extends TestCase
         $this->question->width(55);
     }
 
-    public function testWidth(): void
+    public function testSetsWidth(): void
     {
         $this->assertEquals(55, $this->question->width);
     }
