@@ -16,7 +16,7 @@ class SuffixTest extends TestCase
         $this->question->suffix('ing');
     }
 
-    public function testSuffix(): void
+    public function testSetsSuffix(): void
     {
         $this->assertEquals('ing', $this->question->suffix);
     }
