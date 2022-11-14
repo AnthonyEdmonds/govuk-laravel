@@ -16,7 +16,7 @@ class AutocompleteTest extends TestCase
         $this->question->autocomplete();
     }
 
-    public function testAutocomplete(): void
+    public function testSetsAutocomplete(): void
     {
         $this->assertEquals('on', $this->question->autocomplete);
     }
