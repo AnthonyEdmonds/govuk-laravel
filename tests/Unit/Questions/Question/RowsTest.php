@@ -16,7 +16,7 @@ class RowsTest extends TestCase
         $this->question->rows(7);
     }
 
-    public function testRows(): void
+    public function testSetsRows(): void
     {
         $this->assertEquals(7, $this->question->rows);
     }
