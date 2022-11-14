@@ -20,10 +20,4 @@ class AutocompleteTest extends TestCase
     {
         $this->assertEquals('on', $this->question->autocomplete);
     }
-
-
-
-
-
-
 }
