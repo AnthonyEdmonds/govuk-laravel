@@ -16,7 +16,7 @@ class TypeTest extends TestCase
         $this->question->type('Winged Beast');
     }
 
-    public function testType(): void
+    public function testSetsType(): void
     {
         $this->assertEquals('Winged Beast', $this->question->type);
     }
