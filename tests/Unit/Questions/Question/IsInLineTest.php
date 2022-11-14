@@ -20,7 +20,4 @@ class IsInLineTest extends TestCase
     {
         $this->assertEquals(true, $this->question->isInline);
     }
-
-
-
 }
