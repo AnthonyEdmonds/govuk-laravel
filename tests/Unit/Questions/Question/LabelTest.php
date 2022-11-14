@@ -16,12 +16,8 @@ class LabelTest extends TestCase
         $this->question->label('Sheep');
     }
 
-    public function testLabel(): void
+    public function testSetsLabel(): void
     {
         $this->assertEquals('Sheep', $this->question->label);
     }
-
-
-
-
 }
