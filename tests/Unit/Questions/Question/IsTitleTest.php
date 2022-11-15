@@ -19,6 +19,6 @@ class IsTitleTest extends TestCase
 
     public function testSetsIsTitle(): void
     {
-        $this->assertTrue(true, "Yes");
+        $this->assertTrue($this->question->isTitle);
     }
 }

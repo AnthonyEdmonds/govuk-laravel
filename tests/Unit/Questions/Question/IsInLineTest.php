@@ -18,6 +18,6 @@ class IsInLineTest extends TestCase
 
     public function testIsInLineTest(): void
     {
-        $this->assertTrue(true, "Yes");
+        $this->assertTrue($this->question->isInline);
     }
 }
