@@ -10,24 +10,6 @@ class ConfirmTest extends TestCase
 {
     protected array $page;
 
-    protected function makePage(
-        string|null $otherButtonLabel = 'carrot',
-        string|null $otherButtonHref = 'kitten',
-    ): void {
-        $this->page = GovukPage::confirm(
-            'good',
-            'for',
-            'apples',
-            'table',
-            'let',
-            'potato',
-            $otherButtonLabel,
-            $otherButtonHref,
-            'warning',
-            'beagle',
-        )->toArray();
-    }
-
     public function testHasTitle(): void
     {
         $this->makePage();
@@ -113,7 +95,7 @@ class ConfirmTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            'warning',
+            Page::WARNING_BUTTON,
             $this->page['submitButtonType'],
         );
     }
@@ -138,13 +120,31 @@ class ConfirmTest extends TestCase
         );
     }
 
-    public function testOtherButtonLabelIsTrueWhenNull(): void
+    public function testOtherButtonLabelIsDefaultWhenNull(): void
     {
         $this->makePage(null, null);
 
         $this->assertEquals(
-            'Cancel and back',
+            Page::OTHER_BUTTON_LABEL,
             $this->page['otherButtonLabel'],
         );
+    }
+
+    protected function makePage(
+        string|null $otherButtonLabel = 'carrot',
+        string|null $otherButtonHref = 'kitten',
+    ): void {
+        $this->page = GovukPage::confirm(
+            'good',
+            'for',
+            'apples',
+            'table',
+            'let',
+            'potato',
+            $otherButtonLabel,
+            $otherButtonHref,
+            Page::WARNING_BUTTON,
+            'beagle',
+        )->toArray();
     }
 }
