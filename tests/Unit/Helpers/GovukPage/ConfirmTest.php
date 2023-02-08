@@ -130,6 +130,16 @@ class ConfirmTest extends TestCase
         );
     }
 
+    public function testSetTemplateIsConfirm(): void
+    {
+        $this->makePage();
+
+        $this->assertEquals(
+            'confirm',
+            $this->page['template'],
+        );
+    }
+
     protected function makePage(
         string|null $otherButtonLabel = 'carrot',
         string|null $otherButtonHref = 'kitten',
