@@ -130,7 +130,7 @@ class ConfirmTest extends TestCase
         );
     }
 
-    public function testSetTemplateIsConfirm(): void
+    public function testSetTemplate(): void
     {
         $this->makePage();
 

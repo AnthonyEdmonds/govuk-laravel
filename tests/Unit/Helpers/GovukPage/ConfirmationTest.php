@@ -10,7 +10,7 @@ class ConfirmationTest extends TestCase
 {
     protected array $page;
 
-    public function testCreatedTitle(): void
+    public function testHasTitle(): void
     {
         $this->makePage();
 
@@ -20,7 +20,7 @@ class ConfirmationTest extends TestCase
         );
     }
 
-    public function testSetBlade(): void
+    public function testHasBlade(): void
     {
         $this->makePage();
 
@@ -39,7 +39,7 @@ class ConfirmationTest extends TestCase
         );
     }
 
-    public function testSetTemplateIsConfirmation(): void
+    public function testSetTemplate(): void
     {
         $this->makePage();
 
