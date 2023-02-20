@@ -1,0 +1,49 @@
+name: 'Run tests whenever a pull request is opened'
+
+on: [pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Load Composer cache...
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/composer
+          key: composer-${{ hashFiles('**/composer.lock') }}
+
+      - name: Load NPM cache...
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Composer...
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Install NPM...
+        run: npm install
+
+      - name: Create .env...
+        run: cp .env.example .env
+
+      - name: Generate key...
+        run: php artisan key:generate
+
+      - name: Run Laravel Mix...
+        run: npm run prod
+
+      - name: Run PHPUnit...
+        run: php artisan test --parallel
