@@ -40,7 +40,8 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__.'/../../config/govuk.php' => config_path('govuk.php'),
             __DIR__.'/../../resources/scss/govuk-variables.scss' => resource_path('scss/govuk-variables.scss'),
             __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
-            __DIR__.'/../../resources/views/layout' => resource_path('views/vendor/govuk/layout'),
+            __DIR__.'/../../resources/views/layout/header.blade.php' => resource_path('views/vendor/govuk/layout/header.blade.php'),
+            __DIR__.'/../../resources/views/layout/footer.blade.php' => resource_path('views/vendor/govuk/layout/footer.blade.php'),
         ], 'govuk-core');
 
         $this->publishes([

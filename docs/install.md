@@ -41,7 +41,8 @@ This command will publish the config, error pages, scss, and layout files:
 * /config/govuk.php
 * /resources/scss
 * /resources/views/errors
-* /resources/views/layout
+* /resources/views/layout/header.blade.php
+* /resources/view/layout/footer.blade.php
 
 ### govuk-font
 
@@ -55,6 +56,8 @@ This command will publish Inter font and its .scss file:
 This command will publish the Blade components and page templates, if you need to customise them:
 
 * /resources/views/vendor/govuk
+
+You will need to either republish or manually update the templates if they are updated in the base GOV.UK Laravel repository. 
 
 ## Hook up the CSS, JS, and assets
 
