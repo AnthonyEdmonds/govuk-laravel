@@ -48,6 +48,7 @@
                     class="govuk-header__menu-button govuk-js-header-toggle"
                     aria-controls="navigation"
                     aria-label="Show or hide navigation menu"
+                    hidden
                 >
                     Menu
                 </button>
