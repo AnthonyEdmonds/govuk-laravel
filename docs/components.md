@@ -67,6 +67,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [phase-banner](components/phase-banner.md)
 * [section-break](components/section-break.md)
 * [skip-link](components/skip-link.md)
+* [summary-card](components/summary-card.md)
 * [summary-list](components/summary-list.md)
 * [table](components/table.md)
 * [tabs](components/tabs.md)

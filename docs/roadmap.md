@@ -22,15 +22,10 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * Add official pagination component
 * [4.3.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.3.0)
     * Use new override classes to apply static spacing (4.3.1 syntax)
-    * Check govuk-header__navigation--no-service-name
     * Add hidden to the mobile menu button in the header component
 * [4.4.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.4.0)
     * Change the Button component's background and text colour
     * Configure components in JavaScript
-* [4.5.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.5.0)
-    * Use summary cards to visually separate multiple summary lists on a single page
-    * Search within accordion content on supporting browsers
-    * Source maps for precompiled files
 
 ## Laravel
 
