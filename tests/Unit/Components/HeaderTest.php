@@ -60,14 +60,14 @@ class HeaderTest extends TestCase
     public function testHasServiceName(): void
     {
         $this->makeHeader()
-            ->first('.govuk-header__link--service-name')
+            ->first('.govuk-header__service-name')
             ->contains('My service name');
     }
 
     public function testServiceNameHasRoute(): void
     {
         $this->makeHeader()
-            ->first('.govuk-header__link--service-name')
+            ->first('.govuk-header__service-name')
             ->hasAttribute('href', route('home'));
     }
 

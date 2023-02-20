@@ -20,7 +20,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 * [4.2.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.2.0)
     * Add official pagination component
-    * Check govuk-header__link--service-name
 * [4.3.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.3.0)
     * Use new override classes to apply static spacing (4.3.1 syntax)
     * Check govuk-header__navigation--no-service-name

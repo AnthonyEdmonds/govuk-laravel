@@ -33,7 +33,7 @@
             @isset($serviceName)
                 <a
                     href="{{ route($logoRoute) }}"
-                    class="govuk-header__link govuk-header__link--service-name"
+                    class="govuk-header__link govuk-header__service-name"
                 >
                     {{ $serviceName }}
                 </a>
