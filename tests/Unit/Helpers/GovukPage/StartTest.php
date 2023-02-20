@@ -30,7 +30,7 @@ class StartTest extends TestCase
         );
     }
 
-    public function testHasBreadCrumbs(): void
+    public function testHasBreadcrumbs(): void
     {
         $this->makePage();
 

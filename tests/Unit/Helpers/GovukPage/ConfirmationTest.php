@@ -3,7 +3,6 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Helpers\GovukPage;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
-use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
 class ConfirmationTest extends TestCase
