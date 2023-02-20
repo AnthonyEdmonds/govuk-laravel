@@ -24,7 +24,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * Use new override classes to apply static spacing (4.3.1 syntax)
     * Add hidden to the mobile menu button in the header component
 * [4.4.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.4.0)
-    * Change the Button component's background and text colour
     * Configure components in JavaScript
 
 ## Laravel
