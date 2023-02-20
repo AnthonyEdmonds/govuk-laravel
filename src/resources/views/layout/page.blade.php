@@ -3,6 +3,10 @@
     @include('govuk::layout.head')
     @include('govuk::parts.content')
 
+    @php
+        $hasAside = \Illuminate\Support\Facades\View::hasSection('aside');
+    @endphp
+    
     <body class="govuk-template__body">
         <script>
             document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
@@ -23,7 +27,7 @@
 
             <main class="govuk-main-wrapper " id="content" role="main">
                 <div class="govuk-grid-row">
-                    <div class="govuk-grid-column-two-thirds">
+                    <div class="{{ $hasAside === true ? 'govuk-grid-column-two-thirds' : 'govuk-grid-column-full' }}">
                         @include('govuk::parts.caption')
                         @include('govuk::parts.title')
                         @yield('before-main')
@@ -31,9 +35,11 @@
                         @yield('after-main')
                     </div>
 
-                    <aside class="govuk-grid-column-one-third">
-                        @yield('aside')
-                    </aside>
+                    @if($hasAside === true)
+                        <aside class="govuk-grid-column-one-third">
+                            @yield('aside')
+                        </aside>
+                    @endif
                 </div>
             </main>
         </div>
