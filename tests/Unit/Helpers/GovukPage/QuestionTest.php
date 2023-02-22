@@ -127,7 +127,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             'too',
-            $this->question->label,
+            $this->page['title'],
         );
     }
 
