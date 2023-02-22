@@ -63,6 +63,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [details](components/details.md)
 * [error-summary](components/error-summary.md)
 * [notification-banner](components/notification-banner.md)
+* [pagination](components/pagination.md)
 * [panel](components/panel.md)
 * [phase-banner](components/phase-banner.md)
 * [section-break](components/section-break.md)
@@ -75,5 +76,4 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [warning-text](components/warning-text.md)
 
 ## Custom components
-* [pagination](components/pagination.md)
 * [search-bar](components/search-bar.md)

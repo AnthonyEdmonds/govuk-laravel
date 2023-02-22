@@ -16,15 +16,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 # Road to v1
 
-## GOV.UK Design System
-
-* [4.2.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.2.0)
-    * Add official pagination component
-* [4.3.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.3.0)
-    * Add hidden to the mobile menu button in the header component
-* [4.4.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.4.0)
-    * Configure components in JavaScript
-
 ## Laravel
 
 * Modify the Laravel error messages language file to match the examples in https://design-system.service.gov.uk/components/text-input/

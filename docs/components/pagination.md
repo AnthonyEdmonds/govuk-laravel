@@ -9,27 +9,50 @@ Allow users to navigate through a paginated list of information, such as in a ta
 />
 ```
 
-The pagination component is designed for use with Laravel's `AbstractPaginator` classes, such as those retrieved from Eloquent queries.
+Three types of paginator are provided:
 
-Two types of paginator are provided:
+* Length aware
+* Simple
+* Stacked
 
-* Simple paginator
-* Length aware paginator
+Each type has been designed to work with Laravel's `AbstractPaginator` classes, such as those retrieved from Eloquent queries.
 
-You should use the length aware paginator when possible.
+You should use the:
 
-Use the simple paginator for navigating through sets of information that have no fixed length, or are too expensive to calculate as a fixed set.
+* Length aware paginator with large result sets when possible
+* Simple paginator with sets of information that have no fixed length, or are too expensive to calculate as a fixed set
+* Stacked for simple forward and backward page navigation
 
 ## Props
 
-| Name | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| label | string | Required | The label of the associated list of information, such as a table |
-| paginator | array or AbstractPaginator | Required | The pagination information |
+| Name      | Type                       | Default  | Description                                                      |
+|-----------|----------------------------|----------|------------------------------------------------------------------|
+| label     | string                     | Required | The label of the associated list of information, such as a table |
+| paginator | array or AbstractPaginator | Required | The pagination information                                       |
+| stacked   | bool                       | false    | Whether to show the pagination as stacked                        |
 
 ### Paginator
 
-You may either pass in an `AbstractPaginator` instance, or an array that contains the following keys for a simple paginator:
+You may either pass in an `AbstractPaginator` instance, or an array.
+
+#### Stacked
+Provide the following keys along with the `stacked` flag for a stacked paginator:
+
+* next_page_url
+* prev_page_url
+* current_page
+
+You may also provide either the total number of pages, or labels:
+
+* total
+
+**or**
+
+* next_page_label
+* prev_page_label
+
+#### Simple
+Simple pagination requires the following keys:
 
 * current_page
 * first_page_url
@@ -38,7 +61,8 @@ You may either pass in an `AbstractPaginator` instance, or an array that contain
 * prev_page_url
 * to
 
-And the following additional keys for a length aware paginator:
+#### Length aware
+Length aware pagination requires the following additional keys:
 
 * last_page
 * last_page_url
@@ -49,6 +73,7 @@ And the following additional keys for a length aware paginator:
 
 * pagination.length-aware
 * pagination.simple
+* pagination.stacked
 
 ## Also see
 
