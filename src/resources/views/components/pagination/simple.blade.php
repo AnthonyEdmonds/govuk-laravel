@@ -31,16 +31,16 @@
             </a>
         </div>
     @endif
-
-    <ul class="govuk-pagination__list">
-        @if($currentPage > 1)
+    
+    @if($currentPage > 1)
+        <ul class="govuk-pagination__list">
             <li class="govuk-pagination__item">
                 <a class="govuk-link govuk-pagination__link" href="{!! $firstPageUrl !!}}" aria-label="Goto first page">
                     <x-govuk::hidden>Goto page </x-govuk::hidden>First
                 </a>
             </li>
-        @endif
-    </ul>
+        </ul>
+    @endif
         
     @if($nextPageUrl !== null)
         <div class="govuk-pagination__next">
@@ -61,7 +61,9 @@
         </div>
     @endif
 
-    <x-govuk::p small>
-        Showing results <b>{{ $from }}</b> to <b>{{ $to }}</b>
-    </x-govuk::p>
+    <div class="govuk-pagination__details">
+        <x-govuk::p small>
+            Showing results <b>{{ $from }}</b> to <b>{{ $to }}</b>
+        </x-govuk::p>
+    </div>
 </nav>
