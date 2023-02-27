@@ -10,13 +10,11 @@ nav.govuk-pagination {
     }
     
     & > div.govuk-pagination__details {
-        flex-grow: 1;
-        flex-shrink: 1;
-        justify-content: flex-end;
-
+        flex-basis: 100%;
+        margin-top: govuk-spacing(2);
+        
         & > p {
             margin: 0;
-            text-align: right;
         }
     }
 }

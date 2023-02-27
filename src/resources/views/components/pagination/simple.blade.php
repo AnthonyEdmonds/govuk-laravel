@@ -5,6 +5,7 @@
     'label',
     'nextPageUrl' => null,
     'prevPageUrl' => null,
+    'showCounter' => true,
     'to' => 0,
 ])
 
@@ -35,7 +36,7 @@
     @if($currentPage > 1)
         <ul class="govuk-pagination__list">
             <li class="govuk-pagination__item">
-                <a class="govuk-link govuk-pagination__link" href="{!! $firstPageUrl !!}}" aria-label="Goto first page">
+                <a class="govuk-link govuk-pagination__link" href="{!! $firstPageUrl !!}" aria-label="Goto first page">
                     <x-govuk::hidden>Goto page </x-govuk::hidden>First
                 </a>
             </li>
@@ -61,9 +62,11 @@
         </div>
     @endif
 
-    <div class="govuk-pagination__details">
-        <x-govuk::p small>
-            Showing results <b>{{ $from }}</b> to <b>{{ $to }}</b>
-        </x-govuk::p>
-    </div>
+    @if($showCounter === true)
+        <div class="govuk-pagination__details">
+            <x-govuk::p small>
+                Showing results <b>{{ $from }}</b> to <b>{{ $to }}</b>
+            </x-govuk::p>
+        </div>
+    @endif
 </nav>

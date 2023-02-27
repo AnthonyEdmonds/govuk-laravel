@@ -25,11 +25,12 @@ You should use the:
 
 ## Props
 
-| Name      | Type                       | Default  | Description                                                      |
-|-----------|----------------------------|----------|------------------------------------------------------------------|
-| label     | string                     | Required | The label of the associated list of information, such as a table |
-| paginator | array or AbstractPaginator | Required | The pagination information                                       |
-| stacked   | bool                       | false    | Whether to show the pagination as stacked                        |
+| Name        | Type                       | Default  | Description                                                      |
+|-------------|----------------------------|----------|------------------------------------------------------------------|
+| label       | string                     | Required | The label of the associated list of information, such as a table |
+| paginator   | array or AbstractPaginator | Required | The pagination information                                       |
+| showCounter | bool                       | true     | Whether to show the X of Y results counter                       |
+| stacked     | bool                       | false    | Whether to show the pagination as stacked                        |
 
 ### Paginator
 

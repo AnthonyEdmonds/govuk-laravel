@@ -1,6 +1,7 @@
 @props([
     'label',
     'paginator',
+    'showCounter' => true,
     'stacked' => false,
 ])
 
@@ -48,6 +49,7 @@
         :links="$paginator['links']"
         :nextPageUrl="$paginator['next_page_url']"
         :prevPageUrl="$paginator['prev_page_url']"
+        :showCounter="$showCounter"
         :to="$paginator['to']"
         :total="$paginator['total']"
     />
@@ -59,6 +61,7 @@
         :label="$label"
         :nextPageUrl="$paginator['next_page_url']"
         :prevPageUrl="$paginator['prev_page_url']"
+        :showCounter="$showCounter"
         :to="$paginator['to']"
     />
 @endif
