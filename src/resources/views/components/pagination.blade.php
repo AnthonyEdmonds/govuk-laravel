@@ -1,7 +1,7 @@
 @props([
     'label',
     'paginator',
-    'showCounter' => true,
+    'showCounter' => false,
     'stacked' => false,
 ])
 

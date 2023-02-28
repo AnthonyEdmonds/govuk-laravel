@@ -43,14 +43,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
             * label
         * input
             * radio
-        * pagination
-            * length-aware
-            * simple
-        * table
-            * body
-            * cell
-            * header
-            * row
         * a
         * accordion
         * back
@@ -73,13 +65,10 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * hidden-input
         * notification-banner
         * p
-        * pagination
         * phase-banner
         * section-break
         * select
         * summary-list
-        * table
-        * table-column
         * tag
         * textarea
         * text-input

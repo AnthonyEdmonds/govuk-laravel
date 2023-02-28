@@ -8,7 +8,7 @@
     'links',
     'nextPageUrl' => null,
     'prevPageUrl' => null,
-    'showCounter' => true,
+    'showCounter' => false,
     'to' => 0,
     'total',
 ])
@@ -103,7 +103,7 @@
             </li>
         @endif
 
-        @if($lastPage - $currentPage - 3 === 0 || $currentPage === 1 && $lastPage > 3)
+        @if($lastPage - $currentPage - 3 === 0 || ($currentPage === 1 && $lastPage > 3))
             <li class="govuk-pagination__item">
                 <a
                     class="govuk-link govuk-pagination__link"

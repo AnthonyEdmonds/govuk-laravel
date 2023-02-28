@@ -5,7 +5,7 @@
     'label',
     'nextPageUrl' => null,
     'prevPageUrl' => null,
-    'showCounter' => true,
+    'showCounter' => false,
     'to' => 0,
 ])
 

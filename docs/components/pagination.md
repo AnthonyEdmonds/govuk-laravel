@@ -29,7 +29,7 @@ You should use the:
 |-------------|----------------------------|----------|------------------------------------------------------------------|
 | label       | string                     | Required | The label of the associated list of information, such as a table |
 | paginator   | array or AbstractPaginator | Required | The pagination information                                       |
-| showCounter | bool                       | true     | Whether to show the X of Y results counter                       |
+| showCounter | bool                       | false    | Whether to show the X of Y results counter                       |
 | stacked     | bool                       | false    | Whether to show the pagination as stacked                        |
 
 ### Paginator

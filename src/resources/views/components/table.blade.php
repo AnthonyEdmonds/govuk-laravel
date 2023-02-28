@@ -4,6 +4,7 @@
     'data',
     'emptyMessage' => 'No results found',
     'paginator' => null,
+    'showCounter' => false,
 ])
 
 @php
@@ -72,5 +73,6 @@
     <x-govuk::pagination
         :label="$caption"
         :paginator="$paginator"
+        :show-counter="$showCounter"
     />
 @endif

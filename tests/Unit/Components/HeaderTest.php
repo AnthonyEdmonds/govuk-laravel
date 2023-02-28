@@ -4,7 +4,6 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Tests\Models\User;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use NunoMaduro\LaravelMojito\ViewAssertion;
