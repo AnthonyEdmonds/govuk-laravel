@@ -6,13 +6,15 @@
 ])
 
 @php
-    $content = [
-        'heading' => $heading === true,
-        'hide' => strlen($hide) > 1 ? $hide : null,
-        'html' => $slot->toHtml(),
-        'label' => $label,
-        'numeric' => $numeric === true,
-    ];
+    use AnthonyEdmonds\GovukLaravel\Helpers\GovukComponent;
+    
+    $content = GovukComponent::makeTableColumnJson(
+        $heading,
+        $hide,
+        $label,
+        $numeric,
+        $slot->toHtml(),
+    );
 @endphp
 
-~~{!! json_encode($content) !!}~~
+~~{!! $content !!}~~

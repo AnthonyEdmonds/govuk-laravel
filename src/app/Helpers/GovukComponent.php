@@ -4,6 +4,22 @@ namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
 class GovukComponent
 {
+    public static function makeTableColumnJson(
+        bool $heading,
+        string $hide,
+        string $label,
+        bool $numeric,
+        string $slotHtml,
+    ): string {
+        return json_encode([
+            'heading' => $heading === true,
+            'hide' => strlen($hide) > 1 ? $hide : null,
+            'html' => $slotHtml,
+            'label' => $label,
+            'numeric' => $numeric === true,
+        ]);
+    }
+
     /* Replace any row placeholders based on the table column markup */
     public static function renderTableContent(array $column, $row): string
     {

@@ -16,7 +16,7 @@
     // Columns
     $columns = [];
     $html = $slot->toHtml();
-            
+    
     while (($start = strpos($html, '~~')) !== false) {
         $end = strpos($html, '~~', $start + 1);
         $length = $end - $start;
