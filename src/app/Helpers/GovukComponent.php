@@ -50,7 +50,7 @@ class GovukComponent
         $attributes = [];
 
         foreach ($array as $key => $value) {
-            $attributes[] = "{$key}=\"$value\"";
+            $attributes[] = "$key=\"$value\"";
         }
 
         return implode(' ', $attributes);

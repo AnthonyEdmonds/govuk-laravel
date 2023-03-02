@@ -15,20 +15,20 @@
 
 @if($stacked === true)
     @php
+        if (isset($paginator['prev_page_label']) === true) {
+            $prevPageLabel = $paginator['prev_page_label'];
+        } elseif (isset($paginator['total']) === true) {
+            $prevPageLabel = $paginator['current_page'] - 1 . ' of ' . $paginator['total'];
+        } else {
+            $prevPageLabel = 'Back to page ' . $paginator['current_page'] - 1;
+        }
+    
         if (isset($paginator['next_page_label']) === true) {
             $nextPageLabel = $paginator['next_page_label'];
         } elseif (isset($paginator['total']) === true) {
             $nextPageLabel = $paginator['current_page'] + 1 . ' of ' . $paginator['total'];
         } else {
             $nextPageLabel = 'On to page ' . $paginator['current_page'] + 1;
-        }
-            
-        if (isset($paginator['prev_page_url']) === true) {
-            $prevPageLabel = $paginator['prev_page_label'];
-        } elseif(isset($paginator['total']) === true) {
-            $prevPageLabel = $paginator['current_page'] - 1 . ' of ' . $paginator['total'];
-        } else {
-            $prevPageLabel = 'Back to page ' . $paginator['current_page'] - 1;
         }
     @endphp
     
