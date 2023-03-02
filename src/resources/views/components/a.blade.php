@@ -10,7 +10,7 @@
     if ($footer === true) {
         $linkClasses = 'govuk-footer__link';
 
-    } elseif ($linkClasses = $asButton === true) {
+    } elseif ($asButton === true) {
         $linkClasses = 'govuk-button';
 
     } elseif ($asStartButton === true) {
