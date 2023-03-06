@@ -19,13 +19,18 @@
         <div class="govuk-width-container ">
             @include('govuk::parts.testing')
             @include('govuk::parts.impersonation')
-            @yield('heading')
             @include('govuk::parts.breadcrumbs')
             @include('govuk::parts.back')
-            @include('govuk::parts.flash')
-            @include('govuk::parts.errors')
-
+            
             <main class="govuk-main-wrapper " id="content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-full">
+                        @yield('heading')
+                        @include('govuk::parts.flash')
+                        @include('govuk::parts.errors')
+                    </div>
+                </div>
+                
                 <div class="govuk-grid-row">
                     <div class="{{ $hasAside === true ? 'govuk-grid-column-two-thirds' : 'govuk-grid-column-full' }}">
                         @include('govuk::parts.caption')

@@ -121,6 +121,16 @@ class QuestionTest extends TestCase
         );
     }
 
+    public function testPageTitleIsSetByQuestion(): void
+    {
+        $this->makePage();
+
+        $this->assertEquals(
+            'too',
+            $this->page['title'],
+        );
+    }
+
     public function testOtherButtonLabelIsDefaultWhenNull(): void
     {
         $this->makePage(null);
