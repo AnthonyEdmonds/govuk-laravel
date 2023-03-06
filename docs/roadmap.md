@@ -41,7 +41,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
             * label
         * input
             * radio
-        * a
         * accordion
         * back
         * breadcrumbs
@@ -55,11 +54,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * form-group
         * grid-column
         * grid-row
-        * h1
-        * h2
-        * h3
-        * h4
-        * hidden
         * hidden-input
         * notification-banner
         * p
@@ -70,7 +64,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * tag
         * textarea
         * text-input
-        * ul
         * warning-text
     * Layout
         * Foot
