@@ -4,6 +4,7 @@
     'data',
     'emptyMessage' => 'No results found',
     'paginator' => null,
+    'showCounter' => false,
 ])
 
 @php
@@ -15,7 +16,7 @@
     // Columns
     $columns = [];
     $html = $slot->toHtml();
-            
+    
     while (($start = strpos($html, '~~')) !== false) {
         $end = strpos($html, '~~', $start + 1);
         $length = $end - $start;
@@ -72,5 +73,6 @@
     <x-govuk::pagination
         :label="$caption"
         :paginator="$paginator"
+        :show-counter="$showCounter"
     />
 @endif

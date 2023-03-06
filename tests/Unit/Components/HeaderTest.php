@@ -4,7 +4,6 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Tests\Models\User;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use NunoMaduro\LaravelMojito\ViewAssertion;
@@ -60,14 +59,14 @@ class HeaderTest extends TestCase
     public function testHasServiceName(): void
     {
         $this->makeHeader()
-            ->first('.govuk-header__link--service-name')
+            ->first('.govuk-header__service-name')
             ->contains('My service name');
     }
 
     public function testServiceNameHasRoute(): void
     {
         $this->makeHeader()
-            ->first('.govuk-header__link--service-name')
+            ->first('.govuk-header__service-name')
             ->hasAttribute('href', route('home'));
     }
 

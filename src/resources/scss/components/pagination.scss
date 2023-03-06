@@ -1,52 +1,20 @@
-nav.app-pagination {
-    align-items: baseline;
-    display: flex;
-    justify-content: space-between;
-    
+nav.govuk-pagination {
+    align-items: center;
+
     table.govuk-table + & {
         margin-top: -(govuk-spacing(5));
     }
-    
-    & > ul {
-        align-items: center;
-        display: flex;
-        list-style: none;
-        padding: 0;
-        
-        & > li {
-            margin: 0;
-            text-align: center;
-            white-space: nowrap;
-            
-            &:first-of-type {
-                margin-left: -(govuk-spacing(1));
-            }
-            
-            & > * {
-                display: block;
-                margin: 0;
-            }
-            
-            & > a {
-                min-width: govuk-spacing(4);
-                padding: govuk-spacing(1);
-                
-                & > svg {
-                    margin-left: govuk-spacing(1);
-                    margin-right: govuk-spacing(1);
-                    vertical-align: middle;
-                }
-            }
 
-            &[aria-current] > a {
-                color: govuk-colour("black");
-                font-weight: bold;
-            }
-        }
+    & > div:first-of-type {
+        padding-left: 0;
     }
     
-    & > p {
-        margin: 0;
-        text-align: right;
+    & > div.govuk-pagination__details {
+        flex-basis: 100%;
+        margin-top: govuk-spacing(2);
+        
+        & > p {
+            margin: 0;
+        }
     }
 }

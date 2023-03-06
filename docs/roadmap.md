@@ -16,11 +16,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 # Road to v1
 
-## GOV.UK Design System
-
-* Add official pagination component
-* [4.2.0 changes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.2.0)
-
 ## Laravel
 
 * Modify the Laravel error messages language file to match the examples in https://design-system.service.gov.uk/components/text-input/
@@ -31,7 +26,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## Tests to Backfill
 
 * Helpers
-    * GovukComponent
     * GovukPage
     * GovukQuestion
 * Pages
@@ -48,14 +42,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
             * label
         * input
             * radio
-        * pagination
-            * length-aware
-            * simple
-        * table
-            * body
-            * cell
-            * header
-            * row
         * a
         * accordion
         * back
@@ -78,13 +64,10 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * hidden-input
         * notification-banner
         * p
-        * pagination
         * phase-banner
         * section-break
         * select
         * summary-list
-        * table
-        * table-column
         * tag
         * textarea
         * text-input
