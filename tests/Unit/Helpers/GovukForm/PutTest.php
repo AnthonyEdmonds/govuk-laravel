@@ -6,7 +6,7 @@ use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
-class SetTest extends TestCase
+class PutTest extends TestCase
 {
     public function testSetsSession(): void
     {
