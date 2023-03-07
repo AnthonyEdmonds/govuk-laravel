@@ -54,7 +54,7 @@
             <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
         @endif
 
-        @if($currentPage === 4 || $currentPage === $lastPage)
+        @if($currentPage >= 4)
             <li class="govuk-pagination__item">
                 <a
                     class="govuk-link govuk-pagination__link"
@@ -103,7 +103,7 @@
             </li>
         @endif
 
-        @if($lastPage - $currentPage - 3 === 0 || ($currentPage === 1 && $lastPage > 3))
+        @if($currentPage < $lastPage - 1)
             <li class="govuk-pagination__item">
                 <a
                     class="govuk-link govuk-pagination__link"
@@ -119,7 +119,7 @@
             <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
         @endif
 
-        @if($currentPage < $lastPage - 1)
+        @if($currentPage < $lastPage - 2)
             <li class="govuk-pagination__item">
                 <a
                     class="govuk-link govuk-pagination__link"
