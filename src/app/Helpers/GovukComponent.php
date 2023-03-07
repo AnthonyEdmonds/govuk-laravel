@@ -6,7 +6,7 @@ class GovukComponent
 {
     public static function makeTableColumnJson(
         bool $heading,
-        string $hide,
+        string|null $hide,
         string $label,
         bool $numeric,
         string $slotHtml,
