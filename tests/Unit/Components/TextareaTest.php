@@ -19,4 +19,3 @@ class TextareaTest extends TestCase
         ]);
     }
 }
-

@@ -35,4 +35,3 @@ class FormGroupTest extends TestCase
         ]);
     }
 }
-

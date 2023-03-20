@@ -19,4 +19,3 @@ class ButtonTest extends TestCase
         ]);
     }
 }
-

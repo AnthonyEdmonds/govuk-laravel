@@ -19,4 +19,3 @@ class SelectTest extends TestCase
         ]);
     }
 }
-

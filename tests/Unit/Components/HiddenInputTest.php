@@ -19,4 +19,3 @@ class HiddenInputTest extends TestCase
         ]);
     }
 }
-

@@ -19,4 +19,3 @@ class TextInputTest extends TestCase
         ]);
     }
 }
-
