@@ -68,7 +68,7 @@ class LengthAwareTest extends TestCase
             ->contains('2');
     }
 
-    public function testHasBackTwoLinkWhenPageFour(): void
+    public function testHasBackTwoLinkWhenPageFourOrHigher(): void
     {
         $this->makePagination([
             'currentPage' => 4,
@@ -78,28 +78,20 @@ class LengthAwareTest extends TestCase
             ->contains('2');
     }
 
-    public function testHasBackTwoLinkWhenLastPage(): void
+    public function testDoesntHaveBackTwoLinkOtherwise(): void
     {
         $this->makePagination([
-            'lastPage' => 5,
+            'currentPage' => 3
         ])
             ->at('ul > li', 2)
             ->hasLink('page-3-url')
             ->contains('3');
     }
 
-    public function testDoesntHaveBackTwoLinkOtherwise(): void
-    {
-        $this->makePagination()
-            ->at('ul > li', 2)
-            ->hasLink('page-4-url')
-            ->contains('4');
-    }
-
     public function testHasBackLinkOneWhenCurrentPageAboveOne(): void
     {
         $this->makePagination()
-            ->at('ul > li', 2)
+            ->at('ul > li', 3)
             ->hasLink('page-4-url')
             ->contains('4');
     }
@@ -134,7 +126,7 @@ class LengthAwareTest extends TestCase
     public function testHasForwardLinkOneWhenCurrentPageLessThanLastPage(): void
     {
         $this->makePagination()
-            ->at('ul > li', 4)
+            ->at('ul > li', 5)
             ->hasLink('page-6-url')
             ->contains('6');
     }
@@ -148,37 +140,31 @@ class LengthAwareTest extends TestCase
             ->hasClass('govuk-pagination__item--current');
     }
 
-    public function testHasForwardLinkTwoWhenCurrentPageIsThreeBehindLast(): void
+    public function testHasForwardLinkTwoWhenCurrentPageIsTwoBehindLast(): void
     {
         $this->makePagination([
-            'currentPage' => 6,
+            'currentPage' => 7,
         ])
-            ->at('ul > li', 4)
-            ->hasLink('page-7-url')
-            ->contains('7');
-    }
-
-    public function testHasForwardLinkTwoWhenCurrentPageIsOneAndLastPageIsAboveThree(): void
-    {
-        $this->makePagination([
-            'currentPage' => 1
-        ])
-            ->at('ul > li', 2)
-            ->hasLink('page-3-url')
-            ->contains('3');
+            ->at('ul > li', 6)
+            ->hasLink('page-9-url')
+            ->contains('9');
     }
 
     public function testDoesntHaveForwardLinkTwoOtherwise(): void
     {
-        $this->makePagination()
-            ->at('ul > li', 5)
-            ->hasClass('govuk-pagination__item--ellipses');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The current node list is empty');
+        // TODO Replace with expectation
+
+        $this->makePagination([
+            'currentPage' => 8
+        ])->at('ul > li', 6);
     }
 
     public function testHasLastEllipsesWhenCurrentPageIsFourLessThanLastPage(): void
     {
         $this->makePagination()
-            ->at('ul > li', 5)
+            ->at('ul > li', 7)
             ->contains('&amp;ctdot;');
     }
 
@@ -187,24 +173,24 @@ class LengthAwareTest extends TestCase
         $this->makePagination([
             'currentPage' => 6
         ])
-            ->at('ul > li', 5)
-            ->hasLink('page-8-url');
+            ->at('ul > li', 7)
+            ->hasLink('last-page-url');
     }
 
-    public function testHasLastPageWhenCurrentPageIsTwoLessThanLastPage(): void
+    public function testHasLastPageWhenCurrentPageIsThreeLessThanLastPage(): void
     {
         $this->makePagination()
-            ->at('ul > li', 6)
+            ->at('ul > li', 8)
             ->hasLink('last-page-url')
             ->contains('9');
     }
 
-    public function testDoesntWhenCurrentPageIsOneOrLessThanLastPage(): void
+    public function testDoesntWhenCurrentPageIsTwoOrLessThanLastPage(): void
     {
         $this->makePagination([
             'currentPage' => 8
         ])
-            ->at('ul > li', 4)
+            ->at('ul > li', 5)
             ->hasLink('page-9-url');
     }
 
