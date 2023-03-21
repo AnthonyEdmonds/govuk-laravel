@@ -18,7 +18,7 @@
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";
     }
-
+    
     if ($errors->has($oldName) === true) {
         $ariaDescription .= " {$id}-error";
         $inputClasses .= ' govuk-select--error';

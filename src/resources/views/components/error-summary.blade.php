@@ -1,5 +1,6 @@
 @props([
-    'messages'
+    'messages',
+    'title' => 'There is a problem',
 ])
 
 <div
@@ -9,7 +10,7 @@
     data-module="govuk-error-summary"
 >
     <h2 class="govuk-error-summary__title" id="error-summary-title">
-        There is a problem
+        {{ $title }}
     </h2>
 
     <div class="govuk-error-summary__body">

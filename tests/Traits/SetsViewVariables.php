@@ -5,6 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Traits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\HtmlString;
+use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -40,11 +41,14 @@ trait SetsViewVariables
 
     public function setViewErrors(array $errors = []): void
     {
-        $errorBag = new ViewErrorBag();
+        $messageBag = new MessageBag();
 
         foreach ($errors as $key => $error) {
-            $errorBag->put($key, $error);
+            $messageBag->add($key, $error);
         }
+
+        $errorBag = new ViewErrorBag();
+        $errorBag->put('default', $messageBag);
 
         View::share('errors', $errorBag);
     }

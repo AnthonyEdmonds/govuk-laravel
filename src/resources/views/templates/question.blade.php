@@ -11,6 +11,7 @@
                 {{ $submitButtonLabel }}
             </x-govuk::button>
             
+            <!-- TODO Allow other methods from this based on otherButtonMethod -->
             @if($otherButtonHref !== null)
                 <x-govuk::a href="{{ $otherButtonHref }}">{{ $otherButtonLabel }}</x-govuk::a>
             @endif

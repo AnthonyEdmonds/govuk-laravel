@@ -3,6 +3,7 @@
     'count' => null,
     'hint' => null,
     'id' => $name,
+    'inputmode' => 'text',
     'label',
     'labelSize' => 's',
     'name',

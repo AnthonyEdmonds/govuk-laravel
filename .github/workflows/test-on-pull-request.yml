@@ -18,18 +18,6 @@ jobs:
         with:
           php-version: '8.0'
 
-      - name: Load Composer cache...
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/composer
-          key: composer-${{ hashFiles('**/composer.lock') }}
-
-      - name: Load NPM cache...
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-
       - name: Install Composer...
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
