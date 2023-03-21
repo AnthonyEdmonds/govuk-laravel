@@ -2,10 +2,8 @@ parameters:
   level: 5
   paths:
     - src
-    - tests
 
   ignoreErrors:
     - '#Call to an undefined method#'
     - '#Access to an undefined property#'
     - '#Call to an undefined static method#'
-    - '#Property AnthonyEdmonds\\GovukLaravel\\Tests\\Unit#'
