@@ -10,6 +10,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\Traits\SetsViewVariables;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use InvalidArgumentException;
 use NunoMaduro\LaravelMojito\InteractsWithViews;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
@@ -56,5 +57,11 @@ abstract class TestCase extends BaseTestCase
     {
         $this->app->useDatabasePath(__DIR__ . '/Database');
         $this->runLaravelMigrations();
+    }
+    
+    protected function expectEmptyNodeList(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The current node list is empty.');
     }
 }

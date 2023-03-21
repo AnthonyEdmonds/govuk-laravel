@@ -105,7 +105,10 @@ class TextInputTest extends TestCase
 
     public function testHasIsTitle(): void
     {
-        $this->makeComponent();
+        $this->makeComponent([
+            'isTitle' => true,
+        ])
+            ->has('div > h1');
     }
 
     public function testHasType(): void
