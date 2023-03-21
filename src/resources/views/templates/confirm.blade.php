@@ -7,7 +7,7 @@
                 {{ $submitButtonLabel }}
             </x-govuk::button>
 
-            <x-govuk::a href="{{ $otherButtonHref }}">{{ $otherButtonLabel }}</x-govuk::a>
+            @include('govuk::parts.other-button')
         </x-govuk::button-group>
     </x-govuk::form>
 @endsection

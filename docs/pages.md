@@ -47,3 +47,7 @@ You can also create a custom page using the `Page` class, which contains setters
 If you want to create a page from completely from scratch, you can extend `govuk::layout.page` or copy `resources/views/templates/template.blade.php` and modify it as required.
 
 Be sure to pass any required variables to the blade, as per the `Page` class.
+
+## Also see
+
+* [Page](classes/page.md)

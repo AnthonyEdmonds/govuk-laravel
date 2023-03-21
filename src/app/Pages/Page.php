@@ -19,6 +19,13 @@ class Page implements View
     public const WARNING_BUTTON = 'warning';
     public const OTHER_BUTTON_LABEL = 'Cancel and back';
 
+    public const METHODS = [
+        self::GET_METHOD,
+        self::POST_METHOD,
+    ];
+    public const GET_METHOD = 'GET';
+    public const POST_METHOD = 'POST';
+
     protected ?string $action = null;
     protected ?string $back = null;
     protected ?array $breadcrumbs = null;
@@ -26,6 +33,7 @@ class Page implements View
     protected string $submitButtonType = self::NORMAL_BUTTON;
     protected ?string $otherButtonHref = null;
     protected ?string $otherButtonLabel = self::OTHER_BUTTON_LABEL;
+    protected ?string $otherButtonMethod = self::GET_METHOD;
     protected ?string $caption = null;
     protected ?string $content = null;
     protected ?string $method = null;
@@ -112,6 +120,15 @@ class Page implements View
         return $this;
     }
 
+    public function setOtherButtonMethod(string $method): self
+    {
+        $this->otherButtonMethod = in_array($method, self::METHODS) === true
+            ? $method
+            : self::GET_METHOD;
+
+        return $this;
+    }
+
     public function setCaption(string $caption = null): self
     {
         $this->caption = $caption;
@@ -173,15 +190,16 @@ class Page implements View
             'action' => $this->action,
             'back' => $this->back,
             'breadcrumbs' => $this->breadcrumbs,
-            'submitButtonLabel' => $this->submitButtonLabel,
-            'submitButtonType' => $this->submitButtonType,
-            'otherButtonHref' => $this->otherButtonHref,
-            'otherButtonLabel' => $this->otherButtonLabel,
             'caption' => $this->caption,
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,
             'method' => $this->method,
+            'otherButtonHref' => $this->otherButtonHref,
+            'otherButtonLabel' => $this->otherButtonLabel,
+            'otherButtonMethod' => $this->otherButtonMethod,
             'questions' => $this->questions,
+            'submitButtonLabel' => $this->submitButtonLabel,
+            'submitButtonType' => $this->submitButtonType,
             'summary' => $this->summary,
             'template' => $this->template,
             'title' => $this->title,
