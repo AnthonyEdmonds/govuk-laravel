@@ -28,8 +28,9 @@ Published under the MIT licence.
 * [Page Layouts](docs/layout.md)
 * [Pages](docs/pages.md)
 
-### Laravel
+### Laravel & Classes
 * [Forms](docs/forms.md)
+* [Page](docs/classes/page.md)
 * [Rules](docs/rules.md)
 
 ## Contribution

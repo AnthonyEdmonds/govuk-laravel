@@ -7,6 +7,8 @@ Create a `button` element for use with a form.
     as-link
     as-start-button
     disabled
+    form-action="$formAction"
+    form-method="POST"
     prevent-double-click
     secondary
     :type="$buttonType"
@@ -16,15 +18,17 @@ Create a `button` element for use with a form.
 
 ## Props
 
-| Name               | Type   | Default | Description |
-| ------------------ | ------ | ------- | ----------- |
-| asLink             | bool   | false   | Style the button as an `<a>` element |
-| asStartButton      | bool   | false   | Style the button as "start" |
-| disabled           | bool   | false   | Whether the button is clickable |
-| preventDoubleClick | bool   | false   | Disable the button after it is clicked |
-| secondary          | bool   | false   | Style the button as "secondary" |
+| Name               | Type   | Default | Description                                                   |
+|--------------------| ------ |---------|---------------------------------------------------------------|
+| asLink             | bool   | false   | Style the button as an `<a>` element                          |
+| asStartButton      | bool   | false   | Style the button as "start"                                   |
+| disabled           | bool   | false   | Whether the button is clickable                               |
+| formAction         | string | null    | Overrides the form submit action                              |
+| formMethod         | string | null    | Overrides the form submit method                              |
+| preventDoubleClick | bool   | false   | Disable the button after it is clicked                        |
+| secondary          | bool   | false   | Style the button as "secondary"                               |
 | type               | string | null    | Apply the secondary, start, or warning styles with a variable |
-| warning            | bool   | false   | Style the button as "warning" |
+| warning            | bool   | false   | Style the button as "warning"                                 |
 
 ### Type
 

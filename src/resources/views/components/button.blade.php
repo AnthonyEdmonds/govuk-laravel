@@ -2,6 +2,8 @@
     'asLink' => false,
     'asStartButton' => false,
     'disabled' => false,
+    'formAction' => null,
+    'formMethod' => null,
     'preventDoubleClick' => false,
     'secondary' => false,
     'type' => null,
@@ -35,6 +37,14 @@
 <button
     class="{{ $classes }}"
     data-module="govuk-button"
+    
+    @if($formAction !== null)
+        formaction="{{$formAction}}"
+    @endif
+            
+    @if($formMethod !== null)
+        formmethod="{{$formMethod}}"
+    @endif
 
     @if($disabled === true)
         aria-disabled="true"

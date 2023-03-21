@@ -7,18 +7,20 @@ use Illuminate\Contracts\View\View;
 
 class Page implements View
 {
-    public const BUTTON_TYPES = [
+    const BUTTON_TYPES = [
         self::NORMAL_BUTTON,
         self::SECONDARY_BUTTON,
         self::START_BUTTON,
         self::WARNING_BUTTON,
     ];
-    public const NORMAL_BUTTON = '';
-    public const SECONDARY_BUTTON = 'secondary';
-    public const START_BUTTON = 'start';
-    public const WARNING_BUTTON = 'warning';
-    public const OTHER_BUTTON_LABEL = 'Cancel and back';
-
+    const NORMAL_BUTTON = '';
+    const SECONDARY_BUTTON = 'secondary';
+    const START_BUTTON = 'start';
+    const WARNING_BUTTON = 'warning';
+    const OTHER_BUTTON_LABEL = 'Cancel and back';
+    
+    const GET_METHOD = 'GET';
+    
     protected ?string $action = null;
     protected ?string $back = null;
     protected ?array $breadcrumbs = null;
@@ -26,6 +28,7 @@ class Page implements View
     protected string $submitButtonType = self::NORMAL_BUTTON;
     protected ?string $otherButtonHref = null;
     protected ?string $otherButtonLabel = self::OTHER_BUTTON_LABEL;
+    protected ?string $otherButtonMethod = self::GET_METHOD;
     protected ?string $caption = null;
     protected ?string $content = null;
     protected ?string $method = null;
@@ -111,6 +114,12 @@ class Page implements View
         $this->otherButtonLabel = $label;
         return $this;
     }
+    
+    public function setOtherButtonMethod(string $method): self
+    {
+        $this->otherButtonMethod = $method;
+        return $this;
+    }
 
     public function setCaption(string $caption = null): self
     {
@@ -177,6 +186,7 @@ class Page implements View
             'submitButtonType' => $this->submitButtonType,
             'otherButtonHref' => $this->otherButtonHref,
             'otherButtonLabel' => $this->otherButtonLabel,
+            'otherButtonMethod' => $this->otherButtonMethod,
             'caption' => $this->caption,
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,

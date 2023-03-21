@@ -1,5 +1,9 @@
 @extends('govuk::layout.page')
 
+@php
+    use AnthonyEdmonds\GovukLaravel\Pages\Page;
+@endphp
+
 @section('main')
     <x-govuk::form action="{{ $action }}" method="{{ $method }}">
         @foreach($questions as $question)
@@ -11,9 +15,16 @@
                 {{ $submitButtonLabel }}
             </x-govuk::button>
             
-            <!-- TODO Allow other methods from this based on otherButtonMethod -->
             @if($otherButtonHref !== null)
-                <x-govuk::a href="{{ $otherButtonHref }}">{{ $otherButtonLabel }}</x-govuk::a>
+                @if($otherButtonMethod === Page::GET_METHOD)
+                    <x-govuk::a href="{{ $otherButtonHref }}">{{ $otherButtonLabel }}</x-govuk::a>
+                @else
+                    <x-govuk::button
+                        as-link
+                        form-action="{{$otherButtonHref}}"
+                        form-method="{{$otherButtonMethod}}"
+                    >{{ $otherButtonLabel }}</x-govuk::button>
+                @endif
             @endif
         </x-govuk::button-group>
     </x-govuk::form>

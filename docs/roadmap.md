@@ -27,8 +27,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 * Helpers
     * GovukQuestion
-* Pages
-    * Page
 * Questions
     * Question
 * Views
@@ -70,8 +68,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * GovukForm
     * GovukPage
     * GovukQuestion
-* Pages
-    * Page
 * Questions
     * Question
 * Views
