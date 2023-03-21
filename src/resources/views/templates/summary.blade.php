@@ -8,10 +8,8 @@
             <x-govuk::button :type="$submitButtonType">
                 {{ $submitButtonLabel }}
             </x-govuk::button>
-            
-            @if($otherButtonHref !== null)
-                <x-govuk::a href="{{ $otherButtonHref }}">{{ $otherButtonLabel }}</x-govuk::a>
-            @endif
+
+            @include('parts.other-button')
         </x-govuk::button-group>
     </x-govuk::form>
 @endsection

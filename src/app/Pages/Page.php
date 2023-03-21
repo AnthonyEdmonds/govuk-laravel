@@ -125,7 +125,7 @@ class Page implements View
         $this->otherButtonMethod = in_array($method, self::METHODS) === true
             ? $method
             : self::GET_METHOD;
-        
+
         return $this;
     }
 

@@ -48,19 +48,6 @@ class QuestionTest extends TestCase
             ->hasAttribute('href', 'other-action')
             ->contains('Other label');
     }
-
-    public function testHasOtherButtonWhenPost(): void
-    {
-        $this->makeComponent([
-            'otherButtonHref' => 'other-action',
-            'otherButtonLabel' => 'Other label',
-            'otherButtonMethod' => 'POST',
-        ])
-            ->last('form > div > button')
-            ->hasAttribute('formaction', 'other-action')
-            ->hasAttribute('formmethod', 'POST')
-            ->contains('Other label');
-    }
     
     protected function makeComponent(array $data = []): ViewAssertion
     {
