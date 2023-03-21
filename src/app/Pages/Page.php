@@ -7,20 +7,25 @@ use Illuminate\Contracts\View\View;
 
 class Page implements View
 {
-    const BUTTON_TYPES = [
+    public const BUTTON_TYPES = [
         self::NORMAL_BUTTON,
         self::SECONDARY_BUTTON,
         self::START_BUTTON,
         self::WARNING_BUTTON,
     ];
-    const NORMAL_BUTTON = '';
-    const SECONDARY_BUTTON = 'secondary';
-    const START_BUTTON = 'start';
-    const WARNING_BUTTON = 'warning';
-    const OTHER_BUTTON_LABEL = 'Cancel and back';
-    
-    const GET_METHOD = 'GET';
-    
+    public const NORMAL_BUTTON = '';
+    public const SECONDARY_BUTTON = 'secondary';
+    public const START_BUTTON = 'start';
+    public const WARNING_BUTTON = 'warning';
+    public const OTHER_BUTTON_LABEL = 'Cancel and back';
+
+    public const METHODS = [
+        self::GET_METHOD,
+        self::POST_METHOD,
+    ];
+    public const GET_METHOD = 'GET';
+    public const POST_METHOD = 'POST';
+
     protected ?string $action = null;
     protected ?string $back = null;
     protected ?array $breadcrumbs = null;
@@ -114,10 +119,13 @@ class Page implements View
         $this->otherButtonLabel = $label;
         return $this;
     }
-    
+
     public function setOtherButtonMethod(string $method): self
     {
-        $this->otherButtonMethod = $method;
+        $this->otherButtonMethod = in_array($method, self::METHODS) === true
+            ? $method
+            : self::GET_METHOD;
+        
         return $this;
     }
 
@@ -182,16 +190,16 @@ class Page implements View
             'action' => $this->action,
             'back' => $this->back,
             'breadcrumbs' => $this->breadcrumbs,
-            'submitButtonLabel' => $this->submitButtonLabel,
-            'submitButtonType' => $this->submitButtonType,
-            'otherButtonHref' => $this->otherButtonHref,
-            'otherButtonLabel' => $this->otherButtonLabel,
-            'otherButtonMethod' => $this->otherButtonMethod,
             'caption' => $this->caption,
             'content' => $this->content,
             'hideTitle' => $this->hideTitle,
             'method' => $this->method,
+            'otherButtonHref' => $this->otherButtonHref,
+            'otherButtonLabel' => $this->otherButtonLabel,
+            'otherButtonMethod' => $this->otherButtonMethod,
             'questions' => $this->questions,
+            'submitButtonLabel' => $this->submitButtonLabel,
+            'submitButtonType' => $this->submitButtonType,
             'summary' => $this->summary,
             'template' => $this->template,
             'title' => $this->title,

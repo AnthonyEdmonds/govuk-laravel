@@ -71,6 +71,22 @@ class ButtonTest extends TestCase
         ])
             ->hasClass('govuk-button--warning');
     }
+
+    public function testHasFormAction(): void
+    {
+        $this->makeComponent([
+            'formAction' => 'My action',
+        ])
+            ->hasAttribute('formaction', 'My action');
+    }
+
+    public function testHasFormMethod(): void
+    {
+        $this->makeComponent([
+            'formMethod' => 'POST',
+        ])
+            ->hasAttribute('formmethod', 'POST');
+    }
     
     protected function makeComponent(array $data = []): ViewAssertion
     {
@@ -80,6 +96,8 @@ class ButtonTest extends TestCase
             'asLink' => $data['asLink'] ?? false,
             'asStartButton' => $data['asStartButton'] ?? false,
             'disabled' => $data['disabled'] ?? false,
+            'formAction' => $data['formAction'] ?? null,
+            'formMethod' => $data['formMethod'] ?? null,
             'preventDoubleClick' => $data['preventDoubleClick'] ?? false,
             'secondary' => $data['secondary'] ?? false,
             'type' => $data['type'] ?? null,
