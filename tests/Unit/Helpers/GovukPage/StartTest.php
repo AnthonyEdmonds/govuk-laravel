@@ -65,7 +65,7 @@ class StartTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            'turtle',
+            Page::POST_METHOD,
             $this->page['method'],
         );
     }
@@ -99,7 +99,7 @@ class StartTest extends TestCase
             ['always', 'sunny'],
             'elsewhere',
             'dog',
-            'turtle',
+            Page::POST_METHOD,
         )->toArray();
     }
 }

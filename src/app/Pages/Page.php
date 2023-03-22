@@ -28,7 +28,7 @@ class Page implements View
         self::GET_METHOD,
         self::POST_METHOD,
     ];
-    
+
     public const FORM_METHODS = [
         self::DELETE_METHOD,
         self::GET_METHOD,
@@ -38,15 +38,15 @@ class Page implements View
     ];
 
     public const DELETE_METHOD = 'DELETE';
-    
+
     public const GET_METHOD = 'GET';
 
     public const PATCH_METHOD = 'PATCH';
-    
+
     public const POST_METHOD = 'POST';
-    
+
     public const PUT_METHOD = 'PUT';
-    
+
     protected ?string $action = null;
 
     protected ?string $back = null;

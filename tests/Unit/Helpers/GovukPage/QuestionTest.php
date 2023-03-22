@@ -58,7 +58,7 @@ class QuestionTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            'caramel',
+            Page::POST_METHOD,
             $this->page['method'],
         );
     }
@@ -161,7 +161,7 @@ class QuestionTest extends TestCase
             'for',
             'toll',
             'cheese',
-            'caramel',
+            Page::POST_METHOD,
             'dog',
             $otherButtonLabel,
             'Lizard',

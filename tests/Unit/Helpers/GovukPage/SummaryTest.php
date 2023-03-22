@@ -65,7 +65,7 @@ class SummaryTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            'turtle',
+            Page::POST_METHOD,
             $this->page['method'],
         );
     }
@@ -139,7 +139,7 @@ class SummaryTest extends TestCase
             'sunny',
             'elsewhere',
             'dog',
-            'turtle',
+            Page::POST_METHOD,
             'lizard',
             $otherButtonLabel,
             'dragon',

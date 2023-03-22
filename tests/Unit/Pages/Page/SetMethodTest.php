@@ -17,7 +17,7 @@ class SetMethodTest extends TestCase
             $page->toArray()['method'],
         );
     }
-    
+
     public function testDefaultsToPost(): void
     {
         $page = Page::create('My title');

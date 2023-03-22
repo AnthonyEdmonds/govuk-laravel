@@ -21,7 +21,7 @@ class ToArrayTest extends TestCase
         $page->setCaption('my-caption');
         $page->setContent('my-content');
         $page->hideTitle();
-        $page->setMethod('my-method');
+        $page->setMethod(Page::POST_METHOD);
         $page->setOtherButtonHref('other-href');
         $page->setOtherButtonLabel('other-label');
         $page->setOtherButtonMethod(Page::POST_METHOD);
@@ -43,7 +43,7 @@ class ToArrayTest extends TestCase
                 'caption' => 'my-caption',
                 'content' => 'my-content',
                 'hideTitle' => true,
-                'method' => 'my-method',
+                'method' => Page::POST_METHOD,
                 'otherButtonHref' => 'other-href',
                 'otherButtonLabel' => 'other-label',
                 'otherButtonMethod' => Page::POST_METHOD,

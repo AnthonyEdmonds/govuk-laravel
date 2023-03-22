@@ -102,7 +102,7 @@ class QuestionTest extends TestCase
     public function testHasMethod(): void
     {
         $this->assertEquals(
-            'post',
+            Page::POST_METHOD,
             $this->page->getData()['method']
         );
     }
