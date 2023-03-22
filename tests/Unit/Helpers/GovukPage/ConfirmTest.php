@@ -65,7 +65,7 @@ class ConfirmTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            'potato',
+            Page::POST_METHOD,
             $this->page['method'],
         );
     }
@@ -150,7 +150,7 @@ class ConfirmTest extends TestCase
             'apples',
             'table',
             'let',
-            'potato',
+            Page::POST_METHOD,
             $otherButtonLabel,
             $otherButtonHref,
             Page::WARNING_BUTTON,

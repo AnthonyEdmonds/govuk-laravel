@@ -24,14 +24,28 @@ class Page implements View
 
     public const OTHER_BUTTON_LABEL = 'Cancel and back';
 
-    public const METHODS = [
+    public const BUTTON_METHODS = [
         self::GET_METHOD,
         self::POST_METHOD,
     ];
 
+    public const FORM_METHODS = [
+        self::DELETE_METHOD,
+        self::GET_METHOD,
+        self::PATCH_METHOD,
+        self::POST_METHOD,
+        self::PUT_METHOD,
+    ];
+
+    public const DELETE_METHOD = 'DELETE';
+
     public const GET_METHOD = 'GET';
 
+    public const PATCH_METHOD = 'PATCH';
+
     public const POST_METHOD = 'POST';
+
+    public const PUT_METHOD = 'PUT';
 
     protected ?string $action = null;
 
@@ -150,7 +164,7 @@ class Page implements View
 
     public function setOtherButtonMethod(string $method): self
     {
-        $this->otherButtonMethod = in_array($method, self::METHODS) === true
+        $this->otherButtonMethod = in_array($method, self::BUTTON_METHODS) === true
             ? $method
             : self::GET_METHOD;
 
@@ -173,7 +187,9 @@ class Page implements View
 
     public function setMethod(string $method = null): self
     {
-        $this->method = $method;
+        $this->method = in_array($method, self::FORM_METHODS) === true
+            ? $method
+            : self::POST_METHOD;
 
         return $this;
     }

@@ -7,13 +7,24 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
 class SetMethodTest extends TestCase
 {
-    public function test(): void
+    public function testSetsMethod(): void
+    {
+        $page = Page::create('My title');
+        $page->setMethod(Page::DELETE_METHOD);
+
+        $this->assertEquals(
+            Page::DELETE_METHOD,
+            $page->toArray()['method'],
+        );
+    }
+
+    public function testDefaultsToPost(): void
     {
         $page = Page::create('My title');
         $page->setMethod('my-method');
 
         $this->assertEquals(
-            'my-method',
+            Page::POST_METHOD,
             $page->toArray()['method'],
         );
     }
