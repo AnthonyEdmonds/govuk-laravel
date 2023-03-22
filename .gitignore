@@ -1,5 +1,4 @@
 .idea
-.php-cs-fixer.cache
 .phpunit.result.cache
 node_modules
 vendor
