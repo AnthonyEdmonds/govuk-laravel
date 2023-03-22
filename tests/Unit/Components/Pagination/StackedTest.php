@@ -42,7 +42,7 @@ class StackedTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The current node list is empty.');
-        
+
         $this->makePagination(null, null);
     }
 

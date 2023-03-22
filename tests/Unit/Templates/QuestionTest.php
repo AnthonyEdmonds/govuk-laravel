@@ -24,7 +24,7 @@ class QuestionTest extends TestCase
         $this->makeComponent([
             'questions' => [
                 GovukQuestion::hidden('my-name', 'my-value'),
-            ]
+            ],
         ])
             ->last('input')
             ->hasAttribute('name', 'my-name')
@@ -48,12 +48,12 @@ class QuestionTest extends TestCase
             ->hasAttribute('href', 'other-action')
             ->contains('Other label');
     }
-    
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         Route::get('/home')->name('home');
         Route::get('/sign-out')->name('sign-out');
-        
+
         $this->setViewErrors();
 
         return $this->assertView('govuk::templates.question', [

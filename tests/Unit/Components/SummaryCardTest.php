@@ -17,7 +17,7 @@ class SummaryCardTest extends TestCase
     public function testHasActions(): void
     {
         $this->makeSummaryCard([
-            'My action' => 'Action_URL'
+            'My action' => 'Action_URL',
         ])
             ->first('ul')
             ->first('li')

@@ -13,6 +13,7 @@ use Illuminate\View\ComponentAttributeBag;
  * Configure the global variables exposed when rendering a view
  *
  * @author Anthony Edmonds
+ *
  * @link https://github.com/AnthonyEdmonds
  */
 trait SetsViewVariables
@@ -58,8 +59,7 @@ trait SetsViewVariables
         string $slotName = 'slot',
         string $html = '',
         array $data = []
-    ): void
-    {
+    ): void {
         $tempDirectory = sys_get_temp_dir();
 
         /* @phpstan-ignore-next-line */

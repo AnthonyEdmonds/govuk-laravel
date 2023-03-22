@@ -1,4 +1,5 @@
 <?php
+
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Questions\Question;
 
 use AnthonyEdmonds\GovukLaravel\Questions\Question;

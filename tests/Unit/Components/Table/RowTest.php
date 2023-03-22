@@ -21,9 +21,9 @@ class RowTest extends TestCase
             'slot',
             'My row content',
         );
-        
+
         return $this->assertView('govuk::components.table.row', [
-            
+
         ]);
     }
 }

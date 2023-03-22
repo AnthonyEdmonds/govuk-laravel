@@ -17,7 +17,7 @@ class LengthAwareTest extends TestCase
     public function testHasPrevButtonWhenPrevUrlSet(): void
     {
         $this->makePagination([
-            'prevPageUrl' => 'prev-page-url'
+            'prevPageUrl' => 'prev-page-url',
         ])
             ->first('div.govuk-pagination__prev')
             ->hasLink('prev-page-url')
@@ -81,7 +81,7 @@ class LengthAwareTest extends TestCase
     public function testDoesntHaveBackTwoLinkOtherwise(): void
     {
         $this->makePagination([
-            'currentPage' => 3
+            'currentPage' => 3,
         ])
             ->at('ul > li', 2)
             ->hasLink('page-3-url')
@@ -157,7 +157,7 @@ class LengthAwareTest extends TestCase
         // TODO Replace with expectation
 
         $this->makePagination([
-            'currentPage' => 8
+            'currentPage' => 8,
         ])->at('ul > li', 6);
     }
 
@@ -171,7 +171,7 @@ class LengthAwareTest extends TestCase
     public function testDoesntWhenCurrentPageIsThreeLessOrHigherThanLastPage(): void
     {
         $this->makePagination([
-            'currentPage' => 6
+            'currentPage' => 6,
         ])
             ->at('ul > li', 7)
             ->hasLink('last-page-url');
@@ -188,7 +188,7 @@ class LengthAwareTest extends TestCase
     public function testDoesntWhenCurrentPageIsTwoOrLessThanLastPage(): void
     {
         $this->makePagination([
-            'currentPage' => 8
+            'currentPage' => 8,
         ])
             ->at('ul > li', 5)
             ->hasLink('page-9-url');

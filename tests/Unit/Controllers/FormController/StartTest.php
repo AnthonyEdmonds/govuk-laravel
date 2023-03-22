@@ -12,7 +12,9 @@ use Illuminate\Contracts\View\View;
 class StartTest extends TestCase
 {
     protected FormController $controller;
+
     protected User $user;
+
     protected View $response;
 
     protected function setUp(): void
@@ -25,7 +27,6 @@ class StartTest extends TestCase
         $this->signIn($this->user);
 
         $this->controller = new FormController();
-
     }
 
     public function testChecksAccess(): void

@@ -12,7 +12,9 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class ToSummaryTest extends TestCase
 {
     protected array $data;
+
     protected array $summary;
+
     protected FormModel $model;
 
     protected function setUp(): void

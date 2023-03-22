@@ -15,8 +15,11 @@ use Illuminate\Http\RedirectResponse;
 class SubmitTest extends TestCase
 {
     protected FormController $controller;
+
     protected FormModel $subject;
+
     protected RedirectResponse $response;
+
     protected User $user;
 
     protected function setUp(): void

@@ -41,11 +41,11 @@ class PTest extends TestCase
             ->first('p')
             ->hasClass('govuk-body-s');
     }
-    
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My content');
-        
+
         return $this->assertView('govuk::components.p', [
             'bold' => $data['bold'] ?? false,
             'lead' => $data['lead'] ?? false,

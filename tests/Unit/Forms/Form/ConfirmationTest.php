@@ -11,7 +11,9 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class ConfirmationTest extends TestCase
 {
     protected FormModel $subject;
+
     protected Page $page;
+
     protected TestForm $form;
 
     protected function setUp(): void

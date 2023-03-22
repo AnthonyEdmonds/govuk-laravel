@@ -72,7 +72,7 @@ class CellTest extends TestCase
         $this->setViewSlot('slot', 'My slot content');
 
         return $this->assertView('govuk::components.table.cell', [
-            'colour' =>  $data['colour'] ?? null,
+            'colour' => $data['colour'] ?? null,
             'colspan' => $data['colspan'] ?? 1,
             'heading' => $data['heading'] ?? false,
             'numeric' => $data['numeric'] ?? false,

@@ -14,7 +14,9 @@ use Illuminate\Http\RedirectResponse;
 class CreateTest extends TestCase
 {
     protected FormController $controller;
+
     protected RedirectResponse $response;
+
     protected User $user;
 
     protected function setUp(): void

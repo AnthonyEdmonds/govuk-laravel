@@ -27,7 +27,7 @@ class SkipLinkTest extends TestCase
 
         return $this->assertView('govuk::components.skip-link', [
             'anchor' => 'my-anchor',
-            'label' => 'My label'
+            'label' => 'My label',
         ]);
     }
 }

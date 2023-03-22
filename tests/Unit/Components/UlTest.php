@@ -22,7 +22,7 @@ class UlTest extends TestCase
             ->first('ul')
             ->hasClass('govuk-list--bullet');
     }
-    
+
     public function testHasSpacedClass(): void
     {
         $this->makeComponent([

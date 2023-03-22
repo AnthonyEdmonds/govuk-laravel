@@ -34,7 +34,7 @@ class CustomTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            ['white','brown'],
+            ['white', 'brown'],
             $this->page['breadcrumbs'],
         );
     }
@@ -64,8 +64,8 @@ class CustomTest extends TestCase
         $this->page = GovukPage::custom(
             'good',
             'for',
-            ['white','brown'],
+            ['white', 'brown'],
             'you',
         )->toArray();
     }
-};
+}

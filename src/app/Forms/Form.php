@@ -9,8 +9,8 @@ use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 // TODO Support for question sections
 // TODO Support for task page
@@ -20,8 +20,11 @@ abstract class Form
     use AuthorizesRequests;
 
     public const NEW = 'new';
+
     public const REVIEW = 'review';
+
     public const EDIT = 'edit';
+
     public const MODES = [
         self::NEW,
         self::REVIEW,
@@ -285,6 +288,7 @@ abstract class Form
     protected function getLastQuestionKey(): string
     {
         $finalIndex = array_key_last(static::questions());
+
         return static::questions()[$finalIndex]::key();
     }
 

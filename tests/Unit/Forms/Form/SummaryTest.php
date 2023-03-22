@@ -13,7 +13,9 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class SummaryTest extends TestCase
 {
     protected Page $page;
+
     protected FormModel $subject;
+
     protected TestForm $form;
 
     protected function setUp(): void

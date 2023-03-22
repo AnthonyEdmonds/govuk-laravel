@@ -9,13 +9,21 @@ use Illuminate\View\ComponentAttributeBag;
 class Question
 {
     public const CHECKBOXES = 'checkboxes';
+
     public const DATE = 'date-input';
+
     public const FILE = 'file-upload';
+
     public const HIDDEN = 'hidden-input';
+
     public const RADIOS = 'radios';
+
     public const SELECT = 'select';
+
     public const TEXT_AREA = 'textarea';
+
     public const TEXT_INPUT = 'text-input';
+
     public const QUESTION_FORMATS = [
         self::CHECKBOXES,
         self::DATE,
@@ -24,30 +32,51 @@ class Question
         self::RADIOS,
         self::SELECT,
         self::TEXT_AREA,
-        self::TEXT_INPUT
+        self::TEXT_INPUT,
     ];
 
     public string $accept = '*';
+
     public string $autocomplete = 'on';
+
     public ?int $count = null;
+
     public ?string $hint = null;
+
     public string $id;
+
     public bool $isInline = false;
+
     public string $inputmode = 'text';
+
     public bool $isTitle = false;
+
     public string $label;
+
     public string $labelSize = 's';
+
     public string $name;
+
     public array $options = [];
+
     public ?string $placeholder = null;
+
     public ?string $prefix = null;
+
     public int $rows = 5;
+
     public bool $spellcheck = false;
+
     public ?string $suffix = null;
+
     public ?int $threshold = null;
+
     public string $type = 'text';
+
     public mixed $value = null;
+
     public ?int $width = null;
+
     public ?int $words = null;
 
     protected string $format;
@@ -78,18 +107,21 @@ class Question
     public function accept(string $accept = '*'): self
     {
         $this->accept = $accept;
+
         return $this;
     }
 
     public function autocomplete(string $autocomplete = 'on'): self
     {
         $this->autocomplete = $autocomplete;
+
         return $this;
     }
 
     public function count(int $count = null): self
     {
         $this->count = $count;
+
         return $this;
     }
 
@@ -105,48 +137,56 @@ class Question
     public function hint(string $hint = null): self
     {
         $this->hint = $hint;
+
         return $this;
     }
 
     public function id(string $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
     public function inputmode(string $mode): self
     {
         $this->inputmode = $mode;
+
         return $this;
     }
 
     public function isInline(): self
     {
         $this->isInline = true;
+
         return $this;
     }
 
     public function isTitle(): self
     {
         $this->isTitle = true;
+
         return $this;
     }
 
     public function label(string $label): self
     {
         $this->label = $label;
+
         return $this;
     }
 
     public function labelSize(string $size): self
     {
         $this->labelSize = $size;
+
         return $this;
     }
 
     public function name(string $name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -162,30 +202,35 @@ class Question
     public function placeholder(string $placeholder): self
     {
         $this->placeholder = $placeholder;
+
         return $this;
     }
 
     public function prefix(string $prefix): self
     {
         $this->prefix = $prefix;
+
         return $this;
     }
 
     public function rows(int $rows): self
     {
         $this->rows = $rows;
+
         return $this;
     }
 
     public function spellcheck(bool $enabled): self
     {
         $this->spellcheck = $enabled;
+
         return $this;
     }
 
     public function suffix(string $suffix): self
     {
         $this->suffix = $suffix;
+
         return $this;
     }
 
@@ -200,30 +245,35 @@ class Question
         }
 
         $this->threshold = $percent;
+
         return $this;
     }
 
     public function type(string $type): self
     {
         $this->type = $type;
+
         return $this;
     }
 
     public function value(mixed $value = null): self
     {
         $this->value = $value;
+
         return $this;
     }
 
     public function width(int $width): self
     {
         $this->width = $width;
+
         return $this;
     }
 
     public function words(int $words): self
     {
         $this->words = $words;
+
         return $this;
     }
 

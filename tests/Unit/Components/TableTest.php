@@ -51,9 +51,9 @@ class TableTest extends TestCase
     {
         $this->checkTableData(
             new TestResourceCollection([
-                new TestJsonResource((object)$this->baseData[0]),
-                new TestJsonResource((object)$this->baseData[1]),
-                new TestJsonResource((object)$this->baseData[2]),
+                new TestJsonResource((object) $this->baseData[0]),
+                new TestJsonResource((object) $this->baseData[1]),
+                new TestJsonResource((object) $this->baseData[2]),
             ]),
         );
     }
@@ -61,7 +61,7 @@ class TableTest extends TestCase
     public function testDataAcceptsJsonResource(): void
     {
         $this->checkTableData(
-            new TestJsonResource((object)$this->baseData[0]),
+            new TestJsonResource((object) $this->baseData[0]),
             1
         );
     }
@@ -80,7 +80,7 @@ class TableTest extends TestCase
 
     public function testDataAcceptsOther(): void
     {
-        $this->checkTableData((object)$this->baseData);
+        $this->checkTableData((object) $this->baseData);
     }
 
     public function testHasCaption(): void
@@ -123,8 +123,8 @@ class TableTest extends TestCase
     {
         $this->setViewSlot(
             'slot',
-            $this->makeTableColumn('Column one', '~c1') .
-            $this->makeTableColumn('Column two', '~c2') .
+            $this->makeTableColumn('Column one', '~c1').
+            $this->makeTableColumn('Column two', '~c2').
             $this->makeTableColumn('Column three', '~c3')
         );
 
@@ -140,13 +140,13 @@ class TableTest extends TestCase
 
     protected function makeTableColumn(string $label, string $content): string
     {
-        return '~~' . GovukComponent::makeTableColumnJson(
+        return '~~'.GovukComponent::makeTableColumnJson(
             false,
             '',
             $label,
             false,
             $content,
-        ) . '~~';
+        ).'~~';
     }
 
     protected function makeRow(int $row): array

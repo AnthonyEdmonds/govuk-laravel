@@ -228,7 +228,7 @@ class FooterTest extends TestCase
                             'route' => 'benefits.index',
                         ],
                         'Information' => 'information.index',
-                    ]
+                    ],
                 ],
             ],
         ]);

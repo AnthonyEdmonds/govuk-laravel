@@ -39,4 +39,3 @@ class FieldsetTest extends TestCase
         ]);
     }
 }
-

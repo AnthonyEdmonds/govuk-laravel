@@ -10,6 +10,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class QuestionTest extends TestCase
 {
     protected array $page;
+
     protected Question $question;
 
     public function testHasQuestion(): void
@@ -154,7 +155,7 @@ class QuestionTest extends TestCase
     protected function makePage(
         string|null $otherButtonLabel = 'bird',
     ): void {
-        $this->question = new Question('too','strange', Question::CHECKBOXES);
+        $this->question = new Question('too', 'strange', Question::CHECKBOXES);
         $this->page = GovukPage::question(
             $this->question,
             'for',

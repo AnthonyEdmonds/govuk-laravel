@@ -33,4 +33,3 @@ class HintTest extends TestCase
         ]);
     }
 }
-

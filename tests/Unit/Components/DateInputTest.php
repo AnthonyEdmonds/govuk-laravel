@@ -23,14 +23,14 @@ class DateInputTest extends TestCase
             'autocomplete' => 'cc-exp',
         ])
             ->first('input[type=text]')
-            ->hasAttribute('autocomplete', 'cc-exp-month');;
+            ->hasAttribute('autocomplete', 'cc-exp-month');
     }
 
     public function testHasAutocomplete(): void
     {
         $this->makeDateInput()
             ->first('input[type=text]')
-            ->hasAttribute('autocomplete', 'on');;
+            ->hasAttribute('autocomplete', 'on');
     }
 
     public function testHasHint(): void
@@ -112,7 +112,7 @@ class DateInputTest extends TestCase
         $this->makeDateInput([
             'value' => [
                 'day' => 31,
-            ]
+            ],
         ])
             ->first('#my-id-day')
             ->hasAttribute('value', '31');
@@ -123,7 +123,7 @@ class DateInputTest extends TestCase
         $this->makeDateInput([
             'value' => [
                 'month' => 12,
-            ]
+            ],
         ])
             ->first('#my-id-month')
             ->hasAttribute('value', '12');
@@ -134,7 +134,7 @@ class DateInputTest extends TestCase
         $this->makeDateInput([
             'value' => [
                 'year' => 2000,
-            ]
+            ],
         ])
             ->first('#my-id-year')
             ->hasAttribute('value', '2000');

@@ -5,7 +5,6 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Traits\HasForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Routing\Route;
 
 class FormTest extends TestCase
 {

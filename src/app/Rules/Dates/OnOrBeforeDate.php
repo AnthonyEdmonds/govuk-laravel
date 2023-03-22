@@ -16,7 +16,8 @@ class OnOrBeforeDate extends DateRule
             return true;
         }
 
-        $this->message = ':attribute must be the same day or before ' . $this->date->format('d/m/Y');
+        $this->message = ':attribute must be the same day or before '.$this->date->format('d/m/Y');
+
         return false;
     }
 }

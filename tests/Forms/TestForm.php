@@ -3,11 +3,11 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Forms;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
-use Illuminate\Database\Eloquent\Model;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\FirstQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\SecondQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\ThirdQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 

@@ -8,11 +8,11 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class GetDataTest extends TestCase
 {
     protected Page $page;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->page = Page::create('My title');
     }
 

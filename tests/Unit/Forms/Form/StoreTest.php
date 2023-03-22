@@ -16,8 +16,11 @@ use Illuminate\Validation\ValidationException;
 class StoreTest extends TestCase
 {
     protected FormModel $subject;
+
     protected NameFormRequest $request;
+
     protected RedirectResponse $response;
+
     protected TestForm $form;
 
     protected function setUp(): void
