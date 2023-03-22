@@ -17,13 +17,13 @@ class SelectTest extends TestCase
     public function testHasHint(): void
     {
         $group = $this->makeComponent([
-            'hint' => 'My hint'
+            'hint' => 'My hint',
         ]);
-        
+
         $group->first('div > div')
             ->hasAttribute('id', 'my-id-hint')
             ->contains('My hint');
-        
+
         $group->first('select')
             ->hasAttribute('aria-describedby', 'my-id-hint');
     }
@@ -31,10 +31,10 @@ class SelectTest extends TestCase
     public function testHasId(): void
     {
         $group = $this->makeComponent();
-        
+
         $group->first('label')
             ->hasAttribute('for', 'my-id');
-        
+
         $group->first('select')
             ->hasAttribute('id', 'my-id');
     }
@@ -70,7 +70,7 @@ class SelectTest extends TestCase
             'value' => 'option-one',
         ])
             ->first('select');
-        
+
         $options->at('option', 1)
             ->hasAttribute('selected', 'selected')
             ->hasAttribute('value', 'option-one')
@@ -89,7 +89,7 @@ class SelectTest extends TestCase
             ->first('div')
             ->has('h1');
     }
-    
+
     public function testHasError(): void
     {
         $this->makeComponent([], [
@@ -99,11 +99,11 @@ class SelectTest extends TestCase
             ->hasClass('govuk-select--error')
             ->hasAttribute('aria-describedby', ' my-id-error');
     }
-    
+
     protected function makeComponent(array $data = [], array $errors = []): ViewAssertion
     {
         $this->setViewErrors($errors);
-        
+
         return $this->assertView('govuk::components.select', [
             'autocomplete' => $data['autocomplete'] ?? 'on',
             'hint' => $data['hint'] ?? null,

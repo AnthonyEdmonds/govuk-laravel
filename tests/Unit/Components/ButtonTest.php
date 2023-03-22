@@ -87,11 +87,11 @@ class ButtonTest extends TestCase
         ])
             ->hasAttribute('formmethod', 'POST');
     }
-    
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My slot');
-        
+
         return $this->assertView('govuk::components.button', [
             'asLink' => $data['asLink'] ?? false,
             'asStartButton' => $data['asStartButton'] ?? false,

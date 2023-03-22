@@ -24,7 +24,7 @@ class GovukComponent
     public static function renderTableContent(array $column, $row): string
     {
         if (is_array($row) !== true) {
-            $row = (array)$row;
+            $row = (array) $row;
         }
 
         $content = $column['html'];

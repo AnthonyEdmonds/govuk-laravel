@@ -28,6 +28,7 @@ class ErrorTest extends TestCase
             $this->page['back'],
         );
     }
+
     public function testHasBlade(): void
     {
         $this->makePage();
@@ -55,4 +56,4 @@ class ErrorTest extends TestCase
             'for',
         )->toArray();
     }
-};
+}

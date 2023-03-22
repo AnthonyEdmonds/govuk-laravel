@@ -8,11 +8,11 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class SetBackTest extends TestCase
 {
     protected Page $page;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->page = Page::create('My title');
     }
 
@@ -25,7 +25,7 @@ class SetBackTest extends TestCase
             $this->page->toArray()['back'],
         );
     }
-    
+
     public function testClearsBreadcrumbs(): void
     {
         $this->page->setBreadcrumbs([

@@ -46,7 +46,7 @@ class RadioTest extends TestCase
     public function testShowsHint(): void
     {
         $this->makeComponent([
-            'option' => $this->makeOption()
+            'option' => $this->makeOption(),
         ])
             ->first('div > div')
             ->hasAttribute('id', 'my-id-hint')
@@ -105,10 +105,9 @@ class RadioTest extends TestCase
                 [
                     'label' => 'Mobile number',
                     'name' => 'mobile',
-                    'hint' => 'Without any prefixes'
+                    'hint' => 'Without any prefixes',
                 ],
             ] : null,
         ];
     }
 }
-

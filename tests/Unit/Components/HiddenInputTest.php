@@ -34,7 +34,7 @@ class HiddenInputTest extends TestCase
             ->first('input')
             ->hasAttribute('value', 'my-value');
     }
-    
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         return $this->assertView('govuk::components.hidden-input', [

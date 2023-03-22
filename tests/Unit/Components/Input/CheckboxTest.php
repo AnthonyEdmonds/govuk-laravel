@@ -13,7 +13,7 @@ class CheckboxTest extends TestCase
             'option' => [
                 'divider' => true,
                 'label' => 'My label',
-            ]
+            ],
         ])
             ->first('div')
             ->hasClass('govuk-checkboxes__divider')
@@ -26,7 +26,7 @@ class CheckboxTest extends TestCase
 
         $checkbox->first('div > input')
             ->hasAttribute('id', 'my-id');
-        
+
         $checkbox->first('div > label')
             ->hasAttribute('for', 'my-id');
     }
@@ -34,7 +34,7 @@ class CheckboxTest extends TestCase
     public function testHasName(): void
     {
         $checkbox = $this->makeComponent();
-        
+
         $checkbox->first('div > input')
             ->hasAttribute('name', 'my-name');
     }
@@ -51,19 +51,19 @@ class CheckboxTest extends TestCase
         $this->makeComponent([
             'selections' => [
                 'my-value',
-            ]
+            ],
         ])
             ->first('div > input')
             ->hasAttribute('checked', 'checked');
     }
-    
+
     public function testIsExclusive(): void
     {
         $this->makeComponent([
             'option' => [
                 'label' => 'My label',
                 'exclusive' => true,
-            ]
+            ],
         ])
             ->first('div > input')
             ->hasAttribute('data-behaviour', 'exclusive');
@@ -82,7 +82,7 @@ class CheckboxTest extends TestCase
             'option' => [
                 'label' => 'My label',
                 'hint' => 'My hint',
-            ]
+            ],
         ])
             ->first('div > div')
             ->hasAttribute('id', 'my-id-hint')
@@ -109,15 +109,15 @@ class CheckboxTest extends TestCase
 
         $input->first('div > label')
             ->contains('Input label');
-        
+
         $input->first('div > input')
             ->hasAttribute('name', 'input-name');
     }
-    
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewErrors();
-        
+
         return $this->assertView('govuk::components.input.checkbox', [
             'id' => $data['id'] ?? 'my-id',
             'name' => $data['name'] ?? 'my-name',

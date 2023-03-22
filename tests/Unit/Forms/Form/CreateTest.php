@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 class CreateTest extends TestCase
 {
     protected RedirectResponse $response;
+
     protected TestForm $form;
 
     protected function setUp(): void
@@ -38,7 +39,7 @@ class CreateTest extends TestCase
             route('forms.question', [
                 TestForm::key(),
                 TestForm::NEW,
-                FirstQuestion::key()
+                FirstQuestion::key(),
             ]),
             $this->response->getTargetUrl()
         );

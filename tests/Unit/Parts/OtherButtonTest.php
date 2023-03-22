@@ -10,10 +10,10 @@ class OtherButtonTest extends TestCase
     public function testNothingWhenHrefNull(): void
     {
         $this->expectEmptyNodeList();
-        
+
         $this->makeComponent();
     }
-    
+
     public function testLinkWhenGetMethod(): void
     {
         $this->makeComponent([

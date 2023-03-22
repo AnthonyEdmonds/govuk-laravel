@@ -19,11 +19,11 @@ class FileUploadTest extends TestCase
         $group = $this->makeComponent([
             'hint' => 'My hint',
         ])->first('div');
-        
+
         $group->first('div.govuk-hint')
             ->hasAttribute('id', 'my-id-hint')
             ->contains('My hint');
-        
+
         $group->first('input')
             ->hasAttribute('aria-describedby', 'my-id-hint');
     }
@@ -31,10 +31,10 @@ class FileUploadTest extends TestCase
     public function testHasId(): void
     {
         $group = $this->makeComponent();
-        
+
         $group->first('label')
             ->hasAttribute('for', 'my-id');
-        
+
         $group->first('input')
             ->hasAttribute('id', 'my-id');
     }
@@ -67,26 +67,26 @@ class FileUploadTest extends TestCase
         ])
             ->has('div > h1');
     }
-    
+
     public function testHasErrors(): void
     {
         $group = $this->makeComponent([], [
             'my-name' => 'An error',
         ]);
-        
+
         $group->first('p.govuk-error-message')
             ->hasAttribute('id', 'my-id-error')
             ->contains('An error');
-        
+
         $group->first('input')
             ->hasAttribute('aria-describedby', ' my-id-error')
             ->hasClass('govuk-file-upload--error');
     }
-    
+
     protected function makeComponent(array $data = [], array $errors = []): ViewAssertion
     {
         $this->setViewErrors($errors);
-        
+
         return $this->assertView('govuk::components.file-upload', [
             'accept' => $data['accept'] ?? '*',
             'hint' => $data['hint'] ?? null,
@@ -98,4 +98,3 @@ class FileUploadTest extends TestCase
         ]);
     }
 }
-

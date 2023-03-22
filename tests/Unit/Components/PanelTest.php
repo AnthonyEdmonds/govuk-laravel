@@ -44,7 +44,7 @@ class PanelTest extends TestCase
 
         return $this->assertView('govuk::components.panel', [
             'colour' => 'dark-blue',
-            'title' => 'Application complete'
+            'title' => 'Application complete',
         ]);
     }
 }

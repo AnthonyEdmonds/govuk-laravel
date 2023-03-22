@@ -12,11 +12,11 @@ class ToArrayTest extends TestCase
     {
         $page = Page::create('My title');
         $question = GovukQuestion::hidden('my-name', 'my-value');
-        
+
         $page->setAction('my-action');
         $page->setBack('back-route');
         $page->setBreadcrumbs([
-            'Label' => 'route'
+            'Label' => 'route',
         ]);
         $page->setCaption('my-caption');
         $page->setContent('my-content');
@@ -29,7 +29,7 @@ class ToArrayTest extends TestCase
         $page->setSubmitButtonLabel('submit-label');
         $page->setSubmitButtonType(Page::SECONDARY_BUTTON);
         $page->setSummary([
-            'My summary'
+            'My summary',
         ]);
         $page->setTemplate('my-template');
 
@@ -48,7 +48,7 @@ class ToArrayTest extends TestCase
                 'otherButtonLabel' => 'other-label',
                 'otherButtonMethod' => Page::POST_METHOD,
                 'questions' => [
-                    $question
+                    $question,
                 ],
                 'submitButtonLabel' => 'submit-label',
                 'submitButtonType' => Page::SECONDARY_BUTTON,

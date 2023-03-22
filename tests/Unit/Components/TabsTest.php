@@ -61,7 +61,7 @@ class TabsTest extends TestCase
         );
 
         return $this->assertView('govuk::components.tabs', [
-            'title' => 'My tabs'
+            'title' => 'My tabs',
         ]);
     }
 }

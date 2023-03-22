@@ -4,7 +4,6 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Controllers\FormController;
 
 use AnthonyEdmonds\GovukLaravel\Controllers\FormController;
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
-use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\FirstQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\User;
@@ -15,8 +14,11 @@ use Illuminate\Http\RedirectResponse;
 class EditTest extends TestCase
 {
     protected FormController $controller;
+
     protected FormModel $subject;
+
     protected RedirectResponse $response;
+
     protected User $user;
 
     protected function setUp(): void

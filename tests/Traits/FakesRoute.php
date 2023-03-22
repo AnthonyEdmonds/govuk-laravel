@@ -9,6 +9,7 @@ use ReflectionClass;
  * Fool the system into thinking that you are totally on a Route right now
  *
  * @author Anthony Edmonds
+ *
  * @link https://github.com/AnthonyEdmonds
  */
 trait FakesRoute
@@ -19,7 +20,7 @@ trait FakesRoute
         string $method = 'get',
         array $parameters = [],
     ): Route {
-        $fakeRoute = new Route( $method, $uri, []);
+        $fakeRoute = new Route($method, $uri, []);
         $fakeRoute->name($name);
         $fakeRoute->parameters = $parameters;
 

@@ -14,6 +14,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class QuestionTest extends TestCase
 {
     protected Page $page;
+
     protected TestForm $form;
 
     protected function setUp(): void

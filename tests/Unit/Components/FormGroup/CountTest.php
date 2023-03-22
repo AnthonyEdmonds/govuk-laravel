@@ -17,13 +17,12 @@ class CountTest extends TestCase
             ->contains('My content')
             ->first('div > div')
             ->hasAttribute('id', 'my-id-info');
-            
     }
 
     public function testHasThreshold(): void
     {
         $this->makeComponent([
-            'threshold' => 3
+            'threshold' => 3,
         ])
             ->first('div')
             ->hasAttribute('data-threshold', '3');

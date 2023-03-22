@@ -14,8 +14,11 @@ use Illuminate\Contracts\View\View;
 class ConfirmationTest extends TestCase
 {
     protected FormController $controller;
+
     protected FormModel $subject;
+
     protected User $user;
+
     protected View $response;
 
     protected function setUp(): void

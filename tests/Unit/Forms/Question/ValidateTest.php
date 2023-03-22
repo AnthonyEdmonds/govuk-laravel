@@ -10,6 +10,7 @@ use Illuminate\Validation\ValidationException;
 class ValidateTest extends TestCase
 {
     protected FirstQuestion $question;
+
     protected Request $request;
 
     protected function setUp(): void

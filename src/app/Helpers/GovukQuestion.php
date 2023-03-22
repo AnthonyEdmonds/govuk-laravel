@@ -142,7 +142,7 @@ class GovukQuestion
         foreach ($pieces as $piece) {
             $name .= $name === ''
                 ? $piece
-                : '.' . rtrim($piece, ']');
+                : '.'.rtrim($piece, ']');
         }
 
         return $name;

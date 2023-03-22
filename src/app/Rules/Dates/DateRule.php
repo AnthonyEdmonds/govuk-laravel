@@ -9,9 +9,11 @@ use Illuminate\Contracts\Validation\Rule;
 abstract class DateRule implements Rule, DataAwareRule
 {
     public const ATTRIBUTE = 'my-date';
+
     public const VALUE = 'not-used';
 
     protected array $data;
+
     protected string $message;
 
     abstract protected function test(Carbon $enteredDate): bool;
@@ -32,6 +34,7 @@ abstract class DateRule implements Rule, DataAwareRule
 
         if ($enteredDate->isValid() === false) {
             $this->message = ':attribute is not a date that exists';
+
             return false;
         }
 

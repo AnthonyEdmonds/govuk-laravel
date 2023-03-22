@@ -58,4 +58,3 @@ class ATest extends TestCase
         ]);
     }
 }
-

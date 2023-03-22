@@ -20,7 +20,7 @@ abstract class TestCase extends BaseTestCase
     use SetsViewVariables;
     use WithFaker;
     use FakesRoute;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -45,7 +45,7 @@ abstract class TestCase extends BaseTestCase
     protected function useForms(): void
     {
         Config::set('govuk.forms', [
-           TestForm::class,
+            TestForm::class,
         ]);
 
         $router = app('router');
@@ -55,10 +55,10 @@ abstract class TestCase extends BaseTestCase
 
     protected function useDatabase(): void
     {
-        $this->app->useDatabasePath(__DIR__ . '/Database');
+        $this->app->useDatabasePath(__DIR__.'/Database');
         $this->runLaravelMigrations();
     }
-    
+
     protected function expectEmptyNodeList(): void
     {
         $this->expectException(InvalidArgumentException::class);

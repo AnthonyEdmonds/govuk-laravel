@@ -22,4 +22,3 @@ class ButtonGroupTest extends TestCase
         return $this->assertView('govuk::components.button-group');
     }
 }
-

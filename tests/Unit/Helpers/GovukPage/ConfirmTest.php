@@ -65,7 +65,7 @@ class ConfirmTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            "potato",
+            'potato',
             $this->page['method'],
         );
     }

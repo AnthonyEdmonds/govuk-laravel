@@ -9,9 +9,11 @@ use Carbon\Carbon;
 class BeforeDateTest extends TestCase
 {
     const ATTRIBUTE = 'my-date';
+
     const VALUE = 'not-used';
 
     protected Carbon $now;
+
     protected BeforeDate $rule;
 
     protected function setUp(): void
@@ -66,7 +68,7 @@ class BeforeDateTest extends TestCase
         $this->rule->setData([
             'my-date-day' => $day,
             'my-date-month' => $month,
-            'my-date-year' => $year
+            'my-date-year' => $year,
         ]);
     }
 }

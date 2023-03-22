@@ -10,7 +10,7 @@ class TextareaTest extends TestCase
     public function testHasCount(): void
     {
         $this->makeComponent([
-            'count' => 3
+            'count' => 3,
         ])
             ->first('div')
             ->hasAttribute('data-maxlength', '3');
@@ -19,13 +19,13 @@ class TextareaTest extends TestCase
     public function testHasId(): void
     {
         $group = $this->makeComponent();
-        
+
         $group->last('div > div')
             ->hasAttribute('id', 'my-id-info');
-        
+
         $group->first('label')
             ->hasAttribute('for', 'my-id');
-        
+
         $group->first('textarea')
             ->hasAttribute('id', 'my-id');
     }
@@ -38,11 +38,11 @@ class TextareaTest extends TestCase
             ->first('div')
             ->hasAttribute('data-threshold', '50');
     }
-    
+
     public function testHasWords(): void
     {
         $this->makeComponent([
-            'words' => 3
+            'words' => 3,
         ])
             ->first('div')
             ->hasAttribute('data-maxwords', '3');
@@ -80,14 +80,14 @@ class TextareaTest extends TestCase
     public function testHasHint(): void
     {
         $group = $this->makeComponent([
-            'hint' => 'My hint'
+            'hint' => 'My hint',
         ])
             ->first('div > div');
-        
+
         $group->first('div.govuk-hint')
             ->hasAttribute('id', 'my-id-hint')
             ->contains('My hint');
-        
+
         $group->first('textarea')
             ->hasAttribute('aria-describedby', 'my-id-hint');
     }
@@ -98,11 +98,11 @@ class TextareaTest extends TestCase
             'my-name' => 'An error',
         ])
             ->first('div > div');
-        
+
         $group->first('p.govuk-error-message')
             ->hasAttribute('id', 'my-id-error')
             ->contains('An error');
-        
+
         $group->first('textarea')
             ->hasAttribute('aria-describedby', ' my-id-error')
             ->hasClass('govuk-textarea--error');
@@ -118,7 +118,7 @@ class TextareaTest extends TestCase
     public function testHasPlaceholder(): void
     {
         $this->makeComponent([
-            'placeholder' => 'My placeholder'
+            'placeholder' => 'My placeholder',
         ])
             ->first('textarea')
             ->hasAttribute('placeholder', 'My placeholder');
@@ -153,22 +153,22 @@ class TextareaTest extends TestCase
             ->first('textarea')
             ->hasAttribute('inputmode', 'text');
     }
-    
+
     public function testHasOld()
     {
         $this->setRequestOld([
-            'my-name' => 'Potato'
+            'my-name' => 'Potato',
         ]);
 
         $this->makeComponent()
             ->first('textarea')
             ->contains('Potato');
     }
-    
+
     protected function makeComponent(array $data = [], array $errors = []): ViewAssertion
     {
         $this->setViewErrors($errors);
-        
+
         return $this->assertView('govuk::components.textarea', [
             'autocomplete' => $data['autocomplete'] ?? 'on',
             'count' => $data['count'] ?? null,

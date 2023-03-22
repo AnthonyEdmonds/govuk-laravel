@@ -8,11 +8,11 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class NameTest extends TestCase
 {
     protected Page $page;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->page = Page::create('My title');
     }
 
@@ -25,7 +25,7 @@ class NameTest extends TestCase
             $this->page->name(),
         );
     }
-    
+
     public function testTemplateOtherwise(): void
     {
         $this->page->setTemplate('my-template');

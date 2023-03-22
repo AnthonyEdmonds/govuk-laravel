@@ -18,8 +18,11 @@ use Illuminate\Http\RedirectResponse;
 class StoreTest extends TestCase
 {
     protected FormController $controller;
+
     protected NameFormRequest $request;
+
     protected RedirectResponse $response;
+
     protected User $user;
 
     protected function setUp(): void

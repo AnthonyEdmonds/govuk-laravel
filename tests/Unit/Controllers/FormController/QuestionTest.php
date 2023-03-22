@@ -16,7 +16,9 @@ use Illuminate\Contracts\View\View;
 class QuestionTest extends TestCase
 {
     protected FormController $controller;
+
     protected User $user;
+
     protected View $response;
 
     protected function setUp(): void

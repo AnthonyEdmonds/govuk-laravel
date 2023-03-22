@@ -9,9 +9,11 @@ use Carbon\Carbon;
 class OnOrAfterDateTest extends TestCase
 {
     const ATTRIBUTE = 'my-date';
+
     const VALUE = 'not-used';
 
     protected Carbon $now;
+
     protected OnOrAfterDate $rule;
 
     protected function setUp(): void
@@ -61,7 +63,7 @@ class OnOrAfterDateTest extends TestCase
         $this->rule->setData([
             'my-date-day' => $day,
             'my-date-month' => $month,
-            'my-date-year' => $year
+            'my-date-year' => $year,
         ]);
     }
 }

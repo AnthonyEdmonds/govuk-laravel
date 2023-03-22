@@ -9,6 +9,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 class StartTest extends TestCase
 {
     protected TestForm $form;
+
     protected Page $page;
 
     protected function setUp(): void
