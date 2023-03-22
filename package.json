@@ -13,12 +13,12 @@
     "homepage": "https://github.com/AnthonyEdmonds/govuk-laravel",
     "scripts": {
         "test": "php vendor/bin/phpunit",
-        "php-cs-fixer": "php vendor/bin/php-cs-fixer fix",
         "php-stan": "php vendor/bin/phpstan analyse -c phpstan.neon",
+        "pint": "php ./vendor/bin/pint",
         "prepare": "husky install"
     },
     "devDependencies": {
         "govuk-frontend": "^4.5",
-        "husky": "^7.0.4"
+        "husky": "^8"
     }
 }
