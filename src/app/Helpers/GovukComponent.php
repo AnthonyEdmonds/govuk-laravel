@@ -34,6 +34,10 @@ class GovukComponent
                 return '';
             }
 
+            if ($value === null) {
+                $value = '';
+            }
+            
             if (is_scalar($value) !== true) {
                 continue;
             }
