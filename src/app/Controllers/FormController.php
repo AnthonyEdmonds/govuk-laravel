@@ -73,7 +73,7 @@ class FormController extends BaseController
         return $form->submit($mode);
     }
 
-    public function confirmation(string $formKey, string $mode, int|string $subjectKey): View
+    public function confirmation(string $formKey, string $mode, string $subjectKey): View
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
