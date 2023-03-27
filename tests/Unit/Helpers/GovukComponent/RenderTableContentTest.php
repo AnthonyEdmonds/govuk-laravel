@@ -50,6 +50,17 @@ class RenderTableContentTest extends TestCase
             )
         );
     }
+    
+    public function testReplacesNullPlaceholders(): void
+    {
+        $this->assertEquals(
+            'My name is , OK?',
+            GovukComponent::renderTableContent(
+                $this->makeColumn('My name is ~name, OK?'),
+                $this->makeRow(1, null, 23)
+            )
+        );
+    }
 
     protected function makeColumn(
         string $html,
@@ -63,7 +74,7 @@ class RenderTableContentTest extends TestCase
 
     protected function makeRow(
         int $id,
-        string|array $name,
+        string|array|null $name,
         int $age,
     ): array {
         return [
