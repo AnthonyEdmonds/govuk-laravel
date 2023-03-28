@@ -25,10 +25,11 @@ abstract class Question
         return '';
     }
 
-    public function validate(Request $request): void
+    public function validate(Request $request, Model $subject): void
     {
         $formRequest = $this->getFormRequest();
-
+        $formRequest->subject = $subject;
+        
         Validator::make(
             $request->all(),
             $formRequest->rules(),
