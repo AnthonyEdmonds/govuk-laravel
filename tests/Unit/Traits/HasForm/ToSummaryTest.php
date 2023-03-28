@@ -66,8 +66,8 @@ class ToSummaryTest extends TestCase
             $label = $this->formatLabel($label);
 
             $this->assertEquals(
-                $data['value'],
-                $this->summary[$label]['value']
+                $data['value'] ?? $this->model->blankFieldTerm,
+                $this->summary[$label]['value'] ?? $this->model->blankFieldTerm
             );
         }
     }
