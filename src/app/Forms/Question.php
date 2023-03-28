@@ -29,7 +29,7 @@ abstract class Question
     {
         $formRequest = $this->getFormRequest();
         $formRequest->subject = $subject;
-        
+
         Validator::make(
             $request->all(),
             $formRequest->rules(),

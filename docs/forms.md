@@ -10,7 +10,7 @@ Each form consists of:
 * a Form class which contains an array of Question classes
 * a Laravel Model with the HasForm trait
 
-### Routing
+## Routing
 
 A route macro is provided to handle all forms. Add the following to your `routes/web.php` file:
 
@@ -23,7 +23,7 @@ You can then enter a form from one of three perspectives:
 1. Starting a new form `MyModel::startFormRoute() OR route('forms.start', MyForm::key())`
 2. Editing an existing Model `MyModel::editFormRoute($subject) OR route('forms.edit', [MyForm::key(), $subject->id])`
 
-### Forms and Questions
+## Forms and Questions
 
 The Form and Question classes contain a mixture of abstract and concrete methods.
 
@@ -32,6 +32,12 @@ The Form and Question classes contain a mixture of abstract and concrete methods
 
 Once created, register your Form class in the GOV.UK Laravel [config](configuration.md) file.
 
-### Model
+## FormRequests
+
+Questions require an associated FormRequest to handle any validation.
+
+The Model is made available to each FormRequest via the `$this->subject` property.
+
+## Model
 
 The Model represents the answers given by the end user and must have the `HasForm` trait.
