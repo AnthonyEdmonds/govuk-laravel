@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 trait HasForm
 {
     public Form $form;
+    
+    public string $blankFieldTerm = 'Not given';
 
     abstract public static function formClass(): string;
 
@@ -69,7 +71,7 @@ trait HasForm
         $property = $govukQuestion->name;
 
         $summary[$label] = [
-            'value' => $this->$property,
+            'value' => $this->$property ?? $this->blankFieldTerm,
             'action' => $showChange === true
                 ? [
                     'label' => 'Change',
