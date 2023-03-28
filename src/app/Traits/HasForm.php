@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 trait HasForm
 {
     public Form $form;
-    
+
     public string $blankFieldTerm = 'Not given';
 
     abstract public static function formClass(): string;
