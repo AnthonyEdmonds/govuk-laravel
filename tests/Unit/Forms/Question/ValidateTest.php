@@ -3,6 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Forms\Question;
 
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\FirstQuestion;
+use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -11,6 +12,7 @@ class ValidateTest extends TestCase
 {
     protected FirstQuestion $question;
     protected Request $request;
+    protected FormModel $subject;
 
     protected function setUp(): void
     {
@@ -21,6 +23,8 @@ class ValidateTest extends TestCase
         $this->request = new Request([
             'name' => null,
         ]);
+        
+        $this->subject = FormModel::factory()->make();
     }
 
     public function testRunsValidation(): void
@@ -28,6 +32,6 @@ class ValidateTest extends TestCase
         $this->expectException(ValidationException::class);
         $this->expectExceptionMessage('The name field is required.');
 
-        $this->question->validate($this->request);
+        $this->question->validate($this->request, $this->subject);
     }
 }

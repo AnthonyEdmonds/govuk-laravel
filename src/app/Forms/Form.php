@@ -136,7 +136,7 @@ abstract class Form
         $question = $this->getQuestion($questionKey);
         $subject = $this->getSubjectFromSession();
 
-        $question->validate($request);
+        $question->validate($request, $subject);
         $question->store($request, $subject, $mode);
         GovukForm::put(static::key(), $subject);
 
