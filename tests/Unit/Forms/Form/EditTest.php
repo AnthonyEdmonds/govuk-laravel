@@ -27,7 +27,7 @@ class EditTest extends TestCase
         $this->subject = FormModel::factory()->create();
 
         $this->form = new TestForm();
-        $this->response = $this->form->edit($this->subject->id);
+        $this->response = $this->form->edit($this->subject);
     }
 
     public function testSetsFormSession(): void

@@ -4,6 +4,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests;
 
 use AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\User;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\FakesRoute;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\SetsViewVariables;
@@ -46,6 +47,7 @@ abstract class TestCase extends BaseTestCase
     {
         Config::set('govuk.forms', [
             TestForm::class,
+            TestFormAlt::class,
         ]);
 
         $router = app('router');

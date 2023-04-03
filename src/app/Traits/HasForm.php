@@ -11,6 +11,8 @@ trait HasForm
 {
     public Form $form;
 
+    public string $blankFieldTerm = 'Not given';
+
     abstract public static function formClass(): string;
 
     public function form(): Form
@@ -69,7 +71,7 @@ trait HasForm
         $property = $govukQuestion->name;
 
         $summary[$label] = [
-            'value' => $this->$property,
+            'value' => $this->$property ?? $this->blankFieldTerm,
             'action' => $showChange === true
                 ? [
                     'label' => 'Change',
