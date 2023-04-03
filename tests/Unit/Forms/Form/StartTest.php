@@ -33,7 +33,7 @@ class StartTest extends TestCase
     public function testHasBlade(): void
     {
         $this->assertEquals(
-            null,
+            'test.start',
             $this->page->getData()['content']
         );
     }

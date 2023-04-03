@@ -42,8 +42,13 @@ class TestForm extends Form
         $subject->save();
     }
 
-    protected function confirmationBlade(): string
+    public function confirmationBlade(): string|false
     {
         return 'test.confirmation';
+    }
+
+    public function startBlade(): string|false
+    {
+        return 'test.start';
     }
 }

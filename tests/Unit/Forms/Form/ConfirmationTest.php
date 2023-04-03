@@ -26,7 +26,7 @@ class ConfirmationTest extends TestCase
         $this->subject = FormModel::factory()->create();
 
         $this->form = new TestForm();
-        $this->page = $this->form->confirmation(Form::EDIT, $this->subject->id);
+        $this->page = $this->form->confirmation(Form::EDIT, $this->subject);
     }
 
     public function testHasTitle(): void

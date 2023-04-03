@@ -5,6 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Http\RedirectResponse;
@@ -23,16 +24,12 @@ class SubmitTest extends TestCase
 
         $this->useForms();
         $this->useDatabase();
-
-        $this->subject = FormModel::factory()->make();
-        GovukForm::put(TestForm::key(), $this->subject);
-
-        $this->form = new TestForm();
-        $this->response = $this->form->submit(Form::NEW);
     }
 
     public function testRunsSubmitForm(): void
     {
+        $this->makeRequest(TestForm::class);
+
         $this->assertDatabaseHas('form_models', [
             'name' => $this->subject->name,
         ]);
@@ -40,6 +37,8 @@ class SubmitTest extends TestCase
 
     public function testClearsCache(): void
     {
+        $this->makeRequest(TestForm::class);
+
         $this->assertFalse(
             GovukForm::has(TestForm::key())
         );
@@ -47,6 +46,8 @@ class SubmitTest extends TestCase
 
     public function testRedirects(): void
     {
+        $this->makeRequest(TestForm::class);
+
         $this->assertEquals(
             route('forms.confirmation', [
                 TestForm::key(),
@@ -55,5 +56,25 @@ class SubmitTest extends TestCase
             ]),
             $this->response->getTargetUrl()
         );
+    }
+
+    public function testExitsWhenNoConfirmationBlade(): void
+    {
+        $this->makeRequest(TestFormAlt::class);
+
+        $this->assertEquals(
+            route('/'),
+            $this->response->getTargetUrl()
+        );
+    }
+
+    protected function makeRequest(string $formClass): void
+    {
+        $this->subject = FormModel::factory()->make();
+        GovukForm::put($formClass::key(), $this->subject);
+
+        $this->form = new $formClass();
+
+        $this->response = $this->form->submit(Form::NEW);
     }
 }
