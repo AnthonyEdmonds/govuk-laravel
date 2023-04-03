@@ -198,7 +198,7 @@ abstract class Form
             'post',
             $this->summaryBlade(),
             $this->summaryCancelLabel(),
-            $this->summaryCancelRoute(),
+            $this->summaryCancelRoute($subject),
         );
     }
 
@@ -234,9 +234,9 @@ abstract class Form
         return 'Cancel and exit';
     }
 
-    protected function summaryCancelRoute(): string|null
+    protected function summaryCancelRoute(Model|null $subject = null): string|null
     {
-        return $this->exitRoute();
+        return $this->exitRoute($subject);
     }
 
     // Confirmation
