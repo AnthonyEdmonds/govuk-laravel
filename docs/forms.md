@@ -32,6 +32,14 @@ Starting the Form will immediately go to the first Question, and submitting the 
 
 To show a start or confirmation page, override the `startBlade()` and `confirmationBlade()` methods on the Form to return the associated blades.
 
+### Exiting the Form
+
+The Form will redirect to the base `/` route when exiting.
+
+To exit to another endpoint, override the `exitRoute` method on the Form.
+
+The `$subject` is passed to the method if it exists.
+
 ## Questions
 
 ### FormRequests
