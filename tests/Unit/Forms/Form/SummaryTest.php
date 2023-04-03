@@ -76,6 +76,16 @@ class SummaryTest extends TestCase
         );
     }
 
+    public function testBackExitsWhenEditing(): void
+    {
+        $this->page = $this->form->summary(Form::EDIT);
+        
+        $this->assertEquals(
+            route('/'),
+            $this->page->getData()['back']
+        );
+    }
+
     public function testHasMethod(): void
     {
         $this->assertEquals(

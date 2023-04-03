@@ -7,7 +7,9 @@ use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\FirstQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\SecondQuestion;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\ThirdQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
@@ -21,18 +23,12 @@ class QuestionTest extends TestCase
         parent::setUp();
 
         $this->useForms();
-
-        GovukForm::put(TestForm::key(), new FormModel());
-
-        $this->form = new TestForm();
-        $this->page = $this->form->question(
-            Form::NEW,
-            FirstQuestion::key(),
-        );
     }
 
     public function testHasQuestionWhenSingle(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             'Test question one',
             $this->page->getData()['title']
@@ -41,6 +37,8 @@ class QuestionTest extends TestCase
 
     public function testHasTitleWhenMultiple(): void
     {
+        $this->makePage();
+        
         $this->page = $this->form->question(
             Form::NEW,
             SecondQuestion::key(),
@@ -54,6 +52,8 @@ class QuestionTest extends TestCase
 
     public function testHasQuestionsWhenMultiple(): void
     {
+        $this->makePage();
+        
         $this->page = $this->form->question(
             Form::NEW,
             SecondQuestion::key(),
@@ -72,6 +72,8 @@ class QuestionTest extends TestCase
 
     public function testHasSubmitButtonLabel(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             'Save and continue',
             $this->page->getData()['submitButtonLabel']
@@ -80,6 +82,8 @@ class QuestionTest extends TestCase
 
     public function testHasAction(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             route('forms.question', [
                 TestForm::key(),
@@ -90,16 +94,54 @@ class QuestionTest extends TestCase
         );
     }
 
-    public function testHasBack(): void
+    public function testHasBackToPreviousQuestionWhenNew(): void
     {
+        $this->makePage(TestForm::class, Form::NEW, false);
+        
+        $this->assertEquals(
+            route('forms.question', [
+                TestForm::key(),
+                Form::NEW,
+                SecondQuestion::key(),
+            ]),
+            $this->page->getData()['back']
+        );
+    }
+
+    public function testHasBackToStartWhenBladeExistsAndFirstQuestion(): void
+    {
+        $this->makePage();
+        
         $this->assertEquals(
             FormModel::startFormRoute(),
             $this->page->getData()['back']
         );
     }
 
+    public function testHasBackToExitWhenBladeMissingAndFirstQuestion(): void
+    {
+        $this->makePage(TestFormAlt::class);
+        
+        $this->assertEquals(
+            route('/'),
+            $this->page->getData()['back']
+        );
+    }
+
+    public function testHasBackToSummaryWhenEditing(): void
+    {
+        $this->makePage(TestForm::class, Form::EDIT);
+        
+        $this->assertEquals(
+            route('forms.summary', [TestForm::key(), Form::EDIT]),
+            $this->page->getData()['back']
+        );
+    }
+
     public function testHasMethod(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             'post',
             $this->page->getData()['method']
@@ -108,6 +150,8 @@ class QuestionTest extends TestCase
 
     public function testHasBlade(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             null,
             $this->page->getData()['content']
@@ -116,6 +160,8 @@ class QuestionTest extends TestCase
 
     public function testHasOtherButtonLabel(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             Page::OTHER_BUTTON_LABEL,
             $this->page->getData()['otherButtonLabel']
@@ -124,6 +170,8 @@ class QuestionTest extends TestCase
 
     public function testHasOtherButtonRoute(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             null,
             $this->page->getData()['otherButtonHref']
@@ -132,6 +180,8 @@ class QuestionTest extends TestCase
 
     public function testHasSubmitButtonType(): void
     {
+        $this->makePage();
+        
         $this->assertEquals(
             Page::NORMAL_BUTTON,
             $this->page->getData()['submitButtonType']
@@ -140,9 +190,28 @@ class QuestionTest extends TestCase
 
     public function testHasSubject(): void
     {
+        $this->makePage();
+        
         $this->assertInstanceOf(
             FormModel::class,
             $this->page->getData()['subject']
+        );
+    }
+    
+    protected function makePage(
+        string $formClass = TestForm::class,
+        string $mode = Form::NEW,
+        bool $firstQuestion = true,
+    ): void {
+        GovukForm::put($formClass::key(), new FormModel());
+
+        $this->form = new $formClass();
+        
+        $this->page = $this->form->question(
+            $mode,
+            $firstQuestion === true
+                ? FirstQuestion::key()
+                : ThirdQuestion::key(),
         );
     }
 }

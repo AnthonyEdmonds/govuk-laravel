@@ -79,9 +79,9 @@ abstract class Form
         return redirect($this->questionRoute(self::NEW, $this->getFirstQuestionKey()));
     }
 
-    public function edit(int|string $subjectKey): RedirectResponse
+    public function edit(Model $subject): RedirectResponse
     {
-        GovukForm::put(static::key(), $this->loadSubjectFromDatabase($subjectKey));
+        GovukForm::put(static::key(), $subject);
 
         return redirect($this->summaryRoute(self::EDIT));
     }
@@ -190,7 +190,7 @@ abstract class Form
             $this->summarySubmitLabel(),
             $this->summaryRoute($mode),
             $mode === self::EDIT
-                ? $this->exitRoute()
+                ? $this->exitRoute($subject)
                 : $this->questionRoute(self::NEW, $this->getLastQuestionKey()),
             'post',
             $this->summaryBlade(),
@@ -208,7 +208,7 @@ abstract class Form
 
         return $this->confirmationBlade() !== false
             ? redirect($this->confirmationRoute($mode, $subject->id))
-            : redirect($this->exitRoute());
+            : redirect($this->exitRoute($subject));
     }
 
     protected function summaryTitle(Model $subject): string
@@ -237,10 +237,8 @@ abstract class Form
     }
 
     // Confirmation
-    public function confirmation(string $mode, int|string $subjectKey): Page
+    public function confirmation(string $mode, Model $subject): Page
     {
-        $subject = $this->loadSubjectFromDatabase($subjectKey);
-
         return GovukPage::confirmation(
             $this->confirmationTitle($subject),
             $this->confirmationBlade(),
@@ -260,7 +258,7 @@ abstract class Form
     }
 
     // Subject
-    protected function loadSubjectFromDatabase(int|string $subjectKey): Model
+    public function loadSubjectFromDatabase(int|string $subjectKey): Model
     {
         return $this->makeNewSubject()::findOrFail($subjectKey);
     }
@@ -350,7 +348,7 @@ abstract class Form
         return route('forms.start', static::key());
     }
 
-    public function exitRoute(): string
+    public function exitRoute(Model|null $subject = null): string
     {
         return route('/');
     }
@@ -369,9 +367,13 @@ abstract class Form
     protected function getBackRoute(string $mode, string $questionKey = null): string
     {
         if ($mode === self::NEW) {
-            return $this->isFirstQuestion($questionKey) === true
-                ? $this->startRoute()
-                : $this->questionRoute($mode, $this->getPreviousQuestionKey($questionKey));
+            if ($this->isFirstQuestion($questionKey) === true) {
+                return $this->startBlade() !== false
+                    ? $this->startRoute()
+                    : $this->exitRoute();
+            }
+            
+            return $this->questionRoute($mode, $this->getPreviousQuestionKey($questionKey));
         }
 
         return $this->summaryRoute($mode);

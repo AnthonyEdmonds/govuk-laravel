@@ -35,12 +35,14 @@ class FormController extends BaseController
         return $form->create();
     }
 
-    public function edit(string $formKey, int|string $subjectKey): RedirectResponse
+    public function edit(string $formKey, string $subjectKey): RedirectResponse
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
 
-        return $form->edit($subjectKey);
+        $subject = $form->loadSubjectFromDatabase($subjectKey);
+
+        return $form->edit($subject);
     }
 
     public function question(string $formKey, string $mode, string $questionKey): View
@@ -75,13 +77,15 @@ class FormController extends BaseController
         return $form->submit($mode);
     }
 
-    public function confirmation(string $formKey, string $mode, int|string $subjectKey): View|RedirectResponse
+    public function confirmation(string $formKey, string $mode, string $subjectKey): View|RedirectResponse
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
 
+        $subject = $form->loadSubjectFromDatabase($subjectKey);
+
         return $form->confirmationBlade() !== false
-            ? $form->confirmation($mode, $subjectKey)
-            : redirect($form->exitRoute());
+            ? $form->confirmation($mode, $subject)
+            : redirect($form->exitRoute($subject));
     }
 }

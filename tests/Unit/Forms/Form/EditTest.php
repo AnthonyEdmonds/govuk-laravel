@@ -3,7 +3,6 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Forms\Form;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
-use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\FirstQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
@@ -26,7 +25,7 @@ class EditTest extends TestCase
         $this->subject = FormModel::factory()->create();
 
         $this->form = new TestForm();
-        $this->response = $this->form->edit($this->subject->id);
+        $this->response = $this->form->edit($this->subject);
     }
 
     public function testSetsFormSession(): void
