@@ -17,12 +17,14 @@ class FormController extends BaseController
     use DispatchesJobs;
     use ValidatesRequests;
 
-    public function start(string $formKey): View
+    public function start(string $formKey): View|RedirectResponse
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
-
-        return $form->start();
+        
+        return $form->startBlade() !== false
+            ? $form->start()
+            : $this->create($formKey);
     }
 
     public function create(string $formKey): RedirectResponse
@@ -73,11 +75,13 @@ class FormController extends BaseController
         return $form->submit($mode);
     }
 
-    public function confirmation(string $formKey, string $mode, int|string $subjectKey): View
+    public function confirmation(string $formKey, string $mode, int|string $subjectKey): View|RedirectResponse
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
 
-        return $form->confirmation($mode, $subjectKey);
+        return $form->confirmationBlade() !== false
+            ? $form->confirmation($mode, $subjectKey)
+            : redirect($form->exitRoute());
     }
 }

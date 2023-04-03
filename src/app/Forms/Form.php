@@ -38,9 +38,7 @@ abstract class Form
     abstract protected function makeNewSubject(): Model;
 
     abstract protected function submitForm(Model $subject, string $mode): void;
-
-    abstract protected function confirmationBlade(): string;
-
+    
     // Static
     public static function getForm(string $key): Form
     {
@@ -69,6 +67,11 @@ abstract class Form
             ->setBack($this->exitRoute());
     }
 
+    public function startBlade(): string|false
+    {
+        return false;
+    }
+
     public function create(): RedirectResponse
     {
         GovukForm::put(static::key(), $this->makeNewSubject());
@@ -87,12 +90,7 @@ abstract class Form
     {
         return 'Begin your application';
     }
-
-    protected function startBlade(): string|null
-    {
-        return null;
-    }
-
+    
     protected function startButtonLabel(): string
     {
         return 'Start';
@@ -208,7 +206,9 @@ abstract class Form
 
         GovukForm::clear($this::key());
 
-        return redirect($this->confirmationRoute($mode, $subject->id));
+        return $this->confirmationBlade() !== false
+            ? redirect($this->confirmationRoute($mode, $subject->id))
+            : redirect($this->exitRoute());
     }
 
     protected function summaryTitle(Model $subject): string
@@ -249,11 +249,16 @@ abstract class Form
             ->with('subject', $subject);
     }
 
+    public function confirmationBlade(): string|false
+    {
+        return false;
+    }
+
     protected function confirmationTitle(Model $subject): string
     {
         return 'Application complete';
     }
-
+    
     // Subject
     protected function loadSubjectFromDatabase(int|string $subjectKey): Model
     {
@@ -340,9 +345,14 @@ abstract class Form
     }
 
     // Routing
-    protected function startRoute(): string
+    public function startRoute(): string
     {
         return route('forms.start', static::key());
+    }
+
+    public function exitRoute(): string
+    {
+        return route('/');
     }
 
     protected function getNextRoute(string $mode, string $questionKey = null): string
@@ -391,10 +401,5 @@ abstract class Form
             $mode,
             $subjectKey,
         ]);
-    }
-
-    protected function exitRoute(): string
-    {
-        return route('/');
     }
 }
