@@ -38,7 +38,7 @@ abstract class Form
     abstract protected function makeNewSubject(): Model;
 
     abstract protected function submitForm(Model $subject, string $mode): void;
-    
+
     // Static
     public static function getForm(string $key): Form
     {
@@ -90,7 +90,7 @@ abstract class Form
     {
         return 'Begin your application';
     }
-    
+
     protected function startButtonLabel(): string
     {
         return 'Start';
@@ -258,7 +258,7 @@ abstract class Form
     {
         return 'Application complete';
     }
-    
+
     // Subject
     protected function loadSubjectFromDatabase(int|string $subjectKey): Model
     {

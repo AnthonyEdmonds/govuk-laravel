@@ -21,7 +21,7 @@ class FormController extends BaseController
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
-        
+
         return $form->startBlade() !== false
             ? $form->start()
             : $this->create($formKey);
