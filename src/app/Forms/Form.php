@@ -113,22 +113,22 @@ abstract class Form
                 $this->getSubmitButtonLabel($mode, $questionKey),
                 $this->questionRoute($mode, $questionKey),
                 $this->getBackRoute($mode, $questionKey),
-                $this->getMethod(),
-                $this->getBlade(),
-                $this->getOtherButtonLabel(),
-                $this->getOtherButtonRoute(),
-                $this->getSubmitButtonType(),
+                $questionClass->getMethod(),
+                $questionClass->getBlade(),
+                $questionClass->getOtherButtonLabel(),
+                $questionClass->getOtherButtonRoute(),
+                $questionClass->getSubmitButtonType(),
             )->with('subject', $subject)
             : GovukPage::question(
                 $question,
                 $this->getSubmitButtonLabel($mode, $questionKey),
                 $this->questionRoute($mode, $questionKey),
                 $this->getBackRoute($mode, $questionKey),
-                $this->getMethod(),
-                $this->getBlade(),
-                $this->getOtherButtonLabel(),
-                $this->getOtherButtonRoute(),
-                $this->getSubmitButtonType(),
+                $questionClass->getMethod(),
+                $questionClass->getBlade(),
+                $questionClass->getOtherButtonLabel(),
+                $questionClass->getOtherButtonRoute(),
+                $questionClass->getSubmitButtonType(),
             )->with('subject', $subject);
     }
 
@@ -155,31 +155,6 @@ abstract class Form
         }
 
         return 'Save and continue';
-    }
-
-    protected function getMethod(): string
-    {
-        return 'post';
-    }
-
-    protected function getBlade(): string|null
-    {
-        return null;
-    }
-
-    protected function getOtherButtonLabel(): string|null
-    {
-        return null;
-    }
-
-    protected function getOtherButtonRoute(): string|null
-    {
-        return null;
-    }
-
-    protected function getSubmitButtonType(): string
-    {
-        return Page::NORMAL_BUTTON;
     }
 
     // Summary
