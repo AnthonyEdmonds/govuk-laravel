@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
+use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
@@ -35,5 +36,30 @@ abstract class Question
             $formRequest->rules(),
             $formRequest->messages()
         )->validate();
+    }
+
+    public function getMethod(): string
+    {
+        return 'post';
+    }
+
+    public function getBlade(): string|null
+    {
+        return null;
+    }
+
+    public function getOtherButtonLabel(): string|null
+    {
+        return null;
+    }
+
+    public function getOtherButtonRoute(): string|null
+    {
+        return null;
+    }
+
+    public function getSubmitButtonType(): string
+    {
+        return Page::NORMAL_BUTTON;
     }
 }
