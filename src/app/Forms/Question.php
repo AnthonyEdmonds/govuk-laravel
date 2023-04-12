@@ -37,7 +37,7 @@ abstract class Question
             $formRequest->messages()
         )->validate();
     }
-    
+
     public function getMethod(): string
     {
         return 'post';
