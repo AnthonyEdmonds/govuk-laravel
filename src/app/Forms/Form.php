@@ -143,7 +143,7 @@ abstract class Form
 
         return redirect($this->getNextRoute($mode, $questionKey));
     }
-    
+
     // Summary
     public function summary(string $mode): Page
     {
