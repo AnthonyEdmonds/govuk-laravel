@@ -58,6 +58,19 @@ abstract class Question
         return null;
     }
 
+    public function getSubmitButtonLabel(string $mode, bool $isLastQuestion = false): string
+    {
+        if ($mode === Form::REVIEW || $mode === Form::EDIT) {
+            return 'Save and back';
+        }
+
+        if ($isLastQuestion === true) {
+            return 'Save and review';
+        }
+
+        return 'Save and continue';
+    }
+    
     public function getSubmitButtonType(): string
     {
         return Page::NORMAL_BUTTON;
