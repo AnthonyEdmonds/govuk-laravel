@@ -110,7 +110,7 @@ abstract class Form
             ? GovukPage::questions(
                 $questionClass->getTitle($subject),
                 $question,
-                $this->getSubmitButtonLabel($mode, $questionKey),
+                $questionClass->getSubmitButtonLabel($mode, $this->isLastQuestion($questionKey)),
                 $this->questionRoute($mode, $questionKey),
                 $this->getBackRoute($mode, $questionKey),
                 $questionClass->getMethod(),
@@ -121,7 +121,7 @@ abstract class Form
             )->with('subject', $subject)
             : GovukPage::question(
                 $question,
-                $this->getSubmitButtonLabel($mode, $questionKey),
+                $questionClass->getSubmitButtonLabel($mode, $this->isLastQuestion($questionKey)),
                 $this->questionRoute($mode, $questionKey),
                 $this->getBackRoute($mode, $questionKey),
                 $questionClass->getMethod(),
@@ -142,19 +142,6 @@ abstract class Form
         GovukForm::put(static::key(), $subject);
 
         return redirect($this->getNextRoute($mode, $questionKey));
-    }
-
-    protected function getSubmitButtonLabel(string $mode, string $questionKey): string
-    {
-        if ($mode === static::REVIEW || $mode === static::EDIT) {
-            return 'Save and back';
-        }
-
-        if ($this->isLastQuestion($questionKey) === true) {
-            return 'Save and review';
-        }
-
-        return 'Save and continue';
     }
 
     // Summary

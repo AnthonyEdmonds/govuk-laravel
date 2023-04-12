@@ -40,7 +40,7 @@ abstract class Question
 
     public function getMethod(): string
     {
-        return 'post';
+        return Page::POST_METHOD;
     }
 
     public function getBlade(): string|null
@@ -56,6 +56,19 @@ abstract class Question
     public function getOtherButtonRoute(): string|null
     {
         return null;
+    }
+
+    public function getSubmitButtonLabel(string $mode, bool $isLastQuestion = false): string
+    {
+        if ($mode === Form::REVIEW || $mode === Form::EDIT) {
+            return 'Save and back';
+        }
+
+        if ($isLastQuestion === true) {
+            return 'Save and review';
+        }
+
+        return 'Save and continue';
     }
 
     public function getSubmitButtonType(): string
