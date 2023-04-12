@@ -40,7 +40,7 @@ abstract class Question
 
     public function getMethod(): string
     {
-        return 'post';
+        return Page::POST_METHOD;
     }
 
     public function getBlade(): string|null
