@@ -67,7 +67,7 @@ abstract class Form
             $this->startButtonLabel(),
             'post'
         )
-            ->setBack($this->exitRoute());
+            ->setBack($this->startBackRoute());
     }
 
     public function startBlade(): string|false
@@ -97,6 +97,11 @@ abstract class Form
     protected function startButtonLabel(): string
     {
         return 'Start';
+    }
+
+    protected function startBackRoute(): string|null
+    {
+        return $this->exitRoute();
     }
 
     // Question
