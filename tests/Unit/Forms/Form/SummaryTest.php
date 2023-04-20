@@ -119,4 +119,20 @@ class SummaryTest extends TestCase
             $this->page->getData()['otherButtonHref']
         );
     }
+
+    public function testHasMode(): void
+    {
+        $this->assertEquals(
+            Form::NEW,
+            $this->page->getData()['mode']
+        );
+    }
+
+    public function testHasSubject(): void
+    {
+        $this->assertInstanceOf(
+            FormModel::class,
+            $this->page->getData()['subject']
+        );
+    }
 }
