@@ -198,7 +198,7 @@ class QuestionTest extends TestCase
             $this->page->getData()['mode']
         );
     }
-    
+
     public function testHasSubject(): void
     {
         $this->makePage();
