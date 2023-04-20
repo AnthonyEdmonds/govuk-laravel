@@ -189,6 +189,16 @@ class QuestionTest extends TestCase
         );
     }
 
+    public function testHasMode(): void
+    {
+        $this->makePage();
+
+        $this->assertEquals(
+            Form::NEW,
+            $this->page->getData()['mode']
+        );
+    }
+    
     public function testHasSubject(): void
     {
         $this->makePage();
