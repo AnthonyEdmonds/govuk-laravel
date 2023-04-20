@@ -10,6 +10,11 @@ return [
         //
     ],
     
+    'home' => [
+        'label' => 'Dashboard',
+        'route' => 'dashboard',
+    ],
+    
     'parts' => [
         'laracasts_flash' => false,
         '404lab_impersonate' => false,
@@ -27,6 +32,10 @@ You can register forms built using the GOV.UK Laravel Form by listing them in th
     MyOtherForm::class,
 ],
 ```
+
+### Home
+
+Breadcrumbs will always contain a link to the home page. This link can be customised by specifying a label and route.
 
 ### Parts
 

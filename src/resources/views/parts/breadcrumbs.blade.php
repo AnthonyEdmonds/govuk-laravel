@@ -1,7 +1,7 @@
 @isset($breadcrumbs)
     @php
         $breadcrumbs = array_merge(
-            [ 'Dashboard' => route('dashboard') ],
+            [ config('govuk.home.label') => route(config('govuk.home.route')) ],
             $breadcrumbs
         );
     @endphp
