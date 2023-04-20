@@ -14,7 +14,7 @@ trait HasForm
     public string $blankFieldTerm = 'Not given';
 
     abstract public static function formClass(): string;
-
+    
     public function form(): Form
     {
         if (isset($this->form) === false) {
@@ -23,6 +23,11 @@ trait HasForm
         }
 
         return $this->form;
+    }
+    
+    public static function usesDatabase(): bool
+    {
+        return true;
     }
 
     // Routing
@@ -39,12 +44,16 @@ trait HasForm
     // Summary
     public function toSummary(bool $showChange = false): array
     {
+        return $this->generateSummary($showChange);
+    }
+    
+    protected function generateSummary(bool $showChange = false): array
+    {
         $summary = [];
         $questionClasses = $this->form()->questions();
 
         foreach ($questionClasses as $questionClass) {
             $formQuestion = new $questionClass();
-            $question = $formQuestion->getQuestion($this);
 
             $this->questionToSummaryEntry($summary, $formQuestion, $showChange);
         }

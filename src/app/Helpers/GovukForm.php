@@ -31,4 +31,9 @@ class GovukForm
     {
         Session::forget($key);
     }
+    
+    public static function flash(string $key, Model $form): void
+    {
+        Session::flash($key, $form);
+    }
 }

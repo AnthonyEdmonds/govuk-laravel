@@ -175,6 +175,10 @@ abstract class Form
         $this->submitForm($subject, $mode);
 
         GovukForm::clear($this::key());
+        
+        if ($subject::usesDatabase() === false) {
+            GovukForm::flash($this::key(), $subject);
+        }
 
         return $this->confirmationBlade() !== false
             ? redirect($this->confirmationRoute($mode, $subject->id))
@@ -220,6 +224,15 @@ abstract class Form
     public function confirmationBlade(): string|false
     {
         return false;
+    }
+    
+    public function loadConfirmationSubject(int|string|null $subjectKey = null): Model
+    {
+        if ($this->makeNewSubject()::usesDatabase() === false) {
+            return $this->getSubjectFromSession();
+        } else {
+            return $this->loadSubjectFromDatabase($subjectKey);
+        }
     }
 
     protected function confirmationTitle(Model $subject): string
