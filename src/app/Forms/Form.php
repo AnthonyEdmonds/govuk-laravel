@@ -172,7 +172,7 @@ abstract class Form
             $this->summaryCancelRoute($subject),
         )
             ->with('mode', $mode)
-            ->with('subject', $subject);;
+            ->with('subject', $subject);
     }
 
     public function submit(string $mode): RedirectResponse
