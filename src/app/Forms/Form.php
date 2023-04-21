@@ -125,7 +125,9 @@ abstract class Form
                 $questionClass->getOtherButtonLabel(),
                 $questionClass->getOtherButtonRoute(),
                 $questionClass->getSubmitButtonType(),
-            )->with('subject', $subject)
+            )
+                ->with('mode', $mode)
+                ->with('subject', $subject)
             : GovukPage::question(
                 $question,
                 $questionClass->getSubmitButtonLabel($mode, $this->isLastQuestion($questionKey)),
@@ -136,7 +138,9 @@ abstract class Form
                 $questionClass->getOtherButtonLabel(),
                 $questionClass->getOtherButtonRoute(),
                 $questionClass->getSubmitButtonType(),
-            )->with('subject', $subject);
+            )
+                ->with('mode', $mode)
+                ->with('subject', $subject);
     }
 
     public function store(Request $request, string $mode, string $questionKey): RedirectResponse
@@ -168,7 +172,9 @@ abstract class Form
             $this->summaryBlade(),
             $this->summaryCancelLabel(),
             $this->summaryCancelRoute($subject),
-        );
+        )
+            ->with('mode', $mode)
+            ->with('subject', $subject);
     }
 
     public function submit(string $mode): RedirectResponse
