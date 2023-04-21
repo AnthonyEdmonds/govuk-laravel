@@ -81,7 +81,7 @@ class FormController extends BaseController
     {
         $form = Form::getForm($formKey);
         $form->checkAccess();
-        
+
         $subject = $form->loadConfirmationSubject($subjectKey);
 
         return $form->confirmationBlade() !== false

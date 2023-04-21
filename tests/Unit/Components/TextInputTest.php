@@ -13,7 +13,7 @@ class TextInputTest extends TestCase
             ->first('input')
             ->hasAttribute('autocomplete', 'on');
     }
-    
+
     public function testHasExtraSpacing(): void
     {
         $this->makeComponent([

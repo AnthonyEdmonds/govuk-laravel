@@ -13,7 +13,7 @@ class TableColumnTest extends TestCase
     public function testMakesColumnJson(): void
     {
         $this->makeTableColumn()
-           ->contains("~~$this->json~~");
+            ->contains("~~$this->json~~");
     }
 
     protected function makeTableColumn(array $data = []): ViewAssertion

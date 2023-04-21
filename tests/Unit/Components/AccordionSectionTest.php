@@ -13,13 +13,13 @@ class AccordionSectionTest extends TestCase
         $section = $this->makeComponent([
             'summary' => 'My summary',
         ]);
-        
+
         $section->first('div > div > h2 > span')
             ->hasAttribute('id', 'accordion--heading-my-sub-id');
-        
+
         $section->first('div > div > div')
             ->hasAttribute('id', 'accordion--summary-my-sub-id');
-        
+
         $section->last('div > div')
             ->hasAttribute('aria-labelledby', 'accordion--heading-my-sub-id');
     }
@@ -30,11 +30,11 @@ class AccordionSectionTest extends TestCase
             ->first('div > div > h2 > span')
             ->contains('My label');
     }
-    
+
     public function testHasSummary(): void
     {
         $this->makeComponent([
-            'summary' => 'My summary'
+            'summary' => 'My summary',
         ])
             ->first('div > div > div')
             ->contains('My summary');
@@ -46,7 +46,7 @@ class AccordionSectionTest extends TestCase
             ->last('div > div')
             ->contains('My content');
     }
-    
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My content');

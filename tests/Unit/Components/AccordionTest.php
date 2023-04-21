@@ -30,7 +30,7 @@ class AccordionTest extends TestCase
         $this->makeComponent()
             ->contains('My content');
     }
-    
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My content');

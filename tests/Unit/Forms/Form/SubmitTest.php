@@ -6,6 +6,7 @@ use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
+use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormNoDatabase;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Http\RedirectResponse;
@@ -24,6 +25,8 @@ class SubmitTest extends TestCase
 
         $this->useForms();
         $this->useDatabase();
+
+        $this->subject = FormModel::factory()->make();
     }
 
     public function testRunsSubmitForm(): void
@@ -44,6 +47,15 @@ class SubmitTest extends TestCase
         );
     }
 
+    public function testFlashesCacheWhenNoDatabase(): void
+    {
+        $this->makeRequest(TestFormNoDatabase::class);
+
+        $this->assertTrue(
+            GovukForm::has(TestFormNoDatabase::key())
+        );
+    }
+
     public function testRedirects(): void
     {
         $this->makeRequest(TestForm::class);
@@ -53,6 +65,19 @@ class SubmitTest extends TestCase
                 TestForm::key(),
                 Form::NEW,
                 FormModel::first()->id,
+            ]),
+            $this->response->getTargetUrl()
+        );
+    }
+
+    public function testRedirectsWhenNoDatabase(): void
+    {
+        $this->makeRequest(TestFormNoDatabase::class);
+
+        $this->assertEquals(
+            route('forms.confirmation', [
+                TestFormNoDatabase::key(),
+                Form::NEW,
             ]),
             $this->response->getTargetUrl()
         );
@@ -70,7 +95,6 @@ class SubmitTest extends TestCase
 
     protected function makeRequest(string $formClass): void
     {
-        $this->subject = FormModel::factory()->make();
         GovukForm::put($formClass::key(), $this->subject);
 
         $this->form = new $formClass();

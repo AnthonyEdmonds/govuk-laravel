@@ -83,8 +83,8 @@ class SimpleTest extends TestCase
             'nextPageUrl' => 'next-page-url',
             'showCounter' => false,
         ])
-        ->last('div')
-        ->hasClass('govuk-pagination__next');
+            ->last('div')
+            ->hasClass('govuk-pagination__next');
     }
 
     protected function makePagination(array $data = []): ViewAssertion
