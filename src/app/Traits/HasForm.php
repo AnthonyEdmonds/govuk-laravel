@@ -42,6 +42,26 @@ trait HasForm
         return $this->generateSummary($showChange);
     }
 
+    public function makeSummaryItem(string $questionKey, string $label, mixed $value = null, bool $showChange = false): array
+    {
+        return [
+            'value' => $value ?? $this->blankFieldTerm,
+            'action' => $showChange === true
+                ? [
+                    'label' => 'Change',
+                    'hidden' => $label,
+                    'url' => route('forms.question', [
+                        $this->form()::key(),
+                        $this->exists === true
+                            ? Form::EDIT
+                            : Form::REVIEW,
+                        $questionKey,
+                    ]),
+                ]
+                : null,
+        ];
+    }
+
     protected function generateSummary(bool $showChange = false): array
     {
         $summary = [];
@@ -74,21 +94,11 @@ trait HasForm
         $label = ucfirst(str_replace('_', ' ', $govukQuestion->name));
         $property = $govukQuestion->name;
 
-        $summary[$label] = [
-            'value' => $this->$property ?? $this->blankFieldTerm,
-            'action' => $showChange === true
-                ? [
-                    'label' => 'Change',
-                    'hidden' => $label,
-                    'url' => route('forms.question', [
-                        $this->form()::key(),
-                        $this->exists === true
-                            ? Form::EDIT
-                            : Form::REVIEW,
-                        $formQuestion::key(),
-                    ]),
-                ]
-                : null,
-        ];
+        $summary[$label] = $this->makeSummaryItem(
+            $formQuestion::key(),
+            $label,
+            $this->$property,
+            $showChange,
+        );
     }
 }
