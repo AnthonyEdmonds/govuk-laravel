@@ -39,12 +39,16 @@ trait HasForm
     // Summary
     public function toSummary(bool $showChange = false): array
     {
+        return $this->generateSummary($showChange);
+    }
+
+    protected function generateSummary(bool $showChange = false): array
+    {
         $summary = [];
         $questionClasses = $this->form()->questions();
 
         foreach ($questionClasses as $questionClass) {
             $formQuestion = new $questionClass();
-            $question = $formQuestion->getQuestion($this);
 
             $this->questionToSummaryEntry($summary, $formQuestion, $showChange);
         }
@@ -70,8 +74,22 @@ trait HasForm
         $label = ucfirst(str_replace('_', ' ', $govukQuestion->name));
         $property = $govukQuestion->name;
 
-        $summary[$label] = [
-            'value' => $this->$property ?? $this->blankFieldTerm,
+        $summary[$label] = $this->makeSummaryItem(
+            $formQuestion::key(),
+            $label,
+            $this->$property,
+            $showChange,
+        );
+    }
+
+    protected function makeSummaryItem(
+        string $questionKey,
+        string $label,
+        mixed $value = null,
+        bool $showChange = false
+    ): array {
+        return [
+            'value' => $value ?? $this->blankFieldTerm,
             'action' => $showChange === true
                 ? [
                     'label' => 'Change',
@@ -81,7 +99,7 @@ trait HasForm
                         $this->exists === true
                             ? Form::EDIT
                             : Form::REVIEW,
-                        $formQuestion::key(),
+                        $questionKey,
                     ]),
                 ]
                 : null,

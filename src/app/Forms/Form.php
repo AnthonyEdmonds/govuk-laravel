@@ -31,6 +31,8 @@ abstract class Form
         self::EDIT,
     ];
 
+    public const USES_DATABASE = true;
+
     // Abstract
     abstract public static function key(): string;
 
@@ -180,11 +182,17 @@ abstract class Form
         $subject = $this->getSubjectFromSession();
         $this->submitForm($subject, $mode);
 
-        GovukForm::clear($this::key());
+        static::USES_DATABASE === false
+            ? GovukForm::flash($this::key(), $subject)
+            : GovukForm::clear($this::key());
 
-        return $this->confirmationBlade() !== false
-            ? redirect($this->confirmationRoute($mode, $subject->id))
-            : redirect($this->exitRoute($subject));
+        if ($this->confirmationBlade() === false) {
+            return redirect($this->exitRoute($subject));
+        } elseif (static::USES_DATABASE === false) {
+            return redirect($this->confirmationRoute($mode));
+        } else {
+            return redirect($this->confirmationRoute($mode, $subject->id));
+        }
     }
 
     protected function summaryTitle(Model $subject): string
@@ -226,6 +234,13 @@ abstract class Form
     public function confirmationBlade(): string|false
     {
         return false;
+    }
+
+    public function loadConfirmationSubject(string|null $subjectKey = null): Model
+    {
+        return static::USES_DATABASE === false
+            ? $this->getSubjectFromSession()
+            : $this->loadSubjectFromDatabase($subjectKey);
     }
 
     protected function confirmationTitle(Model $subject): string
@@ -373,7 +388,7 @@ abstract class Form
         ]);
     }
 
-    protected function confirmationRoute(string $mode, int|string $subjectKey): string
+    protected function confirmationRoute(string $mode, int|string $subjectKey = null): string
     {
         return route('forms.confirmation', [
             static::key(),

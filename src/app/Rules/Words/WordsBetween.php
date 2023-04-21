@@ -19,7 +19,7 @@ class WordsBetween implements Rule
 
         $count = substr_count($value, ' ');
 
-        return  $count >= $this->min - 1 && $count <= $this->max - 1;
+        return $count >= $this->min - 1 && $count <= $this->max - 1;
     }
 
     public function message(): string

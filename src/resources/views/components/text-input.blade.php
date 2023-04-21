@@ -1,5 +1,6 @@
 @props([
     'autocomplete' => 'on',
+    'extraSpacing' => false,
     'hint' => null,
     'id' => $name,
     'inputmode' => 'text',
@@ -20,9 +21,13 @@
     $ariaDescription = '';
     $inputClasses = 'govuk-input';
     $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
-
+    
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";
+    }
+    
+    if ($extraSpacing === true) {
+        $inputClasses .= ' govuk-input--extra-letter-spacing';
     }
 
     if ($width !== null) {

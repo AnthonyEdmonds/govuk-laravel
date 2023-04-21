@@ -2,4 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run pint
-npm run php-stan
+npm run phpstan
+
+git add -A

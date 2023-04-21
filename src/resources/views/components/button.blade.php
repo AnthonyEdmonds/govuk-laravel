@@ -4,6 +4,7 @@
     'disabled' => false,
     'formAction' => null,
     'formMethod' => null,
+    'id' => null,
     'preventDoubleClick' => false,
     'secondary' => false,
     'type' => null,
@@ -12,11 +13,7 @@
 
 @php
     $classes = 'govuk-button';
-
-    if ($disabled === true) {
-        $classes .= ' govuk-button--disabled';
-    }
-
+    
     if ($secondary === true || $type === 'secondary') {
         $classes .= ' govuk-button--secondary';
     }
@@ -53,6 +50,10 @@
 
     @if($preventDoubleClick === true)
         data-prevent-double-click="true"
+    @endif
+        
+    @if($id !== null)
+        id="{{$id}}"
     @endif
 >
     {{ $slot }}

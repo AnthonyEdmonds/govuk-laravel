@@ -9,6 +9,7 @@ Create a `button` element for use with a form.
     disabled
     form-action="$formAction"
     form-method="POST"
+    id="my-id"
     prevent-double-click
     secondary
     :type="$buttonType"
@@ -25,6 +26,7 @@ Create a `button` element for use with a form.
 | disabled           | bool   | false   | Whether the button is clickable                               |
 | formAction         | string | null    | Overrides the form submit action                              |
 | formMethod         | string | null    | Overrides the form submit method                              |
+| id                 | string | null    | Set an ID on the button                                       |
 | preventDoubleClick | bool   | false   | Disable the button after it is clicked                        |
 | secondary          | bool   | false   | Style the button as "secondary"                               |
 | type               | string | null    | Apply the secondary, start, or warning styles with a variable |

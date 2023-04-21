@@ -2,18 +2,22 @@
 Use the GOV.UK Design System within the Laravel ecosystem, complete with Blade components and templates!
 
 ## Legal
-GOV.UK Laravel is a community resource of the [GOV.UK Design System](https://design-system.service.gov.uk). The Design System team is not responsible for it and cannot support you with using it. Contact Anthony Edmonds directly if you need help, or you want to request a feature.
+GOV.UK Laravel is a community resource of the [GOV.UK Design System](https://design-system.service.gov.uk).
+
+The Design System team is not responsible for it and cannot support you with using it.
+
+Contact Anthony Edmonds directly if you need help, or you want to request a feature.
 
 Published under the MIT licence.
 
 ## What's in the box?
 
-* [GOV.UK Design System](https://design-system.service.gov.uk) version 4.1.0
+* [GOV.UK Design System](https://design-system.service.gov.uk) version 4.6
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
-* Laravel 9 Blade components of the GOV.UK Design System components
-* Laravel 9 Blade templates of the main GOV.UK Design System pages
-* Laravel 9 Rules for validating the number of words in a string
-* PHP 8.0 Classes to support the creation of standard and custom pages
+* Laravel 10 Blade components of the GOV.UK Design System components
+* Laravel 10 Blade templates of the main GOV.UK Design System pages
+* Laravel 10 Rules for validating the number of words in a string
+* PHP 8.2 Classes to support the creation of standard and custom pages
 
 ## Documentation
 

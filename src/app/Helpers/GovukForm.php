@@ -13,9 +13,9 @@ class GovukForm
         return Session::has($key);
     }
 
-    public static function put(string $key, Model $form): void
+    public static function put(string $key, Model $subject): void
     {
-        Session::put($key, $form);
+        Session::put($key, $subject);
     }
 
     public static function get(string $key): Model
@@ -30,5 +30,10 @@ class GovukForm
     public static function clear(string $key): void
     {
         Session::forget($key);
+    }
+
+    public static function flash(string $key, Model $subject): void
+    {
+        Session::flash($key, $subject);
     }
 }

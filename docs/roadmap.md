@@ -30,7 +30,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
     * Question
 * Views
     * Components
-        * accordion
         * back
         * breadcrumbs
         * cookie-banner
