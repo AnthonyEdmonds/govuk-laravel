@@ -55,6 +55,14 @@ class ButtonTest extends TestCase
             ->hasClass('govuk-button--secondary');
     }
 
+    public function testHasId(): void
+    {
+        $this->makeComponent([
+            'id' => 'my-id',
+        ])
+            ->hasAttribute('id', 'my-id');
+    }
+
     public function testHasType(): void
     {
         $this->makeComponent([
@@ -97,6 +105,7 @@ class ButtonTest extends TestCase
             'disabled' => $data['disabled'] ?? false,
             'formAction' => $data['formAction'] ?? null,
             'formMethod' => $data['formMethod'] ?? null,
+            'id' => $data['id'] ?? null,
             'preventDoubleClick' => $data['preventDoubleClick'] ?? false,
             'secondary' => $data['secondary'] ?? false,
             'type' => $data['type'] ?? null,

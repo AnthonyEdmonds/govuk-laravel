@@ -4,6 +4,7 @@
     'disabled' => false,
     'formAction' => null,
     'formMethod' => null,
+    'id' => null,
     'preventDoubleClick' => false,
     'secondary' => false,
     'type' => null,
@@ -49,6 +50,10 @@
 
     @if($preventDoubleClick === true)
         data-prevent-double-click="true"
+    @endif
+        
+    @if($id !== null)
+        id="{{$id}}"
     @endif
 >
     {{ $slot }}
