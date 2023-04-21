@@ -13,6 +13,15 @@ class TextInputTest extends TestCase
             ->first('input')
             ->hasAttribute('autocomplete', 'on');
     }
+    
+    public function testHasExtraSpacing(): void
+    {
+        $this->makeComponent([
+            'extraSpacing' => true,
+        ])
+            ->first('input')
+            ->hasClass('govuk-input--extra-letter-spacing');
+    }
 
     public function testHasHint(): void
     {
@@ -166,6 +175,7 @@ class TextInputTest extends TestCase
 
         return $this->assertView('govuk::components.text-input', [
             'autocomplete' => $data['autocomplete'] ?? 'on',
+            'extraSpacing' => $data['extraSpacing'] ?? false,
             'hint' => $data['hint'] ?? null,
             'id' => $data['id'] ?? 'my-id',
             'inputmode' => $data['inputmode'] ?? 'text',

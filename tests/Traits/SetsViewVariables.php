@@ -39,7 +39,7 @@ trait SetsViewVariables
     {
         View::share('attributes', new ComponentAttributeBag($attributes));
     }
-
+    
     public function setViewErrors(array $errors = []): void
     {
         $messageBag = new MessageBag();

@@ -12,7 +12,6 @@ class ButtonTest extends TestCase
         $this->makeComponent([
             'disabled' => true,
         ])
-            ->hasClass('govuk-button--disabled')
             ->hasAttribute('aria-disabled', 'true')
             ->hasAttribute('disabled', 'disabled');
     }

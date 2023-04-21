@@ -12,11 +12,7 @@
 
 @php
     $classes = 'govuk-button';
-
-    if ($disabled === true) {
-        $classes .= ' govuk-button--disabled';
-    }
-
+    
     if ($secondary === true || $type === 'secondary') {
         $classes .= ' govuk-button--secondary';
     }

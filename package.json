@@ -18,7 +18,7 @@
         "prepare": "husky install"
     },
     "devDependencies": {
-        "govuk-frontend": "^4.5",
+        "govuk-frontend": "^4.6",
         "husky": "^8"
     }
 }
