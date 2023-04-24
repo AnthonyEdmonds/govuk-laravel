@@ -8,22 +8,25 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
 class LoadSubjectFromDatabaseTest extends TestCase
 {
+    protected FormModel $subject;
+
+    protected TestForm $form;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->useDatabase();
+
+        $this->subject = FormModel::factory()->create();
+        $this->form = new TestForm();
     }
 
     public function testLoadsSubjectFromDatabase(): void
     {
-        $subject = FormModel::factory()->create();
-
-        $form = new TestForm();
-
         $this->assertEquals(
-            $subject->id,
-            $form->loadSubjectFromDatabase($subject->id)->id,
+            $this->subject->id,
+            $this->form->loadSubjectFromDatabase($this->subject->id)->id,
         );
     }
 }
