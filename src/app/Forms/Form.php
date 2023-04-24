@@ -191,7 +191,7 @@ abstract class Form
         } elseif (static::USES_DATABASE === false) {
             return redirect($this->confirmationRoute($mode));
         } else {
-            return redirect($this->confirmationRoute($mode, $subject->id));
+            return redirect($this->confirmationRoute($mode, $subject->getRouteKey()));
         }
     }
 

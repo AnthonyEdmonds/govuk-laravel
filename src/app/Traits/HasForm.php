@@ -33,7 +33,7 @@ trait HasForm
 
     public static function editFormRoute(Model $subject): string
     {
-        return route('forms.edit', [self::formClass()::key(), $subject->id]);
+        return route('forms.edit', [self::formClass()::key(), $subject->getRouteKey()]);
     }
 
     // Summary
