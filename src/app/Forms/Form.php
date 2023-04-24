@@ -251,7 +251,7 @@ abstract class Form
     // Subject
     public function loadSubjectFromDatabase(int|string $subjectKey): Model
     {
-        return $this->makeNewSubject()::findOrFail($subjectKey);
+        return $this->makeNewSubject()::firstOrFail($subjectKey);
     }
 
     protected function getSubjectFromSession(): Model
