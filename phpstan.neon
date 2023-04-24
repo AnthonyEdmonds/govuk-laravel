@@ -6,4 +6,3 @@ parameters:
   ignoreErrors:
     - '#Call to an undefined method#'
     - '#Access to an undefined property#'
-    - '#Call to an undefined static method#'

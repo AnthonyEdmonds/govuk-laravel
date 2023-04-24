@@ -251,7 +251,11 @@ abstract class Form
     // Subject
     public function loadSubjectFromDatabase(int|string $subjectKey): Model
     {
-        return $this->makeNewSubject()::findOrFail($subjectKey);
+        $subject = $this->makeNewSubject();
+
+        return $subject->newQuery()
+            ->where($subject->getRouteKeyName(), '=', $subjectKey)
+            ->firstOrFail();
     }
 
     protected function getSubjectFromSession(): Model
