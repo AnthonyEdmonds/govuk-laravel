@@ -11,6 +11,9 @@ use League\CommonMark\Util\Xml;
 
 class FencedCodeRenderer implements NodeRendererInterface
 {
+    /**
+     * @param  FencedCode  $node
+     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         FencedCode::assertInstanceOf($node);

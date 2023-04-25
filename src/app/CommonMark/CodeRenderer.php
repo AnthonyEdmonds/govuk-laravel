@@ -11,6 +11,9 @@ use League\CommonMark\Util\Xml;
 
 class CodeRenderer implements NodeRendererInterface
 {
+    /**
+     * @param  Code  $node
+     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         Code::assertInstanceOf($node);

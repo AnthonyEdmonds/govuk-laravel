@@ -8,8 +8,11 @@ use League\CommonMark\Renderer\ChildNodeRendererInterface;
 use League\CommonMark\Renderer\NodeRendererInterface;
 use League\CommonMark\Util\HtmlElement;
 
-final class TableCellRenderer implements NodeRendererInterface
+class TableCellRenderer implements NodeRendererInterface
 {
+    /**
+     * @param  TableCell  $node
+     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         TableCell::assertInstanceOf($node);

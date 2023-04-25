@@ -11,6 +11,9 @@ use League\CommonMark\Util\Xml;
 
 class IndentedCodeRenderer implements NodeRendererInterface
 {
+    /**
+     * @param  IndentedCode  $node
+     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         IndentedCode::assertInstanceOf($node);

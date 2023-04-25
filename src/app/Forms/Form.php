@@ -162,7 +162,7 @@ abstract class Form
 
         return GovukPage::summary(
             $this->summaryTitle($subject),
-            $subject->toSummary(true),
+            $subject->toSummary(true), /* @phpstan-ignore-line */
             $this->summarySubmitLabel(),
             $this->summaryRoute($mode),
             $mode === self::EDIT
@@ -272,7 +272,7 @@ abstract class Form
             }
         }
 
-        throw new QuestionNotFoundException("$questionKey does not exist in the {$this->key} form");
+        throw new QuestionNotFoundException($questionKey.' does not exist in the '.static::key().' form');
     }
 
     protected function getFirstQuestionKey(): string

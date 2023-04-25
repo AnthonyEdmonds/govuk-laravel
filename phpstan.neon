@@ -1,8 +1,8 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+    
 parameters:
-  level: 5
-  paths:
-    - src
-
-  ignoreErrors:
-    - '#Call to an undefined method#'
-    - '#Access to an undefined property#'
+    level: 5
+    paths:
+        - src
+        

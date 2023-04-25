@@ -10,6 +10,9 @@ use League\CommonMark\Util\HtmlElement;
 
 class ListBlockRenderer implements NodeRendererInterface
 {
+    /**
+     * @param  ListBlock  $node
+     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         ListBlock::assertInstanceOf($node);

@@ -10,6 +10,9 @@ use League\CommonMark\Util\HtmlElement;
 
 class TableRenderer implements NodeRendererInterface
 {
+    /**
+     * @param  Table  $node
+     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         Table::assertInstanceOf($node);

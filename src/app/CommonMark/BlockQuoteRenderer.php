@@ -10,6 +10,9 @@ use League\CommonMark\Util\HtmlElement;
 
 class BlockQuoteRenderer implements NodeRendererInterface
 {
+    /**
+     * @param  BlockQuote  $node
+     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): HtmlElement
     {
         BlockQuote::assertInstanceOf($node);
