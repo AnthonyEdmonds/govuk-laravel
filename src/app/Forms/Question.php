@@ -33,7 +33,7 @@ abstract class Question
 
         Validator::make(
             $request->all(),
-            $formRequest->rules(),
+            $formRequest->rules(), /* @phpstan-ignore-line */
             $formRequest->messages()
         )->validate();
     }
