@@ -16,10 +16,11 @@ class GetOtherButtonLabelTest extends TestCase
         $this->question = new FirstQuestion();
     }
 
-    public function testReturnsNull(): void
+    public function testReturnsLabelWhenSkippable(): void
     {
-        $this->assertNull(
-            $this->question->getOtherButtonLabel()
+        $this->assertEquals(
+            'Skip and continue',
+            $this->question->getOtherButtonLabel(),
         );
     }
 }

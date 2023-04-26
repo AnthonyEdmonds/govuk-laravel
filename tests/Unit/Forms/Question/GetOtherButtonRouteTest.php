@@ -17,13 +17,16 @@ class GetOtherButtonRouteTest extends TestCase
     {
         parent::setUp();
 
+        $this->useForms();
+
         $this->form = new TestForm();
         $this->question = new FirstQuestion();
     }
 
-    public function testReturnsNull(): void
+    public function testReturnsRouteWhenSkippable(): void
     {
-        $this->assertNull(
+        $this->assertEquals(
+            $this->form::skipRoute(Form::NEW, $this->question::key()),
             $this->question->getOtherButtonRoute($this->form, Form::NEW),
         );
     }
