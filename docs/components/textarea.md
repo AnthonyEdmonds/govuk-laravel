@@ -61,3 +61,4 @@ This element is pre-wrapped with `count` and `form-group` components, with `labe
 * [radios](radios.md)
 * [select](select.md)
 * [text-input](text-input.md)
+* [time-input](time-input.md)

@@ -64,3 +64,4 @@ This element is pre-wrapped with `count` and `form-group` components, with `labe
 * [search-bar](search-bar.md)
 * [select](select.md)
 * [textarea](textarea.md)
+* [time-input](time-input.md)

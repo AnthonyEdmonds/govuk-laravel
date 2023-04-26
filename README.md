@@ -37,6 +37,7 @@ Published under the MIT licence.
 * [Markdown](docs/markdown.md)
 * [Page](docs/classes/page.md)
 * [Rules](docs/rules.md)
+* [Time Input](docs/components/time-input.md)
 
 ## Contribution
 

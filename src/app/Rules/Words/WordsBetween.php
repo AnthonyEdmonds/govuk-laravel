@@ -2,15 +2,17 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Rules\Words;
 
-use Illuminate\Contracts\Validation\Rule;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class WordsBetween implements Rule
+class WordsBetween implements ValidationRule
 {
     public function __construct(protected int $min, protected int $max)
     {
+        //
     }
 
-    public function passes($attribute, $value): bool
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         while (str_contains($value, '  ') === true) {
             $value = trim($value);
@@ -19,11 +21,11 @@ class WordsBetween implements Rule
 
         $count = substr_count($value, ' ');
 
-        return $count >= $this->min - 1 && $count <= $this->max - 1;
-    }
-
-    public function message(): string
-    {
-        return ":attribute must be between {$this->min} and {$this->max} words.";
+        if (
+            $count < $this->min - 1 ||
+            $count > $this->max - 1
+        ) {
+            $fail(":attribute must be between {$this->min} and {$this->max} words.");
+        }
     }
 }

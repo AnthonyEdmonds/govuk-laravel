@@ -3,10 +3,11 @@
 namespace AnthonyEdmonds\GovukLaravel\Rules\Dates;
 
 use Carbon\Carbon;
+use Closure;
 use Illuminate\Contracts\Validation\DataAwareRule;
-use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-abstract class DateRule implements Rule, DataAwareRule
+abstract class DateRule implements ValidationRule, DataAwareRule
 {
     public const ATTRIBUTE = 'my-date';
 
@@ -24,7 +25,7 @@ abstract class DateRule implements Rule, DataAwareRule
         //
     }
 
-    public function passes($attribute, $value): bool
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $day = $this->data["$attribute-day"];
         $month = $this->data["$attribute-month"];
@@ -33,17 +34,12 @@ abstract class DateRule implements Rule, DataAwareRule
         $enteredDate = Carbon::createFromFormat('Y-m-d', "$year-$month-$day");
 
         if ($enteredDate->isValid() === false) {
-            $this->message = ':attribute is not a date that exists';
-
-            return false;
+            $fail(':attribute is not a valid date that exists');
         }
 
-        return $this->test($enteredDate);
-    }
-
-    public function message(): string
-    {
-        return $this->message;
+        if ($this->test($enteredDate) === false) {
+            $fail($this->message);
+        }
     }
 
     public function setData($data): self

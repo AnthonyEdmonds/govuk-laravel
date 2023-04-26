@@ -35,3 +35,4 @@ Both `checkboxes` and `radios` come with a `fieldset` included.
 * [select](select.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)
+* [time-input](time-input.md)

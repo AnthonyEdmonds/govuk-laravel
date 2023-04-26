@@ -2,26 +2,25 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Rules\Words;
 
-use Illuminate\Contracts\Validation\Rule;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class MinWords implements Rule
+class MinWords implements ValidationRule
 {
     public function __construct(protected int $min)
     {
+        //
     }
 
-    public function passes($attribute, $value): bool
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         while (str_contains($value, '  ') === true) {
             $value = trim($value);
             $value = str_replace('  ', ' ', $value);
         }
 
-        return substr_count($value, ' ') >= $this->min - 1;
-    }
-
-    public function message(): string
-    {
-        return ":attribute must be {$this->min} words or more.";
+        if (substr_count($value, ' ') < $this->min - 1) {
+            $fail(":attribute must be {$this->min} words or more.");
+        }
     }
 }
