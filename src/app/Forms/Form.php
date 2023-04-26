@@ -113,34 +113,30 @@ abstract class Form
         $subject = $this->getSubjectFromSession();
         $question = $questionClass->getQuestion($subject);
 
-        return is_array($question) === true
+        $page = is_array($question) === true
             ? GovukPage::questions(
                 $questionClass->getTitle($subject),
                 $question,
                 $questionClass->getSubmitButtonLabel($mode, $this->isLastQuestion($questionKey)),
                 $this->questionRoute($mode, $questionKey),
-                $this->getBackRoute($mode, $questionKey),
-                $questionClass->getMethod(),
-                $questionClass->getBlade(),
-                $questionClass->getOtherButtonLabel(),
-                $questionClass->getOtherButtonRoute($this, $mode),
-                $questionClass->getSubmitButtonType(),
             )
-                ->with('mode', $mode)
-                ->with('subject', $subject)
             : GovukPage::question(
                 $question,
                 $questionClass->getSubmitButtonLabel($mode, $this->isLastQuestion($questionKey)),
                 $this->questionRoute($mode, $questionKey),
                 $this->getBackRoute($mode, $questionKey),
-                $questionClass->getMethod(),
-                $questionClass->getBlade(),
-                $questionClass->getOtherButtonLabel(),
-                $questionClass->getOtherButtonRoute($this, $mode),
-                $questionClass->getSubmitButtonType(),
-            )
-                ->with('mode', $mode)
-                ->with('subject', $subject);
+            );
+
+        return $page
+            ->setBack($this->getBackRoute($mode, $questionKey))
+            ->setMethod($questionClass->getMethod())
+            ->setContent($questionClass->getBlade())
+            ->setOtherButtonLabel($questionClass->getOtherButtonLabel())
+            ->setOtherButtonHref($questionClass->getOtherButtonRoute($this, $mode))
+            ->setOtherButtonMethod($questionClass->getOtherButtonMethod())
+            ->setSubmitButtonType($questionClass->getSubmitButtonType())
+            ->with('mode', $mode)
+            ->with('subject', $subject);
     }
 
     public function store(Request $request, string $mode, string $questionKey): RedirectResponse
