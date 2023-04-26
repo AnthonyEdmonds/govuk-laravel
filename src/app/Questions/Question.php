@@ -24,6 +24,8 @@ class Question
 
     public const TEXT_INPUT = 'text-input';
 
+    public const TIME = 'time-input';
+
     public const QUESTION_FORMATS = [
         self::CHECKBOXES,
         self::DATE,
@@ -33,6 +35,7 @@ class Question
         self::SELECT,
         self::TEXT_AREA,
         self::TEXT_INPUT,
+        self::TIME,
     ];
 
     public string $accept = '*';
