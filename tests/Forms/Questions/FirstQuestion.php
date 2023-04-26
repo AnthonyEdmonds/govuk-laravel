@@ -32,6 +32,11 @@ class FirstQuestion extends Question
         $subject->name = $request->name;
     }
 
+    public function skip(Model $subject, string $mode): void
+    {
+        $subject->name = 'Skipped';
+    }
+
     protected function getFormRequest(): FormRequest
     {
         return new NameFormRequest();

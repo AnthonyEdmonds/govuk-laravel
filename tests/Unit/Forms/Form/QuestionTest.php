@@ -179,6 +179,16 @@ class QuestionTest extends TestCase
         );
     }
 
+    public function testHasOtherButtonMethod(): void
+    {
+        $this->makePage();
+
+        $this->assertEquals(
+            Page::POST_METHOD,
+            $this->page->getData()['otherButtonMethod']
+        );
+    }
+
     public function testHasSubmitButtonType(): void
     {
         $this->makePage();
