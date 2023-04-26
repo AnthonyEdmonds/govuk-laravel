@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 
 abstract class Question
 {
+    protected bool $skippable = false;
+
     // Abstract
     abstract public static function key(): string;
 
@@ -38,6 +40,11 @@ abstract class Question
         )->validate();
     }
 
+    public function skip(Model $subject, string $mode): void
+    {
+        //
+    }
+
     public function getMethod(): string
     {
         return Page::POST_METHOD;
@@ -50,12 +57,21 @@ abstract class Question
 
     public function getOtherButtonLabel(): string|null
     {
-        return null;
+        return $this->skippable === true
+            ? 'Skip and continue'
+            : null;
     }
 
-    public function getOtherButtonRoute(): string|null
+    public function getOtherButtonRoute(Form $form, string $mode): string|null
     {
-        return null;
+        return $this->skippable === true
+            ? $form::skipRoute($mode, static::key())
+            : null;
+    }
+
+    public function getOtherButtonMethod(): string
+    {
+        return Page::POST_METHOD;
     }
 
     public function getSubmitButtonLabel(string $mode, bool $isLastQuestion = false): string

@@ -8,6 +8,7 @@ use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnOrAfterDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnOrBeforeDate;
+use AnthonyEdmonds\GovukLaravel\Rules\Times\TimeFormat;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
@@ -73,42 +74,13 @@ class GovukServiceProvider extends ServiceProvider
 
                     Route::get('/{mode}/{questionKey}', 'question')->name('question');
                     Route::post('/{mode}/{questionKey}', 'store');
+                    Route::post('/{mode}/{questionKey}/skip', 'skip')->name('skip');
                 });
         });
     }
 
     protected function bootRules(): void
     {
-        /* TODO Does not work in the way I want it to. How to pass min and max, and get the message to the validator?
-        Validator::extend('max_words', function ($attribute, $value, $parameters, $validator) {
-            $rule = new MaxWords($parameters[0]);
-            return $rule->passes($attribute, $value);
-        });
-
-        Validator::extend('min_words', function ($attribute, $value, $parameters, $validator) {
-            $rule = new MinWords($parameters[0]);
-            return $rule->passes($attribute, $value);
-        });
-
-        Validator::extend('words_between', function ($attribute, $value, $parameters, $validator) {
-            $rule = new WordsBetween($parameters[0], $parameters[1]);
-            return $rule->passes($attribute, $value);
-        });
-        */
-
-        // Words
-        Rule::macro('maxWords', function (int $max) {
-            return new MaxWords($max);
-        });
-
-        Rule::macro('minWords', function (int $min) {
-            return new MinWords($min);
-        });
-
-        Rule::macro('wordsBetween', function (int $min, int $max) {
-            return new WordsBetween($min, $max);
-        });
-
         // Dates
         Rule::macro('onDate', function (Carbon $date) {
             return new OnDate($date);
@@ -128,6 +100,24 @@ class GovukServiceProvider extends ServiceProvider
 
         Rule::macro('onOrBeforeDate', function (Carbon $date) {
             return new OnOrBeforeDate($date);
+        });
+
+        // Times
+        Rule::macro('timeFormat', function () {
+            return new TimeFormat();
+        });
+
+        // Words
+        Rule::macro('maxWords', function (int $max) {
+            return new MaxWords($max);
+        });
+
+        Rule::macro('minWords', function (int $min) {
+            return new MinWords($min);
+        });
+
+        Rule::macro('wordsBetween', function (int $min, int $max) {
+            return new WordsBetween($min, $max);
         });
     }
 

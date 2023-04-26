@@ -164,7 +164,7 @@ class QuestionTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            Page::OTHER_BUTTON_LABEL,
+            'Skip and continue',
             $this->page->getData()['otherButtonLabel']
         );
     }
@@ -174,8 +174,18 @@ class QuestionTest extends TestCase
         $this->makePage();
 
         $this->assertEquals(
-            null,
+            $this->form::skipRoute(Form::NEW, FirstQuestion::key()),
             $this->page->getData()['otherButtonHref']
+        );
+    }
+
+    public function testHasOtherButtonMethod(): void
+    {
+        $this->makePage();
+
+        $this->assertEquals(
+            Page::POST_METHOD,
+            $this->page->getData()['otherButtonMethod']
         );
     }
 

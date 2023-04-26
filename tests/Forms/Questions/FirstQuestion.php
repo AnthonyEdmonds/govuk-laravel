@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 
 class FirstQuestion extends Question
 {
+    protected bool $skippable = true;
+
     public static function key(): string
     {
         return 'first-question';
@@ -28,6 +30,11 @@ class FirstQuestion extends Question
     public function store(Request $request, Model $subject, string $mode): void
     {
         $subject->name = $request->name;
+    }
+
+    public function skip(Model $subject, string $mode): void
+    {
+        $subject->name = 'Skipped';
     }
 
     protected function getFormRequest(): FormRequest
