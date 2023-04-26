@@ -123,7 +123,7 @@ abstract class Form
                 $questionClass->getMethod(),
                 $questionClass->getBlade(),
                 $questionClass->getOtherButtonLabel(),
-                $questionClass->getOtherButtonRoute(),
+                $questionClass->getOtherButtonRoute($this, $mode),
                 $questionClass->getSubmitButtonType(),
             )
                 ->with('mode', $mode)
@@ -136,7 +136,7 @@ abstract class Form
                 $questionClass->getMethod(),
                 $questionClass->getBlade(),
                 $questionClass->getOtherButtonLabel(),
-                $questionClass->getOtherButtonRoute(),
+                $questionClass->getOtherButtonRoute($this, $mode),
                 $questionClass->getSubmitButtonType(),
             )
                 ->with('mode', $mode)
@@ -150,6 +150,17 @@ abstract class Form
 
         $question->validate($request, $subject);
         $question->store($request, $subject, $mode);
+        GovukForm::put(static::key(), $subject);
+
+        return redirect($this->getNextRoute($mode, $questionKey));
+    }
+
+    public function skip(string $mode, string $questionKey): RedirectResponse
+    {
+        $question = $this->getQuestion($questionKey);
+        $subject = $this->getSubjectFromSession();
+
+        $question->skip($subject, $mode);
         GovukForm::put(static::key(), $subject);
 
         return redirect($this->getNextRoute($mode, $questionKey));
@@ -347,6 +358,15 @@ abstract class Form
     public function exitRoute(Model|null $subject = null): string
     {
         return route('/');
+    }
+
+    public static function skipRoute(string $mode, string $questionKey): string
+    {
+        return route('forms.skip', [
+            static::key(),
+            $mode,
+            $questionKey,
+        ]);
     }
 
     protected function getNextRoute(string $mode, string $questionKey = null): string

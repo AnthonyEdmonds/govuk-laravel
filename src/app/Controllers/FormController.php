@@ -61,6 +61,14 @@ class FormController extends BaseController
         return $form->store($request, $mode, $questionKey);
     }
 
+    public function skip(string $formKey, string $mode, string $questionKey): RedirectResponse
+    {
+        $form = Form::getForm($formKey);
+        $form->checkAccess();
+
+        return $form->skip($mode, $questionKey);
+    }
+
     public function summary(string $formKey, string $mode): View
     {
         $form = Form::getForm($formKey);
