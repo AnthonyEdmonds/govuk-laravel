@@ -67,3 +67,4 @@ When `exclusive` is applied to a checkbox, it will de-select any other checkboxe
 * [select](select.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)
+* [time-input](time-input.md)

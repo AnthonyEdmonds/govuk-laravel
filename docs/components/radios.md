@@ -108,3 +108,4 @@ Support for other input types may be added in the future.
 * [select](select.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)
+* [time-input](time-input.md)

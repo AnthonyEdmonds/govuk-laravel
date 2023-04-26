@@ -6,6 +6,7 @@ use AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\User;
+use AnthonyEdmonds\GovukLaravel\Tests\Traits\AssertsValidationRules;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\FakesRoute;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\SetsViewVariables;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -21,6 +22,7 @@ abstract class TestCase extends BaseTestCase
     use SetsViewVariables;
     use WithFaker;
     use FakesRoute;
+    use AssertsValidationRules;
 
     protected function setUp(): void
     {

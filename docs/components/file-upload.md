@@ -46,3 +46,4 @@ This element is pre-wrapped with `form-group` components, with `label`, `hint`, 
 * [search-bar](search-bar.md)
 * [select](select.md)
 * [textarea](textarea.md)
+* [time-input](time-input.md)

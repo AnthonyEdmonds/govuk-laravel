@@ -70,6 +70,24 @@ Rule::onOrAfterDate(Carbon::now())
 new OnOrAfterDate(Carbon::now())
 ```
 
+## Times
+
+Time can be input in many different ways, including 12 and 24 hour formats.
+
+Accepting as many different time formats will ensure the user can specify the time in a way that makes sense to them.
+
+### TimeFormat
+
+Ensure that the given time is in a format that PHP can interpret.
+
+A full list of the formats this rule will accept is available in the class definition.
+
+```php
+Rule::timeFormat()
+//or
+new TimeFormat()
+```
+
 ## Word count
 
 If you are using an input with a words counter, you may wish to ensure that the limit is enforced server-side with some rules.

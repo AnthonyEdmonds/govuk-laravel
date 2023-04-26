@@ -1,11 +1,11 @@
 <?php
 
-namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\MaxWords;
+namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words;
 
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
-class PassesTest extends TestCase
+class MaxWordsTest extends TestCase
 {
     protected MaxWords $rule;
 
@@ -18,22 +18,16 @@ class PassesTest extends TestCase
 
     public function testTrueWhenAtLimit(): void
     {
-        $this->assertTrue(
-            $this->rule->passes('name', 'These three words')
-        );
+        $this->assertRulePasses($this->rule, 'name', 'These three words');
     }
 
     public function testTrueWhenBelowLimit(): void
     {
-        $this->assertTrue(
-            $this->rule->passes('name', 'Two cool')
-        );
+        $this->assertRulePasses($this->rule, 'name', 'Two cool');
     }
 
     public function testFalseWhenAboveLimit(): void
     {
-        $this->assertFalse(
-            $this->rule->passes('name', 'Four is too many')
-        );
+        $this->assertRuleFails($this->rule, 'name', 'Four is too many', ':attribute must be 3 words or fewer.');
     }
 }

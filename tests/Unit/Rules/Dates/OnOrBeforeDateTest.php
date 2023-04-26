@@ -30,32 +30,21 @@ class OnOrBeforeDateTest extends TestCase
     {
         $this->setRuleData(2, 12, 2022);
 
-        $this->assertTrue(
-            $this->rule->passes(self::ATTRIBUTE, self::VALUE)
-        );
+        $this->assertRulePasses($this->rule, self::ATTRIBUTE, self::VALUE);
     }
 
     public function testPassesWhenBeforeDay(): void
     {
         $this->setRuleData(1, 12, 2022);
 
-        $this->assertTrue(
-            $this->rule->passes(self::ATTRIBUTE, self::VALUE)
-        );
+        $this->assertRulePasses($this->rule, self::ATTRIBUTE, self::VALUE);
     }
 
     public function testFailsInFutureDay(): void
     {
         $this->setRuleData(3, 12, 2022);
 
-        $this->assertFalse(
-            $this->rule->passes(self::ATTRIBUTE, self::VALUE)
-        );
-
-        $this->assertEquals(
-            ':attribute must be the same day or before 02/12/2022',
-            $this->rule->message()
-        );
+        $this->assertRuleFails($this->rule, self::ATTRIBUTE, self::VALUE, ':attribute must be the same day or before 02/12/2022');
     }
 
     protected function setRuleData(int $day, int $month, int $year): void

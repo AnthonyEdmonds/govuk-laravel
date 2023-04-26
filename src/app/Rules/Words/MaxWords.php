@@ -2,26 +2,25 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Rules\Words;
 
-use Illuminate\Contracts\Validation\Rule;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class MaxWords implements Rule
+class MaxWords implements ValidationRule
 {
     public function __construct(protected int $max)
     {
+        //
     }
 
-    public function passes($attribute, $value): bool
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         while (str_contains($value, '  ') === true) {
             $value = trim($value);
             $value = str_replace('  ', ' ', $value);
         }
 
-        return substr_count($value, ' ') <= $this->max - 1;
-    }
-
-    public function message(): string
-    {
-        return ":attribute must be {$this->max} words or fewer.";
+        if (substr_count($value, ' ') > $this->max - 1) {
+            $fail(":attribute must be {$this->max} words or fewer.");
+        }
     }
 }

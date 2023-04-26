@@ -54,3 +54,4 @@ The keyed array passed into options should have the key as the value of the `opt
 * [radios](radios.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)
+* [time-input](time-input.md)

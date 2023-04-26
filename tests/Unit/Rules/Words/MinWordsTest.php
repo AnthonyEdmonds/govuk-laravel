@@ -1,11 +1,11 @@
 <?php
 
-namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\MinWords;
+namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words;
 
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
-class PassesTest extends TestCase
+class MinWordsTest extends TestCase
 {
     protected MinWords $rule;
 
@@ -18,22 +18,16 @@ class PassesTest extends TestCase
 
     public function testTrueWhenAtLimit(): void
     {
-        $this->assertTrue(
-            $this->rule->passes('name', 'These three words')
-        );
+        $this->assertRulePasses($this->rule, 'name', 'These three words');
     }
 
     public function testTrueWhenAboveLimit(): void
     {
-        $this->assertTrue(
-            $this->rule->passes('name', 'Four or more words')
-        );
+        $this->assertRulePasses($this->rule, 'name', 'Four or more words');
     }
 
     public function testFalseWhenBelowLimit(): void
     {
-        $this->assertFalse(
-            $this->rule->passes('name', 'Two few')
-        );
+        $this->assertRuleFails($this->rule, 'name', 'Two few', ':attribute must be 3 words or more.');
     }
 }

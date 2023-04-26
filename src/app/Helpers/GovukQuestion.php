@@ -20,7 +20,7 @@ class GovukQuestion
     public static function date(
         string $label,
         string $name,
-        string $id = null
+        string $id = null,
     ): Question {
         return Question::create($label, $name, Question::DATE, $id);
     }
@@ -43,7 +43,7 @@ class GovukQuestion
     public static function hidden(
         string $name,
         ?string $value,
-        string $id = null
+        string $id = null,
     ): Question {
         return Question::create(
             '',
@@ -58,7 +58,7 @@ class GovukQuestion
         string $label,
         string $name,
         string $type = 'text',
-        string $id = null
+        string $id = null,
     ): Question {
         return Question::create(
             $label,
@@ -73,7 +73,7 @@ class GovukQuestion
         string $label,
         string $name,
         array|Collection $options,
-        string $id = null
+        string $id = null,
     ): Question {
         return Question::create(
             $label,
@@ -88,7 +88,7 @@ class GovukQuestion
         string $label,
         string $name,
         array|Collection $options,
-        string $id = null
+        string $id = null,
     ): Question {
         return Question::create(
             $label,
@@ -102,13 +102,26 @@ class GovukQuestion
     public static function textarea(
         string $label,
         string $name,
-        string $id = null
+        string $id = null,
     ): Question {
         return Question::create(
             $label,
             $name,
             Question::TEXT_AREA,
             $id
+        );
+    }
+
+    public static function time(
+        string $label,
+        string $name,
+        string $id = null,
+    ): Question {
+        return Question::create(
+            $label,
+            $name,
+            Question::TIME,
+            $id,
         );
     }
 

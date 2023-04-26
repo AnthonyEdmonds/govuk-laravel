@@ -29,3 +29,4 @@ Create a hidden input for a form.
 * [select](select.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)
+* [time-input](time-input.md)

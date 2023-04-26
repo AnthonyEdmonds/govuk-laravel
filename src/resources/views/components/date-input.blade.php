@@ -21,7 +21,9 @@
     $monthId = "$id-month";
     $yearId = "$id-year";
 
-    use Carbon\Carbon;switch ($autocomplete) {
+    use Carbon\Carbon;
+    
+    switch ($autocomplete) {
         case 'bday':
         case 'bday-day':
         case 'bday-month':
