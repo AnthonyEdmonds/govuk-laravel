@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 
 class FirstQuestion extends Question
 {
+    protected bool $skippable = true;
+
     public static function key(): string
     {
         return 'first-question';
