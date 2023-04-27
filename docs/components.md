@@ -22,6 +22,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 
 ## Typography
 * [a](components/a.md)
+* [caption](components/caption.md)
 * [h1](components/h1.md)
 * [h2](components/h2.md)
 * [h3](components/h3.md)
@@ -77,3 +78,4 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 
 ## Custom components
 * [search-bar](components/search-bar.md)
+* [time-input](docs/components/time-input.md)
