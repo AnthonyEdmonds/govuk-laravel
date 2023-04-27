@@ -7,9 +7,9 @@ Create an informational banner of any colour, such as a completion or failure me
     colour="red"
     title="Danger"
 >
-    <x-govuk::notification-banner-heading>
+    <x-govuk::notification-banner.heading>
         My emphasised banner text
-    </x-govuk::notification-banner-heading>
+    </x-govuk::notification-banner.heading>
     
     My regular notification content
 </x-govuk::notification-banner>
