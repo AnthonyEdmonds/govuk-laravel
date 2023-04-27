@@ -16,7 +16,7 @@ Published under the MIT licence.
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
 * Laravel 10 Blade components of the GOV.UK Design System components
 * Laravel 10 Blade templates of the main GOV.UK Design System pages
-* Laravel 10 Rules for validating the number of words in a string
+* Laravel 10 Rules for dates, times, and words
 * PHP 8.2 Classes to support the creation of standard and custom pages
 
 ## Documentation
