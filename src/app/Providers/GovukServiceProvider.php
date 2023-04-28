@@ -12,6 +12,7 @@ use AnthonyEdmonds\GovukLaravel\Rules\Times\AfterTime;
 use AnthonyEdmonds\GovukLaravel\Rules\Times\AtOrAfterTime;
 use AnthonyEdmonds\GovukLaravel\Rules\Times\AtOrBeforeTime;
 use AnthonyEdmonds\GovukLaravel\Rules\Times\AtTime;
+use AnthonyEdmonds\GovukLaravel\Rules\Times\BeforeTime;
 use AnthonyEdmonds\GovukLaravel\Rules\Times\TimeFormat;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
@@ -124,7 +125,7 @@ class GovukServiceProvider extends ServiceProvider
         });
 
         Rule::macro('BeforeTime', function (Carbon $time) {
-            return new BeforeDate($time);
+            return new BeforeTime($time);
         });
 
         Rule::macro('timeFormat', function () {
