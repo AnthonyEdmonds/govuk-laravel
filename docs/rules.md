@@ -20,6 +20,21 @@ These rules check to make sure that the specified date exists, and must be appli
 ]
 ```
 
+You may provide the name of a field as the second parameter to add a time input, which will validate both date and time.
+
+```php
+[
+    'birth-time' => [
+        'required',
+        new TimeFormat(),
+    ],
+    'birth-date' => [
+        'required',
+        new BeforeDate(Carbon::now(), 'birth-time'),
+    ],
+]
+```
+
 ### AfterDate
 
 Ensure that the submitted date is after a particular day.

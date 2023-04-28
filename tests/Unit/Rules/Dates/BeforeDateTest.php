@@ -3,56 +3,50 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Dates;
 
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
-use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Carbon\Carbon;
 
-class BeforeDateTest extends TestCase
+class BeforeDateTest extends DateRuleTestCase
 {
-    const ATTRIBUTE = 'my-date';
-
-    const VALUE = 'not-used';
-
-    protected Carbon $now;
-
-    protected BeforeDate $rule;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->now = Carbon::create(2022, 12, 2);
-        Carbon::setTestNow($this->now);
-
-        $this->rule = new BeforeDate($this->now);
-    }
+    protected string $ruleClass = BeforeDate::class;
 
     public function testFailsWhenSameDay(): void
     {
         $this->setRuleData(2, 12, 2022);
 
-        $this->assertRuleFails($this->rule, self::ATTRIBUTE, self::VALUE, ':attribute must be before 02/12/2022');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be before 02/12/2022');
     }
 
     public function testPassesWhenBeforeDay(): void
     {
         $this->setRuleData(1, 12, 2022);
 
-        $this->assertRulePasses($this->rule, self::ATTRIBUTE, self::VALUE);
+        $this->assertRulePasses($this->rule, self::DATE_FIELD, self::VALUE);
     }
 
     public function testFailsWhenFutureDay(): void
     {
         $this->setRuleData(3, 12, 2022);
 
-        $this->assertRuleFails($this->rule, self::ATTRIBUTE, self::VALUE, ':attribute must be before 02/12/2022');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be before 02/12/2022');
     }
 
-    protected function setRuleData(int $day, int $month, int $year): void
+    public function testFailsWhenSameMinute(): void
     {
-        $this->rule->setData([
-            'my-date-day' => $day,
-            'my-date-month' => $month,
-            'my-date-year' => $year,
-        ]);
+        $this->setRuleData(2, 12, 2022, '17:05');
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be before 02/12/2022 17:05');
+    }
+
+    public function testPassesWhenBeforeMinute(): void
+    {
+        $this->setRuleData(1, 12, 2022, '17:04');
+
+        $this->assertRulePasses($this->rule, self::DATE_FIELD, self::VALUE);
+    }
+
+    public function testFailsWhenFutureMinute(): void
+    {
+        $this->setRuleData(3, 12, 2022, '17:06');
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be before 02/12/2022 17:05');
     }
 }
