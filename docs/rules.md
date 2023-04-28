@@ -20,14 +20,14 @@ These rules check to make sure that the specified date exists, and must be appli
 ]
 ```
 
-### OnDate
+### AfterDate
 
-Ensure that the submitted date is on a particular day.
+Ensure that the submitted date is after a particular day.
 
 ```php
-Rule::onDate(Carbon::now())
+Rule::afterDate(Carbon::now())
 // or
-new OnDate(Carbon::now())
+new AfterDate(Carbon::now())
 ```
 
 ### BeforeDate
@@ -40,24 +40,14 @@ Rule::beforeDate(Carbon::now())
 new BeforeDate(Carbon::now())
 ```
 
-### AfterDate
+### OnDate
 
-Ensure that the submitted date is after a particular day.
-
-```php
-Rule::afterDate(Carbon::now())
-// or
-new AfterDate(Carbon::now())
-```
-
-### OnOrBeforeDate
-
-Ensure that the submitted date is on or before a particular day.
+Ensure that the submitted date is on a particular day.
 
 ```php
-Rule::onOrBeforeDate(Carbon::now())
+Rule::onDate(Carbon::now())
 // or
-new OnOrBeforeDate(Carbon::now())
+new OnDate(Carbon::now())
 ```
 
 ### OnOrAfterDate
@@ -70,15 +60,79 @@ Rule::onOrAfterDate(Carbon::now())
 new OnOrAfterDate(Carbon::now())
 ```
 
+### OnOrBeforeDate
+
+Ensure that the submitted date is on or before a particular day.
+
+```php
+Rule::onOrBeforeDate(Carbon::now())
+// or
+new OnOrBeforeDate(Carbon::now())
+```
+
 ## Times
 
-Time can be input in many different ways, including 12 and 24 hour formats.
+Validate that a given time is valid.
 
-Accepting as many different time formats will ensure the user can specify the time in a way that makes sense to them.
+These Rules only check the time; date validation must be run separately.
+
+### AfterTime
+
+Ensure that the submitted time is after a particular hour and minute.
+
+```php
+Rule::afterTime(Carbon::now())
+// or
+new AfterTime(Carbon::now())
+```
+
+### AtOrAfterTime
+
+Ensure that the submitted time is on or after a particular hour and minute.
+
+```php
+Rule::atOrAfterTime(Carbon::now())
+// or
+new AtOrAfterTime(Carbon::now())
+```
+
+### AtOrBeforeTime
+
+Ensure that the submitted time is on or before a particular hour and minute.
+
+```php
+Rule::atOrBeforeTime(Carbon::now())
+// or
+new AtOrBeforeTime(Carbon::now())
+```
+
+### AtTime
+
+Ensure that the submitted time is on a particular hour and minute.
+
+```php
+Rule::atTime(Carbon::now())
+// or
+new AtTime(Carbon::now())
+```
+
+### BeforeTime
+
+Ensure that the submitted time is before a particular hour and minute.
+
+```php
+Rule::beforeTime(Carbon::now())
+// or
+new BeforeTime(Carbon::now())
+```
 
 ### TimeFormat
 
 Ensure that the given time is in a format that PHP can interpret.
+
+Time can be input in many different ways, including 12 and 24 hour formats.
+
+Accepting as many different time formats will ensure the user can specify the time in a way that makes sense to them.
 
 A full list of the formats this rule will accept is available in the class definition.
 
