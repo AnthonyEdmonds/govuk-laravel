@@ -38,14 +38,14 @@ class OnOrAfterDateTest extends DateRuleTestCase
 
     public function testFailsWhenBeforeMinute(): void
     {
-        $this->setRuleData(1, 12, 2022, '17:04');
+        $this->setRuleData(2, 12, 2022, '17:04');
 
         $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be the same day or after 02/12/2022 17:05');
     }
 
     public function testPassesWhenFutureMinute(): void
     {
-        $this->setRuleData(3, 12, 2022, '17:06');
+        $this->setRuleData(2, 12, 2022, '17:06');
 
         $this->assertRulePasses($this->rule, self::DATE_FIELD, self::VALUE);
     }

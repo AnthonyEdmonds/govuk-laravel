@@ -31,7 +31,7 @@ class OnDateTest extends DateRuleTestCase
 
     public function testFailsWhenNotMinute(): void
     {
-        $this->setRuleData(1, 12, 2022, '17:06');
+        $this->setRuleData(2, 12, 2022, '17:06');
 
         $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be the same day as 02/12/2022 17:05');
     }

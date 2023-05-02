@@ -8,7 +8,7 @@ class BeforeDate extends DateRule
 {
     protected function test(Carbon $enteredDate): bool
     {
-        if ($enteredDate->isBefore($this->date) === true) {
+        if ($enteredDate->lessThan($this->date) === true) {
             return true;
         }
 

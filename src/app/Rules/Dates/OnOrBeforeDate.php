@@ -8,11 +8,7 @@ class OnOrBeforeDate extends DateRule
 {
     protected function test(Carbon $enteredDate): bool
     {
-        if ($enteredDate->isSameDay($this->date) === true) {
-            return true;
-        }
-
-        if ($enteredDate->isBefore($this->date) === true) {
+        if ($enteredDate->lessThanOrEqualTo($this->date) === true) {
             return true;
         }
 
