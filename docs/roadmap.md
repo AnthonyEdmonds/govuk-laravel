@@ -6,7 +6,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 * CSS does not wrap unrealistic long words
 * Space after link components
-* Inline rules do not extend the Validator as expected
 
 ## Enhancements
 

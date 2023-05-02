@@ -8,6 +8,11 @@ use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnOrAfterDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnOrBeforeDate;
+use AnthonyEdmonds\GovukLaravel\Rules\Times\AfterTime;
+use AnthonyEdmonds\GovukLaravel\Rules\Times\AtOrAfterTime;
+use AnthonyEdmonds\GovukLaravel\Rules\Times\AtOrBeforeTime;
+use AnthonyEdmonds\GovukLaravel\Rules\Times\AtTime;
+use AnthonyEdmonds\GovukLaravel\Rules\Times\BeforeTime;
 use AnthonyEdmonds\GovukLaravel\Rules\Times\TimeFormat;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
@@ -103,6 +108,26 @@ class GovukServiceProvider extends ServiceProvider
         });
 
         // Times
+        Rule::macro('afterTime', function (Carbon $time) {
+            return new AfterTime($time);
+        });
+
+        Rule::macro('atOrAfterTime', function (Carbon $time) {
+            return new AtOrAfterTime($time);
+        });
+
+        Rule::macro('atOrBeforeTime', function (Carbon $time) {
+            return new AtOrBeforeTime($time);
+        });
+
+        Rule::macro('AtTime', function (Carbon $time) {
+            return new AtTime($time);
+        });
+
+        Rule::macro('BeforeTime', function (Carbon $time) {
+            return new BeforeTime($time);
+        });
+
         Rule::macro('timeFormat', function () {
             return new TimeFormat();
         });
