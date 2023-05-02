@@ -1,7 +1,7 @@
 @props([
     'links' => [],
     'logoAlt' => $serviceName,
-    'logoRoute' => 'home',
+    'logoLink' => config('silverowl.home.link'),
     'logoImage',
     'logoHeight' => 44,
     'serviceName' => null,
@@ -15,7 +15,7 @@
     <div class="govuk-header__container govuk-width-container">
         <div class="govuk-header__logo">
             <a
-                href="{{ route($logoRoute) }}"
+                href="{{ $logoLink }}"
                 class="govuk-header__link govuk-header__link--homepage"
             >
                 <span class="govuk-header__logotype">
@@ -32,7 +32,7 @@
         <div class="govuk-header__content">
             @isset($serviceName)
                 <a
-                    href="{{ route($logoRoute) }}"
+                    href="{{ $logoLink }}"
                     class="govuk-header__link govuk-header__service-name"
                 >
                     {{ $serviceName }}
@@ -74,7 +74,7 @@
                             <li class="govuk-header__navigation-item">
                                 <a
                                     class="govuk-header__link"
-                                    href="{{ route($link['route'] ?? $link) }}"
+                                    href="{{ $link['link'] ?? $link }}"
                                     target="{{ $link['blank'] ?? false === true ? '_blank' : '_self' }}"
                                 >
                                     {{ $label }}

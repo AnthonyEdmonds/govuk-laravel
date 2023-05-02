@@ -202,22 +202,22 @@ class FooterTest extends TestCase
                 'Manage users' => [
                     'blank' => true,
                     'can' => 'manage_users',
-                    'route' => 'users.index',
+                    'link' => route('users.index'),
                 ],
-                'Sign out' => 'sign-out',
+                'Sign out' => route('sign-out'),
             ],
             'navigationLinks' => [
                 'Management' => [
-                    'Manage users' => 'users.index',
-                    'Sign out' => 'sign-out',
+                    'Manage users' => route('users.index'),
+                    'Sign out' => route('sign-out'),
                 ],
                 'Departments and policy' => [
                     'Departments' => [
                         'blank' => true,
                         'can' => 'view_departments',
-                        'route' => 'departments.index',
+                        'link' => route('departments.index'),
                     ],
-                    'Policies' => 'policies.index',
+                    'Policies' => route('policies.index'),
                 ],
                 'Services and information' => [
                     'columns' => 2,
@@ -225,9 +225,9 @@ class FooterTest extends TestCase
                         'Benefits' => [
                             'blank' => true,
                             'can' => 'view_benefits',
-                            'route' => 'benefits.index',
+                            'link' => route('benefits.index'),
                         ],
-                        'Information' => 'information.index',
+                        'Information' => route('information.index'),
                     ],
                 ],
             ],

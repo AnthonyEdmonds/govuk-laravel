@@ -108,25 +108,25 @@ class HeaderTest extends TestCase
 
         return $this->assertView('govuk::components.header', [
             'links' => [
-                'Other link' => 'somewhere-else',
+                'Other link' => route('somewhere-else'),
                 'Manage users' => [
                     'blank' => true,
                     'can' => 'manage_users',
-                    'route' => 'users.index',
+                    'link' => route('users.index'),
                 ],
                 'Sign in' => [
                     'auth' => false,
-                    'route' => 'sign-in',
+                    'link' => route('sign-in'),
                 ],
                 'Sign out' => [
                     'auth' => true,
-                    'route' => 'sign-out',
+                    'link' => route('sign-out'),
                 ],
             ],
             'logoAlt' => 'My logo alt',
-            'logoRoute' => 'home',
-            'logoImage' => 'logo.jpg',
             'logoHeight' => 44,
+            'logoImage' => 'logo.jpg',
+            'logoLink' => route('home'),
             'serviceName' => 'My service name',
         ]);
     }
