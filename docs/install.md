@@ -92,6 +92,6 @@ If you want to override the default GOV.UK Design System colours and fonts, amen
 Publish `govuk-font` to copy [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font, and import the related `fonts.scss` file in `/resources/scss/app.scss` before the GOV.UK Design System.
 
 ```scss
-@import '../fonts/inter.scss';
+@import 'inter.scss';
 // GOV.UK and other imports...
 ```
