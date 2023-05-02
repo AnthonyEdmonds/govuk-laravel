@@ -31,35 +31,36 @@ A footer is provided on the default page template `/resources/views/vendor/govuk
 
 ## Props
 
-| Name              | Type   | Default | Description |
-| ----------------- | ------ | ------- | ----------- |
-| licenceLogo       | string | null    | The path to the licence logo |
-| licenceLogoHeight | int    | null    | How tall the licence logo should be |
-| licenceLogoWidth  | int    | null    | How wide the licence logo should be |
+| Name              | Type   | Default | Description                                                 |
+|-------------------|--------|---------|-------------------------------------------------------------|
+| licenceLogo       | string | null    | The path to the licence logo                                |
+| licenceLogoHeight | int    | null    | How tall the licence logo should be                         |
+| licenceLogoWidth  | int    | null    | How wide the licence logo should be                         |
 | metaHeading       | string | null    | The heading of the `meta` links section, for screen readers |
-| metaLinks         | array  | []      | A keyed array |
-| navigationLinks   | array  | []      | A keyed array |
+| metaLinks         | array  | []      | A keyed array                                               |
+| navigationLinks   | array  | []      | A keyed array                                               |
 
 ### Meta
 
-This prop accepts a keyed array, where the key is the label of the link, and the value is the route name.
+This prop accepts a keyed array, where the key is the label and the value is the link.
 
 ```php
 [
-    'Help' => 'help.index',
-    'Cookies' => 'privacy',
+    'Help' => route('help.index'),
+    'Cookies' => route('privacy'),
+]
 ```
 
-For conditional navigation you may provide a keyed array as the value, with a `route` key and other setting keys:
+For conditional navigation you may provide a keyed array as the value, with a `link` key and other setting keys:
 
 ```php
 [
     'Manage users' => [
         'blank' => true,
         'can' => 'manage_users',
-        'route' => 'users.index',
+        'link' => route('users.index'),
     ],
-    'Sign out' => 'sign-out',
+    'Sign out' => route('sign-out'),
 ]
 ```
 
@@ -68,17 +69,17 @@ For conditional navigation you may provide a keyed array as the value, with a `r
 
 ### Navigation
 
-This prop accepts a keyed array, where the key is the heading label, and the value is a keyed array, where the key is the label for the link, and the value is the route name.
+This prop accepts a keyed array, where the key is the heading label, and the value is a keyed array, where the key is the label for the link, and the value is the link.
 
 ```php
 [
     'Services and information' => [
-        'Benefits' => 'benefits.index',
-        'Information' => 'information.index',
+        'Benefits' => route('benefits.index'),
+        'Information' => route('information.index'),
     ],
     'Departments and policy' => [
-        'Departments' => 'departments.index',
-        'Policies' => 'policies.index',
+        'Departments' => route('departments.index'),
+        'Policies' => route('policies.index'),
     ],
 ]
 ```
@@ -90,15 +91,16 @@ You may display a set of links over several columns by specifying the `columns` 
     'Services and information' => [
         'columns' => 2,
         'links' => [
-            'Benefits' => 'benefits.index',
-            'Information' => 'information.index',
+            'Benefits' => route('benefits.index'),
+            'Information' => route('information.index'),
             // Lots of links...
         ]
     ],
     'Departments and policy' => [
-        'Departments' => 'departments.index',
-        'Policies' => 'policies.index',
+        'Departments' => route('departments.index'),
+        'Policies' => route('policies.index'),
     ],
+]
 ```
 
 As with the `meta` prop, you may provide a keyed array as the value of a link for conditional navigation.
@@ -111,29 +113,29 @@ As with the `meta` prop, you may provide a keyed array as the value of a link fo
             'Benefits' => [
                 'blank' => true,
                 'can' => 'view_benefits',
-                'route' => 'benefits.index',
+                'link' => route('benefits.index'),
             ],
-            'Information' => 'information.index',
+            'Information' => route('information.index'),
         ]
     ],
     'Departments and policy' => [
         'Departments' => [
             'blank' => true,
             'can' => 'view_departments',
-            'route' => 'departments.index',
+            'link' => route('departments.index'),
         ],
-        'Policies' => 'policies.index',
+        'Policies' => route('policies.index'),
     ],
 ]
 ```
 
 ## Slots
 
-| Name        | Optional | Location                              | Usage |
-| ----------- | -------- | ------------------------------------- | ----- |
-| information | Yes      | Bottom-left corner                    | Descriptive text, such as service ownership |
+| Name        | Optional | Location                              | Usage                                         |
+|-------------|----------|---------------------------------------|-----------------------------------------------|
+| information | Yes      | Bottom-left corner                    | Descriptive text, such as service ownership   |
 | licence     | Yes      | Bottom-left corner, below information | A licence declaration for the page, with logo | 
-| logos       | Yes      | Bottom-right corner                   | Company and service logos |
+| logos       | Yes      | Bottom-right corner                   | Company and service logos                     |
 
 All of these slots are optional.
 

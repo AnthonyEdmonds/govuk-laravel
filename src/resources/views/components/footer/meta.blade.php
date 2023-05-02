@@ -19,7 +19,7 @@
                         <li class="govuk-footer__inline-list-item">
                             <a
                                 class="govuk-footer__link"
-                                href="{{ route($link['route'] ?? $link) }}"
+                                href="{{ $link['link'] ?? $link }}"
                                 target="{{ $link['blank'] ?? false === true ? '_blank' : '_self' }}"
                             >
                                 {{ $label }}
