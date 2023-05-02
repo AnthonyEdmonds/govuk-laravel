@@ -12,10 +12,11 @@
     "license": "MIT",
     "homepage": "https://github.com/AnthonyEdmonds/govuk-laravel",
     "scripts": {
-        "test": "php vendor/bin/phpunit",
         "larastan": "php vendor/bin/phpstan analyse --memory-limit 512M",
         "pint": "php ./vendor/bin/pint",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "test": "php vendor/bin/paratest",
+        "test-slow": "php vendor/bin/phpunit"
     },
     "devDependencies": {
         "govuk-frontend": "^4.6",

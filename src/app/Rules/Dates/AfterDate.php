@@ -12,7 +12,7 @@ class AfterDate extends DateRule
             return true;
         }
 
-        $this->message = ':attribute must be after '.$this->date->format('d/m/Y');
+        $this->message = ':attribute must be after '.$this->date->format($this->messageFormat);
 
         return false;
     }
