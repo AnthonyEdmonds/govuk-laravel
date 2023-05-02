@@ -50,6 +50,5 @@
         </div>
 
         @include('govuk::layout.footer')
-        @include('govuk::layout.foot')
     </body>
 </html>
