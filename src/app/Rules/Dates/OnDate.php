@@ -8,7 +8,7 @@ class OnDate extends DateRule
 {
     protected function test(Carbon $enteredDate): bool
     {
-        if ($enteredDate->isSameDay($this->date) === true) {
+        if ($enteredDate->equalTo($this->date) === true) {
             return true;
         }
 

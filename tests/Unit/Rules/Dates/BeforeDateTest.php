@@ -38,14 +38,14 @@ class BeforeDateTest extends DateRuleTestCase
 
     public function testPassesWhenBeforeMinute(): void
     {
-        $this->setRuleData(1, 12, 2022, '17:04');
+        $this->setRuleData(2, 12, 2022, '17:04');
 
         $this->assertRulePasses($this->rule, self::DATE_FIELD, self::VALUE);
     }
 
     public function testFailsWhenFutureMinute(): void
     {
-        $this->setRuleData(3, 12, 2022, '17:06');
+        $this->setRuleData(2, 12, 2022, '17:06');
 
         $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be before 02/12/2022 17:05');
     }

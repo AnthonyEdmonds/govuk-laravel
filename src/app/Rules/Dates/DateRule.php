@@ -22,7 +22,9 @@ abstract class DateRule implements ValidationRule, DataAwareRule
         protected Carbon $date,
         protected string|null $timeField = null,
     ) {
-        //
+        if ($this->timeField === null) {
+            $this->date->setTime(0, 0);
+        }
     }
 
     public function validate(string $attribute, mixed $value, Closure $fail): void

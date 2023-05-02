@@ -8,7 +8,7 @@ class AfterDate extends DateRule
 {
     protected function test(Carbon $enteredDate): bool
     {
-        if ($enteredDate->isAfter($this->date) === true) {
+        if ($enteredDate->greaterThan($this->date) === true) {
             return true;
         }
 
