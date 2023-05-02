@@ -32,7 +32,7 @@
         <div class="govuk-header__content">
             @isset($serviceName)
                 <a
-                    href="{{ $logoRoute }}"
+                    href="{{ $logoLink }}"
                     class="govuk-header__link govuk-header__service-name"
                 >
                     {{ $serviceName }}
