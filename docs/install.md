@@ -63,26 +63,16 @@ You will need to either republish or manually update the templates if they are u
 
 ### JS
 
-Add the GOV.UK Design System JavaScript to `/resources/js/app.js` as normal.
+GOV.UK Laravel supports [Vite](https://laravel.com/docs/10.x/vite), which replaces the older Laravel Mix.
+
+Add the GOV.UK Design System JavaScript and SCSS to `/resources/js/app.js`.
 
 ```js
 import { initAll } from 'govuk-frontend';
+import '../scss/app.scss';
+
 initAll();
-```
 
-Add the following to `webpack.mix.js`; both JavaScript and TypeScript versions are provided as of 4.1.0:
-
-```js
-mix.webpackConfig({
-    module: {
-        rules: [
-            {
-                test: /\.mjs$/i,
-                resolve: { byDependency: { esm: { fullySpecified: false } } },
-            },
-        ],
-    },
-});
 ```
 
 ### SCSS
@@ -102,17 +92,6 @@ If you want to override the default GOV.UK Design System colours and fonts, amen
 Publish `govuk-font` to copy [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font, and import the related `fonts.scss` file in `/resources/scss/app.scss` before the GOV.UK Design System.
 
 ```scss
-@import 'inter.scss';
+@import '../fonts/inter.scss';
 // GOV.UK and other imports...
-```
-
-Make sure that the font files are copied across in `webpack.mix.js`:
-
-```js
-mix.options()
-    // Other commands...
-    .copyDirectory(
-        'resources/fonts',
-        'public/fonts'
-    );
 ```
