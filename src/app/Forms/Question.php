@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Validator;
 
 abstract class Question
 {
-    protected bool $skippable = false;
+    const LOOPS = false;
+
+    const SKIPPABLE = false;
 
     // Abstract
     abstract public static function key(): string;
@@ -57,14 +59,14 @@ abstract class Question
 
     public function getOtherButtonLabel(): string|null
     {
-        return $this->skippable === true
+        return static::SKIPPABLE === true
             ? 'Skip and continue'
             : null;
     }
 
     public function getOtherButtonRoute(Form $form, string $mode): string|null
     {
-        return $this->skippable === true
+        return static::SKIPPABLE === true
             ? $form::skipRoute($mode, static::key())
             : null;
     }

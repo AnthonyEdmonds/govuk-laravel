@@ -148,7 +148,7 @@ abstract class Form
         $question->store($request, $subject, $mode);
         GovukForm::put(static::key(), $subject);
 
-        return redirect($this->getNextRoute($mode, $questionKey));
+        return redirect($this->getNextRoute($mode, $questionKey, $question::LOOPS));
     }
 
     public function skip(string $mode, string $questionKey): RedirectResponse
@@ -365,8 +365,12 @@ abstract class Form
         ]);
     }
 
-    protected function getNextRoute(string $mode, string $questionKey = null): string
+    protected function getNextRoute(string $mode, string|null $questionKey = null, bool $loops = false): string
     {
+        if ($loops === true) {
+            return $this->questionRoute($mode, $questionKey);
+        }
+
         if ($mode === self::NEW) {
             return $this->isLastQuestion($questionKey) === true
                 ? $this->summaryRoute($mode)
