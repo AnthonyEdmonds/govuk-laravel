@@ -48,6 +48,16 @@ Questions require an associated FormRequest to handle any validation.
 
 The Model is made available to each FormRequest via the `$this->subject` property.
 
+### Skippable
+
+Set this const to `true` to show the skip button which links to the `skip` method on the Question.
+
+### Loops
+
+Set this const to `true` to return to the question after submitting the Question. Useful for questions such as file uploads where you want to allow multiple selection.
+
+Ensure you provide an exit from the loop using the `skippable` functionality.
+
 ## Routing
 
 A route macro is provided to handle all forms. Add the following to your `routes/web.php` file:
