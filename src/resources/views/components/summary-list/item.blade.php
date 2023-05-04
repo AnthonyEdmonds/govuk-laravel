@@ -16,7 +16,7 @@
 
 <div class="{{ $rowClasses }}">
     <dt class="govuk-summary-list__key">
-        {{ $key }}
+        {!! $key !!}
     </dt>
     
     <dd class="govuk-summary-list__value">
