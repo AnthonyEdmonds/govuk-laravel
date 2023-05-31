@@ -1,7 +1,7 @@
 @props([
     'links' => [],
     'logoAlt' => $serviceName,
-    'logoLink' => config('silverowl.home.link'),
+    'logoLink' => config('govuk.home.link'),
     'logoImage',
     'logoHeight' => 44,
     'serviceName' => null,
