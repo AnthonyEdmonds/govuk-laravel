@@ -22,8 +22,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 ## Tests to Backfill
 
-* Helpers
-    * GovukQuestion
 * Questions
     * Question
 * Views

@@ -155,13 +155,14 @@ class GovukQuestion
             return $name;
         }
 
+        $name = str_replace(']', '', $name);
         $pieces = explode('[', $name);
         $name = '';
 
         foreach ($pieces as $piece) {
             $name .= $name === ''
                 ? $piece
-                : '.'.rtrim($piece, ']');
+                : ".$piece";
         }
 
         return $name;
