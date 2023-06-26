@@ -69,6 +69,12 @@ class GovukQuestion
             ->type($type);
     }
 
+    public static function new(string $type, array $settings): Question
+    {
+        return Question::create($settings['label'], $settings['name'], $type)
+            ->fromArray($settings);
+    }
+
     public static function radios(
         string $label,
         string $name,

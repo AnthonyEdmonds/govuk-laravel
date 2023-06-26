@@ -23,18 +23,18 @@ Radios also features a leading `hidden` input which contains a null value, to ca
 
 ## Props
 
-| Name      | Type   | Default  | Description |
-| --------- | ------ | -------- | ----------- |
-| hint      | string | null     | A descriptive hint for the input |
-| id        | string | $name    | The ID of the input element |
-| isInline  | bool   | false    | Whether the radio buttons should be presented side by side |
-| isSmall   | bool   | false    | Whether the radio buttons should be smaller |
-| isTitle   | bool   | false    | Whether the label is also the page title |
-| label     | string | Required | The main label of the input |
-| labelSize | string | l        | How large the label should be |
-| name      | string | Required | The name of the input element |
-| options   | array  | []       | A keyed array |
-| value     | string | null     | The value of the current selection | 
+| Name       | Type   | Default   | Description                                                |
+|------------|--------|-----------|------------------------------------------------------------|
+| hint       | string | null      | A descriptive hint for the input                           |
+| id         | string | $name     | The ID of the input element                                |
+| isInline   | bool   | false     | Whether the radio buttons should be presented side by side |
+| isSmall    | bool   | false     | Whether the radio buttons should be smaller                |
+| isTitle    | bool   | false     | Whether the label is also the page title                   |
+| label      | string | Required  | The main label of the input                                |
+| labelSize  | string | l         | How large the label should be                              |
+| name       | string | Required  | The name of the input element                              |
+| options    | array  | []        | A keyed array                                              |
+| value      | string | null      | The value of the current selection                         | 
 
 ### Options
 
@@ -78,10 +78,10 @@ Inputs that should show when the option is selected can be set using the `inputs
                 'label' => 'Phone number',
                 'name' => 'phone',
             ],
-            [
-                'label' => 'Mobile number',
-                'name' => 'mobile',
-                'hint' => 'Without any prefixes'
+            'date' => [
+                'label' => 'Birthday',
+                'name' => 'bday',
+                'hint' => 'Enter your date of birth',
             ],
         ],
     ],
@@ -89,9 +89,15 @@ Inputs that should show when the option is selected can be set using the `inputs
 ]
 ```
 
-You may provide any array keys that are compatible with the `text-input` component.
+By default, an `input` component will be shown.
 
-Support for other input types may be added in the future.
+You may specify the type of input by setting the array key to a valid method in the `GovukQuestion` helper.
+
+You must provide an array of keys which are compatible with the input component you want to use.
+
+The `name` and `label` keys should be considered a minimum for any input type, though some components may have other requirements.
+
+Avoid nesting radio inputs, and consider breaking the question into more parts.
 
 ## Subcomponents
 

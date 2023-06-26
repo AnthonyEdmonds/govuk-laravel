@@ -55,14 +55,12 @@
             class="govuk-radios__conditional govuk-radios__conditional--hidden"
             id="conditional-{{ $id }}"
         >
-            @foreach($inputs as $input)
+            @foreach($inputs as $type => $settings)
                 {!!
-                    \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::input(
-                        $input['label'],
-                        $input['name']
-                    )
-                        ->fromArray($input)
-                        ->toBlade()
+                    \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::new(
+                        is_string($type) === true ? $type : \AnthonyEdmonds\GovukLaravel\Questions\Question::TEXT_INPUT,
+                        $settings,
+                    )->toBlade()
                 !!}
             @endforeach
         </div>
