@@ -78,7 +78,7 @@ Inputs that should show when the option is selected can be set using the `inputs
                 'label' => 'Phone number',
                 'name' => 'phone',
             ],
-            'date' => [
+            'date-input' => [
                 'label' => 'Birthday',
                 'name' => 'bday',
                 'hint' => 'Enter your date of birth',
@@ -89,7 +89,7 @@ Inputs that should show when the option is selected can be set using the `inputs
 ]
 ```
 
-By default, an `input` component will be shown.
+By default, a `text-input` component will be shown.
 
 You may specify the type of input by setting the array key to a valid method in the `GovukQuestion` helper.
 
