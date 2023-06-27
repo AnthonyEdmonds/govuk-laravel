@@ -9,7 +9,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 ## Enhancements
 
-* Additional conditional input support for radios
 * Index / List page
 * Task List, once added as official component
 
@@ -23,8 +22,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 
 ## Tests to Backfill
 
-* Helpers
-    * GovukQuestion
 * Questions
     * Question
 * Views
