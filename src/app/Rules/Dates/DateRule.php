@@ -47,6 +47,8 @@ abstract class DateRule implements ValidationRule, DataAwareRule
 
                 return;
             }
+        } else {
+            $enteredDate->setTime(0, 0);
         }
 
         if ($enteredDate->isValid() === false) {
