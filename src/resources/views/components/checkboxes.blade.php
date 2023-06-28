@@ -53,7 +53,7 @@
             @foreach($options as $optionValue => $option)
                 <x-govuk::input.checkbox
                     id="{{ $id }}_{{ $loop->iteration }}"
-                    name="{{$name}}[{{ $loop->iteration }}]"
+                    name="{{$name}}[]"
                     :option="$option"
                     :selections="$value"
                     :value="$optionValue"
