@@ -3,14 +3,14 @@
     'list',
     'noBorders' => false,
     'title',
-    'id' => '',
+    'id' => ''
 ])
 
 @php
     
 @endphp
 
-<div class="govuk-summary-card" id="{{ $id }}">
+<div class="govuk-summary-card" @if(!empty($id)) id="{{ $id }}" @endif>
     <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ $title }}</h2>
         <ul class="govuk-summary-card__actions">
