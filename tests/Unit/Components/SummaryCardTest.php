@@ -14,6 +14,12 @@ class SummaryCardTest extends TestCase
             ->contains('My title');
     }
 
+    public function testHasId(): void
+    {
+        $this->makeSummaryCard()
+            ->contains('my id');
+    }
+
     public function testHasActions(): void
     {
         $this->makeSummaryCard([
@@ -60,6 +66,7 @@ class SummaryCardTest extends TestCase
                 'My list item' => 'My list value',
             ],
             'title' => 'My title',
+            'id' => 'my id',
         ]);
     }
 }
