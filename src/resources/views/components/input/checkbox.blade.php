@@ -32,7 +32,7 @@
             @endif
 
             @if($hasInputs === true)
-            data-aria-controls="conditional-{{ $name }}"
+            data-aria-controls="conditional-{{ $id }}"
             @endif
 
             @if($isExclusive === true)
@@ -57,7 +57,7 @@
     @if($hasInputs === true)
         <div
             class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-            id="conditional-{{ $name }}"
+            id="conditional-{{ $id }}"
         >
             @foreach($inputs as $type => $settings)
                 {!!
