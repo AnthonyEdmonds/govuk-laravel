@@ -102,10 +102,10 @@ class CheckboxTest extends TestCase
 
         $checkbox
             ->first('div > input')
-            ->hasAttribute('data-aria-controls', 'conditional-my-name');
+            ->hasAttribute('data-aria-controls', 'conditional-my-id');
 
         $input = $checkbox->at('div', 1)
-            ->hasAttribute('id', 'conditional-my-name');
+            ->hasAttribute('id', 'conditional-my-id');
 
         $input->first('div > label')
             ->contains('Input label');
