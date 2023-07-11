@@ -16,9 +16,19 @@ class CanSubmitTest extends TestCase
         $this->model = new FormModel();
     }
 
-    public function testTrue(): void
+    public function testTrueWhenOK(): void
     {
+        $this->model->name = 'Bob';
+
         $this->assertTrue(
+            $this->model->canSubmit(),
+        );
+    }
+
+    public function testMessageWhenNot(): void
+    {
+        $this->assertEquals(
+            'You must put a name',
             $this->model->canSubmit(),
         );
     }
