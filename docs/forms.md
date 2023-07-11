@@ -40,6 +40,16 @@ To exit to another endpoint, override the `exitRoute` method on the Form.
 
 The `$subject` is passed to the method if it exists.
 
+### Saving drafts
+
+Some forms require different saving modes, such as "publish" and "draft".
+
+You can enable a second button on the form summary page by returning a string label from the `submitDraftLabel` method.
+
+The `submitDraft` method can then be overridden to add the draft behaviour.
+
+Primary or "publish" behaviour should always be kept in the `submitForm` method.
+
 ## Questions
 
 ### FormRequests
