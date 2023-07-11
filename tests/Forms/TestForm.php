@@ -42,6 +42,11 @@ class TestForm extends Form
         $subject->save();
     }
 
+    protected function submitDraft(Model $subject, string $mode): void
+    {
+        $subject->save();
+    }
+
     public function confirmationBlade(): string|false
     {
         return 'test.confirmation';
@@ -50,5 +55,10 @@ class TestForm extends Form
     public function startBlade(): string|false
     {
         return 'test.start';
+    }
+
+    protected function summaryDraftLabel(): string|null
+    {
+        return 'Save as draft';
     }
 }

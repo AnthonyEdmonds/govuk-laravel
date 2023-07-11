@@ -135,4 +135,23 @@ class SummaryTest extends TestCase
             $this->page->getData()['subject']
         );
     }
+
+    public function testHasDraftLabel(): void
+    {
+        $this->assertEquals(
+            'Save as draft',
+            $this->page->getData()['draftButtonLabel']
+        );
+    }
+
+    public function testHasDraftAction(): void
+    {
+        $this->assertEquals(
+            route('forms.draft', [
+                TestForm::key(),
+                Form::NEW,
+            ]),
+            $this->page->getData()['draftButtonAction']
+        );
+    }
 }

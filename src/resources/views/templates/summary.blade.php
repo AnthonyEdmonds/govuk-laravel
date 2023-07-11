@@ -10,7 +10,7 @@
             </x-govuk::button>
             
             @isset($draftButtonLabel)
-                <x-govuk::button secondary prevent-double-click :action="$draftButtonAction">
+                <x-govuk::button secondary prevent-double-click :form-action="$draftButtonAction">
                     {{ $draftButtonLabel }}
                 </x-govuk::button>
             @endif
