@@ -58,7 +58,7 @@ class SummaryTest extends TestCase
     public function testHasAction(): void
     {
         $this->assertEquals(
-            route('forms.summary', [
+            route('forms.submit', [
                 TestForm::key(),
                 Form::NEW,
             ]),
