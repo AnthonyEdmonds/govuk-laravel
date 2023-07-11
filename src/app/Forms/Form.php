@@ -191,7 +191,7 @@ abstract class Form
         $canSubmit = $subject->canSubmit();
 
         if ($canSubmit !== true) {
-            return redirect()->back()->withErrors([
+            return redirect($this->summaryRoute($mode))->withErrors([
                 'content' => $canSubmit,
             ]);
         }
