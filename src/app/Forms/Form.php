@@ -187,6 +187,15 @@ abstract class Form
     public function submit(string $mode): RedirectResponse
     {
         $subject = $this->getSubjectFromSession();
+        /** @phpstan-ignore-next-line */
+        $canSubmit = $subject->canSubmit();
+
+        if ($canSubmit !== true) {
+            return redirect()->back()->withErrors([
+                'content' => $canSubmit,
+            ]);
+        }
+
         $this->submitForm($subject, $mode);
 
         static::USES_DATABASE === false

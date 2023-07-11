@@ -70,3 +70,11 @@ You can then enter a form from one of three perspectives:
 
 1. Starting a new form `MyModel::startFormRoute() OR route('forms.start', MyForm::key())`
 2. Editing an existing Model `MyModel::editFormRoute($subject) OR route('forms.edit', [MyForm::key(), $subject->id])`
+
+## HasForm
+
+### canSubmit
+
+Each model can override the `canSubmit` method to control whether the model can be submitted.
+
+Return `true` from the method to allow submission, or return a message as a string to tell the user what went wrong. 

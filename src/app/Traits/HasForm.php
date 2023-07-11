@@ -105,4 +105,10 @@ trait HasForm
                 : null,
         ];
     }
+
+    // Submit
+    public function canSubmit(): string|true
+    {
+        return true;
+    }
 }
