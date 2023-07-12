@@ -93,6 +93,26 @@ class SubmitTest extends TestCase
         );
     }
 
+    public function testCancelsWhenCannotSubmit(): void
+    {
+        $this->subject->name = null;
+
+        $this->makeRequest(TestForm::class);
+
+        $this->assertEquals(
+            route('forms.summary', [
+                TestForm::key(),
+                Form::NEW,
+            ]),
+            $this->response->getTargetUrl(),
+        );
+
+        $this->assertEquals(
+            'You must put a name',
+            $this->response->getSession()->get('errors')->first('content')
+        );
+    }
+
     protected function makeRequest(string $formClass): void
     {
         GovukForm::put($formClass::key(), $this->subject);

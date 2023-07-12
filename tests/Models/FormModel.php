@@ -32,4 +32,11 @@ class FormModel extends Model
     {
         return new FormModelFactory();
     }
+
+    public function canSubmit(): string|true
+    {
+        return $this->name === null
+            ? 'You must put a name'
+            : true;
+    }
 }
