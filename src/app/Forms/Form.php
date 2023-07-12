@@ -171,7 +171,7 @@ abstract class Form
             $this->summaryTitle($subject),
             $subject->toSummary(true), /* @phpstan-ignore-line */
             $this->summarySubmitLabel(),
-            $this->summaryRoute($mode),
+            $this->submitRoute($mode),
             $mode === self::EDIT
                 ? $this->exitRoute($subject)
                 : $this->questionRoute(self::NEW, $this->getLastQuestionKey()),
@@ -181,7 +181,9 @@ abstract class Form
             $this->summaryCancelRoute($subject),
         )
             ->with('mode', $mode)
-            ->with('subject', $subject);
+            ->with('subject', $subject)
+            ->with('draftButtonLabel', $this->summaryDraftLabel())
+            ->with('draftButtonAction', $this->draftRoute($mode));
     }
 
     public function submit(string $mode): RedirectResponse
@@ -211,6 +213,14 @@ abstract class Form
         }
     }
 
+    public function draft(string $mode): RedirectResponse
+    {
+        $subject = $this->getSubjectFromSession();
+        $this->submitDraft($subject, $mode);
+
+        return redirect($this->exitRoute($subject));
+    }
+
     protected function summaryTitle(Model $subject): string
     {
         return 'Review your answers';
@@ -234,6 +244,16 @@ abstract class Form
     protected function summaryCancelRoute(Model|null $subject = null): string|null
     {
         return $this->exitRoute($subject);
+    }
+
+    protected function submitDraft(Model $subject, string $mode): void
+    {
+        //
+    }
+
+    protected function summaryDraftLabel(): string|null
+    {
+        return null;
     }
 
     // Confirmation
@@ -416,6 +436,22 @@ abstract class Form
     protected function summaryRoute(string $mode): string
     {
         return route('forms.summary', [
+            static::key(),
+            $mode,
+        ]);
+    }
+
+    protected function submitRoute(string $mode): string
+    {
+        return route('forms.submit', [
+            static::key(),
+            $mode,
+        ]);
+    }
+
+    protected function draftRoute(string $mode): string
+    {
+        return route('forms.draft', [
             static::key(),
             $mode,
         ]);

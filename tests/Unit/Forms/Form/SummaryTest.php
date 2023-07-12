@@ -58,7 +58,7 @@ class SummaryTest extends TestCase
     public function testHasAction(): void
     {
         $this->assertEquals(
-            route('forms.summary', [
+            route('forms.submit', [
                 TestForm::key(),
                 Form::NEW,
             ]),
@@ -133,6 +133,25 @@ class SummaryTest extends TestCase
         $this->assertInstanceOf(
             FormModel::class,
             $this->page->getData()['subject']
+        );
+    }
+
+    public function testHasDraftLabel(): void
+    {
+        $this->assertEquals(
+            'Save as draft',
+            $this->page->getData()['draftButtonLabel']
+        );
+    }
+
+    public function testHasDraftAction(): void
+    {
+        $this->assertEquals(
+            route('forms.draft', [
+                TestForm::key(),
+                Form::NEW,
+            ]),
+            $this->page->getData()['draftButtonAction']
         );
     }
 }

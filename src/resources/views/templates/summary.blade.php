@@ -8,6 +8,12 @@
             <x-govuk::button :type="$submitButtonType" prevent-double-click>
                 {{ $submitButtonLabel }}
             </x-govuk::button>
+            
+            @isset($draftButtonLabel)
+                <x-govuk::button secondary prevent-double-click :form-action="$draftButtonAction">
+                    {{ $draftButtonLabel }}
+                </x-govuk::button>
+            @endif
 
             @include('govuk::parts.other-button')
         </x-govuk::button-group>
