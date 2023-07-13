@@ -3,6 +3,7 @@
     'asStartButton' => false,
     'footer' => false,
     'href',
+    'inverted' => false,
     'target' => '_self',
 ])
 
@@ -10,14 +11,22 @@
     if ($footer === true) {
         $linkClasses = 'govuk-footer__link';
 
-    } elseif ($asButton === true) {
+    } elseif ($asButton === true || $asStartButton === true) {
         $linkClasses = 'govuk-button';
-
-    } elseif ($asStartButton === true) {
-        $linkClasses = 'govuk-button govuk-button--start';
-
+        
+        if ($asStartButton === true) {
+            $linkClasses .= ' govuk-button--start';
+        } 
+        
+        if ($inverted === true) {
+            $linkClasses .= ' govuk-button--inverse';
+        }
     } else {
         $linkClasses = 'govuk-link';
+        
+        if ($inverted === true) {
+            $linkClasses .= ' govuk-link--inverse';
+        }
     }
 @endphp
 

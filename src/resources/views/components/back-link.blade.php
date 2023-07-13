@@ -1,5 +1,14 @@
 @props([
-    'href'
+    'href',
+    'inverted' => false,
 ])
 
-<a href="{{ $href }}" class="govuk-back-link">Back</a>
+@php
+    $classes = 'govuk-back-link';
+    
+    if ($inverted === true) {
+        $classes .= ' govuk-back-link--inverse';
+    }
+@endphp
+
+<a href="{{ $href }}" class="{{ $classes }}">Back</a>

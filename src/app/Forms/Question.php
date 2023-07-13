@@ -52,19 +52,19 @@ abstract class Question
         return Page::POST_METHOD;
     }
 
-    public function getBlade(): string|null
+    public function getBlade(): ?string
     {
         return null;
     }
 
-    public function getOtherButtonLabel(): string|null
+    public function getOtherButtonLabel(): ?string
     {
         return static::SKIPPABLE === true
             ? 'Skip and continue'
             : null;
     }
 
-    public function getOtherButtonRoute(Form $form, string $mode): string|null
+    public function getOtherButtonRoute(Form $form, string $mode): ?string
     {
         return static::SKIPPABLE === true
             ? $form::skipRoute($mode, static::key())

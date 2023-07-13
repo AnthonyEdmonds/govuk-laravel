@@ -101,7 +101,7 @@ abstract class Form
         return 'Start';
     }
 
-    protected function startBackRoute(): string|null
+    protected function startBackRoute(): ?string
     {
         return $this->exitRoute();
     }
@@ -231,17 +231,17 @@ abstract class Form
         return 'Submit';
     }
 
-    protected function summaryBlade(): string|null
+    protected function summaryBlade(): ?string
     {
         return null;
     }
 
-    protected function summaryCancelLabel(): string|null
+    protected function summaryCancelLabel(): ?string
     {
         return 'Cancel and exit';
     }
 
-    protected function summaryCancelRoute(Model|null $subject = null): string|null
+    protected function summaryCancelRoute(Model $subject = null): ?string
     {
         return $this->exitRoute($subject);
     }
@@ -251,7 +251,7 @@ abstract class Form
         //
     }
 
-    protected function summaryDraftLabel(): string|null
+    protected function summaryDraftLabel(): ?string
     {
         return null;
     }
@@ -272,7 +272,7 @@ abstract class Form
         return false;
     }
 
-    public function loadConfirmationSubject(string|null $subjectKey = null): Model
+    public function loadConfirmationSubject(string $subjectKey = null): Model
     {
         return static::USES_DATABASE === false
             ? $this->getSubjectFromSession()
@@ -380,7 +380,7 @@ abstract class Form
         return route('forms.start', static::key());
     }
 
-    public function exitRoute(Model|null $subject = null): string
+    public function exitRoute(Model $subject = null): string
     {
         return route('/');
     }
@@ -394,7 +394,7 @@ abstract class Form
         ]);
     }
 
-    protected function getNextRoute(string $mode, string|null $questionKey = null, bool $loops = false): string
+    protected function getNextRoute(string $mode, string $questionKey = null, bool $loops = false): string
     {
         if ($loops === true) {
             return $this->questionRoute($mode, $questionKey);

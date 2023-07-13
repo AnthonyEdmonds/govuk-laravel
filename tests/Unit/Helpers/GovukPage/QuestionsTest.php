@@ -131,7 +131,7 @@ class QuestionsTest extends TestCase
     }
 
     protected function makePage(
-        string|null $otherButtonLabel = 'bird',
+        ?string $otherButtonLabel = 'bird',
     ): void {
         $this->page = GovukPage::questions(
             'It',

@@ -138,9 +138,9 @@ class PaginationTest extends TestCase
     }
 
     protected function stackedPagination(
-        string|null $nextPageLabel = null,
-        string|null $prevPageLabel = null,
-        int|null $total = null,
+        string $nextPageLabel = null,
+        string $prevPageLabel = null,
+        int $total = null,
     ): array {
         return [
             'current_page' => 1,

@@ -141,8 +141,8 @@ class ConfirmTest extends TestCase
     }
 
     protected function makePage(
-        string|null $otherButtonLabel = 'carrot',
-        string|null $otherButtonHref = 'kitten',
+        ?string $otherButtonLabel = 'carrot',
+        ?string $otherButtonHref = 'kitten',
     ): void {
         $this->page = GovukPage::confirm(
             'good',

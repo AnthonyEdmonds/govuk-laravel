@@ -47,8 +47,8 @@ class StackedTest extends TestCase
     }
 
     protected function makePagination(
-        string|null $nextUrl = 'Next-URL',
-        string|null $prevUrl = 'Prev-URL',
+        ?string $nextUrl = 'Next-URL',
+        ?string $prevUrl = 'Prev-URL',
     ): ViewAssertion {
         return $this->assertView('govuk::components.pagination.stacked', [
             'nextPageLabel' => 'Next label',
