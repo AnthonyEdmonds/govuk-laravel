@@ -83,6 +83,8 @@ class StoreTest extends TestCase
             'name' => $name,
         ]);
 
+        app()->instance('request', $this->request);
+
         $this->response = $this->form->store(
             $this->request,
             Form::NEW,

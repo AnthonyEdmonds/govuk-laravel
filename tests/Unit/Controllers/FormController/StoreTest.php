@@ -38,6 +38,8 @@ class StoreTest extends TestCase
             'name' => 'potato',
         ]);
 
+        app()->instance('request', $this->request);
+
         GovukForm::put(TestForm::key(), new FormModel());
 
         $this->controller = new FormController();
