@@ -7,7 +7,6 @@ use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 abstract class Question
 {
@@ -32,14 +31,7 @@ abstract class Question
 
     public function validate(Request $request, Model $subject): void
     {
-        $formRequest = $this->getFormRequest();
-        $formRequest->subject = $subject;
-
-        Validator::make(
-            $request->all(),
-            $formRequest->rules(), /* @phpstan-ignore-line */
-            $formRequest->messages()
-        )->validate();
+        app($this->getFormRequest()::class);
     }
 
     public function skip(Model $subject, string $mode): void
