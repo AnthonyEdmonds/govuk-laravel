@@ -45,6 +45,25 @@ class ATest extends TestCase
             ->hasClass('govuk-footer__link');
     }
 
+    public function testHasInvertedLink(): void
+    {
+        $this->makeComponent([
+            'inverted' => true,
+        ])
+            ->first('a')
+            ->hasClass('govuk-link--inverse');
+    }
+
+    public function testHasInvertedButton(): void
+    {
+        $this->makeComponent([
+            'asButton' => true,
+            'inverted' => true,
+        ])
+            ->first('a')
+            ->hasClass('govuk-button--inverse');
+    }
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My content');
@@ -54,6 +73,7 @@ class ATest extends TestCase
             'asStartButton' => $data['asStartButton'] ?? false,
             'footer' => $data['footer'] ?? false,
             'href' => $data['href'] ?? 'my-link',
+            'inverted' => $data['inverted'] ?? false,
             'target' => $data['target'] ?? '_self',
         ]);
     }

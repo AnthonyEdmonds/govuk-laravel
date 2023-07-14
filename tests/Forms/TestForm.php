@@ -57,7 +57,7 @@ class TestForm extends Form
         return 'test.start';
     }
 
-    protected function summaryDraftLabel(): string|null
+    protected function summaryDraftLabel(): ?string
     {
         return 'Save as draft';
     }

@@ -5,6 +5,7 @@
     'formAction' => null,
     'formMethod' => null,
     'id' => null,
+    'inverted' => false,
     'preventDoubleClick' => false,
     'secondary' => false,
     'type' => null,
@@ -24,6 +25,10 @@
 
     if ($warning === true || $type === 'warning') {
         $classes .= ' govuk-button--warning';
+    }
+    
+    if ($inverted === true) {
+        $classes .= ' govuk-button--inverse';
     }
 
     if ($asLink === true) {

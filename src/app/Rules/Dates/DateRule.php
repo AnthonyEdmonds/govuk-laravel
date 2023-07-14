@@ -20,7 +20,7 @@ abstract class DateRule implements ValidationRule, DataAwareRule
 
     public function __construct(
         protected Carbon $date,
-        protected string|null $timeField = null,
+        protected ?string $timeField = null,
     ) {
         if ($this->timeField === null) {
             $this->date->setTime(0, 0);

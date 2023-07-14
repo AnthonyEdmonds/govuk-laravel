@@ -153,7 +153,7 @@ class QuestionTest extends TestCase
     }
 
     protected function makePage(
-        string|null $otherButtonLabel = 'bird',
+        ?string $otherButtonLabel = 'bird',
     ): void {
         $this->question = new Question('too', 'strange', Question::CHECKBOXES);
         $this->page = GovukPage::question(

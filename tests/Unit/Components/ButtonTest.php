@@ -95,6 +95,14 @@ class ButtonTest extends TestCase
             ->hasAttribute('formmethod', 'POST');
     }
 
+    public function testHasInverted(): void
+    {
+        $this->makeComponent([
+            'inverted' => true,
+        ])
+            ->hasClass('govuk-button--inverse');
+    }
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My slot');
@@ -106,6 +114,7 @@ class ButtonTest extends TestCase
             'formAction' => $data['formAction'] ?? null,
             'formMethod' => $data['formMethod'] ?? null,
             'id' => $data['id'] ?? null,
+            'inverted' => $data['inverted'] ?? false,
             'preventDoubleClick' => $data['preventDoubleClick'] ?? false,
             'secondary' => $data['secondary'] ?? false,
             'type' => $data['type'] ?? null,

@@ -131,7 +131,7 @@ class SummaryTest extends TestCase
     }
 
     protected function makePage(
-        string|null $otherButtonLabel = 'bird',
+        ?string $otherButtonLabel = 'bird',
     ): void {
         $this->page = GovukPage::summary(
             'It',
