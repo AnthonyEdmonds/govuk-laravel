@@ -31,6 +31,9 @@ abstract class Question
 
     public function validate(Request $request, Model $subject): void
     {
+        request()->mergeIfMissing([
+            'subject' => $subject,
+        ]);
         app($this->getFormRequest()::class);
     }
 
