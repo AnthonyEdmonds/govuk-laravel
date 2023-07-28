@@ -29,10 +29,31 @@ class DateRuleTestCase extends TestCase
         Carbon::setTestNow($this->now);
     }
 
+    public function testFailsWhenInvalidDay(): void
+    {
+        $this->setRuleData('/', 12, 2022);
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute day must be a number');
+    }
+
+    public function testFailsWhenInvalidMonth(): void
+    {
+        $this->setRuleData(1, '/', 2022);
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute month must be a number');
+    }
+
+    public function testFailsWhenInvalidYear(): void
+    {
+        $this->setRuleData(1, 12, '/');
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute year must be a number');
+    }
+
     protected function setRuleData(
-        int $day,
-        int $month,
-        int $year,
+        int|string $day,
+        int|string $month,
+        int|string $year,
         string $time = null,
     ): void {
         $data = [
