@@ -83,25 +83,25 @@ class PaginationTest extends TestCase
     {
         $this->makePagination([
             'paginator' => [
-                'current_page' => 5,
-                'first_page_url' => 'first-link',
                 'from' => 1,
-                'last_page' => 10,
-                'last_page_url' => 'last-link',
+                'last_page' => 535,
                 'links' => [
-                    1 => ['url' => 'page-1-link'],
-                    2 => ['url' => 'page-2-link'],
-                    3 => ['url' => 'page-3-link'],
-                    4 => ['url' => 'page-4-link'],
-                    5 => ['url' => 'page-5-link'],
-                    6 => ['url' => 'page-6-link'],
-                    7 => ['url' => 'page-7-link'],
-                    8 => ['url' => 'page-8-link'],
-                    9 => ['url' => 'page-9-link'],
-                    10 => ['url' => 'page-10-link'],
+                    0 => $this->makeLink('Previous', 'page-253-url'),
+                    1 => $this->makeLink('1', 'page-1-url'),
+                    2 => $this->makeLink('2', 'page-2-url'),
+                    3 => $this->makeLink('...', null),
+                    4 => $this->makeLink('251', 'page-251-url'),
+                    5 => $this->makeLink('252', 'page-252-url'),
+                    6 => $this->makeLink('253', 'page-253-url'),
+                    7 => $this->makeLink('254', 'page-254-url', true),
+                    8 => $this->makeLink('256', 'page-255-url'),
+                    9 => $this->makeLink('257', 'page-256-url'),
+                    10 => $this->makeLink('258', 'page-257-url'),
+                    11 => $this->makeLink('...', null),
+                    12 => $this->makeLink('534', 'page-534-url'),
+                    13 => $this->makeLink('535', 'page-535-url'),
+                    14 => $this->makeLink('Next', 'page-255-url'),
                 ],
-                'next_page_url' => 'next-link',
-                'prev_page_url' => 'prev-link',
                 'to' => 10,
                 'total' => 50,
             ],
@@ -149,6 +149,15 @@ class PaginationTest extends TestCase
             'prev_page_label' => $prevPageLabel,
             'prev_page_url' => 'prev-link',
             'total' => $total,
+        ];
+    }
+
+    protected function makeLink(string $label, ?string $url, bool $active = false): array
+    {
+        return [
+            'url' => $url,
+            'label' => $label,
+            'active' => $active,
         ];
     }
 }

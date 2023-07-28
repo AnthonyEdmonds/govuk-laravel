@@ -40,15 +40,9 @@
     />
 @elseif(isset($paginator['last_page']))
     <x-govuk::pagination.length-aware
-        :currentPage="$paginator['current_page']"
-        :firstPageUrl="$paginator['first_page_url']"
         :from="$paginator['from']"
         :label="$label"
-        :lastPage="$paginator['last_page']"
-        :lastPageUrl="$paginator['last_page_url']"
         :links="$paginator['links']"
-        :nextPageUrl="$paginator['next_page_url']"
-        :prevPageUrl="$paginator['prev_page_url']"
         :showCounter="$showCounter"
         :to="$paginator['to']"
         :total="$paginator['total']"
