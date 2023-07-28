@@ -7,9 +7,12 @@ use Carbon\Exceptions\InvalidFormatException;
 use Closure;
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Validation\Concerns\ValidatesAttributes;
 
 abstract class DateRule implements ValidationRule, DataAwareRule
 {
+    use ValidatesAttributes;
+
     protected array $data;
 
     protected string $message;
@@ -32,6 +35,24 @@ abstract class DateRule implements ValidationRule, DataAwareRule
         $day = $this->data["$attribute-day"];
         $month = $this->data["$attribute-month"];
         $year = $this->data["$attribute-year"];
+
+        if ($this->validateInteger($attribute, $day) === false) {
+            $fail(':attribute day must be a number');
+
+            return;
+        }
+
+        if ($this->validateInteger($attribute, $month) === false) {
+            $fail(':attribute month must be a number');
+
+            return;
+        }
+
+        if ($this->validateInteger($attribute, $year) === false) {
+            $fail(':attribute year must be a number');
+
+            return;
+        }
 
         $enteredDate = Carbon::createFromFormat('Y-m-d', "$year-$month-$day");
 
