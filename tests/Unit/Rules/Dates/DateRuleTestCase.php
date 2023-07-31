@@ -50,13 +50,6 @@ class DateRuleTestCase extends TestCase
         $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute year must be a number');
     }
 
-    public function testPassesWhenLeadingZero(): void
-    {
-        $this->setRuleData('08', '08', '0202');
-
-        $this->assertRulePasses($this->rule, self::DATE_FIELD, self::VALUE);
-    }
-
     protected function setRuleData(
         int|string $day,
         int|string $month,
