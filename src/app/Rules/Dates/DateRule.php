@@ -36,19 +36,19 @@ abstract class DateRule implements ValidationRule, DataAwareRule
         $month = $this->data["$attribute-month"];
         $year = $this->data["$attribute-year"];
 
-        if ($this->validateInteger($attribute, $day) === false) {
+        if ($this->validateDigitsBetween($attribute, $day, [1, 2]) === false) {
             $fail(':attribute day must be a number');
 
             return;
         }
 
-        if ($this->validateInteger($attribute, $month) === false) {
+        if ($this->validateDigitsBetween($attribute, $month, [1, 2]) === false) {
             $fail(':attribute month must be a number');
 
             return;
         }
 
-        if ($this->validateInteger($attribute, $year) === false) {
+        if ($this->validateDigitsBetween($attribute, $year, [1, 4]) === false) {
             $fail(':attribute year must be a number');
 
             return;
