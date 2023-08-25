@@ -1,4 +1,5 @@
 @props([
+    'ariaDescribedby' => null,
     'asButton' => false,
     'asStartButton' => false,
     'footer' => false,
@@ -31,6 +32,9 @@
 @endphp
 
 <a
+    @if($ariaDescribedby !== null)
+        aria-describedby="{{ $ariaDescribedby }}"
+    @endif
     class="{{ $linkClasses }}"
     href="{{ $href }}"
     target="{{ $target }}"

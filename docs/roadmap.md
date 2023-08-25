@@ -32,7 +32,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
         * phase-banner
         * section-break
         * summary-list
-        * tag
         * warning-text
     * Layout
         * Foot
