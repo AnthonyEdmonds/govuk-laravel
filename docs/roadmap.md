@@ -10,7 +10,6 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## Enhancements
 
 * Index / List page
-* Task List, once added as official component
 
 # Road to Stable
 

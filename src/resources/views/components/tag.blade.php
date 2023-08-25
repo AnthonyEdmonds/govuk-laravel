@@ -1,7 +1,9 @@
 @props([
     'colour' => 'blue',
+    'id' => null,
     'label',
     'phase' => false,
+    'taskList' => false,
 ])
 
 @php
@@ -10,8 +12,17 @@
     if ($phase === true) {
         $tagClasses .= ' govuk-phase-banner__content__tag';
     }
+    
+    if ($taskList === true) {
+        $tagClasses .= ' app-task-list__tag';
+    }
 @endphp
 
-<strong class="{{ $tagClasses }}">
+<strong
+    class="{{ $tagClasses }}"
+    @if($id !== null)
+        id="{{ $id }}"
+    @endif
+>
     {{ $label }}
 </strong>

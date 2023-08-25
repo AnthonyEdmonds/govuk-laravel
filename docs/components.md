@@ -75,6 +75,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [table](components/table.md)
 * [tabs](components/tabs.md)
 * [tag](components/tag.md)
+* [task-list](components/task-list.md)
 * [warning-text](components/warning-text.md)
 
 ## Custom components
