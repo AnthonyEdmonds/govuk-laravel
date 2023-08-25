@@ -64,11 +64,21 @@ class ATest extends TestCase
             ->hasClass('govuk-button--inverse');
     }
 
+    public function testHasAriaDescribedby(): void
+    {
+        $this->makeComponent([
+            'ariaDescribedby' => 'aria-id',
+        ])
+            ->first('a')
+            ->hasAttribute('aria-describedby', 'aria-id');
+    }
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My content');
 
         return $this->assertView('govuk::components.a', [
+            'ariaDescribedby' => $data['ariaDescribedby'] ?? null,
             'asButton' => $data['asButton'] ?? false,
             'asStartButton' => $data['asStartButton'] ?? false,
             'footer' => $data['footer'] ?? false,
