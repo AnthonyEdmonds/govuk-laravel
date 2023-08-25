@@ -22,7 +22,7 @@
                 @foreach($items as $label => $details)
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            <a href="{{ $details['url'] }}" aria-describedby="{{ $details['id'] }}">{{ $label }}</a>
+                            <x-govuk::a href="{{ $details['url'] }}" aria-describedby="{{ $details['id'] }}">{{ $label }}</x-govuk::a>
                         </span>
                         
                         <x-govuk::tag

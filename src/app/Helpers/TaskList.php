@@ -14,8 +14,8 @@ class TaskList
 
     const STATUSES = [
         self::CANNOT_START_YET => 'grey',
-        self::NOT_STARTED => 'grey',
-        self::IN_PROGRESS => 'light-blue',
-        self::COMPLETED => 'blue',
+        self::NOT_STARTED => 'yellow',
+        self::IN_PROGRESS => 'blue',
+        self::COMPLETED => 'green',
     ];
 }
