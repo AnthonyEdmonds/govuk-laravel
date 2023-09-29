@@ -61,19 +61,44 @@ You will need to either republish or manually update the templates if they are u
 
 ## Hook up the CSS, JS, and assets
 
+document.addEventListener('DOMContentLoaded', function () {
+let buttons = document.getElementsByTagName('button');
+
+    for (const button of buttons) {
+        if (button.hasAttribute('data-prevent-double-click') === false) {
+            continue;
+        }
+
+        if (button.getAttribute('data-prevent-double-click') === false) {
+            continue;
+        }
+
+        button.form.addEventListener('submit', function (event) {
+            let buttons = event.target.getElementsByTagName('button');
+
+            for (const button of buttons) {
+                button.setAttribute('aria-disabled', 'true');
+                button.disabled = true;
+            }
+        });
+    }
+});
+
 ### JS
 
 GOV.UK Laravel supports [Vite](https://laravel.com/docs/10.x/vite), which replaces the older Laravel Mix.
 
-Add the GOV.UK Design System JavaScript and SCSS to `/resources/js/app.js`.
+Add the GOV.UK Laravel JavaScript, and GOV.UK Design System JavaScript and SCSS to `/resources/js/app.js`.
 
 ```js
 import { initAll } from 'govuk-frontend';
 import '../scss/app.scss';
+import '../../vendor/anthonyedmonds/govuk-laravel/src/resources/js/govuk-laravel.js';
 
 initAll();
-
 ```
+
+The `govuk-laravel.js` file contains overrides to improve some of the GOV.UK Design System behaviour, however it may be omitted if you prefer the default experience.
 
 ### SCSS
 
