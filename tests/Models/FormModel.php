@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormModel extends Model
 {
-    use HasForm;
     use HasFactory;
+    use HasForm;
 
     protected $fillable = [
         'name',

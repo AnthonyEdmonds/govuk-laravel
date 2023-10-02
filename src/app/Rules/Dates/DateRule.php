@@ -9,7 +9,7 @@ use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Validation\Concerns\ValidatesAttributes;
 
-abstract class DateRule implements ValidationRule, DataAwareRule
+abstract class DateRule implements DataAwareRule, ValidationRule
 {
     use ValidatesAttributes;
 

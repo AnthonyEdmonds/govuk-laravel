@@ -18,11 +18,11 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
+    use AssertsValidationRules;
+    use FakesRoute;
     use InteractsWithViews;
     use SetsViewVariables;
     use WithFaker;
-    use FakesRoute;
-    use AssertsValidationRules;
 
     protected function setUp(): void
     {
