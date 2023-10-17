@@ -119,6 +119,12 @@ class TableTest extends TestCase
             ->first('body > nav');
     }
 
+    public function testHasId(): void
+    {
+        $this->makeTable()
+            ->hasAttribute('id', 'my-id');
+    }
+
     protected function makeTable(array $data = []): ViewAssertion
     {
         $this->setViewSlot(
@@ -133,6 +139,7 @@ class TableTest extends TestCase
             'captionSize' => $data['captionSize'] ?? 'm',
             'data' => $data['data'] ?? null,
             'emptyMessage' => $data['emptyMessage'] ?? 'No results found',
+            'id' => $data['id'] ?? 'my-id',
             'paginator' => $data['paginator'] ?? null,
             'showCounter' => $data['showCounter'] ?? false,
         ]);

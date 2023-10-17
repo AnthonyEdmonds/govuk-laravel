@@ -3,6 +3,7 @@
     'captionSize' => 'm',
     'data',
     'emptyMessage' => 'No results found',
+    'id' => null,
     'paginator' => null,
     'showCounter' => false,
 ])
@@ -53,7 +54,10 @@
     }
 @endphp
 
-<table class="govuk-table">
+<table
+    class="govuk-table"
+    @if($id !== null) id="{{ $id }}" @endif
+>
     <caption class="govuk-table__caption govuk-table__caption--{{ $captionSize }}">
         {{ $caption }}
     </caption>
