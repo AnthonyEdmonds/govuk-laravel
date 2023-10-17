@@ -8,6 +8,7 @@ Create a `table` element of varying forms, with conditional rendering and pagina
     caption-size="m"
     :data="$rows"
     empty-message="No results were found"
+    id="my-id"
     :paginator="$paginator"
 >
     <x-govuk::table-column
@@ -45,6 +46,7 @@ Each table contains several `table-column` components, which define the layout o
 | captionSize   | string                                              | m                | How large the caption should be                |
 | data          | array, ResourceCollection, JsonResource, Collection | Required         | An array of arrays                             |
 | emptyMessage  | string                                              | No results found | The message to show when the `data` is empty   |
+| id            | string                                              | null             | The ID of the table                            |
 | paginator     | array or AbstractPaginator                          | null             | The table pagination information               |
 | showCounter   | bool                                                | false            | Whether to show the pagination results counter |
 
