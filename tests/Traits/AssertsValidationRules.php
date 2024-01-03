@@ -35,7 +35,7 @@ trait AssertsValidationRules
         ValidationRule $rule,
         string $attribute,
         mixed $value,
-        string $message = null
+        ?string $message = null
     ): void {
         $passed = true;
 

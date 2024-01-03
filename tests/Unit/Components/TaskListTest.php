@@ -8,72 +8,106 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class TaskListTest extends TestCase
 {
-    public function testHasList(): void
+    public function testHasTitle(): void
     {
-        $list = $this->makeComponent()->first('ol');
-
-        $sectionOne = $list->at('ol > li', 0);
-        $sectionTwo = $list->at('ol > li', 1);
-
-        $sectionOne
+        $this->makeComponent()
             ->first('h2')
-            ->contains('Section one')
-            ->first('span')
-            ->contains('1.');
-
-        $sectionTwo
-            ->first('h2')
-            ->contains('Section two')
-            ->first('span')
-            ->contains('2.');
-
-        $this->testTask($sectionOne->at('ul > li', 0), 'one', TaskList::CANNOT_START_YET);
-        $this->testTask($sectionOne->at('ul > li', 1), 'two', TaskList::NOT_STARTED);
-        $this->testTask($sectionOne->at('ul > li', 2), 'three', TaskList::IN_PROGRESS);
-        $this->testTask($sectionOne->at('ul > li', 3), 'four', TaskList::COMPLETED);
-        $this->testTask($sectionTwo->at('ul > li', 0), 'five', TaskList::CANNOT_START_YET);
+            ->contains('My title');
     }
 
-    protected function testTask(ViewAssertion $task, string $number, string $status): void
+    public function testHasBasicTask(): void
     {
-        $task->first('a')
-            ->hasAttribute('href', "task-$number-url")
-            ->hasAttribute('aria-describedby', "task_$number");
+        $task = $this->makeComponent()
+            ->first('ul')
+            ->at('li', 0)
+            ->hasClass('govuk-task-list__item--with-link');
 
-        $task->first('strong')
-            ->hasClass('govuk-tag--'.TaskList::STATUSES[$status])
-            ->hasAttribute('id', "task_$number");
+        $task->first('div > a')
+            ->hasAttribute('aria-describedby', 'basic-task-status')
+            ->hasAttribute('href', 'my-url')
+            ->contains('Basic task');
+
+        $task->last('div')
+            ->hasAttribute('id', 'basic-task-status')
+            ->contains('Custom status');
+    }
+
+    public function testHasBasicDisabledTask(): void
+    {
+        $task = $this->makeComponent()
+            ->first('ul')
+            ->at('li', 1);
+
+        $task->first('div > span')
+            ->hasAttribute('aria-describedby', 'disabled-task-status')
+            ->contains('Disabled task');
+
+        $task->last('div')
+            ->hasClass('govuk-task-list__status--cannot-start-yet')
+            ->contains(TaskList::CANNOT_START);
+    }
+
+    public function testHasTagTask(): void
+    {
+        $task = $this->makeComponent()
+            ->first('ul')
+            ->at('li', 2);
+
+        $task->first('div > a')
+            ->hasAttribute('aria-describedby', 'my-id-status')
+            ->hasAttribute('href', 'task-two-url')
+            ->contains('Tag task');
+
+        $task->at('div', 1)
+            ->hasAttribute('id', 'my-id-hint')
+            ->contains('My hint');
+
+        $task->last('div')
+            ->hasAttribute('id', 'my-id-status')
+            ->first('strong')
+            ->hasClass('govuk-tag--'.TaskList::STATUSES[TaskList::NOT_STARTED])
+            ->contains(TaskList::NOT_STARTED);
+    }
+
+    public function testHasCustomStatusTask(): void
+    {
+        $task = $this->makeComponent()
+            ->first('ul')
+            ->at('li', 3);
+
+        $task->first('div > a')
+            ->hasAttribute('href', 'task-three-url')
+            ->contains('Custom status');
+
+        $task->last('div > strong')
+            ->hasClass('govuk-tag--puce')
+            ->contains('Plums');
     }
 
     protected function makeComponent(array $data = []): ViewAssertion
     {
         return $this->assertView('govuk::components.task-list', [
-            'list' => $data['list'] ?? [
-                'Section one' => [
-                    'Task one' => [
-                        'status' => TaskList::CANNOT_START_YET,
-                        'url' => 'task-one-url',
-                    ],
-                    'Task two' => [
-                        'status' => TaskList::NOT_STARTED,
-                        'url' => 'task-two-url',
-                    ],
-                    'Task three' => [
-                        'status' => TaskList::IN_PROGRESS,
-                        'url' => 'task-three-url',
-                    ],
-                    'Task four' => [
-                        'status' => TaskList::COMPLETED,
-                        'url' => 'task-four-url',
-                    ],
+            'tasks' => $data['list'] ?? [
+                'Basic task' => [
+                    'status' => 'Custom status',
+                    'url' => 'my-url',
                 ],
-                'Section two' => [
-                    'Task five' => [
-                        'status' => TaskList::CANNOT_START_YET,
-                        'url' => 'task-five-url',
-                    ],
+                'Disabled task' => [
+                    'status' => TaskList::CANNOT_START,
+                ],
+                'Tag task' => [
+                    'hint' => 'My hint',
+                    'id' => 'my-id',
+                    'status' => TaskList::NOT_STARTED,
+                    'url' => 'task-two-url',
+                ],
+                'Custom status' => [
+                    'colour' => 'puce',
+                    'status' => 'Plums',
+                    'url' => 'task-three-url',
                 ],
             ],
+            'title' => 'My title',
         ]);
     }
 }

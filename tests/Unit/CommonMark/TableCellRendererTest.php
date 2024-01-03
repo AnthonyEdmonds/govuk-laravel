@@ -82,7 +82,7 @@ class TableCellRendererTest extends TestCase
         );
     }
 
-    protected function makeCell(string $type, string $align = null): void
+    protected function makeCell(string $type, ?string $align = null): void
     {
         $this->node = new TableCell($type, $align);
         $this->element = $this->renderer->render($this->node, $this->child);

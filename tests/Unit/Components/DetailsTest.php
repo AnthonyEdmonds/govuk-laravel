@@ -5,7 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
-class ATest extends TestCase
+class DetailsTest extends TestCase
 {
     public function testHasLink(): void
     {
@@ -73,24 +73,6 @@ class ATest extends TestCase
             ->hasAttribute('aria-describedby', 'aria-id');
     }
 
-    public function testHasRel(): void
-    {
-        $this->makeComponent([
-            'rel' => 'my-rel',
-        ])
-            ->first('a')
-            ->hasAttribute('rel', 'my-rel');
-    }
-
-    public function testRendersAsImageLink(): void
-    {
-        $this->makeComponent([
-            'image' => true,
-        ])
-            ->first('a')
-            ->hasClass('govuk-link-image');
-    }
-
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My content');
@@ -101,9 +83,7 @@ class ATest extends TestCase
             'asStartButton' => $data['asStartButton'] ?? false,
             'footer' => $data['footer'] ?? false,
             'href' => $data['href'] ?? 'my-link',
-            'image' => $data['image'] ?? false,
             'inverted' => $data['inverted'] ?? false,
-            'rel' => $data['rel'] ?? null,
             'target' => $data['target'] ?? '_self',
         ]);
     }

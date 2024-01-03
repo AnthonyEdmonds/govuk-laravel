@@ -15,6 +15,18 @@
         @if(empty($links) === false)
             <ul class="govuk-footer__inline-list">
                 @foreach($links as $label => $link)
+                    @isset($link['auth'])
+                        @if($link['auth'] === true)
+                            @if(\Illuminate\Support\Facades\Auth::check() === false)
+                                @continue
+                            @endif
+                        @else
+                            @if(\Illuminate\Support\Facades\Auth::check() === true)
+                                @continue
+                            @endif
+                        @endif
+                    @endisset
+                    
                     @can($link['can'] ?? null)
                         <li class="govuk-footer__inline-list-item">
                             <a

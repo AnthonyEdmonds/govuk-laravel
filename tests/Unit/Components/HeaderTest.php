@@ -28,11 +28,13 @@ class HeaderTest extends TestCase
             ->hasAttribute('target', '_blank');
     }
 
-    public function testHasLogoAlt(): void
+    public function testHasLogo(): void
     {
         $this->makeHeader()
-            ->first('.govuk-header__logotype img')
-            ->hasAttribute('alt', 'My logo alt');
+            ->first('div > div > a > img')
+            ->hasAttribute('alt', 'My logo alt')
+            ->hasAttribute('src', 'logo.jpg')
+            ->hasAttribute('height', '44');
     }
 
     public function testHasLogoRoute(): void
@@ -40,20 +42,6 @@ class HeaderTest extends TestCase
         $this->makeHeader()
             ->first('.govuk-header__link--homepage')
             ->hasAttribute('href', route('home'));
-    }
-
-    public function testHasLogoImage(): void
-    {
-        $this->makeHeader()
-            ->first('.govuk-header__logotype img')
-            ->hasAttribute('src', 'logo.jpg');
-    }
-
-    public function testHasLogoHeight(): void
-    {
-        $this->makeHeader()
-            ->first('.govuk-header__logotype img')
-            ->hasAttribute('height', '44');
     }
 
     public function testHasServiceName(): void

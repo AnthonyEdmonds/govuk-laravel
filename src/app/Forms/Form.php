@@ -241,7 +241,7 @@ abstract class Form
         return 'Cancel and exit';
     }
 
-    protected function summaryCancelRoute(Model $subject = null): ?string
+    protected function summaryCancelRoute(?Model $subject = null): ?string
     {
         return $this->exitRoute($subject);
     }
@@ -272,7 +272,7 @@ abstract class Form
         return false;
     }
 
-    public function loadConfirmationSubject(string $subjectKey = null): Model
+    public function loadConfirmationSubject(?string $subjectKey = null): Model
     {
         return static::USES_DATABASE === false
             ? $this->getSubjectFromSession()
@@ -380,7 +380,7 @@ abstract class Form
         return route('forms.start', static::key());
     }
 
-    public function exitRoute(Model $subject = null): string
+    public function exitRoute(?Model $subject = null): string
     {
         return route('/');
     }
@@ -394,7 +394,7 @@ abstract class Form
         ]);
     }
 
-    protected function getNextRoute(string $mode, string $questionKey = null, bool $loops = false): string
+    protected function getNextRoute(string $mode, ?string $questionKey = null, bool $loops = false): string
     {
         if ($loops === true) {
             return $this->questionRoute($mode, $questionKey);
@@ -409,7 +409,7 @@ abstract class Form
         return $this->summaryRoute($mode);
     }
 
-    protected function getBackRoute(string $mode, string $questionKey = null): string
+    protected function getBackRoute(string $mode, ?string $questionKey = null): string
     {
         if ($mode === self::NEW) {
             if ($this->isFirstQuestion($questionKey) === true) {
@@ -457,7 +457,7 @@ abstract class Form
         ]);
     }
 
-    protected function confirmationRoute(string $mode, int|string $subjectKey = null): string
+    protected function confirmationRoute(string $mode, int|string|null $subjectKey = null): string
     {
         return route('forms.confirmation', [
             static::key(),

@@ -14,6 +14,7 @@ class ExitThisPageTest extends TestCase
             ->hasClass('govuk-exit-this-page')
             ->first('a')
             ->hasAttribute('href', 'my-link')
+            ->hasAttribute('rel', 'nofollow noreferrer')
             ->contains('My label');
     }
 

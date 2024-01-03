@@ -4,14 +4,19 @@
     'asStartButton' => false,
     'footer' => false,
     'href',
+    'image' => false,
     'inverted' => false,
+    'rel' => null,
     'target' => '_self',
 ])
 
 @php
     if ($footer === true) {
         $linkClasses = 'govuk-footer__link';
-
+        
+    } elseif ($image === true) {
+        $linkClasses = 'govuk-link-image';
+        
     } elseif ($asButton === true || $asStartButton === true) {
         $linkClasses = 'govuk-button';
         
@@ -37,6 +42,9 @@
     @endif
     class="{{ $linkClasses }}"
     href="{{ $href }}"
+    @if($rel !== null)
+        rel="{{ $rel }}"
+    @endif
     target="{{ $target }}"
 >{{ $slot }}@if($asStartButton === true)
     <svg

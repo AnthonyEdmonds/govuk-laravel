@@ -64,7 +64,7 @@ class RenderTableContentTest extends TestCase
 
     protected function makeColumn(
         string $html,
-        string $hide = null,
+        ?string $hide = null,
     ): array {
         return [
             'hide' => $hide,

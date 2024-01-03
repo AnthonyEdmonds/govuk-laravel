@@ -2,10 +2,8 @@
     licence-logo="{{ asset('images/ogl-logo.svg') }}"
     licence-logo-height="17"
     meta-heading="Support"
-    :meta-links="[
-    ]"
-    :navigation-links="[
-    ]"
+    :meta-links="[]"
+    :navigation-links="[]"
 >
     <x-slot name="information">
         Built by the

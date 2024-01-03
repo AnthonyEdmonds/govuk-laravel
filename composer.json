@@ -19,10 +19,10 @@
         "nunomaduro/laravel-mojito": "^0"
     },
     "require-dev": {
-        "brianium/paratest": "^7.1",
+        "brianium/paratest": "^7",
         "laravel/pint": "^1",
         "league/commonmark": "^2",
-        "nunomaduro/larastan": "^2.6",
+        "larastan/larastan": "^2",
         "orchestra/testbench": "^8",
         "phpunit/phpunit": "^10"
     },

@@ -89,7 +89,7 @@ class Question
         string $label,
         string $name,
         string $format,
-        string $id = null
+        ?string $id = null
     ) {
         if (in_array($format, self::QUESTION_FORMATS) === false) {
             throw new ErrorException("$format is not a valid GOV.UK Question type");
@@ -101,7 +101,7 @@ class Question
         $this->format = $format;
     }
 
-    public static function create(string $label, string $name, string $format, string $id = null): self
+    public static function create(string $label, string $name, string $format, ?string $id = null): self
     {
         return new self($label, $name, $format, $id);
     }
@@ -121,7 +121,7 @@ class Question
         return $this;
     }
 
-    public function count(int $count = null): self
+    public function count(?int $count = null): self
     {
         $this->count = $count;
 
@@ -137,7 +137,7 @@ class Question
         return $this;
     }
 
-    public function hint(string $hint = null): self
+    public function hint(?string $hint = null): self
     {
         $this->hint = $hint;
 

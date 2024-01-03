@@ -54,7 +54,7 @@ class DateRuleTestCase extends TestCase
         int|string $day,
         int|string $month,
         int|string $year,
-        string $time = null,
+        ?string $time = null,
     ): void {
         $data = [
             'my-date-day' => $day,
