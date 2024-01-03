@@ -1,5 +1,6 @@
 .idea
 .phpunit.result.cache
+coverage.txt
 node_modules
 vendor
 .phpunit.cache

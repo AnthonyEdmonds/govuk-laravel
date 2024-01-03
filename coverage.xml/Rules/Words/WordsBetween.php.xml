@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <file name="WordsBetween.php" path="\Rules\Words">
+    <totals>
+      <lines total="32" comments="1" code="31" executable="8" executed="6" percent="75.00"/>
+      <methods count="2" tested="1" percent="50.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="0" percent="0.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween" start="8" executable="8" executed="6" crap="5.39">
+      <namespace name="AnthonyEdmonds\GovukLaravel\Rules\Words"/>
+      <method name="__construct" signature="__construct(int $min, int $max)" start="10" end="13" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="validate" signature="validate(string $attribute, mixed $value, Closure $fail): void" start="15" end="30" crap="4.37" executable="7" executed="5" coverage="71.428571428571"/>
+    </class>
+    <coverage>
+      <line nr="13">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenAboveLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMaxLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenBetweenLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMinLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenBelowLimit"/>
+      </line>
+      <line nr="17">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenAboveLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMaxLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenBetweenLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMinLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenBelowLimit"/>
+      </line>
+      <line nr="22">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenAboveLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMaxLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenBetweenLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMinLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenBelowLimit"/>
+      </line>
+      <line nr="25">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenAboveLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMaxLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenBetweenLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMinLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenBelowLimit"/>
+      </line>
+      <line nr="26">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenAboveLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMaxLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenBetweenLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testTrueWhenAtMinLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenBelowLimit"/>
+      </line>
+      <line nr="28">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenAboveLimit"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\Rules\Words\WordsBetweenTest::testFalseWhenBelowLimit"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2"/>
+      <line no="3">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">AnthonyEdmonds\GovukLaravel\Rules\Words</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="4"/>
+      <line no="5">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Closure</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="6">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Illuminate\Contracts\Validation\ValidationRule</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="7"/>
+      <line no="8">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">WordsBetween</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IMPLEMENTS">implements</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ValidationRule</token>
+      </line>
+      <line no="9">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="10">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$min</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$max</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="11">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="12">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">//</token>
+      </line>
+      <line no="13">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="14"/>
+      <line no="15">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">validate</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$attribute</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">mixed</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Closure</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$fail</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">void</token>
+      </line>
+      <line no="16">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="17">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_WHILE">while</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">str_contains</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'  '</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_IDENTICAL">===</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="18">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">trim</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="19">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">str_replace</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'  '</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">' '</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="21"/>
+      <line no="22">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$count</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">substr_count</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">' '</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="23"/>
+      <line no="24">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="25">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$count</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LT">&lt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">min</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_MINUS">-</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_BOOLEAN_OR">||</token>
+      </line>
+      <line no="26">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$count</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_GT">&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">max</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_MINUS">-</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1</token>
+      </line>
+      <line no="27">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="28">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$fail</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_DOUBLE_QUOTES">"</token>
+        <token name="T_ENCAPSED_AND_WHITESPACE">:attribute must be between </token>
+        <token name="T_CURLY_OPEN">{</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">min</token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_ENCAPSED_AND_WHITESPACE"> and </token>
+        <token name="T_CURLY_OPEN">{</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">max</token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_ENCAPSED_AND_WHITESPACE"> words.</token>
+        <token name="T_DOUBLE_QUOTES">"</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="29">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="30">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="31">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="32"/>
+    </source>
+  </file>
+</phpunit>

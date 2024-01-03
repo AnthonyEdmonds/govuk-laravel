@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <file name="FencedCodeRenderer.php" path="\CommonMark">
+    <totals>
+      <lines total="37" comments="3" code="34" executable="12" executed="11" percent="91.67"/>
+      <methods count="1" tested="0" percent="0.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="0" percent="0.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="AnthonyEdmonds\GovukLaravel\CommonMark\FencedCodeRenderer" start="12" executable="12" executed="11" crap="3.01">
+      <namespace name="AnthonyEdmonds\GovukLaravel\CommonMark"/>
+      <method name="render" signature="render(League\CommonMark\Node\Node $node, League\CommonMark\Renderer\ChildNodeRendererInterface $childRenderer): League\CommonMark\Util\HtmlElement" start="17" end="35" crap="3.01" executable="12" executed="11" coverage="91.666666666667"/>
+    </class>
+    <coverage>
+      <line nr="19">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="21">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="23">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="24">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="28">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="29">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="31">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="33">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="30">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="32">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+      <line nr="34">
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasTag"/>
+        <covered by="AnthonyEdmonds\GovukLaravel\Tests\Unit\CommonMark\FencedCodeRendererTest::testHasClass"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2"/>
+      <line no="3">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">AnthonyEdmonds\GovukLaravel\CommonMark</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="4"/>
+      <line no="5">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">League\CommonMark\Extension\CommonMark\Node\Block\FencedCode</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="6">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">League\CommonMark\Node\Node</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="7">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">League\CommonMark\Renderer\ChildNodeRendererInterface</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="8">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">League\CommonMark\Renderer\NodeRendererInterface</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="9">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">League\CommonMark\Util\HtmlElement</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="10">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">League\CommonMark\Util\Xml</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="11"/>
+      <line no="12">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">FencedCodeRenderer</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IMPLEMENTS">implements</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">NodeRendererInterface</token>
+      </line>
+      <line no="13">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="14">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT">     * @param  FencedCode  $node</token>
+      </line>
+      <line no="16">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="17">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">render</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Node</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$node</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ChildNodeRendererInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$childRenderer</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HtmlElement</token>
+      </line>
+      <line no="18">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="19">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_STRING">FencedCode</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">assertInstanceOf</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$node</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="20"/>
+      <line no="21">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$attrs</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$node</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">data</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getData</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'attributes'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="22"/>
+      <line no="23">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$infoWords</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$node</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getInfoWords</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="24">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">count</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$infoWords</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_NOT_IDENTICAL">!==</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$infoWords</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_NOT_IDENTICAL">!==</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="25">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$attrs</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">append</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'class'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'language-'</token>
+        <token name="T_DOT">.</token>
+        <token name="T_VARIABLE">$infoWords</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="26">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="27"/>
+      <line no="28">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HtmlElement</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="29">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'pre'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="30">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_OPEN_SQUARE">[</token>
+      </line>
+      <line no="31">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'class'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'govuk-body'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="32">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="33">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">HtmlElement</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'code'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$attrs</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">export</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Xml</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">escape</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$node</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getLiteral</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="34">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="35">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="36">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="37"/>
+    </source>
+  </file>
+</phpunit>
