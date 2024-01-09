@@ -23,7 +23,7 @@
         "larastan/larastan": "^2",
         "laravel/pint": "^1",
         "league/commonmark": "^2",
-        "networkrailbusinesssystems/badges": "^1.0",
+        "networkrailbusinesssystems/badges": "^1",
         "orchestra/testbench": "^8",
         "phpunit/phpunit": "^10"
     },
