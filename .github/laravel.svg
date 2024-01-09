@@ -1,0 +1,32 @@
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="120"
+        height="20"
+        role="img"
+        aria-label="LARAVEL: UNKNOWN"
+    >
+        <title>LARAVEL: UNKNOWN</title>
+        
+        <linearGradient id="s" x2="0" y2="100%">
+            <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+            <stop offset="1" stop-opacity=".1"/>
+        </linearGradient>
+        
+        <clipPath id="r">
+            <rect width="120" height="20" rx="3" fill="#fff"/>
+        </clipPath>
+        
+        <g clip-path="url(#r)">
+            <rect width="60" height="20" fill="#555"/>
+            <rect x="60" width="60" height="20" fill="#d4351c"/>
+            <rect width="120" height="20" fill="url(#s)"/>
+        </g>
+        
+        <g fill="#ffffff" font-family="Consolas, monospace" font-size="12">
+            <text aria-hidden="true" x="30" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">LARAVEL</text>
+            <text x="30" y="14" fill="#ffffff" text-anchor="middle">LARAVEL</text>
+            
+            <text aria-hidden="true" x="90" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">UNKNOWN</text>
+            <text x="90" y="14" fill="#ffffff" text-anchor="middle">UNKNOWN</text>
+        </g>
+    </svg>

@@ -2,3 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run coverage
+php badges.php
+git add .github/*.svg
+git commit -m "Updated badges" --no-verify

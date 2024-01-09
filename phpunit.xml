@@ -21,8 +21,3 @@
         </include>
     </source>
 </phpunit>
-
-// TODO
-1. Add SVG
-2. Update SVG with classes summary
-3. Add, commit
