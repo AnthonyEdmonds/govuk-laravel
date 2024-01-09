@@ -1,7 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run coverage
+npm run test
+
 php vendor/networkrailbusinesssystems/badges/badges.php
 git add .github/*.svg
 git diff-index --quiet --cached HEAD || git commit -m "Updated badges" --no-verify

@@ -12,7 +12,6 @@
     "license": "MIT",
     "homepage": "https://github.com/AnthonyEdmonds/govuk-laravel",
     "scripts": {
-        "coverage": "php vendor/bin/paratest",
         "larastan": "php vendor/bin/phpstan analyse --memory-limit 512M",
         "pint": "php ./vendor/bin/pint",
         "prepare": "husky install",
