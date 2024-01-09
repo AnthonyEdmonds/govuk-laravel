@@ -3,9 +3,9 @@
         width="120"
         height="20"
         role="img"
-        aria-label="LARAVEL: UNKNOWN"
+        aria-label="Laravel: Unknown"
     >
-        <title>LARAVEL: UNKNOWN</title>
+        <title>Laravel: Unknown</title>
         
         <linearGradient id="s" x2="0" y2="100%">
             <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
@@ -23,10 +23,10 @@
         </g>
         
         <g fill="#ffffff" font-family="Consolas, monospace" font-size="12">
-            <text aria-hidden="true" x="30" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">LARAVEL</text>
-            <text x="30" y="14" fill="#ffffff" text-anchor="middle">LARAVEL</text>
+            <text aria-hidden="true" x="30" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">Laravel</text>
+            <text x="30" y="14" fill="#ffffff" text-anchor="middle">Laravel</text>
             
-            <text aria-hidden="true" x="90" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">UNKNOWN</text>
-            <text x="90" y="14" fill="#ffffff" text-anchor="middle">UNKNOWN</text>
+            <text aria-hidden="true" x="90" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">Unknown</text>
+            <text x="90" y="14" fill="#ffffff" text-anchor="middle">Unknown</text>
         </g>
     </svg>

@@ -3,9 +3,9 @@
         width="112"
         height="20"
         role="img"
-        aria-label="NPM: UP TO DATE"
+        aria-label="NPM: Up to date"
     >
-        <title>NPM: UP TO DATE</title>
+        <title>NPM: Up to date</title>
         
         <linearGradient id="s" x2="0" y2="100%">
             <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
@@ -26,7 +26,7 @@
             <text aria-hidden="true" x="14" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">NPM</text>
             <text x="14" y="14" fill="#ffffff" text-anchor="middle">NPM</text>
             
-            <text aria-hidden="true" x="70" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">UP TO DATE</text>
-            <text x="70" y="14" fill="#ffffff" text-anchor="middle">UP TO DATE</text>
+            <text aria-hidden="true" x="70" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">Up to date</text>
+            <text x="70" y="14" fill="#ffffff" text-anchor="middle">Up to date</text>
         </g>
     </svg>

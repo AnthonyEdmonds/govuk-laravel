@@ -2,6 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run coverage
-php badges.php
+php vendor/networkrailbusinesssystems/badges/badges.php
 git add .github/*.svg
-git commit -m "Updated badges" --no-verify
+git diff-index --quiet --cached HEAD || git commit -m "Updated badges" --no-verify

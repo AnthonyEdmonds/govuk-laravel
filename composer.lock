@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a39a7f695fe1587698e9e4f6529328b5",
+    "content-hash": "b8f2991f160b147c651553c1cb229e49",
     "packages": [
         {
             "name": "brick/math",
@@ -6015,6 +6015,38 @@
                 }
             ],
             "time": "2023-03-08T13:26:56+00:00"
+        },
+        {
+            "name": "networkrailbusinesssystems/badges",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Network-Rail-Business-Systems/badges.git",
+                "reference": "1e7baa6000ef759faf877485bbea8b533f033479"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Network-Rail-Business-Systems/badges/zipball/1e7baa6000ef759faf877485bbea8b533f033479",
+                "reference": "1e7baa6000ef759faf877485bbea8b533f033479",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Edmonds",
+                    "email": "anthony.edmonds@networkrail.co.uk"
+                }
+            ],
+            "description": "Generate readme badges during your pre-push",
+            "support": {
+                "issues": "https://github.com/Network-Rail-Business-Systems/badges/issues",
+                "source": "https://github.com/Network-Rail-Business-Systems/badges/tree/1.0.0"
+            },
+            "time": "2024-01-09T11:20:50+00:00"
         },
         {
             "name": "nikic/php-parser",
