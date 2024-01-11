@@ -26,7 +26,7 @@ The task list must be provided as a keyed array, where the key is the label and 
 [
     'Task label' => [
         'colour' => 'blue',
-        'hint' => 'More information'
+        'hint' => 'More information',
         'id' => 'my-id',
         'status' => 'Completed',
         'url' => route('my-route'),

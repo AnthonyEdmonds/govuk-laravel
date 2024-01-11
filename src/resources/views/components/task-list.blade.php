@@ -43,13 +43,13 @@
                         aria-describedby="{{ $details['id'] }}-status"
                     >{{ $label }}</a>
                 @endif
-            </div>
 
-            @isset($details['hint'])
-                <div id="{{ $details['id'] }}-hint" class="govuk-task-list__hint">
-                    {{ $details['hint'] }}
-                </div>
-            @endisset
+                @isset($details['hint'])
+                    <div id="{{ $details['id'] }}-hint" class="govuk-task-list__hint">
+                        {{ $details['hint'] }}
+                    </div>
+                @endisset
+            </div>
             
             <div
                 class="govuk-task-list__status{{ $details['status_classes'] }}"

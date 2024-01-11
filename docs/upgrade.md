@@ -12,6 +12,7 @@ Guidance is shown from newest to oldest.
    1. Change the version of `anthonyedmonds/govuk-laravel` to `^2`
    2. If your project uses the vendor view overrides, republish `layout/page.blade.php`
 2. Update the `govuk-frontend` import in `package.json` to `^5`
-3. Update the GOV.UK SCSS import in `app.scss` from `@import 'govuk-frontend/govuk/all';` to `@import 'govuk-frontend/dist/govuk/all';`
-4. Update any custom code following the [GOV.UK upgrade guide](https://github.com/alphagov/govuk-frontend/releases/tag/v5.0.0)
-5. Update any existing `task-list` components to the new official component
+3. Update the GOV.UK SCSS import in `app.scss` to `@import 'govuk-frontend/dist/govuk/all';`
+4. Update the GOV.UK Colours SCSS import in `govuk-variables.scss` to `@import 'govuk-frontend/dist/govuk/helpers/_colour.scss';`
+5. Update any custom code following the [GOV.UK upgrade guide](https://github.com/alphagov/govuk-frontend/releases/tag/v5.0.0)
+6. Update any existing `task-list` components to the new official component
