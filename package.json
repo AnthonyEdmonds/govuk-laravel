@@ -19,7 +19,7 @@
         "test-slow": "php vendor/bin/phpunit"
     },
     "devDependencies": {
-        "govuk-frontend": "^5.0",
+        "govuk-frontend": "^5",
         "husky": "^8"
     }
 }

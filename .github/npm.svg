@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="20" role="img" aria-label="NPM: Up to date">
+            <title>NPM: Up to date</title>
+            
+            <linearGradient id="s" x2="0" y2="100%">
+                <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+                <stop offset="1" stop-opacity=".1"/>
+            </linearGradient>
+            
+            <clipPath id="r">
+                <rect width="112" height="20" rx="3" fill="#fff"/>
+            </clipPath>
+            
+            <g clip-path="url(#r)">
+                <rect width="28" height="20" fill="#555"/>
+                <rect x="28" width="84" height="20" fill="#00703c"/>
+                <rect width="112" height="20" fill="url(#s)"/>
+            </g>
+            
+            <g fill="#ffffff" font-family="Consolas, monospace" font-size="12">
+                <text aria-hidden="true" x="14" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">NPM</text>
+                <text x="14" y="14" fill="#ffffff" text-anchor="middle">NPM</text>
+                
+                <text aria-hidden="true" x="70" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">Up to date</text>
+                <text x="70" y="14" fill="#ffffff" text-anchor="middle">Up to date</text>
+            </g>
+        </svg>

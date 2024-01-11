@@ -1,4 +1,11 @@
 # GOV.UK Laravel
+
+![Composer status](.github/composer.svg)
+![Coverage status](.github/coverage.svg)
+![NPM status](.github/npm.svg)
+![PHP version](.github/php.svg)
+![Tests status](.github/tests.svg)
+
 Use the GOV.UK Design System within the Laravel ecosystem, complete with Blade components and templates!
 
 ## Legal
