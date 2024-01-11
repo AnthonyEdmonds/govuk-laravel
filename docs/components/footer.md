@@ -60,10 +60,14 @@ For conditional navigation you may provide a keyed array as the value, with a `l
         'can' => 'manage_users',
         'link' => route('users.index'),
     ],
-    'Sign out' => route('sign-out'),
+    'Sign out' => [
+        'auth' => true,
+        'link' => route('sign-out'),
+    ],
 ]
 ```
 
+* The `auth` key will show or hide the link when a user is signed in.
 * The `blank` key will open the link in a new window.
 * The `can` key will perform an `@can` check against the current User.
 

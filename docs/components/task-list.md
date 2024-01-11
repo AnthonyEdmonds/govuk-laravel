@@ -3,43 +3,55 @@
 Create a task list component to show a multiple-stage form or process.
 
 ```html
-<x-govuk::task-list :list="$list" />
+<x-govuk::task-list
+    :tasks="$tasks"
+    title="Check before you start"
+/>
 ```
+
+You may use multiple task lists on a page, each with a unique title.
 
 ## Props
 
-| Name | Type  | Default  | Description                                    |
-|------|-------|----------|------------------------------------------------|
-| list | array | Required | An array of sections and tasks to be completed |
+| Name  | Type   | Default  | Description                       |
+|-------|--------|----------|-----------------------------------|
+| tasks | array  | Required | An array of tasks to be completed |
+| title | string | Required | The title of the task list        |
 
-### List
+### Tasks
 
-The task list must be provided as a keyed array, where the lowest level keys are the section titles, and the next level keys are the tasks.
+The task list must be provided as a keyed array, where the key is the label and the value is an array of details.
 
 ```php
-$list = [
-    'Section title' => [
-        'Task label' => [
-            'status' => 'Completed',
-            'url' => route('my-route'),
-        ],
-        ...
+[
+    'Task label' => [
+        'colour' => 'blue',
+        'hint' => 'More information',
+        'id' => 'my-id',
+        'status' => 'Completed',
+        'url' => route('my-route'),
     ],
     ...
 ];
 ```
 
-You may include any number of sections and tasks.
+You may include any number of tasks.
 
-Each task must have a `status` and `url`.
+Each task may have the following keys:
 
-The component will automatically add the relevant `colour` to each task.
+| Name   | Type   | Default  | Description                           |
+|--------|--------|----------|---------------------------------------|
+| colour | string | null     | The colour of the task's status tag   |
+| hint   | string | null     | Supporting information about the task |
+| id     | string | null     | The ID of the task                    |
+| status | string | Required | The status of the task                |
+| url    | string | null     | A link to the task                    |
 
-Each task will also get an `id` based on a snake-case version of its `label`.
+Each task will be assigned an `id` based on a snake-case version of its `label`, if not specified.
 
-#### Status
+#### Colour and Status
 
-The status of each task must correspond to one of the following:
+The status of each task should correspond to one of the following:
 
 * Cannot start yet
 * Not started
@@ -48,13 +60,10 @@ The status of each task must correspond to one of the following:
 
 These statuses and their colours are available in the `TaskList` helper class.
 
+The component will automatically add the relevant `colour` to each tag when using these statuses.
+
 #### URL
 
-The url may be either a `string` or `null`.
+Tasks with a null `url` will not show a link.
 
-A link will not be presented when the task status is "Cannot start yet" or the URL is `null`.
-
-## Also see
-
-* [button](button.md)
-* [footer](footer.md)
+Tasks in a "Cannot start yet" status should either not have a `url` or be set to null.

@@ -108,14 +108,14 @@ class Page implements View
         return $this;
     }
 
-    public function setAction(string $route = null): self
+    public function setAction(?string $route = null): self
     {
         $this->action = $route;
 
         return $this;
     }
 
-    public function setBack(string $route = null): self
+    public function setBack(?string $route = null): self
     {
         $this->back = $route;
         $this->breadcrumbs = null;
@@ -132,7 +132,7 @@ class Page implements View
         return $this;
     }
 
-    public function setSubmitButtonLabel(string $label = null): self
+    public function setSubmitButtonLabel(?string $label = null): self
     {
         $this->submitButtonLabel = $label;
 
@@ -148,14 +148,14 @@ class Page implements View
         return $this;
     }
 
-    public function setOtherButtonHref(string $href = null): self
+    public function setOtherButtonHref(?string $href = null): self
     {
         $this->otherButtonHref = $href;
 
         return $this;
     }
 
-    public function setOtherButtonLabel(string $label = null): self
+    public function setOtherButtonLabel(?string $label = null): self
     {
         $this->otherButtonLabel = $label;
 
@@ -171,21 +171,21 @@ class Page implements View
         return $this;
     }
 
-    public function setCaption(string $caption = null): self
+    public function setCaption(?string $caption = null): self
     {
         $this->caption = $caption;
 
         return $this;
     }
 
-    public function setContent(string $blade = null): self
+    public function setContent(?string $blade = null): self
     {
         $this->content = $blade;
 
         return $this;
     }
 
-    public function setMethod(string $method = null): self
+    public function setMethod(?string $method = null): self
     {
         $this->method = in_array($method, self::FORM_METHODS) === true
             ? $method
@@ -194,21 +194,21 @@ class Page implements View
         return $this;
     }
 
-    public function setQuestion(Question $question = null): self
+    public function setQuestion(?Question $question = null): self
     {
         $this->questions = [$question];
 
         return $this;
     }
 
-    public function setQuestions(array $questions = null): self
+    public function setQuestions(?array $questions = null): self
     {
         $this->questions = $questions;
 
         return $this;
     }
 
-    public function setSummary(array $summary = null): self
+    public function setSummary(?array $summary = null): self
     {
         $this->summary = $summary;
 

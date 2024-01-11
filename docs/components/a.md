@@ -9,6 +9,7 @@ Create an `<a>` tag with the appropriate classes already applied.
     as-start-button
     footer
     href="{{ route('my-route') }}"
+    image
     inverted
     target="_blank"
 >My Link</x-govuk::a>
@@ -19,14 +20,19 @@ When setting the target as `_blank`, be sure to include an indicator that the li
 ## Props
 
 | Name             | Type   | Default  | Description                                       |
-|------------------| ------ |----------|---------------------------------------------------|
-| aria-describedby | string | null | The ID of an element with the aria description in |
+|------------------|--------|----------|---------------------------------------------------|
+| aria-describedby | string | null     | The ID of an element with the aria description in |
 | asButton         | bool   | false    | Style the link as a `<button>` element            |
 | asStartButton    | bool   | false    | Style the button as "start"                       |
 | footer           | bool   | false    | Whether the link is in a `footer` component       |
 | href             | string | Required | Where the tag should link to                      |
+| image            | bool   | false    | Whether the link is wrapping an image             |
 | inverted         | bool   | false    | Whether the link colour should be inverted        |
 | target           | string | _self    | Which window the link should open in              |
+
+### Image
+
+When the link is wrapping an image by itself, adding the `image` flag will apply the correct styling.
 
 ## Also see
 

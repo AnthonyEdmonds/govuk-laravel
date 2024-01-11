@@ -8,7 +8,6 @@ Create a coloured box with a label, ideal for statuses.
     id="my-tag"
     label="Open"
     phase
-    task-list
 />
 ```
 
@@ -20,9 +19,7 @@ Create a coloured box with a label, ideal for statuses.
 | id       | string | null     | The ID of the tag                            |
 | label    | string | Required | The tag label                                |
 | phase    | bool   | false    | Whether this tag is part of a `phase-banner` |
-| taskList | bool   | false    | Whether this tag is part of a `task-list`    |
 
 ## Also see
 
 * [phase-banner](phase-banner.md)
-* [task-list](task-list.md)

@@ -19,8 +19,7 @@
     };
 @endphp
 
-@empty($navigation)
-@else
+@if(empty($navigation) === false)
     <div class="govuk-footer__navigation">
         @foreach($navigation as $title => $links)
             @php
@@ -43,6 +42,18 @@
 
                 <ul class="govuk-footer__list govuk-footer__list--columns-{{ $columns }}">
                     @foreach($links['links'] ?? $links as $label => $link)
+                        @isset($link['auth'])
+                            @if($link['auth'] === true)
+                                @if(\Illuminate\Support\Facades\Auth::check() === false)
+                                    @continue
+                                @endif
+                            @else
+                                @if(\Illuminate\Support\Facades\Auth::check() === true)
+                                    @continue
+                                @endif
+                            @endif
+                        @endisset
+                    
                         @can($link['can'] ?? null)
                             <li class="govuk-footer__list-item">
                                 <a

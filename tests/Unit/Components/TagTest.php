@@ -39,15 +39,6 @@ class TagTest extends TestCase
             ->hasClass('govuk-phase-banner__content__tag');
     }
 
-    public function testHasTaskList(): void
-    {
-        $this->makeComponent([
-            'task_list' => true,
-        ])
-            ->first('strong')
-            ->hasClass('app-task-list__tag');
-    }
-
     protected function makeComponent(array $data = []): ViewAssertion
     {
         return $this->assertView('govuk::components.tag', [
@@ -55,7 +46,6 @@ class TagTest extends TestCase
             'id' => $data['id'] ?? null,
             'label' => $data['label'] ?? 'My label',
             'phase' => $data['phase'] ?? false,
-            'taskList' => $data['task_list'] ?? false,
         ]);
     }
 }

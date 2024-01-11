@@ -8,9 +8,7 @@
     @endphp
     
     <body class="govuk-template__body">
-        <script>
-            document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-        </script>
+        <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
         <x-govuk::skip-link />
 

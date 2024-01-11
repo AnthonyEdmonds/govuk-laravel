@@ -18,14 +18,12 @@
                 href="{{ $logoLink }}"
                 class="govuk-header__link govuk-header__link--homepage"
             >
-                <span class="govuk-header__logotype">
-                    <img
-                        src="{{ $logoImage }}"
-                        alt="{{ $logoAlt }}"
-                        class="govuk-!-padding-2"
-                        height="{{ $logoHeight }}"
-                    />
-                </span>
+                <img
+                    src="{{ $logoImage }}"
+                    alt="{{ $logoAlt }}"
+                    class="govuk-!-padding-2"
+                    height="{{ $logoHeight }}"
+                />
             </a>
         </div>
 

@@ -81,11 +81,6 @@ class FooterTest extends TestCase
             ->hasAttribute('href', route('users.index'))
             ->hasAttribute('target', '_self');
 
-        $links
-            ->last('li a')
-            ->contains('Sign out')
-            ->hasAttribute('href', route('sign-out'))
-            ->hasAttribute('target', '_self');
     }
 
     public function testHasSecondNavigationLink(): void
@@ -172,10 +167,43 @@ class FooterTest extends TestCase
             ->contains('My logos');
     }
 
-    protected function makeFooter(): ViewAssertion
+    public function testShowsAuthTrueWhenSignedIn(): void
+    {
+        $footer = $this->makeFooter();
+
+        $metaLinks = $footer->first('.govuk-footer__meta ul');
+        $navLinks = $footer->first('.govuk-footer__navigation ul');
+
+        $metaLinks
+            ->last('li a')
+            ->hasAttribute('href', route('sign-out'));
+
+        $navLinks
+            ->last('li a')
+            ->hasAttribute('href', route('users.index'));
+    }
+
+    public function testShowsAuthFalseWhenNotSignedIn(): void
+    {
+        $footer = $this->makeFooter(false);
+
+        $metaLinks = $footer->first('.govuk-footer__meta ul');
+        $navLinks = $footer->first('.govuk-footer__navigation ul');
+
+        $metaLinks->empty();
+
+        $navLinks
+            ->last('li a')
+            ->hasAttribute('href', route('sign-in'));
+    }
+
+    protected function makeFooter(bool $signIn = true): ViewAssertion
     {
         $this->setViewAttributes();
-        $this->actingAs(new User());
+
+        if ($signIn === true) {
+            $this->actingAs(new User());
+        }
 
         Gate::define('manage_users', function () {
             return true;
@@ -186,6 +214,7 @@ class FooterTest extends TestCase
         Gate::define('view_benefits', function () {
             return true;
         });
+        Route::get('/sign-in')->name('sign-in');
         Route::get('/sign-out')->name('sign-out');
         Route::get('/users')->name('users.index');
         Route::get('/departments')->name('departments.index');
@@ -204,12 +233,18 @@ class FooterTest extends TestCase
                     'can' => 'manage_users',
                     'link' => route('users.index'),
                 ],
-                'Sign out' => route('sign-out'),
+                'Sign out' => [
+                    'auth' => true,
+                    'link' => route('sign-out'),
+                ],
             ],
             'navigationLinks' => [
                 'Management' => [
                     'Manage users' => route('users.index'),
-                    'Sign out' => route('sign-out'),
+                    'Sign in' => [
+                        'auth' => false,
+                        'link' => route('sign-in'),
+                    ],
                 ],
                 'Departments and policy' => [
                     'Departments' => [

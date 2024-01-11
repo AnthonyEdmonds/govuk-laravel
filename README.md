@@ -1,4 +1,11 @@
 # GOV.UK Laravel
+
+![Composer status](.github/composer.svg)
+![Coverage status](.github/coverage.svg)
+![NPM status](.github/npm.svg)
+![PHP version](.github/php.svg)
+![Tests status](.github/tests.svg)
+
 Use the GOV.UK Design System within the Laravel ecosystem, complete with Blade components and templates!
 
 ## Legal
@@ -12,7 +19,7 @@ Published under the MIT licence.
 
 ## What's in the box?
 
-* [GOV.UK Design System](https://design-system.service.gov.uk) version 4.7
+* [GOV.UK Design System](https://design-system.service.gov.uk) version 5.0
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
 * Laravel 10 Blade components of the GOV.UK Design System components
 * Laravel 10 Blade templates of the main GOV.UK Design System pages
@@ -25,6 +32,7 @@ Published under the MIT licence.
 * [Installation](docs/install.md)
 * [Configuration](docs/configuration.md)
 * [Roadmap](docs/roadmap.md)
+* [Upgrading](docs/upgrade.md)
 
 ### GOV.UK Design System
 * [Components](docs/components.md)

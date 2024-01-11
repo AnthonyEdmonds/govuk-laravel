@@ -6,10 +6,6 @@
     'id' => ''
 ])
 
-@php
-    
-@endphp
-
 <div class="govuk-summary-card" @if(empty($id) === false) id="{{ $id }}" @endif>
     <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ $title }}</h2>
@@ -17,7 +13,11 @@
             @foreach($actions as $label => $action)
                 <li class="govuk-summary-card__action">
                     <a class="govuk-link" href="{{ $action['url'] ?? $action }}">
-                        {{ $label }}<span class="govuk-visually-hidden"> {{ $action['hidden'] ?? '' }}</span>
+                        {{ $label }}
+                        <span class="govuk-visually-hidden">
+                            {{ $action['hidden'] ?? '' }}
+                            {{ $title }}
+                        </span>
                     </a>
                 </li>
             @endforeach

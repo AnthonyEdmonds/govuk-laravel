@@ -14,10 +14,10 @@ class GovukPage
         string $action,
         string $back,
         string $method = 'post',
-        string $otherButtonLabel = null,
-        string $otherButtonHref = null,
+        ?string $otherButtonLabel = null,
+        ?string $otherButtonHref = null,
         string $submitButtonType = Page::NORMAL_BUTTON,
-        string $caption = null
+        ?string $caption = null
     ): Page {
         return Page::create($title)
             ->setAction($action)
@@ -44,7 +44,7 @@ class GovukPage
         string $title,
         string $blade,
         array $breadcrumbs,
-        string $caption = null
+        ?string $caption = null
     ): Page {
         return Page::create($title)
             ->setBreadcrumbs($breadcrumbs)
@@ -74,9 +74,9 @@ class GovukPage
         string $action,
         string $back,
         string $method = 'post',
-        string $blade = null,
-        string $otherButtonLabel = null,
-        string $otherButtonHref = null,
+        ?string $blade = null,
+        ?string $otherButtonLabel = null,
+        ?string $otherButtonHref = null,
         string $submitButtonType = Page::NORMAL_BUTTON
     ): Page {
         $question
@@ -102,11 +102,11 @@ class GovukPage
         array $questions,
         string $submitButtonLabel,
         string $action,
-        string $back = null,
+        ?string $back = null,
         string $method = 'post',
-        string $blade = null,
-        string $otherButtonLabel = null,
-        string $otherButtonHref = null,
+        ?string $blade = null,
+        ?string $otherButtonLabel = null,
+        ?string $otherButtonHref = null,
         string $submitButtonType = Page::NORMAL_BUTTON
     ): Page {
         return Page::create($title)
@@ -145,11 +145,11 @@ class GovukPage
         array $summary,
         string $submitButtonLabel,
         string $action,
-        string $back = null,
+        ?string $back = null,
         string $method = 'post',
-        string $blade = null,
-        string $otherButtonLabel = null,
-        string $otherButtonHref = null,
+        ?string $blade = null,
+        ?string $otherButtonLabel = null,
+        ?string $otherButtonHref = null,
         string $submitButtonType = Page::NORMAL_BUTTON
     ): Page {
         return Page::create($title)

@@ -1,42 +1,66 @@
 @props([
-    'list',
+    'tasks' => [],
+    'title',
 ])
 
 @php
-    foreach ($list as $title => $items) {
-        foreach ($items as $label => $details) {
-            $list[$title][$label]['colour'] = \AnthonyEdmonds\GovukLaravel\Helpers\TaskList::STATUSES[$details['status']];
-            $list[$title][$label]['id'] = \Illuminate\Support\Str::snake($label);
+    use AnthonyEdmonds\GovukLaravel\Helpers\TaskList;
+    use Illuminate\Support\Str;
+    
+    foreach ($tasks as $label => $details) {
+        if (isset($details['colour']) === false) {
+            $tasks[$label]['colour'] = TaskList::STATUSES[$details['status']] ?? null;
+        }
+        
+        if (isset($details['id']) === false) {
+            $tasks[$label]['id'] = Str::kebab($label);
+        }
+        
+        if (isset($details['url']) === false) {
+            $tasks[$label]['disabled'] = true;
+            $tasks[$label]['item_classes'] = '';
+            $tasks[$label]['status_classes'] = ' govuk-task-list__status--cannot-start-yet';
+        } else {
+            $tasks[$label]['disabled'] = false;
+            $tasks[$label]['item_classes'] = ' govuk-task-list__item--with-link';
+            $tasks[$label]['status_classes'] = '';
         }
     }
 @endphp
 
-<ol class="app-task-list">
-    @foreach($list as $title => $items)
-        <li>
-            <h2 class="app-task-list__section">
-                <span class="app-task-list__section-number">{{ $loop->iteration }}. </span> {{ $title }}
-            </h2>
+<x-govuk::h2>{{ $title }}</x-govuk::h2>
+
+<ul class="govuk-task-list">
+    @foreach($tasks as $label => $details)
+        <li class="govuk-task-list__item{{ $details['item_classes'] }}">
+            <div class="govuk-task-list__name-and-hint">
+                @if($details['disabled'] === true)
+                    <span aria-describedby="{{ $details['id'] }}-status">{{ $label }}</span>
+                @else
+                    <a
+                        class="govuk-link govuk-task-list__link"
+                        href="{{ $details['url'] }}"
+                        aria-describedby="{{ $details['id'] }}-status"
+                    >{{ $label }}</a>
+                @endif
+
+                @isset($details['hint'])
+                    <div id="{{ $details['id'] }}-hint" class="govuk-task-list__hint">
+                        {{ $details['hint'] }}
+                    </div>
+                @endisset
+            </div>
             
-            <ul class="app-task-list__items">
-                @foreach($items as $label => $details)
-                    <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-                            <x-govuk::a
-                                href="{{ $details['url'] }}"
-                                aria-describedby="{{ $details['id'] }}"
-                            >{{ $label }}</x-govuk::a>
-                        </span>
-                        
-                        <x-govuk::tag
-                            colour="{{ $details['colour'] }}"
-                            id="{{ $details['id'] }}"
-                            label="{{ $details['status'] }}"
-                            task-list
-                        />
-                    </li>
-                @endforeach
-            </ul>
+            <div
+                class="govuk-task-list__status{{ $details['status_classes'] }}"
+                id="{{ $details['id'] }}-status"
+            >
+                @isset($details['colour'])
+                    <x-govuk::tag colour="{{ $details['colour'] }}" label="{{ $details['status'] }}" />
+                @else
+                    {{ $details['status'] }}    
+                @endisset
+            </div>
         </li>
     @endforeach
-</ol>
+</ul>
