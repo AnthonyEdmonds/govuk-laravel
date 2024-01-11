@@ -58,7 +58,7 @@ class TaskListTest extends TestCase
             ->hasAttribute('href', 'task-two-url')
             ->contains('Tag task');
 
-        $task->at('div', 1)
+        $task->first('div > div')
             ->hasAttribute('id', 'my-id-hint')
             ->contains('My hint');
 
