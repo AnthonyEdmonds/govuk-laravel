@@ -88,6 +88,13 @@ trait HasForm
         mixed $value = null,
         bool $showChange = false
     ): array {
+        if (
+            is_array($value) === true
+            || is_string($value) === true
+        ) {
+            $value = empty($value) === false ? $value : null;
+        }
+
         return [
             'value' => $value ?? $this->blankFieldTerm,
             'action' => $showChange === true

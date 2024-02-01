@@ -29,11 +29,11 @@ class ToSummaryTest extends TestCase
                 'key' => FirstQuestion::key(),
             ],
             SecondQuestion::key().'-a' => [
-                'value' => 2,
+                'value' => 'Hello',
                 'key' => SecondQuestion::key(),
             ],
             SecondQuestion::key().'-b' => [
-                'value' => 3,
+                'value' => [],
                 'key' => SecondQuestion::key(),
             ],
             ThirdQuestion::key() => [
@@ -64,14 +64,15 @@ class ToSummaryTest extends TestCase
 
     public function testHasValue(): void
     {
-        foreach ($this->data as $label => $data) {
-            $label = $this->formatLabel($label);
-
-            $this->assertEquals(
-                $data['value'] ?? $this->model->blankFieldTerm,
-                $this->summary[$label]['value'] ?? $this->model->blankFieldTerm
-            );
-        }
+        $this->assertEquals(
+            [
+                1,
+                'Hello',
+                $this->model->blankFieldTerm,
+                $this->model->blankFieldTerm,
+            ],
+            array_column($this->summary, 'value'),
+        );
     }
 
     public function testHasActionWhenTrue(): void
