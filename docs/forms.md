@@ -32,6 +32,14 @@ Starting the Form will immediately go to the first Question, and submitting the 
 
 To show a start or confirmation page, override the `startBlade()` and `confirmationBlade()` methods on the Form to return the associated blades.
 
+### Summary page
+
+A summary page will be shown prior to submitting the form.
+
+Users may be returned to the summary page after submission to allow editing.
+
+To provide a read-only view of the summary page, override the `canEdit()` method on the Form with your logic to determine whether the subject is editable.
+
 ### Exiting the Form
 
 The Form will redirect to the base `/` route when exiting.
