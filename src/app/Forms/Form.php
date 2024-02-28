@@ -61,15 +61,28 @@ abstract class Form
     // Start
     public function start(): Page
     {
+        $isInProgress = GovukForm::has(static::key()) === true;
+
+        if ($isInProgress === true) {
+            $mode = GovukForm::get(static::key())->exists === true
+                ? self::EDIT
+                : self::REVIEW;
+
+        } else {
+            $mode = null;
+        }
+
         return GovukPage::start(
             $this->startTitle(),
             $this->startBlade(),
             [],
             $this->startRoute(),
             $this->startButtonLabel(),
-            'post'
+            Page::POST_METHOD,
         )
-            ->setBack($this->startBackRoute());
+            ->setBack($this->startBackRoute())
+            ->with('isInProgress', $isInProgress)
+            ->with('summaryRoute', $this->summaryRoute($mode));
     }
 
     public function startBlade(): string|false
@@ -394,6 +407,11 @@ abstract class Form
     public function startRoute(): string
     {
         return route('forms.start', static::key());
+    }
+
+    public function restoreRoute(): string
+    { // TODO Test
+        return route('forms.restore', static::key());
     }
 
     public function exitRoute(?Model $subject = null): string

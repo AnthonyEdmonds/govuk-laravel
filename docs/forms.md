@@ -32,6 +32,8 @@ Starting the Form will immediately go to the first Question, and submitting the 
 
 To show a start or confirmation page, override the `startBlade()` and `confirmationBlade()` methods on the Form to return the associated blades.
 
+When a form exists in the session, the start page will allow the user to restore their progress.
+
 ### Summary page
 
 A summary page will be shown prior to submitting the form.
