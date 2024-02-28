@@ -6,7 +6,10 @@
         :method="$method"
     >
         <x-govuk::button-group>
-            <x-govuk::button as-start-button prevent-double-click>{{ $submitButtonLabel }}</x-govuk::button>
+            <x-govuk::button
+                as-start-button
+                prevent-double-click
+            >{{ $submitButtonLabel }}</x-govuk::button>
 
             @isset($isInProgress)
                 @if($isInProgress === true)

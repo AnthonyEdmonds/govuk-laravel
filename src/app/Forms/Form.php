@@ -69,7 +69,7 @@ abstract class Form
                 : self::REVIEW;
 
         } else {
-            $mode = null;
+            $mode = self::NEW;
         }
 
         return GovukPage::start(
