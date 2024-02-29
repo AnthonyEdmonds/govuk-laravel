@@ -409,11 +409,6 @@ abstract class Form
         return route('forms.start', static::key());
     }
 
-    public function restoreRoute(): string
-    { // TODO Test
-        return route('forms.restore', static::key());
-    }
-
     public function exitRoute(?Model $subject = null): string
     {
         return route('/');
