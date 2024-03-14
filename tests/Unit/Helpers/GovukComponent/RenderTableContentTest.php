@@ -10,11 +10,12 @@ class RenderTableContentTest extends TestCase
     public function testReplacesPlaceholders(): void
     {
         $this->assertEquals(
-            'My ID is 1, and my name is Bob, 23 years old',
+            'Row 12: My ID is 1, and my name is Bob, 23 years old',
             GovukComponent::renderTableContent(
-                $this->makeColumn('My ID is ~id, and my name is ~name, ~age years old'),
-                $this->makeRow(1, 'Bob', 23)
-            )
+                $this->makeColumn('Row ~index: My ID is ~id, and my name is ~name, ~age years old'),
+                $this->makeRow(1, 'Bob', 23),
+                12,
+            ),
         );
     }
 
@@ -25,7 +26,7 @@ class RenderTableContentTest extends TestCase
             GovukComponent::renderTableContent(
                 $this->makeColumn('My ID is ~id, OK?', '~name'),
                 $this->makeRow(1, 'Bob', 23)
-            )
+            ),
         );
     }
 
@@ -36,7 +37,7 @@ class RenderTableContentTest extends TestCase
             GovukComponent::renderTableContent(
                 $this->makeColumn('My name is ~name, OK?', '~hidden'),
                 $this->makeRow(1, 'Bob', 23)
-            )
+            ),
         );
     }
 
@@ -47,7 +48,7 @@ class RenderTableContentTest extends TestCase
             GovukComponent::renderTableContent(
                 $this->makeColumn('My name is ~name, OK?'),
                 $this->makeRow(1, ['Goose'], 23)
-            )
+            ),
         );
     }
 
@@ -58,7 +59,7 @@ class RenderTableContentTest extends TestCase
             GovukComponent::renderTableContent(
                 $this->makeColumn('My name is ~name, OK?'),
                 $this->makeRow(1, null, 23)
-            )
+            ),
         );
     }
 

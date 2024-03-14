@@ -15,14 +15,14 @@
             </x-govuk::table.cell>
         </x-govuk::table.row>
     @else
-        @foreach($rows as $row)
+        @foreach($rows as $index => $row)
             <x-govuk::table.row>
                 @foreach($columns as $column)
                     <x-govuk::table.cell
                         :heading="$column['heading']"
                         :numeric="$column['numeric']"
                     >
-                        {!! AnthonyEdmonds\GovukLaravel\Helpers\GovukComponent::renderTableContent($column, $row) !!}
+                        {!! AnthonyEdmonds\GovukLaravel\Helpers\GovukComponent::renderTableContent($column, $row, $index) !!}
                     </x-govuk::table.cell>
                 @endforeach
             </x-govuk::table.row>

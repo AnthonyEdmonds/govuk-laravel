@@ -93,6 +93,12 @@ You may use this with any markup, such as the Laravel route helper:
 </x-govuk::table>
 ```
 
+Some placeholders are reserved for use by the `table` component, which can be used to output specific information about the `data`:
+
+| Placeholder | Function                                         |
+|-------------|--------------------------------------------------|
+| ~index      | The current row index or key of the `data` array |
+
 #### Using objects
 
 You may provide a Collection or ResourceCollection, which will be automatically converted to an array.
