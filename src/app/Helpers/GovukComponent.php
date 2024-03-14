@@ -21,13 +21,17 @@ class GovukComponent
     }
 
     /* Replace any row placeholders based on the table column markup */
-    public static function renderTableContent(array $column, $row): string
+    public static function renderTableContent(array $column, mixed $row, int|string|null $index = null): string
     {
         if (is_array($row) !== true) {
             $row = (array) $row;
         }
 
         $content = $column['html'];
+
+        if ($index !== null) {
+            $content = str_replace('~index', $index, $content);
+        }
 
         foreach ($row as $key => $value) {
             if ("~$key" === $column['hide'] && $value == true) {
