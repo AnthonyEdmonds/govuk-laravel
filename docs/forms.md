@@ -78,6 +78,12 @@ Set this const to `true` to return to the question after submitting the Question
 
 Ensure you provide an exit from the loop using the `skippable` functionality.
 
+### Withs
+
+Some questions require additional information to be passed to the blade.
+
+You can override the `withs` method to provide a keyed array, where the key is the name of the variable on the blade.
+
 ## Routing
 
 A route macro is provided to handle all forms. Add the following to your `routes/web.php` file:

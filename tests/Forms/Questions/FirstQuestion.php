@@ -37,6 +37,15 @@ class FirstQuestion extends Question
         $subject->name = 'Skipped';
     }
 
+    public function withs(): array
+    {
+        return [
+            'name' => 'Tom',
+            'surname' => 'Paris',
+            'pet' => 'dog',
+        ];
+    }
+
     protected function getFormRequest(): FormRequest
     {
         return new NameFormRequest();
