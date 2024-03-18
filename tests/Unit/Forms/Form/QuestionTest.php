@@ -219,6 +219,22 @@ class QuestionTest extends TestCase
         );
     }
 
+    public function testHasWiths(): void
+    {
+        $question = new FirstQuestion();
+        $withs = $question->withs(new FormModel());
+
+        $this->makePage();
+        $data = $this->page->getData();
+
+        foreach ($withs as $key => $value) {
+            $this->assertEquals(
+                $value,
+                $data[$key],
+            );
+        }
+    }
+
     protected function makePage(
         string $formClass = TestForm::class,
         string $mode = Form::NEW,

@@ -140,6 +140,11 @@ abstract class Form
                 $this->getBackRoute($mode, $questionKey),
             );
 
+        $withs = $questionClass->withs($subject);
+        foreach ($withs as $key => $value) {
+            $page->with($key, $value);
+        }
+
         return $page
             ->setBack($this->getBackRoute($mode, $questionKey))
             ->setMethod($questionClass->getMethod())
