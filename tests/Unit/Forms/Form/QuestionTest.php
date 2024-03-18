@@ -222,7 +222,7 @@ class QuestionTest extends TestCase
     public function testHasWiths(): void
     {
         $question = new FirstQuestion();
-        $withs = $question->withs();
+        $withs = $question->withs(new FormModel());
 
         $this->makePage();
         $data = $this->page->getData();

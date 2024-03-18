@@ -37,7 +37,7 @@ class FirstQuestion extends Question
         $subject->name = 'Skipped';
     }
 
-    public function withs(): array
+    public function withs(Model $subject): array
     {
         return [
             'name' => 'Tom',

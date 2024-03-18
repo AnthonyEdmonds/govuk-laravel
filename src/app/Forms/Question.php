@@ -89,7 +89,7 @@ abstract class Question
         return Page::NORMAL_BUTTON;
     }
 
-    public function withs(): array
+    public function withs(Model $subject): array
     {
         return [];
     }

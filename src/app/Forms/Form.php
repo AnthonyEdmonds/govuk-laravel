@@ -140,7 +140,7 @@ abstract class Form
                 $this->getBackRoute($mode, $questionKey),
             );
 
-        $withs = $questionClass->withs();
+        $withs = $questionClass->withs($subject);
         foreach ($withs as $key => $value) {
             $page->with($key, $value);
         }
