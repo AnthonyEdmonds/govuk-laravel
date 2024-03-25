@@ -58,6 +58,11 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/scss/inter.scss' => resource_path('scss/inter.scss'),
             __DIR__.'/../../resources/fonts/inter' => resource_path('fonts/inter'),
         ], 'govuk-fonts');
+
+        $this->publishes([
+            __DIR__.'/../../mail/default.css' => resource_path('views/vendor/mail/html/themes/default.css'),
+            __DIR__.'/../../mail/tag.blade.php' => resource_path('views/vendor/mail/html/themes/tag.blade.php'),
+        ], 'govuk-mail');
     }
 
     protected function bootRoutes(): void
