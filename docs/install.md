@@ -59,6 +59,13 @@ This command will publish the Blade components and page templates, if you need t
 
 You will need to either republish or manually update the templates if they are updated in the base GOV.UK Laravel repository. 
 
+### govuk-mail
+
+This command will publish theme files to make your Laravel Mailables use the GOV.UK theme.
+
+* /resources/views/vendor/mail/html/themes/default.css
+* /resources/views/vendor/mail/html/tag.blade.php
+
 ## Hook up the CSS, JS, and assets
 
 ### JS
