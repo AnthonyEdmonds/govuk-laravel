@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="152" height="20" role="img" aria-label="Composer: 3 outdated">
-            <title>Composer: 3 outdated</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="152" height="20" role="img" aria-label="Composer: 5 outdated">
+            <title>Composer: 5 outdated</title>
             
             <linearGradient id="s" x2="0" y2="100%">
                 <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
@@ -12,7 +12,7 @@
             
             <g clip-path="url(#r)">
                 <rect width="68" height="20" fill="#555"/>
-                <rect x="68" width="84" height="20" fill="#f47738"/>
+                <rect x="68" width="84" height="20" fill="#d4351c"/>
                 <rect width="152" height="20" fill="url(#s)"/>
             </g>
             
@@ -20,7 +20,7 @@
                 <text aria-hidden="true" x="34" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">Composer</text>
                 <text x="34" y="14" fill="#ffffff" text-anchor="middle">Composer</text>
                 
-                <text aria-hidden="true" x="110" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">3 outdated</text>
-                <text x="110" y="14" fill="#ffffff" text-anchor="middle">3 outdated</text>
+                <text aria-hidden="true" x="110" y="15" fill="#010101" fill-opacity=".3" text-anchor="middle">5 outdated</text>
+                <text x="110" y="14" fill="#ffffff" text-anchor="middle">5 outdated</text>
             </g>
         </svg>
