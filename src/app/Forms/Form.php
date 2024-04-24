@@ -211,6 +211,7 @@ abstract class Form
         )
             ->with('mode', $mode)
             ->with('subject', $subject)
+            ->with('canEdit', $canEdit)
             ->with('draftButtonLabel', $canEdit === true ? $this->summaryDraftLabel() : null)
             ->with('draftButtonAction', $canEdit === true ? $this->draftRoute($mode) : null);
     }
