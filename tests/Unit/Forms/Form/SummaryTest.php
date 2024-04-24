@@ -136,6 +136,11 @@ class SummaryTest extends TestCase
         );
     }
 
+    public function testHasCanEdit(): void
+    {
+        $this->assertTrue($this->page->getData()['canEdit']);
+    }
+
     public function testHasDraftLabel(): void
     {
         $this->assertEquals(
