@@ -10,7 +10,6 @@ class SummaryListTest extends TestCase
     public function testHasSummaryList(): void
     {
         $this->makeSummaryList()
-            ->first('div.govuk-summary-card__content')
             ->first('div')
             ->hasClass('govuk-summary-list');
     }
