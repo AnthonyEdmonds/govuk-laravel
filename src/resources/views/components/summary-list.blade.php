@@ -4,7 +4,6 @@
 ])
 
 @php
-    $defaultAction = null;
     $listClasses = 'govuk-summary-list';
     $mixedList = false;
 
@@ -14,7 +13,6 @@
 
     foreach ($list as $item) {
         if (isset($item['action']) === true) {
-            $defaultAction = true;
             $mixedList = true;
             break;
         }
@@ -24,10 +22,10 @@
 <dl class="{{ $listClasses }}">
     @foreach($list as $key => $data)
         <x-govuk::summary-list.item
-                :key="$key"
-                :value="$data['value'] ?? $data"
-                :action="$data['action'] ?? $defaultAction"
-                :mixed-list="$mixedList"
+            :key="$key"
+            :value="$data['value'] ?? $data"
+            :action="$data['action'] ?? null"
+            :mixed-list="$mixedList"
         />
     @endforeach
 </dl>

@@ -15,12 +15,12 @@
     if ($mixedList === true && $action === null) {
         $rowClasses .= ' govuk-summary-list__row--no-actions';
     }
+
+    $asButton = $action['asButton'] ?? false;
 @endphp
 
 <div class="{{ $rowClasses }}">
-    <dt class="govuk-summary-list__key">
-        {!! $key !!}
-    </dt>
+    <dt class="govuk-summary-list__key">{!! $key !!}</dt>
 
     <dd class="govuk-summary-list__value">
         @foreach($value as $entry)
@@ -30,7 +30,7 @@
 
     @if ($action !== null)
         <dd class="govuk-summary-list__actions">
-            @if ($action['asButton'] ?? false === true)
+            @if ($asButton === true)
                 <x-govuk::form :action="$action['url']" :method="$action['method'] ?? 'post'">
                     <x-govuk::button as-link>
                         {{ $action['label'] }}
