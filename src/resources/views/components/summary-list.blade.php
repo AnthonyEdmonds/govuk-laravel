@@ -4,16 +4,16 @@
 ])
 
 @php
-    $defaultAction = null;
     $listClasses = 'govuk-summary-list';
+    $mixedList = false;
 
     if ($noBorders === true) {
         $listClasses .= ' govuk-summary-list--no-border';
     }
-     
+
     foreach ($list as $item) {
         if (isset($item['action']) === true) {
-            $defaultAction = true;
+            $mixedList = true;
             break;
         }
     }
@@ -24,7 +24,8 @@
         <x-govuk::summary-list.item
             :key="$key"
             :value="$data['value'] ?? $data"
-            :action="$data['action'] ?? $defaultAction"
+            :action="$data['action'] ?? null"
+            :mixed-list="$mixedList"
         />
     @endforeach
 </dl>

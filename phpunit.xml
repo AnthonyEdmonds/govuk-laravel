@@ -3,6 +3,7 @@
     <coverage>
         <report>
             <text outputFile=".phpunit.cache/coverage.txt" showUncoveredFiles="false" showOnlySummary="true" />
+            <html outputDirectory=".phpunit.cache/html" />
         </report>
     </coverage>
     <logging>
