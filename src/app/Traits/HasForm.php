@@ -4,38 +4,11 @@ namespace AnthonyEdmonds\GovukLaravel\Traits;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Forms\Question as FormQuestion;
-use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
-use Illuminate\Database\Eloquent\Model;
 
 trait HasForm
 {
-    public Form $form;
-
     public string $blankFieldTerm = 'Not given';
-
-    abstract public static function formClass(): string;
-
-    public function form(): Form
-    {
-        if (isset($this->form) === false) {
-            $formClass = self::formClass();
-            $this->form = new $formClass();
-        }
-
-        return $this->form;
-    }
-
-    // Routing
-    public static function startFormRoute(): string
-    {
-        return route('forms.start', self::formClass()::key());
-    }
-
-    public static function editFormRoute(Model $subject): string
-    {
-        return route('forms.edit', [self::formClass()::key(), $subject->getRouteKey()]);
-    }
-
+    
     // Summary
     public function toSummary(bool $showChange = false): array
     {
@@ -111,11 +84,5 @@ trait HasForm
                 ]
                 : null,
         ];
-    }
-
-    // Submit
-    public function canSubmit(): string|true
-    {
-        return true;
     }
 }

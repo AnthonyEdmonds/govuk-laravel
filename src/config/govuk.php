@@ -1,10 +1,6 @@
 <?php
 
 return [
-    'forms' => [
-        //
-    ],
-
     'home' => [
         'label' => 'Dashboard',
         'route' => 'dashboard',

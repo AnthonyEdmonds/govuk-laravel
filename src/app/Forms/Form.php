@@ -2,48 +2,13 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Forms;
 
-use AnthonyEdmonds\GovukLaravel\Exceptions\FormNotFoundException;
-use AnthonyEdmonds\GovukLaravel\Exceptions\QuestionNotFoundException;
-use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-
-// TODO Support for question sections
-// TODO Support for task page
 
 abstract class Form
 {
-    use AuthorizesRequests;
-
-    public const NEW = 'new';
-
-    public const REVIEW = 'review';
-
-    public const EDIT = 'edit';
-
-    public const MODES = [
-        self::NEW,
-        self::REVIEW,
-        self::EDIT,
-    ];
-
-    public const USES_DATABASE = true;
-
-    // Abstract
-    abstract public static function key(): string;
-
-    abstract public function checkAccess(): void;
-
-    abstract public function questions(): array;
-
-    abstract protected function makeNewSubject(): Model;
-
-    abstract protected function submitForm(Model $subject, string $mode): void;
-
     // Static
     public static function getForm(string $key): Form
     {
@@ -156,30 +121,7 @@ abstract class Form
             ->with('mode', $mode)
             ->with('subject', $subject);
     }
-
-    public function store(Request $request, string $mode, string $questionKey): RedirectResponse
-    {
-        $question = $this->getQuestion($questionKey);
-        $subject = $this->getSubjectFromSession();
-
-        $question->validate($request, $subject);
-        $question->store($request, $subject, $mode);
-        GovukForm::put(static::key(), $subject);
-
-        return redirect($this->getNextRoute($mode, $questionKey, $question::LOOPS));
-    }
-
-    public function skip(string $mode, string $questionKey): RedirectResponse
-    {
-        $question = $this->getQuestion($questionKey);
-        $subject = $this->getSubjectFromSession();
-
-        $question->skip($subject, $mode);
-        GovukForm::put(static::key(), $subject);
-
-        return redirect($this->getNextRoute($mode, $questionKey));
-    }
-
+    
     // Summary
     public function summary(string $mode): Page
     {
@@ -219,14 +161,6 @@ abstract class Form
     public function submit(string $mode): RedirectResponse
     {
         $subject = $this->getSubjectFromSession();
-        /** @phpstan-ignore-next-line */
-        $canSubmit = $subject->canSubmit();
-
-        if ($canSubmit !== true) {
-            return redirect($this->summaryRoute($mode))->withErrors([
-                'content' => $canSubmit,
-            ]);
-        }
 
         $this->submitForm($subject, $mode);
 
@@ -301,93 +235,19 @@ abstract class Form
     {
         return false;
     }
-
-    public function loadConfirmationSubject(?string $subjectKey = null): Model
-    {
-        return static::USES_DATABASE === false
-            ? $this->getSubjectFromSession()
-            : $this->loadSubjectFromDatabase($subjectKey);
-    }
-
+    
     protected function confirmationTitle(Model $subject): string
     {
         return 'Application complete';
     }
 
     // Subject
-    public function loadSubjectFromDatabase(int|string $subjectKey): Model
-    {
-        $subject = $this->makeNewSubject();
-
-        return $subject->newQuery()
-            ->where($subject->getRouteKeyName(), '=', $subjectKey)
-            ->firstOrFail();
-    }
-
-    protected function getSubjectFromSession(): Model
-    {
-        return GovukForm::get(static::key());
-    }
-
     protected function canEdit(Model $subject): bool
     {
         return true;
     }
 
     // Questions
-    protected function getQuestion(string $questionKey): Question
-    {
-        foreach (static::questions() as $question) {
-            if ($question::key() === $questionKey) {
-                return new $question();
-            }
-        }
-
-        throw new QuestionNotFoundException($questionKey.' does not exist in the '.static::key().' form');
-    }
-
-    protected function getFirstQuestionKey(): string
-    {
-        return static::questions()[0]::key();
-    }
-
-    protected function getLastQuestionKey(): string
-    {
-        $finalIndex = array_key_last(static::questions());
-
-        return static::questions()[$finalIndex]::key();
-    }
-
-    protected function getNextQuestionKey(string $questionKey): string|false
-    {
-        $index = $this->getQuestionIndex($questionKey);
-
-        if ($index === false) {
-            return false;
-        }
-
-        if (array_key_exists($index + 1, static::questions()) === true) {
-            return static::questions()[$index + 1]::key();
-        }
-
-        return false;
-    }
-
-    protected function getPreviousQuestionKey(string $questionKey): string|false
-    {
-        $index = $this->getQuestionIndex($questionKey);
-
-        if ($index === false) {
-            return false;
-        }
-
-        if (array_key_exists($index - 1, static::questions()) === true) {
-            return static::questions()[$index - 1]::key();
-        }
-
-        return false;
-    }
-
     protected function isFirstQuestion(string $questionKey): bool
     {
         return $this->getFirstQuestionKey() === $questionKey;

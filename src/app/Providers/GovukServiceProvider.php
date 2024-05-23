@@ -2,7 +2,6 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Providers;
 
-use AnthonyEdmonds\GovukLaravel\Controllers\FormController;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\AfterDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\BeforeDate;
 use AnthonyEdmonds\GovukLaravel\Rules\Dates\OnDate;
@@ -18,7 +17,6 @@ use AnthonyEdmonds\GovukLaravel\Rules\Words\MaxWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\MinWords;
 use AnthonyEdmonds\GovukLaravel\Rules\Words\WordsBetween;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rule;
 
@@ -64,32 +62,7 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__.'/../../mail/tag.blade.php' => resource_path('views/vendor/mail/html/themes/tag.blade.php'),
         ], 'govuk-mail');
     }
-
-    protected function bootRoutes(): void
-    {
-        Route::macro('govukLaravelForms', function () {
-            Route::prefix('/forms/{formKey}')
-                ->name('forms.')
-                ->controller(FormController::class)
-                ->group(function () {
-                    Route::get('/start', 'start')->name('start');
-                    Route::post('/start', 'create');
-
-                    Route::get('/{subjectKey}/edit', 'edit')->name('edit');
-
-                    Route::get('/{mode}/summary', 'summary')->name('summary');
-                    Route::post('/{mode}/submit', 'submit')->name('submit');
-                    Route::post('/{mode}/draft', 'draft')->name('draft');
-
-                    Route::get('/{mode}/confirmation/{subjectKey?}', 'confirmation')->name('confirmation');
-
-                    Route::get('/{mode}/{questionKey}', 'question')->name('question');
-                    Route::post('/{mode}/{questionKey}', 'store');
-                    Route::post('/{mode}/{questionKey}/skip', 'skip')->name('skip');
-                });
-        });
-    }
-
+    
     protected function bootRules(): void
     {
         // Dates
