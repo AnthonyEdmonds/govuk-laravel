@@ -21,6 +21,11 @@ class MinWordsTest extends TestCase
         $this->assertRulePasses($this->rule, 'name', 'These three words');
     }
 
+    public function testTrueWhenOnNewLines(): void
+    {
+        $this->assertRulePasses($this->rule, 'name', "These\nthree\nwords");
+    }
+
     public function testTrueWhenAboveLimit(): void
     {
         $this->assertRulePasses($this->rule, 'name', 'Four or more words');
