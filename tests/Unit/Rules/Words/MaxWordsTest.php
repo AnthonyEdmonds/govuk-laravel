@@ -21,6 +21,11 @@ class MaxWordsTest extends TestCase
         $this->assertRulePasses($this->rule, 'name', 'These three words');
     }
 
+    public function testTrueWhenOnNewLines(): void
+    {
+        $this->assertRulePasses($this->rule, 'name', "These\nthree\nwords");
+    }
+
     public function testTrueWhenBelowLimit(): void
     {
         $this->assertRulePasses($this->rule, 'name', 'Two cool');

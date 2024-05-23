@@ -26,6 +26,11 @@ class WordsBetweenTest extends TestCase
         $this->assertRulePasses($this->rule, 'name', 'Six is just enough for me');
     }
 
+    public function testTrueWhenOnNewLines(): void
+    {
+        $this->assertRulePasses($this->rule, 'name', "These\nfive\nwords\nare\nhere");
+    }
+
     public function testTrueWhenBetweenLimit(): void
     {
         $this->assertRulePasses($this->rule, 'name', 'Five words sits quite nicely');

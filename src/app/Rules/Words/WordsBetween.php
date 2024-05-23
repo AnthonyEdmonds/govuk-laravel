@@ -14,6 +14,10 @@ class WordsBetween implements ValidationRule
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
+        if (str_contains($value, "\n") === true) {
+            $value = str_replace("\n", ' ', $value);
+        }
+
         while (str_contains($value, '  ') === true) {
             $value = trim($value);
             $value = str_replace('  ', ' ', $value);
