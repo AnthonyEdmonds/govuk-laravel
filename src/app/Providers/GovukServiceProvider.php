@@ -33,7 +33,6 @@ class GovukServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->bootPublishes();
-        $this->bootRoutes();
         $this->bootRules();
         $this->bootViews();
     }

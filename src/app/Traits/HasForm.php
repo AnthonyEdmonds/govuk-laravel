@@ -3,12 +3,9 @@
 namespace AnthonyEdmonds\GovukLaravel\Traits;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
-use AnthonyEdmonds\GovukLaravel\Forms\Question as FormQuestion;
 
 trait HasForm
 {
-    public string $blankFieldTerm = 'Not given';
-    
     // Summary
     public function toSummary(bool $showChange = false): array
     {
