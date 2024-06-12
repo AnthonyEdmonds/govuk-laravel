@@ -8,16 +8,12 @@ use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\FirstQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
-use AnthonyEdmonds\GovukLaravel\Tests\Models\User;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
 
 class QuestionTest extends TestCase
 {
     protected FormController $controller;
-
-    protected User $user;
 
     protected View $response;
 
@@ -27,20 +23,11 @@ class QuestionTest extends TestCase
 
         $this->useForms();
 
-        $this->user = new User();
-        $this->signIn($this->user);
+        $this->signIn();
 
         GovukForm::put(TestForm::key(), new FormModel());
 
         $this->controller = new FormController();
-    }
-
-    public function testChecksAccess(): void
-    {
-        $this->expectException(AuthorizationException::class);
-        $this->expectExceptionMessage('This action is unauthorized');
-
-        $this->makeRequest(false);
     }
 
     public function testHasTemplate(): void
@@ -53,10 +40,8 @@ class QuestionTest extends TestCase
         );
     }
 
-    protected function makeRequest(bool $allow = true): void
+    protected function makeRequest(): void
     {
-        $this->user->allow = $allow;
-
         $this->response = $this->controller->question(
             TestForm::key(),
             Form::NEW,

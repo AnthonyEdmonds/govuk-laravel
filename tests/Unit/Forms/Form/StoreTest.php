@@ -10,6 +10,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\SecondQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
 
@@ -33,6 +34,14 @@ class StoreTest extends TestCase
         GovukForm::put(TestForm::key(), $this->subject);
 
         $this->form = new TestForm();
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->makeRequest('potato', false);
     }
 
     public function testRunsValidation(): void
@@ -77,8 +86,10 @@ class StoreTest extends TestCase
         );
     }
 
-    protected function makeRequest(?string $name): void
+    protected function makeRequest(?string $name, bool $allow = true): void
     {
+        $this->signIn(allow: $allow);
+
         $this->request = new NameFormRequest([
             'name' => $name,
         ]);

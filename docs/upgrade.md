@@ -6,6 +6,16 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 4.x from version 3.x
+
+1. All Form classes must update their signature for `checkAccess` to accept the subject as the first parameter
+   1. `public function checkAccess(Model $subject): void`
+
+## Update to version 3.x from version 2.x
+
+1. PHP 8.3 is now the minimum version
+2. Laravel 11 is now the supported version
+
 ## Upgrade to version 2.x from version 1.x
 
 1. Update `composer.json`:

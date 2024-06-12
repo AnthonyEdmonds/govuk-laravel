@@ -19,24 +19,24 @@ abstract class Form
 {
     use AuthorizesRequests;
 
-    public const NEW = 'new';
+    public const string NEW = 'new';
 
-    public const REVIEW = 'review';
+    public const string REVIEW = 'review';
 
-    public const EDIT = 'edit';
+    public const string EDIT = 'edit';
 
-    public const MODES = [
+    public const array MODES = [
         self::NEW,
         self::REVIEW,
         self::EDIT,
     ];
 
-    public const USES_DATABASE = true;
+    public const bool USES_DATABASE = true;
 
     // Abstract
     abstract public static function key(): string;
 
-    abstract public function checkAccess(): void;
+    abstract public function checkAccess(Model $subject): void;
 
     abstract public function questions(): array;
 
@@ -64,13 +64,17 @@ abstract class Form
         $isInProgress = GovukForm::has(static::key()) === true;
 
         if ($isInProgress === true) {
-            $mode = GovukForm::get(static::key())->exists === true
+            $subject = GovukForm::get(static::key());
+            $mode = $subject->exists === true
                 ? self::EDIT
                 : self::REVIEW;
 
         } else {
+            $subject = $this->makeNewSubject();
             $mode = self::NEW;
         }
+
+        $this->checkAccess($subject);
 
         return GovukPage::start(
             $this->startTitle(),
@@ -82,6 +86,8 @@ abstract class Form
         )
             ->setBack($this->startBackRoute())
             ->with('isInProgress', $isInProgress)
+            ->with('mode', $mode)
+            ->with('subject', $subject)
             ->with('summaryRoute', $this->summaryRoute($mode));
     }
 
@@ -92,13 +98,16 @@ abstract class Form
 
     public function create(): RedirectResponse
     {
-        GovukForm::put(static::key(), $this->makeNewSubject());
+        $subject = $this->makeNewSubject();
+        $this->checkAccess($subject);
+        GovukForm::put(static::key(), $subject);
 
         return redirect($this->questionRoute(self::NEW, $this->getFirstQuestionKey()));
     }
 
     public function edit(Model $subject): RedirectResponse
     {
+        $this->checkAccess($subject);
         GovukForm::put(static::key(), $subject);
 
         return redirect($this->summaryRoute(self::EDIT));
@@ -122,8 +131,10 @@ abstract class Form
     // Question
     public function question(string $mode, string $questionKey): Page
     {
-        $questionClass = $this->getQuestion($questionKey);
         $subject = $this->getSubjectFromSession();
+        $this->checkAccess($subject);
+
+        $questionClass = $this->getQuestion($questionKey);
         $question = $questionClass->getQuestion($subject);
 
         $page = is_array($question) === true
@@ -159,9 +170,10 @@ abstract class Form
 
     public function store(Request $request, string $mode, string $questionKey): RedirectResponse
     {
-        $question = $this->getQuestion($questionKey);
         $subject = $this->getSubjectFromSession();
+        $this->checkAccess($subject);
 
+        $question = $this->getQuestion($questionKey);
         $question->validate($request, $subject);
         $question->store($request, $subject, $mode);
         GovukForm::put(static::key(), $subject);
@@ -171,9 +183,10 @@ abstract class Form
 
     public function skip(string $mode, string $questionKey): RedirectResponse
     {
-        $question = $this->getQuestion($questionKey);
         $subject = $this->getSubjectFromSession();
+        $this->checkAccess($subject);
 
+        $question = $this->getQuestion($questionKey);
         $question->skip($subject, $mode);
         GovukForm::put(static::key(), $subject);
 
@@ -184,6 +197,7 @@ abstract class Form
     public function summary(string $mode): Page
     {
         $subject = $this->getSubjectFromSession();
+        $this->checkAccess($subject);
         $canEdit = $this->canEdit($subject);
 
         return GovukPage::summary(
@@ -219,6 +233,7 @@ abstract class Form
     public function submit(string $mode): RedirectResponse
     {
         $subject = $this->getSubjectFromSession();
+        $this->checkAccess($subject);
         /** @phpstan-ignore-next-line */
         $canSubmit = $subject->canSubmit();
 
@@ -246,6 +261,7 @@ abstract class Form
     public function draft(string $mode): RedirectResponse
     {
         $subject = $this->getSubjectFromSession();
+        $this->checkAccess($subject);
         $this->submitDraft($subject, $mode);
 
         return redirect($this->exitRoute($subject));
@@ -289,6 +305,8 @@ abstract class Form
     // Confirmation
     public function confirmation(string $mode, Model $subject): Page
     {
+        $this->checkAccess($subject);
+
         return GovukPage::confirmation(
             $this->confirmationTitle($subject),
             $this->confirmationBlade(),

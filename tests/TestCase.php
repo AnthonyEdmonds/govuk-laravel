@@ -31,8 +31,13 @@ abstract class TestCase extends BaseTestCase
         $this->withoutVite();
     }
 
-    protected function signIn(User $user): User
+    protected function signIn(?User $user = null, bool $allow = true): User
     {
+        if ($user === null) {
+            $user = new User();
+        }
+
+        $user->allow = $allow;
         Auth::login($user);
 
         return $user;
