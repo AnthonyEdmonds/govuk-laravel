@@ -12,6 +12,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class QuestionTest extends TestCase
 {
@@ -24,6 +25,14 @@ class QuestionTest extends TestCase
         parent::setUp();
 
         $this->useForms();
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->makePage(allow: false);
     }
 
     public function testHasQuestionWhenSingle(): void
@@ -239,7 +248,9 @@ class QuestionTest extends TestCase
         string $formClass = TestForm::class,
         string $mode = Form::NEW,
         bool $firstQuestion = true,
+        bool $allow = true,
     ): void {
+        $this->signIn(allow: $allow);
         GovukForm::put($formClass::key(), new FormModel());
 
         $this->form = new $formClass();

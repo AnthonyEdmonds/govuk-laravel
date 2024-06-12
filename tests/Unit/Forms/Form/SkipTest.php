@@ -9,6 +9,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\SecondQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 
 class SkipTest extends TestCase
@@ -29,6 +30,14 @@ class SkipTest extends TestCase
         GovukForm::put(TestForm::key(), $this->subject);
 
         $this->form = new TestForm();
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->makeRequest(allow: false);
     }
 
     public function testRunsSkip(): void
@@ -65,8 +74,10 @@ class SkipTest extends TestCase
         );
     }
 
-    protected function makeRequest(): void
+    protected function makeRequest(bool $allow = true): void
     {
+        $this->signIn(allow: $allow);
+
         $this->response = $this->form->skip(
             Form::NEW,
             FirstQuestion::key()

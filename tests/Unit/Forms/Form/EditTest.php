@@ -6,6 +6,7 @@ use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 
@@ -27,19 +28,27 @@ class EditTest extends TestCase
         $this->subject = FormModel::factory()->create();
 
         $this->form = new TestForm();
-        $this->response = $this->form->edit($this->subject);
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->signIn(allow: false);
+        $this->form->edit($this->subject);
     }
 
     public function testSetsFormSession(): void
     {
+        $this->signIn();
+        $this->response = $this->form->edit($this->subject);
+
         $this->assertEquals(
             $this->subject->id,
             Session::get(TestForm::key())->id,
         );
-    }
 
-    public function testRedirectsToSummary(): void
-    {
         $this->assertEquals(
             route('forms.summary', [
                 TestForm::key(),

@@ -8,6 +8,7 @@ use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class StartTest extends TestCase
 {
@@ -24,8 +25,18 @@ class StartTest extends TestCase
         $this->form = new TestForm();
     }
 
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->signIn(allow: false);
+        $this->form->start();
+    }
+
     public function testHasBlade(): void
     {
+        $this->signIn();
         $data = $this->form
             ->start()
             ->getData();
@@ -69,6 +80,7 @@ class StartTest extends TestCase
     {
         GovukForm::put(TestForm::key(), FormModel::factory()->make());
 
+        $this->signIn();
         $data = $this->form
             ->start()
             ->getData();
@@ -90,6 +102,7 @@ class StartTest extends TestCase
 
         GovukForm::put(TestForm::key(), $model);
 
+        $this->signIn();
         $data = $this->form
             ->start()
             ->getData();

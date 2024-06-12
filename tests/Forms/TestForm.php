@@ -18,7 +18,7 @@ class TestForm extends Form
         return 'test-form';
     }
 
-    public function checkAccess(): void
+    public function checkAccess(Model $subject): void
     {
         Gate::allowIf(Auth::user()->allow === true);
     }

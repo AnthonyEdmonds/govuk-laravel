@@ -9,6 +9,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormNoDatabase;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 
 class SubmitTest extends TestCase
@@ -27,6 +28,14 @@ class SubmitTest extends TestCase
         $this->useDatabase();
 
         $this->subject = FormModel::factory()->make();
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->makeRequest(TestForm::class, false);
     }
 
     public function testRunsSubmitForm(): void
@@ -113,8 +122,10 @@ class SubmitTest extends TestCase
         );
     }
 
-    protected function makeRequest(string $formClass): void
+    /** @param class-string<Form> $formClass */
+    protected function makeRequest(string $formClass, bool $allow = true): void
     {
+        $this->signIn(allow: $allow);
         GovukForm::put($formClass::key(), $this->subject);
 
         $this->form = new $formClass();

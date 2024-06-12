@@ -6,5 +6,5 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    //
+    public bool $allow = true;
 }

@@ -7,6 +7,7 @@ use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class ConfirmationTest extends TestCase
 {
@@ -24,37 +25,38 @@ class ConfirmationTest extends TestCase
         $this->useDatabase();
 
         $this->subject = FormModel::factory()->create();
-
         $this->form = new TestForm();
-        $this->page = $this->form->confirmation(Form::EDIT, $this->subject);
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->signIn(allow: false);
+        $this->form->confirmation(Form::EDIT, $this->subject);
     }
 
     public function testHasTitle(): void
     {
+        $this->signIn();
+        $this->page = $this->form->confirmation(Form::EDIT, $this->subject);
+
         $this->assertEquals(
             'Application complete',
             $this->page->getData()['title']
         );
-    }
 
-    public function testHasBlade(): void
-    {
         $this->assertEquals(
             'test.confirmation',
             $this->page->getData()['content']
         );
-    }
 
-    public function testHasMode(): void
-    {
         $this->assertEquals(
             Form::EDIT,
             $this->page->getData()['mode'],
         );
-    }
 
-    public function testHasSubject(): void
-    {
         $this->assertEquals(
             $this->subject->id,
             $this->page->getData()['subject']->id,

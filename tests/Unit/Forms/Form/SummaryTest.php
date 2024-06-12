@@ -9,6 +9,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\ThirdQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class SummaryTest extends TestCase
 {
@@ -27,8 +28,18 @@ class SummaryTest extends TestCase
         $this->subject = FormModel::factory()->make();
         GovukForm::put(TestForm::key(), $this->subject);
 
+        $this->signIn();
         $this->form = new TestForm();
         $this->page = $this->form->summary(Form::NEW);
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->signIn(allow: false);
+        $this->form->confirmation(Form::EDIT, $this->subject);
     }
 
     public function testHasTitle(): void

@@ -7,6 +7,7 @@ use AnthonyEdmonds\GovukLaravel\Helpers\GovukForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\FormModel;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 
 class DraftTest extends TestCase
@@ -29,18 +30,26 @@ class DraftTest extends TestCase
         GovukForm::put(TestForm::key(), $this->subject);
 
         $this->form = new TestForm();
-        $this->response = $this->form->draft(Form::NEW);
+    }
+
+    public function testChecksAccess(): void
+    {
+        $this->expectException(AuthorizationException::class);
+        $this->expectExceptionMessage('This action is unauthorized');
+
+        $this->signIn(allow: false);
+        $this->form->draft(Form::EDIT);
     }
 
     public function testRunsSubmitDraft(): void
     {
+        $this->signIn();
+        $this->response = $this->form->draft(Form::NEW);
+
         $this->assertDatabaseHas('form_models', [
             'name' => $this->subject->name,
         ]);
-    }
 
-    public function testExitsWhenNoConfirmationBlade(): void
-    {
         $this->assertEquals(
             route('/'),
             $this->response->getTargetUrl()
