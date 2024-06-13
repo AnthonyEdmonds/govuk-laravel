@@ -10,6 +10,11 @@ Guidance is shown from newest to oldest.
 
 1. All Form classes must update their signature for `checkAccess` to accept the subject as the first parameter
    1. `public function checkAccess(Model $subject): void`
+2. If any of the following Form methods have been overridden, their signatures must be updated to include the subject as the first parameter:
+   1. `summarySubmitLabel(Model $subject): string`
+   2. `summaryBlade(Model $subject): ?string`
+   3. `summaryCancelLabel(Model $subject): ?string`
+   4. `summaryDraftLabel(Model $subject): ?string`
 
 ## Update to version 3.x from version 2.x
 

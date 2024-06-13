@@ -57,7 +57,7 @@ class TestForm extends Form
         return 'test.start';
     }
 
-    protected function summaryDraftLabel(): ?string
+    protected function summaryDraftLabel(Model $subject): ?string
     {
         return 'Save as draft';
     }

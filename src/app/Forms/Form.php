@@ -204,8 +204,8 @@ abstract class Form
             $this->summaryTitle($subject),
             $subject->toSummary($canEdit), /* @phpstan-ignore-line */
             $canEdit === true
-                ? $this->summarySubmitLabel()
-                : $this->summaryCancelLabel(),
+                ? $this->summarySubmitLabel($subject)
+                : $this->summaryCancelLabel($subject),
             $canEdit === true
                 ? $this->submitRoute($mode)
                 : $this->summaryCancelRoute($subject),
@@ -215,9 +215,9 @@ abstract class Form
             $canEdit === true
                 ? Page::POST_METHOD
                 : Page::GET_METHOD,
-            $this->summaryBlade(),
+            $this->summaryBlade($subject),
             $canEdit === true
-                ? $this->summaryCancelLabel()
+                ? $this->summaryCancelLabel($subject)
                 : null,
             $canEdit === true
                 ? $this->summaryCancelRoute($subject)
@@ -226,7 +226,7 @@ abstract class Form
             ->with('mode', $mode)
             ->with('subject', $subject)
             ->with('canEdit', $canEdit)
-            ->with('draftButtonLabel', $canEdit === true ? $this->summaryDraftLabel() : null)
+            ->with('draftButtonLabel', $canEdit === true ? $this->summaryDraftLabel($subject) : null)
             ->with('draftButtonAction', $canEdit === true ? $this->draftRoute($mode) : null);
     }
 
@@ -272,17 +272,17 @@ abstract class Form
         return 'Review your answers';
     }
 
-    protected function summarySubmitLabel(): string
+    protected function summarySubmitLabel(Model $subject): string
     {
         return 'Submit';
     }
 
-    protected function summaryBlade(): ?string
+    protected function summaryBlade(Model $subject): ?string
     {
         return null;
     }
 
-    protected function summaryCancelLabel(): ?string
+    protected function summaryCancelLabel(Model $subject): ?string
     {
         return 'Cancel and exit';
     }
@@ -297,7 +297,7 @@ abstract class Form
         //
     }
 
-    protected function summaryDraftLabel(): ?string
+    protected function summaryDraftLabel(Model $subject): ?string
     {
         return null;
     }
