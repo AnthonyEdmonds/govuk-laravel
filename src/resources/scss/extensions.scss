@@ -31,3 +31,8 @@
         padding-left: $govuk-gutter-half;
         padding-right: $govuk-gutter-half;
     }
+
+// Details inside lists
+    li > details {
+        margin-bottom: 0 !important;
+    }
