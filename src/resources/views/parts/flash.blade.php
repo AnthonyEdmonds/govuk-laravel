@@ -24,7 +24,7 @@
         @endphp
 
         <x-govuk::notification-banner :title="$title" :colour="$colour">
-            <p class="govuk-body">{{ $message['message'] }}</p>
+            <p class="govuk-body">{!! $message['message'] !!}</p>
         </x-govuk::notification-banner>
     @endforeach
 
