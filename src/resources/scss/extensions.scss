@@ -38,6 +38,8 @@
     }
 
 // No print
-    .app-no-print {
-        display: none;
+    @media print {
+        .app-no-print {
+            display: none;
+        }
     }
