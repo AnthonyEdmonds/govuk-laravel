@@ -36,3 +36,8 @@
     li > details {
         margin-bottom: 0 !important;
     }
+
+// No print
+    .app-no-print {
+        display: none;
+    }
