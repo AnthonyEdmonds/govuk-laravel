@@ -123,9 +123,9 @@ abstract class Form
         return 'Start';
     }
 
-    protected function startBackRoute(): ?string
+    protected function startBackRoute(?Model $subject = null): ?string
     {
-        return $this->exitRoute();
+        return $this->exitRoute($subject);
     }
 
     // Question
@@ -148,7 +148,7 @@ abstract class Form
                 $question,
                 $questionClass->getSubmitButtonLabel($mode, $this->isLastQuestion($questionKey)),
                 $this->questionRoute($mode, $questionKey),
-                $this->getBackRoute($mode, $questionKey),
+                $this->getBackRoute($mode, $questionKey, $subject),
             );
 
         $withs = $questionClass->withs($subject);
@@ -157,7 +157,7 @@ abstract class Form
         }
 
         return $page
-            ->setBack($this->getBackRoute($mode, $questionKey))
+            ->setBack($this->getBackRoute($mode, $questionKey, $subject))
             ->setMethod($questionClass->getMethod())
             ->setContent($questionClass->getBlade())
             ->setOtherButtonLabel($questionClass->getOtherButtonLabel())
@@ -462,13 +462,13 @@ abstract class Form
         return $this->summaryRoute($mode);
     }
 
-    protected function getBackRoute(string $mode, ?string $questionKey = null): string
+    protected function getBackRoute(string $mode, ?string $questionKey = null, ?Model $subject = null): string
     {
         if ($mode === self::NEW) {
             if ($this->isFirstQuestion($questionKey) === true) {
                 return $this->startBlade() !== false
                     ? $this->startRoute()
-                    : $this->exitRoute();
+                    : $this->exitRoute($subject);
             }
 
             return $this->questionRoute($mode, $this->getPreviousQuestionKey($questionKey));
