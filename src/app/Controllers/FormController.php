@@ -10,6 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Session;
 
 class FormController extends BaseController
 {
@@ -36,6 +37,8 @@ class FormController extends BaseController
         $form = Form::getForm($formKey);
         $subject = $form->loadSubjectFromDatabase($subjectKey);
 
+        Session::reflash();
+        
         return $form->edit($subject);
     }
 
