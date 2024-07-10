@@ -41,7 +41,7 @@
         aria-describedby="{{ $ariaDescribedby }}"
     @endif
     class="{{ $linkClasses }}"
-    href="{{ $href }}"
+    href="{!! $href !!}"
     @if($rel !== null)
         rel="{{ $rel }}"
     @endif
