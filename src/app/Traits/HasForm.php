@@ -18,7 +18,7 @@ trait HasForm
     public function form(): Form
     {
         if (isset($this->form) === false) {
-            $formClass = self::formClass();
+            $formClass = static::formClass();
             $this->form = new $formClass();
         }
 
@@ -28,12 +28,12 @@ trait HasForm
     // Routing
     public static function startFormRoute(): string
     {
-        return route('forms.start', self::formClass()::key());
+        return route('forms.start', static::formClass()::key());
     }
 
     public static function editFormRoute(Model $subject): string
     {
-        return route('forms.edit', [self::formClass()::key(), $subject->getRouteKey()]);
+        return route('forms.edit', [static::formClass()::key(), $subject->getRouteKey()]);
     }
 
     // Summary
