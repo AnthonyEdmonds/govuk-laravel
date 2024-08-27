@@ -13,7 +13,7 @@
     "homepage": "https://github.com/AnthonyEdmonds/govuk-laravel",
     "scripts": {
         "larastan": "php vendor/bin/phpstan analyse --memory-limit 512M",
-        "pint": "php ./vendor/bin/pint",
+        "pint": "php ./vendor/bin/pint --preset=per",
         "prepare": "husky install",
         "test": "php vendor/bin/paratest",
         "test-slow": "php vendor/bin/phpunit"

@@ -29,7 +29,7 @@ class DraftTest extends TestCase
 
         GovukForm::put(TestForm::key(), $this->subject);
 
-        $this->form = new TestForm;
+        $this->form = new TestForm();
     }
 
     public function testChecksAccess(): void
@@ -52,7 +52,7 @@ class DraftTest extends TestCase
 
         $this->assertEquals(
             route('/'),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 }

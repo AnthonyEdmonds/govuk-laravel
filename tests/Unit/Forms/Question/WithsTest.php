@@ -14,14 +14,14 @@ class WithsTest extends TestCase
     {
         parent::setUp();
 
-        $this->question = new SecondQuestion;
+        $this->question = new SecondQuestion();
     }
 
     public function testReturnsArray(): void
     {
         $this->assertEquals(
             [],
-            $this->question->withs(new FormModel),
+            $this->question->withs(new FormModel()),
         );
     }
 }

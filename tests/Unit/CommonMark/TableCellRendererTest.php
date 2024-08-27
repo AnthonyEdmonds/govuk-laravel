@@ -27,9 +27,9 @@ class TableCellRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
+        $this->environment = new Environment();
         $this->child = new HtmlRenderer($this->environment);
-        $this->renderer = new TableCellRenderer;
+        $this->renderer = new TableCellRenderer();
     }
 
     public function testHasTd(): void

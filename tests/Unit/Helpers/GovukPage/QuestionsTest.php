@@ -143,7 +143,7 @@ class QuestionsTest extends TestCase
             'lizard',
             $otherButtonLabel,
             'dragon',
-            Page::START_BUTTON
+            Page::START_BUTTON,
         )->toArray();
     }
 }

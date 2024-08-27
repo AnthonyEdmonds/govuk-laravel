@@ -22,7 +22,7 @@ class CreateTest extends TestCase
 
         $this->useForms();
 
-        $this->form = new TestForm;
+        $this->form = new TestForm();
     }
 
     public function testChecksAccess(): void
@@ -41,7 +41,7 @@ class CreateTest extends TestCase
 
         $this->assertInstanceOf(
             FormModel::class,
-            Session::get(TestForm::key())
+            Session::get(TestForm::key()),
         );
 
         $this->assertEquals(
@@ -50,7 +50,7 @@ class CreateTest extends TestCase
                 TestForm::NEW,
                 FirstQuestion::key(),
             ]),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 }

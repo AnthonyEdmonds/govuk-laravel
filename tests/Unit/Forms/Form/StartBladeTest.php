@@ -9,7 +9,7 @@ class StartBladeTest extends TestCase
 {
     public function testReturnsValue(): void
     {
-        $form = new TestForm;
+        $form = new TestForm();
 
         $this->assertEquals(
             'test.start',

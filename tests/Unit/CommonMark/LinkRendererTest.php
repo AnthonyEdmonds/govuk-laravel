@@ -29,12 +29,12 @@ class LinkRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
-        $this->environment->addRenderer(Text::class, new TextRenderer);
+        $this->environment = new Environment();
+        $this->environment->addRenderer(Text::class, new TextRenderer());
 
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new LinkRenderer;
+        $this->renderer = new LinkRenderer();
     }
 
     public function testHasTag(): void

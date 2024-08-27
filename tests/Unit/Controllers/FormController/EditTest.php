@@ -28,7 +28,7 @@ class EditTest extends TestCase
 
         $this->subject = FormModel::factory()->create();
 
-        $this->controller = new FormController;
+        $this->controller = new FormController();
     }
 
     public function testRedirects(): void

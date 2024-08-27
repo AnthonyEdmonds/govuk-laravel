@@ -22,6 +22,6 @@ class TableRowRenderer implements NodeRendererInterface
 
         $separator = $childRenderer->getInnerSeparator();
 
-        return new HtmlElement('tr', $attrs, $separator.$childRenderer->renderNodes($node->children()).$separator);
+        return new HtmlElement('tr', $attrs, $separator . $childRenderer->renderNodes($node->children()) . $separator);
     }
 }

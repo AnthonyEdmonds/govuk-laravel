@@ -30,7 +30,7 @@ class FormModel extends Model
 
     protected static function newFactory(): FormModelFactory
     {
-        return new FormModelFactory;
+        return new FormModelFactory();
     }
 
     public function canSubmit(): string|true

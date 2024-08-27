@@ -135,7 +135,7 @@ class FooterTest extends TestCase
     {
         $this->setViewSlot(
             'information',
-            '<p>My information</p>'
+            '<p>My information</p>',
         );
 
         $this->makeFooter()
@@ -147,7 +147,7 @@ class FooterTest extends TestCase
     {
         $this->setViewSlot(
             'licence',
-            '<p>My licence</p>'
+            '<p>My licence</p>',
         );
 
         $this->makeFooter()
@@ -159,7 +159,7 @@ class FooterTest extends TestCase
     {
         $this->setViewSlot(
             'logos',
-            '<p>My logos</p>'
+            '<p>My logos</p>',
         );
 
         $this->makeFooter()
@@ -202,7 +202,7 @@ class FooterTest extends TestCase
         $this->setViewAttributes();
 
         if ($signIn === true) {
-            $this->actingAs(new User);
+            $this->actingAs(new User());
         }
 
         Gate::define('manage_users', function () {

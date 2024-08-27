@@ -22,7 +22,7 @@ class StartTest extends TestCase
 
         $this->useForms();
 
-        $this->form = new TestForm;
+        $this->form = new TestForm();
     }
 
     public function testChecksAccess(): void
@@ -48,31 +48,31 @@ class StartTest extends TestCase
 
         $this->assertEquals(
             'Begin your application',
-            $data['title']
+            $data['title'],
         );
 
         $this->assertEquals(
             route('forms.start', TestForm::key()),
-            $data['action']
+            $data['action'],
         );
 
         $this->assertEquals(
             'Start',
-            $data['submitButtonLabel']
+            $data['submitButtonLabel'],
         );
 
         $this->assertEquals(
             route('/'),
-            $data['back']
+            $data['back'],
         );
 
         $this->assertFalse(
-            $data['isInProgress']
+            $data['isInProgress'],
         );
 
         $this->assertEquals(
             route('forms.summary', [TestForm::key(), Form::NEW]),
-            $data['summaryRoute']
+            $data['summaryRoute'],
         );
     }
 
@@ -86,12 +86,12 @@ class StartTest extends TestCase
             ->getData();
 
         $this->assertTrue(
-            $data['isInProgress']
+            $data['isInProgress'],
         );
 
         $this->assertEquals(
             route('forms.summary', [TestForm::key(), Form::REVIEW]),
-            $data['summaryRoute']
+            $data['summaryRoute'],
         );
     }
 
@@ -108,12 +108,12 @@ class StartTest extends TestCase
             ->getData();
 
         $this->assertTrue(
-            $data['isInProgress']
+            $data['isInProgress'],
         );
 
         $this->assertEquals(
             route('forms.summary', [TestForm::key(), Form::EDIT]),
-            $data['summaryRoute']
+            $data['summaryRoute'],
         );
     }
 }

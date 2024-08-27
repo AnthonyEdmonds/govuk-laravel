@@ -27,11 +27,11 @@ class TableRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
-        $this->node = new Table;
+        $this->environment = new Environment();
+        $this->node = new Table();
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new TableRenderer;
+        $this->renderer = new TableRenderer();
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 

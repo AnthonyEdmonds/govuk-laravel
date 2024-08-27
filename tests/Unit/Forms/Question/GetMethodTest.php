@@ -14,14 +14,14 @@ class GetMethodTest extends TestCase
     {
         parent::setUp();
 
-        $this->question = new FirstQuestion;
+        $this->question = new FirstQuestion();
     }
 
     public function testReturnsMethod(): void
     {
         $this->assertEquals(
             Page::POST_METHOD,
-            $this->question->getMethod()
+            $this->question->getMethod(),
         );
     }
 }

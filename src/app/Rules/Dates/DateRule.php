@@ -62,7 +62,7 @@ abstract class DateRule implements DataAwareRule, ValidationRule
         if ($this->timeField !== null) {
             try {
                 $enteredDate->setTimeFrom(
-                    Carbon::parse($this->data[$this->timeField])
+                    Carbon::parse($this->data[$this->timeField]),
                 );
 
                 $this->messageFormat .= ' H:i';

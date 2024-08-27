@@ -27,11 +27,11 @@ class IndentedCodeRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
-        $this->node = new IndentedCode;
+        $this->environment = new Environment();
+        $this->node = new IndentedCode();
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new IndentedCodeRenderer;
+        $this->renderer = new IndentedCodeRenderer();
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 

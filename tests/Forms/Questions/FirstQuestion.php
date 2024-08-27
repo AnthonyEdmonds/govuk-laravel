@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class FirstQuestion extends Question
 {
-    const SKIPPABLE = true;
+    public const SKIPPABLE = true;
 
     public static function key(): string
     {
@@ -48,6 +48,6 @@ class FirstQuestion extends Question
 
     protected function getFormRequest(): FormRequest
     {
-        return new NameFormRequest;
+        return new NameFormRequest();
     }
 }

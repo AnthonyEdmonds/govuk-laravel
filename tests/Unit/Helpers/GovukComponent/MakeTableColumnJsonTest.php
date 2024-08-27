@@ -23,7 +23,7 @@ class MakeTableColumnJsonTest extends TestCase
                 'My label',
                 false,
                 'My HTML',
-            )
+            ),
         );
     }
 
@@ -43,7 +43,7 @@ class MakeTableColumnJsonTest extends TestCase
                 'My label',
                 true,
                 'My HTML',
-            )
+            ),
         );
     }
 }

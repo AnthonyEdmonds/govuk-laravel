@@ -20,7 +20,7 @@ class ValidateTest extends TestCase
     {
         parent::setUp();
 
-        $this->question = new FirstQuestion;
+        $this->question = new FirstQuestion();
 
         $this->request = new Request([
             'name' => null,

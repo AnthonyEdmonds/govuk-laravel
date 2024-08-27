@@ -27,7 +27,7 @@ class StartTest extends TestCase
 
         $this->signIn();
 
-        $this->controller = new FormController;
+        $this->controller = new FormController();
     }
 
     public function testHasTemplate(): void

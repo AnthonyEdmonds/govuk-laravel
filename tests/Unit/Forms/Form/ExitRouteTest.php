@@ -10,7 +10,7 @@ class ExitRouteTest extends TestCase
     public function test(): void
     {
         $this->useForms();
-        $form = new TestForm;
+        $form = new TestForm();
 
         $this->assertEquals(
             route('/'),

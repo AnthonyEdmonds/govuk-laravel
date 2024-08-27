@@ -17,7 +17,7 @@ class GovukPage
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
         string $submitButtonType = Page::NORMAL_BUTTON,
-        ?string $caption = null
+        ?string $caption = null,
     ): Page {
         return Page::create($title)
             ->setAction($action)
@@ -44,7 +44,7 @@ class GovukPage
         string $title,
         string $blade,
         array $breadcrumbs,
-        ?string $caption = null
+        ?string $caption = null,
     ): Page {
         return Page::create($title)
             ->setBreadcrumbs($breadcrumbs)
@@ -77,7 +77,7 @@ class GovukPage
         ?string $blade = null,
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
-        string $submitButtonType = Page::NORMAL_BUTTON
+        string $submitButtonType = Page::NORMAL_BUTTON,
     ): Page {
         $question
             ->isTitle()
@@ -107,7 +107,7 @@ class GovukPage
         ?string $blade = null,
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
-        string $submitButtonType = Page::NORMAL_BUTTON
+        string $submitButtonType = Page::NORMAL_BUTTON,
     ): Page {
         return Page::create($title)
             ->setAction($action)
@@ -150,7 +150,7 @@ class GovukPage
         ?string $blade = null,
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
-        string $submitButtonType = Page::NORMAL_BUTTON
+        string $submitButtonType = Page::NORMAL_BUTTON,
     ): Page {
         return Page::create($title)
             ->setAction($action)

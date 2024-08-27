@@ -26,10 +26,10 @@ class SkipTest extends TestCase
 
         $this->useForms();
 
-        $this->subject = new FormModel;
+        $this->subject = new FormModel();
         GovukForm::put(TestForm::key(), $this->subject);
 
-        $this->form = new TestForm;
+        $this->form = new TestForm();
     }
 
     public function testChecksAccess(): void
@@ -46,7 +46,7 @@ class SkipTest extends TestCase
 
         $this->assertEquals(
             'Skipped',
-            $this->subject->name
+            $this->subject->name,
         );
     }
 
@@ -56,7 +56,7 @@ class SkipTest extends TestCase
 
         $this->assertEquals(
             'Skipped',
-            GovukForm::get(TestForm::key())->name
+            GovukForm::get(TestForm::key())->name,
         );
     }
 
@@ -80,7 +80,7 @@ class SkipTest extends TestCase
 
         $this->response = $this->form->skip(
             Form::NEW,
-            FirstQuestion::key()
+            FirstQuestion::key(),
         );
     }
 }

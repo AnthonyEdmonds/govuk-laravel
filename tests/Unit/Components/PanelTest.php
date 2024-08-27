@@ -13,7 +13,7 @@ class PanelTest extends TestCase
             ->first('div')
             ->hasAttribute(
                 'class',
-                'govuk-panel govuk-panel--confirmation app-!-background-dark-blue'
+                'govuk-panel govuk-panel--confirmation app-!-background-dark-blue',
             );
     }
 
@@ -39,7 +39,7 @@ class PanelTest extends TestCase
         $this->setViewSlot(
             'slot',
             'Your reference number
-            <br/><strong>HDJ2123F</strong>'
+            <br/><strong>HDJ2123F</strong>',
         );
 
         return $this->assertView('govuk::components.panel', [

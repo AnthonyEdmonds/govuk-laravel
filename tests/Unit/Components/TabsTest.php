@@ -57,7 +57,7 @@ class TabsTest extends TestCase
                 label="Tab two label"
             >
                 <x-govuk::h2>Tab two title</x-govuk::h2>
-            </x-govuk::tab-panel>'
+            </x-govuk::tab-panel>',
         );
 
         return $this->assertView('govuk::components.tabs', [

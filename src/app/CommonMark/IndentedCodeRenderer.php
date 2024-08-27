@@ -25,7 +25,7 @@ class IndentedCodeRenderer implements NodeRendererInterface
             [
                 'class' => 'govuk-body',
             ],
-            new HtmlElement('code', $attrs, Xml::escape($node->getLiteral()))
+            new HtmlElement('code', $attrs, Xml::escape($node->getLiteral())),
         );
     }
 }

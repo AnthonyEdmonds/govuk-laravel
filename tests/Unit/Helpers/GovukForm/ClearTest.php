@@ -11,11 +11,11 @@ class ClearTest extends TestCase
 {
     public function testClearsSession(): void
     {
-        GovukForm::put('potato', new FormModel);
+        GovukForm::put('potato', new FormModel());
         GovukForm::clear('potato');
 
         $this->assertFalse(
-            Session::has('potato')
+            Session::has('potato'),
         );
     }
 }

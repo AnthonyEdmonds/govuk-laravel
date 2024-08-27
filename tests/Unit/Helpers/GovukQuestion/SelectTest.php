@@ -22,7 +22,7 @@ class SelectTest extends TestCase
                 'value_2' => 'Two',
                 'value_3' => 'Three',
             ],
-            'my_id'
+            'my_id',
         );
     }
 
@@ -30,7 +30,7 @@ class SelectTest extends TestCase
     {
         $this->assertEquals(
             'My question',
-            $this->question->label
+            $this->question->label,
         );
     }
 
@@ -38,7 +38,7 @@ class SelectTest extends TestCase
     {
         $this->assertEquals(
             'my_name',
-            $this->question->name
+            $this->question->name,
         );
     }
 
@@ -50,7 +50,7 @@ class SelectTest extends TestCase
                 'value_2' => 'Two',
                 'value_3' => 'Three',
             ],
-            $this->question->options
+            $this->question->options,
         );
     }
 
@@ -58,7 +58,7 @@ class SelectTest extends TestCase
     {
         $this->assertEquals(
             'my_id',
-            $this->question->id
+            $this->question->id,
         );
     }
 }

@@ -25,7 +25,7 @@ class RenderTableContentTest extends TestCase
             '',
             GovukComponent::renderTableContent(
                 $this->makeColumn('My ID is ~id, OK?', '~name'),
-                $this->makeRow(1, 'Bob', 23)
+                $this->makeRow(1, 'Bob', 23),
             ),
         );
     }
@@ -36,7 +36,7 @@ class RenderTableContentTest extends TestCase
             'My name is Bob, OK?',
             GovukComponent::renderTableContent(
                 $this->makeColumn('My name is ~name, OK?', '~hidden'),
-                $this->makeRow(1, 'Bob', 23)
+                $this->makeRow(1, 'Bob', 23),
             ),
         );
     }
@@ -47,7 +47,7 @@ class RenderTableContentTest extends TestCase
             'My name is ~name, OK?',
             GovukComponent::renderTableContent(
                 $this->makeColumn('My name is ~name, OK?'),
-                $this->makeRow(1, ['Goose'], 23)
+                $this->makeRow(1, ['Goose'], 23),
             ),
         );
     }
@@ -58,7 +58,7 @@ class RenderTableContentTest extends TestCase
             'My name is , OK?',
             GovukComponent::renderTableContent(
                 $this->makeColumn('My name is ~name, OK?'),
-                $this->makeRow(1, null, 23)
+                $this->makeRow(1, null, 23),
             ),
         );
     }

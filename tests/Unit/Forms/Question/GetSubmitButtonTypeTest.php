@@ -14,14 +14,14 @@ class GetSubmitButtonTypeTest extends TestCase
     {
         parent::setUp();
 
-        $this->question = new FirstQuestion;
+        $this->question = new FirstQuestion();
     }
 
     public function testReturnsType(): void
     {
         $this->assertEquals(
             Page::NORMAL_BUTTON,
-            $this->question->getSubmitButtonType()
+            $this->question->getSubmitButtonType(),
         );
     }
 }

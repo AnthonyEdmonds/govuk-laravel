@@ -27,7 +27,7 @@ class EditTest extends TestCase
 
         $this->subject = FormModel::factory()->create();
 
-        $this->form = new TestForm;
+        $this->form = new TestForm();
     }
 
     public function testChecksAccess(): void
@@ -54,7 +54,7 @@ class EditTest extends TestCase
                 TestForm::key(),
                 Form::EDIT,
             ]),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 }

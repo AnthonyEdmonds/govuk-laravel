@@ -19,7 +19,7 @@ trait HasForm
     {
         if (isset($this->form) === false) {
             $formClass = static::formClass();
-            $this->form = new $formClass;
+            $this->form = new $formClass();
         }
 
         return $this->form;
@@ -48,7 +48,7 @@ trait HasForm
         $questionClasses = $this->form()->questions();
 
         foreach ($questionClasses as $questionClass) {
-            $formQuestion = new $questionClass;
+            $formQuestion = new $questionClass();
 
             $this->questionToSummaryEntry($summary, $formQuestion, $showChange);
         }
@@ -86,7 +86,7 @@ trait HasForm
         string $questionKey,
         string $label,
         mixed $value = null,
-        bool $showChange = false
+        bool $showChange = false,
     ): array {
         if (
             is_array($value) === true

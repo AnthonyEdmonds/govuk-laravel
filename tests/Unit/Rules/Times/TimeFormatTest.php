@@ -13,7 +13,7 @@ class TimeFormatTest extends TestCase
     {
         parent::setUp();
 
-        $this->rule = new TimeFormat;
+        $this->rule = new TimeFormat();
     }
 
     public function testPassesWhen24HourFormat(): void

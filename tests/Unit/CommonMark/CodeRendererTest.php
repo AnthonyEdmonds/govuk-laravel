@@ -27,11 +27,11 @@ class CodeRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
-        $this->node = new Code;
+        $this->environment = new Environment();
+        $this->node = new Code();
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new CodeRenderer;
+        $this->renderer = new CodeRenderer();
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 

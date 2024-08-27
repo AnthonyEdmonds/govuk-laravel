@@ -31,6 +31,6 @@ class TableSectionRenderer implements NodeRendererInterface
             ? 'govuk-table__head'
             : 'govuk-table__body';
 
-        return new HtmlElement($tag, $attrs, $separator.$childRenderer->renderNodes($node->children()).$separator);
+        return new HtmlElement($tag, $attrs, $separator . $childRenderer->renderNodes($node->children()) . $separator);
     }
 }

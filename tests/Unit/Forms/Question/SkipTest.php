@@ -19,7 +19,7 @@ class SkipTest extends TestCase
 
         $this->useDatabase();
 
-        $this->question = new FirstQuestion;
+        $this->question = new FirstQuestion();
         $this->subject = FormModel::factory()->create();
 
         $this->question->skip($this->subject, Form::NEW);

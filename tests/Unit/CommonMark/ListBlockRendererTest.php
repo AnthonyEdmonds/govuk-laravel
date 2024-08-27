@@ -30,13 +30,13 @@ class ListBlockRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
+        $this->environment = new Environment();
 
-        $this->listData = new ListData;
+        $this->listData = new ListData();
         $this->node = new ListBlock($this->listData);
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new ListBlockRenderer;
+        $this->renderer = new ListBlockRenderer();
 
     }
 

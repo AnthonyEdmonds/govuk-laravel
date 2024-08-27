@@ -51,7 +51,7 @@ abstract class Form
 
         foreach ($registeredForms as $form) {
             if ($form::key() === $key) {
-                return new $form;
+                return new $form();
             }
         }
 
@@ -357,11 +357,11 @@ abstract class Form
     {
         foreach (static::questions() as $question) {
             if ($question::key() === $questionKey) {
-                return new $question;
+                return new $question();
             }
         }
 
-        throw new QuestionNotFoundException($questionKey.' does not exist in the '.static::key().' form');
+        throw new QuestionNotFoundException($questionKey . ' does not exist in the ' . static::key() . ' form');
     }
 
     protected function getFirstQuestionKey(): string

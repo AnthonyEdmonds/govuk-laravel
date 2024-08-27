@@ -12,7 +12,7 @@ class BeforeDate extends DateRule
             return true;
         }
 
-        $this->message = ':attribute must be before '.$this->date->format($this->messageFormat);
+        $this->message = ':attribute must be before ' . $this->date->format($this->messageFormat);
 
         return false;
     }

@@ -31,7 +31,7 @@ class SubmitTest extends TestCase
 
         GovukForm::put(TestForm::key(), $this->subject);
 
-        $this->controller = new FormController;
+        $this->controller = new FormController();
     }
 
     public function testRedirects(): void

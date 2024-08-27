@@ -52,7 +52,7 @@ class SubmitTest extends TestCase
         $this->makeRequest(TestForm::class);
 
         $this->assertFalse(
-            GovukForm::has(TestForm::key())
+            GovukForm::has(TestForm::key()),
         );
     }
 
@@ -61,7 +61,7 @@ class SubmitTest extends TestCase
         $this->makeRequest(TestFormNoDatabase::class);
 
         $this->assertTrue(
-            GovukForm::has(TestFormNoDatabase::key())
+            GovukForm::has(TestFormNoDatabase::key()),
         );
     }
 
@@ -75,7 +75,7 @@ class SubmitTest extends TestCase
                 Form::NEW,
                 FormModel::first()->id,
             ]),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 
@@ -88,7 +88,7 @@ class SubmitTest extends TestCase
                 TestFormNoDatabase::key(),
                 Form::NEW,
             ]),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 
@@ -98,7 +98,7 @@ class SubmitTest extends TestCase
 
         $this->assertEquals(
             route('/'),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 
@@ -118,7 +118,7 @@ class SubmitTest extends TestCase
 
         $this->assertEquals(
             'You must put a name',
-            $this->response->getSession()->get('errors')->first('content')
+            $this->response->getSession()->get('errors')->first('content'),
         );
     }
 
@@ -128,7 +128,7 @@ class SubmitTest extends TestCase
         $this->signIn(allow: $allow);
         GovukForm::put($formClass::key(), $this->subject);
 
-        $this->form = new $formClass;
+        $this->form = new $formClass();
 
         $this->response = $this->form->submit(Form::NEW);
     }

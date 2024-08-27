@@ -25,7 +25,7 @@ class HiddenTest extends TestCase
     {
         $this->assertEquals(
             'My value',
-            $this->question->value
+            $this->question->value,
         );
     }
 
@@ -33,7 +33,7 @@ class HiddenTest extends TestCase
     {
         $this->assertEquals(
             'my_name',
-            $this->question->name
+            $this->question->name,
         );
     }
 
@@ -41,7 +41,7 @@ class HiddenTest extends TestCase
     {
         $this->assertEquals(
             'my_id',
-            $this->question->id
+            $this->question->id,
         );
     }
 }

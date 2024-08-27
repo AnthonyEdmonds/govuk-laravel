@@ -30,10 +30,10 @@ class StoreTest extends TestCase
 
         $this->useForms();
 
-        $this->subject = new FormModel;
+        $this->subject = new FormModel();
         GovukForm::put(TestForm::key(), $this->subject);
 
-        $this->form = new TestForm;
+        $this->form = new TestForm();
     }
 
     public function testChecksAccess(): void
@@ -58,7 +58,7 @@ class StoreTest extends TestCase
 
         $this->assertEquals(
             'potato',
-            $this->subject->name
+            $this->subject->name,
         );
     }
 
@@ -68,7 +68,7 @@ class StoreTest extends TestCase
 
         $this->assertEquals(
             'potato',
-            GovukForm::get(TestForm::key())->name
+            GovukForm::get(TestForm::key())->name,
         );
     }
 
@@ -99,7 +99,7 @@ class StoreTest extends TestCase
         $this->response = $this->form->store(
             $this->request,
             Form::NEW,
-            FirstQuestion::key()
+            FirstQuestion::key(),
         );
     }
 }

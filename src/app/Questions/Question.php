@@ -89,7 +89,7 @@ class Question
         string $label,
         string $name,
         string $format,
-        ?string $id = null
+        ?string $id = null,
     ) {
         if (in_array($format, self::QUESTION_FORMATS) === false) {
             throw new ErrorException("$format is not a valid GOV.UK Question type");
@@ -313,7 +313,7 @@ class Question
     public function toBlade(): string
     {
         return view("govuk::components.{$this->format}", $this->toArray())
-            ->with('attributes', new ComponentAttributeBag)
+            ->with('attributes', new ComponentAttributeBag())
             ->render();
     }
 

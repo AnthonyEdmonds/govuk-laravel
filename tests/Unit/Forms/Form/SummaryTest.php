@@ -29,7 +29,7 @@ class SummaryTest extends TestCase
         GovukForm::put(TestForm::key(), $this->subject);
 
         $this->signIn();
-        $this->form = new TestForm;
+        $this->form = new TestForm();
         $this->page = $this->form->summary(Form::NEW);
     }
 
@@ -46,7 +46,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             'Review your answers',
-            $this->page->getData()['title']
+            $this->page->getData()['title'],
         );
     }
 
@@ -54,7 +54,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             $this->subject->toSummary(true),
-            $this->page->getData()['summary']
+            $this->page->getData()['summary'],
         );
     }
 
@@ -62,7 +62,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             'Submit',
-            $this->page->getData()['submitButtonLabel']
+            $this->page->getData()['submitButtonLabel'],
         );
     }
 
@@ -73,7 +73,7 @@ class SummaryTest extends TestCase
                 TestForm::key(),
                 Form::NEW,
             ]),
-            $this->page->getData()['action']
+            $this->page->getData()['action'],
         );
     }
 
@@ -85,7 +85,7 @@ class SummaryTest extends TestCase
                 Form::NEW,
                 ThirdQuestion::key(),
             ]),
-            $this->page->getData()['back']
+            $this->page->getData()['back'],
         );
     }
 
@@ -95,7 +95,7 @@ class SummaryTest extends TestCase
 
         $this->assertEquals(
             route('/'),
-            $this->page->getData()['back']
+            $this->page->getData()['back'],
         );
     }
 
@@ -103,7 +103,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             Page::POST_METHOD,
-            $this->page->getData()['method']
+            $this->page->getData()['method'],
         );
     }
 
@@ -111,7 +111,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             null,
-            $this->page->getData()['content']
+            $this->page->getData()['content'],
         );
     }
 
@@ -119,7 +119,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             'Cancel and exit',
-            $this->page->getData()['otherButtonLabel']
+            $this->page->getData()['otherButtonLabel'],
         );
     }
 
@@ -127,7 +127,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             route('/'),
-            $this->page->getData()['otherButtonHref']
+            $this->page->getData()['otherButtonHref'],
         );
     }
 
@@ -135,7 +135,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             Form::NEW,
-            $this->page->getData()['mode']
+            $this->page->getData()['mode'],
         );
     }
 
@@ -143,7 +143,7 @@ class SummaryTest extends TestCase
     {
         $this->assertInstanceOf(
             FormModel::class,
-            $this->page->getData()['subject']
+            $this->page->getData()['subject'],
         );
     }
 
@@ -156,7 +156,7 @@ class SummaryTest extends TestCase
     {
         $this->assertEquals(
             'Save as draft',
-            $this->page->getData()['draftButtonLabel']
+            $this->page->getData()['draftButtonLabel'],
         );
     }
 
@@ -167,7 +167,7 @@ class SummaryTest extends TestCase
                 TestForm::key(),
                 Form::NEW,
             ]),
-            $this->page->getData()['draftButtonAction']
+            $this->page->getData()['draftButtonAction'],
         );
     }
 }

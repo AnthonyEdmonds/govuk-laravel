@@ -35,7 +35,7 @@ class GovukQuestion
             $label,
             $name,
             Question::FILE,
-            $id
+            $id,
         )
             ->accept($accept);
     }
@@ -49,7 +49,7 @@ class GovukQuestion
             '',
             $name,
             Question::HIDDEN,
-            $id
+            $id,
         )
             ->value($value ?? '');
     }
@@ -64,7 +64,7 @@ class GovukQuestion
             $label,
             $name,
             Question::TEXT_INPUT,
-            $id
+            $id,
         )
             ->type($type);
     }
@@ -85,7 +85,7 @@ class GovukQuestion
             $label,
             $name,
             Question::RADIOS,
-            $id
+            $id,
         )
             ->options($options);
     }
@@ -100,7 +100,7 @@ class GovukQuestion
             $label,
             $name,
             Question::SELECT,
-            $id
+            $id,
         )
             ->options($options);
     }
@@ -114,7 +114,7 @@ class GovukQuestion
             $label,
             $name,
             Question::TEXT_AREA,
-            $id
+            $id,
         );
     }
 

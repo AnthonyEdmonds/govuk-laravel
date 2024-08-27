@@ -33,6 +33,6 @@ class ListBlockRenderer implements NodeRendererInterface
 
         $innerSeparator = $childRenderer->getInnerSeparator();
 
-        return new HtmlElement($tag, $attrs, $innerSeparator.$childRenderer->renderNodes($node->children()).$innerSeparator);
+        return new HtmlElement($tag, $attrs, $innerSeparator . $childRenderer->renderNodes($node->children()) . $innerSeparator);
     }
 }

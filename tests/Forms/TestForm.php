@@ -34,7 +34,7 @@ class TestForm extends Form
 
     protected function makeNewSubject(): Model
     {
-        return new FormModel;
+        return new FormModel();
     }
 
     protected function submitForm(Model $subject, string $mode): void

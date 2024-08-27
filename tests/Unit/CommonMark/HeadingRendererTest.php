@@ -27,11 +27,11 @@ class HeadingRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
+        $this->environment = new Environment();
         $this->node = new Heading(2);
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new HeadingRenderer;
+        $this->renderer = new HeadingRenderer();
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 

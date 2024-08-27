@@ -27,11 +27,11 @@ class TableRowRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment;
-        $this->node = new TableRow;
+        $this->environment = new Environment();
+        $this->node = new TableRow();
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new TableRowRenderer;
+        $this->renderer = new TableRowRenderer();
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 

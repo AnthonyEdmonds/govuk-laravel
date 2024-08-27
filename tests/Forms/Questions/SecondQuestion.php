@@ -27,11 +27,11 @@ class SecondQuestion extends Question
         return [
             GovukQuestionHelper::input(
                 'Test question two A',
-                self::key().'-a',
+                self::key() . '-a',
             ),
             GovukQuestionHelper::input(
                 'Test question two B',
-                self::key().'-b',
+                self::key() . '-b',
             ),
         ];
     }
@@ -43,6 +43,6 @@ class SecondQuestion extends Question
 
     protected function getFormRequest(): FormRequest
     {
-        return new NameFormRequest;
+        return new NameFormRequest();
     }
 }

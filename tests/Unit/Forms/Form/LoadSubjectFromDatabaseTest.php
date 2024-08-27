@@ -19,7 +19,7 @@ class LoadSubjectFromDatabaseTest extends TestCase
         $this->useDatabase();
 
         $this->subject = FormModel::factory()->create();
-        $this->form = new TestForm;
+        $this->form = new TestForm();
     }
 
     public function testLoadsSubjectFromDatabase(): void

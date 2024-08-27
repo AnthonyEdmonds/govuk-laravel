@@ -23,13 +23,13 @@ class FormTest extends TestCase
     {
         $this->assertInstanceOf(
             TestForm::class,
-            $this->subject->form()
+            $this->subject->form(),
         );
     }
 
     public function testUsesStoredFormWhenSet(): void
     {
-        $form = new TestForm;
+        $form = new TestForm();
         $this->subject->form = $form;
 
         $this->assertSame(

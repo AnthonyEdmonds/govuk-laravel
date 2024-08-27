@@ -14,14 +14,14 @@ class GetTitleTest extends TestCase
     {
         parent::setUp();
 
-        $this->question = new FirstQuestion;
+        $this->question = new FirstQuestion();
     }
 
     public function testReturnsTitle(): void
     {
         $this->assertEquals(
             '',
-            $this->question->getTitle(new FormModel)
+            $this->question->getTitle(new FormModel()),
         );
     }
 }

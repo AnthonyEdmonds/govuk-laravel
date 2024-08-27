@@ -28,11 +28,11 @@ class ToSummaryTest extends TestCase
                 'value' => 1,
                 'key' => FirstQuestion::key(),
             ],
-            SecondQuestion::key().'-a' => [
+            SecondQuestion::key() . '-a' => [
                 'value' => 'Hello',
                 'key' => SecondQuestion::key(),
             ],
-            SecondQuestion::key().'-b' => [
+            SecondQuestion::key() . '-b' => [
                 'value' => [],
                 'key' => SecondQuestion::key(),
             ],
@@ -42,12 +42,12 @@ class ToSummaryTest extends TestCase
             ],
         ];
 
-        $this->model = new FormModel;
+        $this->model = new FormModel();
         $this->model->setRawAttributes(
             array_combine(
                 array_keys($this->data),
-                array_column($this->data, 'value')
-            )
+                array_column($this->data, 'value'),
+            ),
         );
         $this->summary = $this->model->toSummary(true);
     }
@@ -57,7 +57,7 @@ class ToSummaryTest extends TestCase
         foreach ($this->data as $label => $data) {
             $this->assertArrayHasKey(
                 $this->formatLabel($label),
-                $this->summary
+                $this->summary,
             );
         }
     }
@@ -82,7 +82,7 @@ class ToSummaryTest extends TestCase
 
             $this->assertEquals(
                 $label,
-                $this->summary[$label]['action']['hidden']
+                $this->summary[$label]['action']['hidden'],
             );
 
             $this->assertEquals(
@@ -91,7 +91,7 @@ class ToSummaryTest extends TestCase
                     TestForm::REVIEW,
                     $data['key'],
                 ]),
-                $this->summary[$label]['action']['url']
+                $this->summary[$label]['action']['url'],
             );
         }
     }
