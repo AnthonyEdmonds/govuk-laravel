@@ -29,7 +29,7 @@ class FormTest extends TestCase
 
     public function testUsesStoredFormWhenSet(): void
     {
-        $form = new TestForm();
+        $form = new TestForm;
         $this->subject->form = $form;
 
         $this->assertSame(

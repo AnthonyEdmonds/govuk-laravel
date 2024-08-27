@@ -24,9 +24,9 @@ class SummaryTest extends TestCase
 
         $this->signIn();
 
-        GovukForm::put(TestForm::key(), new FormModel());
+        GovukForm::put(TestForm::key(), new FormModel);
 
-        $this->controller = new FormController();
+        $this->controller = new FormController;
     }
 
     public function testHasTemplate(): void

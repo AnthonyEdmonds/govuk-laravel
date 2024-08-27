@@ -313,7 +313,7 @@ class Question
     public function toBlade(): string
     {
         return view("govuk::components.{$this->format}", $this->toArray())
-            ->with('attributes', new ComponentAttributeBag())
+            ->with('attributes', new ComponentAttributeBag)
             ->render();
     }
 

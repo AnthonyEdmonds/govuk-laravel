@@ -13,7 +13,7 @@ class CanSubmitTest extends TestCase
     {
         parent::setUp();
 
-        $this->model = new FormModel();
+        $this->model = new FormModel;
     }
 
     public function testTrueWhenOK(): void

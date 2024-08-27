@@ -23,18 +23,18 @@ class GovukExtension implements ExtensionInterface
     public function register(EnvironmentBuilderInterface $environment): void
     {
         $environment
-            ->addExtension(new StrikethroughExtension())
-            ->addRenderer(BlockQuote::class, new BlockQuoteRenderer())
-            ->addRenderer(Code::class, new CodeRenderer())
-            ->addRenderer(FencedCode::class, new FencedCodeRenderer())
-            ->addRenderer(Heading::class, new HeadingRenderer())
-            ->addRenderer(IndentedCode::class, new IndentedCodeRenderer())
-            ->addRenderer(Link::class, new LinkRenderer())
-            ->addRenderer(ListBlock::class, new ListBlockRenderer())
-            ->addRenderer(Paragraph::class, new ParagraphRenderer())
-            ->addRenderer(Table::class, new TableRenderer())
-            ->addRenderer(TableCell::class, new TableCellRenderer())
-            ->addRenderer(TableRow::class, new TableRowRenderer())
-            ->addRenderer(TableSection::class, new TableSectionRenderer());
+            ->addExtension(new StrikethroughExtension)
+            ->addRenderer(BlockQuote::class, new BlockQuoteRenderer)
+            ->addRenderer(Code::class, new CodeRenderer)
+            ->addRenderer(FencedCode::class, new FencedCodeRenderer)
+            ->addRenderer(Heading::class, new HeadingRenderer)
+            ->addRenderer(IndentedCode::class, new IndentedCodeRenderer)
+            ->addRenderer(Link::class, new LinkRenderer)
+            ->addRenderer(ListBlock::class, new ListBlockRenderer)
+            ->addRenderer(Paragraph::class, new ParagraphRenderer)
+            ->addRenderer(Table::class, new TableRenderer)
+            ->addRenderer(TableCell::class, new TableCellRenderer)
+            ->addRenderer(TableRow::class, new TableRowRenderer)
+            ->addRenderer(TableSection::class, new TableSectionRenderer);
     }
 }

@@ -29,11 +29,11 @@ class TableSectionRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment();
-        $this->environment->addRenderer(TableCell::class, new TableCellRenderer());
+        $this->environment = new Environment;
+        $this->environment->addRenderer(TableCell::class, new TableCellRenderer);
 
         $this->child = new HtmlRenderer($this->environment);
-        $this->renderer = new TableSectionRenderer();
+        $this->renderer = new TableSectionRenderer;
     }
 
     public function testStringWhenNoChildren(): void
@@ -78,7 +78,7 @@ class TableSectionRendererTest extends TestCase
         $this->node = new TableSection($type);
 
         if ($children === true) {
-            $this->node->appendChild(new TableCell());
+            $this->node->appendChild(new TableCell);
         }
 
         $this->element = $this->renderer->render($this->node, $this->child);

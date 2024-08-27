@@ -62,9 +62,9 @@ class GovukExtensionTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment();
+        $this->environment = new Environment;
 
-        $this->extension = new GovukExtension();
+        $this->extension = new GovukExtension;
         $this->extension->register($this->environment);
     }
 

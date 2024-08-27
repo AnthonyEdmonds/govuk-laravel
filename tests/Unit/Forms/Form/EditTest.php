@@ -27,7 +27,7 @@ class EditTest extends TestCase
 
         $this->subject = FormModel::factory()->create();
 
-        $this->form = new TestForm();
+        $this->form = new TestForm;
     }
 
     public function testChecksAccess(): void

@@ -38,7 +38,7 @@ class FormController extends BaseController
         $subject = $form->loadSubjectFromDatabase($subjectKey);
 
         Session::reflash();
-        
+
         return $form->edit($subject);
     }
 

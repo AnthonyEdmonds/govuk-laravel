@@ -10,7 +10,7 @@ class FlashTest extends TestCase
 {
     public function testFlashesSession(): void
     {
-        GovukForm::flash('potato', new FormModel());
+        GovukForm::flash('potato', new FormModel);
 
         $this->assertInstanceOf(FormModel::class, GovukForm::get('potato'));
     }

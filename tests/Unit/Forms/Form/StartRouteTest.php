@@ -10,7 +10,7 @@ class StartRouteTest extends TestCase
     public function test(): void
     {
         $this->useForms();
-        $form = new TestForm();
+        $form = new TestForm;
 
         $this->assertEquals(
             route('forms.start', TestForm::key()),

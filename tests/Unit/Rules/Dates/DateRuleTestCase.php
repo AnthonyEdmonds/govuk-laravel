@@ -7,13 +7,13 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class DateRuleTestCase extends TestCase
+abstract class DateRuleTestCase extends TestCase
 {
-    const DATE_FIELD = 'my-date';
+    public const string DATE_FIELD = 'my-date';
 
-    const TIME_FIELD = 'my-time';
+    public const string TIME_FIELD = 'my-time';
 
-    const VALUE = 'not-used';
+    public const string VALUE = 'not-used';
 
     protected string $ruleClass;
 

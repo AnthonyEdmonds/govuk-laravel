@@ -23,7 +23,7 @@ class CreateTest extends TestCase
 
         $this->signIn();
 
-        $this->controller = new FormController();
+        $this->controller = new FormController;
     }
 
     public function testRedirects(): void

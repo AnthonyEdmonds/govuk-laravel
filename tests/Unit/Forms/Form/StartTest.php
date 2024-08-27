@@ -22,7 +22,7 @@ class StartTest extends TestCase
 
         $this->useForms();
 
-        $this->form = new TestForm();
+        $this->form = new TestForm;
     }
 
     public function testChecksAccess(): void

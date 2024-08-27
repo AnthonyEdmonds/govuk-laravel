@@ -9,7 +9,7 @@ class ConfirmationBladeTest extends TestCase
 {
     public function testReturnsVale(): void
     {
-        $form = new TestForm();
+        $form = new TestForm;
 
         $this->assertEquals(
             'test.confirmation',

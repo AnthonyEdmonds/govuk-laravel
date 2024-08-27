@@ -128,7 +128,7 @@ class SubmitTest extends TestCase
         $this->signIn(allow: $allow);
         GovukForm::put($formClass::key(), $this->subject);
 
-        $this->form = new $formClass();
+        $this->form = new $formClass;
 
         $this->response = $this->form->submit(Form::NEW);
     }

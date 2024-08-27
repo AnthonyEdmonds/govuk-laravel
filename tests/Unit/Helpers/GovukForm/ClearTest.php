@@ -11,7 +11,7 @@ class ClearTest extends TestCase
 {
     public function testClearsSession(): void
     {
-        GovukForm::put('potato', new FormModel());
+        GovukForm::put('potato', new FormModel);
         GovukForm::clear('potato');
 
         $this->assertFalse(

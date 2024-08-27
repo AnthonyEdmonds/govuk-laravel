@@ -43,6 +43,6 @@ class SecondQuestion extends Question
 
     protected function getFormRequest(): FormRequest
     {
-        return new NameFormRequest();
+        return new NameFormRequest;
     }
 }

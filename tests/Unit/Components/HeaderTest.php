@@ -12,7 +12,7 @@ class HeaderTest extends TestCase
 {
     public function testHasLinks(): void
     {
-        $this->actingAs(new User());
+        $this->actingAs(new User);
         $navigation = $this->makeHeader()->first('ul');
 
         $navigation
@@ -60,7 +60,7 @@ class HeaderTest extends TestCase
 
     public function testShowsAuthTrueWhenSignedIn(): void
     {
-        $this->actingAs(new User());
+        $this->actingAs(new User);
         $navigation = $this->makeHeader()->first('ul');
 
         $navigation

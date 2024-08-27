@@ -34,7 +34,7 @@ abstract class TestCase extends BaseTestCase
     protected function signIn(?User $user = null, bool $allow = true): User
     {
         if ($user === null) {
-            $user = new User();
+            $user = new User;
         }
 
         $user->allow = $allow;

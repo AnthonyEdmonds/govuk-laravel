@@ -10,7 +10,7 @@ class PutTest extends TestCase
 {
     public function testSetsSession(): void
     {
-        GovukForm::put('potato', new FormModel());
+        GovukForm::put('potato', new FormModel);
 
         $this->assertInstanceOf(FormModel::class, GovukForm::get('potato'));
     }

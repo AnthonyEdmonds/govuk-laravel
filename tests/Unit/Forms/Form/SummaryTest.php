@@ -29,7 +29,7 @@ class SummaryTest extends TestCase
         GovukForm::put(TestForm::key(), $this->subject);
 
         $this->signIn();
-        $this->form = new TestForm();
+        $this->form = new TestForm;
         $this->page = $this->form->summary(Form::NEW);
     }
 

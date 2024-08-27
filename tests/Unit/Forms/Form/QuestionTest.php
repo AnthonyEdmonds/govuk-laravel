@@ -230,8 +230,8 @@ class QuestionTest extends TestCase
 
     public function testHasWiths(): void
     {
-        $question = new FirstQuestion();
-        $withs = $question->withs(new FormModel());
+        $question = new FirstQuestion;
+        $withs = $question->withs(new FormModel);
 
         $this->makePage();
         $data = $this->page->getData();
@@ -251,9 +251,9 @@ class QuestionTest extends TestCase
         bool $allow = true,
     ): void {
         $this->signIn(allow: $allow);
-        GovukForm::put($formClass::key(), new FormModel());
+        GovukForm::put($formClass::key(), new FormModel);
 
-        $this->form = new $formClass();
+        $this->form = new $formClass;
 
         $this->page = $this->form->question(
             $mode,

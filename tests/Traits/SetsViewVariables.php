@@ -42,13 +42,13 @@ trait SetsViewVariables
 
     public function setViewErrors(array $errors = []): void
     {
-        $messageBag = new MessageBag();
+        $messageBag = new MessageBag;
 
         foreach ($errors as $key => $error) {
             $messageBag->add($key, $error);
         }
 
-        $errorBag = new ViewErrorBag();
+        $errorBag = new ViewErrorBag;
         $errorBag->put('default', $messageBag);
 
         View::share('errors', $errorBag);

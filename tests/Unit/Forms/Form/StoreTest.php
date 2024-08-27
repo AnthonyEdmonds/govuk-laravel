@@ -30,10 +30,10 @@ class StoreTest extends TestCase
 
         $this->useForms();
 
-        $this->subject = new FormModel();
+        $this->subject = new FormModel;
         GovukForm::put(TestForm::key(), $this->subject);
 
-        $this->form = new TestForm();
+        $this->form = new TestForm;
     }
 
     public function testChecksAccess(): void

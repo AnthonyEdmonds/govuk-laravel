@@ -26,7 +26,7 @@ class LoadConfirmationSubjectTest extends TestCase
         $this->subject = FormModel::factory()->make();
         GovukForm::flash(TestFormNoDatabase::key(), $this->subject);
 
-        $this->form = new TestFormNoDatabase();
+        $this->form = new TestFormNoDatabase;
         $found = $this->form->loadConfirmationSubject();
 
         $this->assertEquals(
@@ -39,7 +39,7 @@ class LoadConfirmationSubjectTest extends TestCase
     {
         $this->subject = FormModel::factory()->create();
 
-        $this->form = new TestForm();
+        $this->form = new TestForm;
         $found = $this->form->loadConfirmationSubject($this->subject->id);
 
         $this->assertEquals(

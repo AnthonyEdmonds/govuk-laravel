@@ -42,7 +42,7 @@ class ToSummaryTest extends TestCase
             ],
         ];
 
-        $this->model = new FormModel();
+        $this->model = new FormModel;
         $this->model->setRawAttributes(
             array_combine(
                 array_keys($this->data),

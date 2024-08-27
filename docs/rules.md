@@ -35,6 +35,12 @@ You may provide the name of a field as the second parameter to add a time input,
 ]
 ```
 
+Dates can be provided with or without leading digits.
+
+```php
+'24-7-1' or '2024-07-01'
+```
+
 ### AfterDate
 
 Ensure that the submitted date is after a particular day.

@@ -29,11 +29,11 @@ class ParagraphRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment();
-        $this->node = new Paragraph();
+        $this->environment = new Environment;
+        $this->node = new Paragraph;
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new ParagraphRenderer();
+        $this->renderer = new ParagraphRenderer;
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 
@@ -55,7 +55,7 @@ class ParagraphRendererTest extends TestCase
 
     public function testStringWhenParentIsList(): void
     {
-        $list = new ListItem(new ListData());
+        $list = new ListItem(new ListData);
         $list->appendChild($this->node);
 
         $this->assertIsString(

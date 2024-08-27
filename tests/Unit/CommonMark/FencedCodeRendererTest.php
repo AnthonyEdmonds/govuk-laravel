@@ -27,11 +27,11 @@ class FencedCodeRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment();
+        $this->environment = new Environment;
         $this->node = new FencedCode(10, '`', 0);
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new FencedCodeRenderer();
+        $this->renderer = new FencedCodeRenderer;
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 

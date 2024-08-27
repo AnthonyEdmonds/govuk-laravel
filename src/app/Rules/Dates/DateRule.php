@@ -54,7 +54,10 @@ abstract class DateRule implements DataAwareRule, ValidationRule
             return;
         }
 
-        $enteredDate = Carbon::createFromFormat('Y-m-d', "$year-$month-$day");
+        $dayFormat = strlen($day) < 2 ? 'j' : 'd';
+        $monthFormat = strlen($month) < 2 ? 'n' : 'm';
+        $yearFormat = strlen($year) < 4 ? 'y' : 'Y';
+        $enteredDate = Carbon::createFromFormat("$yearFormat-$monthFormat-$dayFormat", "$year-$month-$day");
 
         if ($this->timeField !== null) {
             try {

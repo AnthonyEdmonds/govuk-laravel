@@ -51,7 +51,7 @@ abstract class Form
 
         foreach ($registeredForms as $form) {
             if ($form::key() === $key) {
-                return new $form();
+                return new $form;
             }
         }
 
@@ -357,7 +357,7 @@ abstract class Form
     {
         foreach (static::questions() as $question) {
             if ($question::key() === $questionKey) {
-                return new $question();
+                return new $question;
             }
         }
 

@@ -14,7 +14,7 @@ class GetMethodTest extends TestCase
     {
         parent::setUp();
 
-        $this->question = new FirstQuestion();
+        $this->question = new FirstQuestion;
     }
 
     public function testReturnsMethod(): void

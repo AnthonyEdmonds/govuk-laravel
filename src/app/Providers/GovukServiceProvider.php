@@ -135,7 +135,7 @@ class GovukServiceProvider extends ServiceProvider
         });
 
         Rule::macro('timeFormat', function () {
-            return new TimeFormat();
+            return new TimeFormat;
         });
 
         // Words

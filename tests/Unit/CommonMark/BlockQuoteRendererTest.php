@@ -27,11 +27,11 @@ class BlockQuoteRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->environment = new Environment();
-        $this->node = new BlockQuote();
+        $this->environment = new Environment;
+        $this->node = new BlockQuote;
         $this->child = new HtmlRenderer($this->environment);
 
-        $this->renderer = new BlockQuoteRenderer();
+        $this->renderer = new BlockQuoteRenderer;
         $this->element = $this->renderer->render($this->node, $this->child);
     }
 

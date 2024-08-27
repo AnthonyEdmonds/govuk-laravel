@@ -11,7 +11,7 @@ class GetTest extends TestCase
 {
     public function testReturnsModel(): void
     {
-        GovukForm::put('potato', new FormModel());
+        GovukForm::put('potato', new FormModel);
 
         $this->assertInstanceOf(
             FormModel::class,

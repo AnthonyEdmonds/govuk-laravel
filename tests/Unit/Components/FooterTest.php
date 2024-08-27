@@ -202,7 +202,7 @@ class FooterTest extends TestCase
         $this->setViewAttributes();
 
         if ($signIn === true) {
-            $this->actingAs(new User());
+            $this->actingAs(new User);
         }
 
         Gate::define('manage_users', function () {
