@@ -19,7 +19,7 @@ class GetBladeTest extends TestCase
     public function testReturnsMethod(): void
     {
         $this->assertNull(
-            $this->question->getBlade()
+            $this->question->getBlade(),
         );
     }
 }

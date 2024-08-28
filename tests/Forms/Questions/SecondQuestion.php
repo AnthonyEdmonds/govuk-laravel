@@ -27,11 +27,11 @@ class SecondQuestion extends Question
         return [
             GovukQuestionHelper::input(
                 'Test question two A',
-                self::key().'-a',
+                self::key() . '-a',
             ),
             GovukQuestionHelper::input(
                 'Test question two B',
-                self::key().'-b',
+                self::key() . '-b',
             ),
         ];
     }

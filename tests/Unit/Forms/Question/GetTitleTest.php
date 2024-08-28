@@ -21,7 +21,7 @@ class GetTitleTest extends TestCase
     {
         $this->assertEquals(
             '',
-            $this->question->getTitle(new FormModel())
+            $this->question->getTitle(new FormModel()),
         );
     }
 }

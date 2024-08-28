@@ -21,7 +21,7 @@ class GetSubmitButtonTypeTest extends TestCase
     {
         $this->assertEquals(
             Page::NORMAL_BUTTON,
-            $this->question->getSubmitButtonType()
+            $this->question->getSubmitButtonType(),
         );
     }
 }

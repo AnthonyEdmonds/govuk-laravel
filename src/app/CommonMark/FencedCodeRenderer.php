@@ -22,7 +22,7 @@ class FencedCodeRenderer implements NodeRendererInterface
 
         $infoWords = $node->getInfoWords();
         if (count($infoWords) !== 0 && $infoWords[0] !== '') {
-            $attrs->append('class', 'language-'.$infoWords[0]);
+            $attrs->append('class', 'language-' . $infoWords[0]);
         }
 
         return new HtmlElement(
@@ -30,7 +30,7 @@ class FencedCodeRenderer implements NodeRendererInterface
             [
                 'class' => 'govuk-body',
             ],
-            new HtmlElement('code', $attrs->export(), Xml::escape($node->getLiteral()))
+            new HtmlElement('code', $attrs->export(), Xml::escape($node->getLiteral())),
         );
     }
 }

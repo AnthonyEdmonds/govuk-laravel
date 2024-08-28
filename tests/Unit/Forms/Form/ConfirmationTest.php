@@ -44,12 +44,12 @@ class ConfirmationTest extends TestCase
 
         $this->assertEquals(
             'Application complete',
-            $this->page->getData()['title']
+            $this->page->getData()['title'],
         );
 
         $this->assertEquals(
             'test.confirmation',
-            $this->page->getData()['content']
+            $this->page->getData()['content'],
         );
 
         $this->assertEquals(

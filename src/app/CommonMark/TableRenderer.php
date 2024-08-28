@@ -24,6 +24,6 @@ class TableRenderer implements NodeRendererInterface
 
         $children = $childRenderer->renderNodes($node->children());
 
-        return new HtmlElement('table', $attrs, $separator.trim($children).$separator);
+        return new HtmlElement('table', $attrs, $separator . trim($children) . $separator);
     }
 }

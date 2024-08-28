@@ -46,7 +46,7 @@ class SkipTest extends TestCase
 
         $this->assertEquals(
             'Skipped',
-            $this->subject->name
+            $this->subject->name,
         );
     }
 
@@ -56,7 +56,7 @@ class SkipTest extends TestCase
 
         $this->assertEquals(
             'Skipped',
-            GovukForm::get(TestForm::key())->name
+            GovukForm::get(TestForm::key())->name,
         );
     }
 
@@ -80,7 +80,7 @@ class SkipTest extends TestCase
 
         $this->response = $this->form->skip(
             Form::NEW,
-            FirstQuestion::key()
+            FirstQuestion::key(),
         );
     }
 }

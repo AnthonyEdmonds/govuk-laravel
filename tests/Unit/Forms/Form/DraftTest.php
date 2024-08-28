@@ -52,7 +52,7 @@ class DraftTest extends TestCase
 
         $this->assertEquals(
             route('/'),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 }

@@ -20,7 +20,7 @@ class GetFormTest extends TestCase
     {
         $this->assertInstanceOf(
             TestForm::class,
-            Form::getForm(TestForm::key())
+            Form::getForm(TestForm::key()),
         );
     }
 

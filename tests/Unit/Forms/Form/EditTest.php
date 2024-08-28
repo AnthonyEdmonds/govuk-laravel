@@ -54,7 +54,7 @@ class EditTest extends TestCase
                 TestForm::key(),
                 Form::EDIT,
             ]),
-            $this->response->getTargetUrl()
+            $this->response->getTargetUrl(),
         );
     }
 }

@@ -23,7 +23,7 @@ class FormTest extends TestCase
     {
         $this->assertInstanceOf(
             TestForm::class,
-            $this->subject->form()
+            $this->subject->form(),
         );
     }
 

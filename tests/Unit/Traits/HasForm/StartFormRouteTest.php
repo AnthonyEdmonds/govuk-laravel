@@ -19,7 +19,7 @@ class StartFormRouteTest extends TestCase
     {
         $this->assertEquals(
             route('forms.start', TestForm::key()),
-            FormModel::startFormRoute()
+            FormModel::startFormRoute(),
         );
     }
 }

@@ -27,8 +27,8 @@ class GovukServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/govuk.php',
-            'govuk'
+            __DIR__ . '/../../config/govuk.php',
+            'govuk',
         );
     }
 
@@ -43,25 +43,25 @@ class GovukServiceProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
-            __DIR__.'/../../config/govuk.php' => config_path('govuk.php'),
-            __DIR__.'/../../resources/scss/govuk-variables.scss' => resource_path('scss/govuk-variables.scss'),
-            __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
-            __DIR__.'/../../resources/views/layout/header.blade.php' => resource_path('views/vendor/govuk/layout/header.blade.php'),
-            __DIR__.'/../../resources/views/layout/footer.blade.php' => resource_path('views/vendor/govuk/layout/footer.blade.php'),
+            __DIR__ . '/../../config/govuk.php' => config_path('govuk.php'),
+            __DIR__ . '/../../resources/scss/govuk-variables.scss' => resource_path('scss/govuk-variables.scss'),
+            __DIR__ . '/../../resources/views/errors' => resource_path('views/errors'),
+            __DIR__ . '/../../resources/views/layout/header.blade.php' => resource_path('views/vendor/govuk/layout/header.blade.php'),
+            __DIR__ . '/../../resources/views/layout/footer.blade.php' => resource_path('views/vendor/govuk/layout/footer.blade.php'),
         ], 'govuk-core');
 
         $this->publishes([
-            __DIR__.'/../../resources/views' => resource_path('views/vendor/govuk'),
+            __DIR__ . '/../../resources/views' => resource_path('views/vendor/govuk'),
         ], 'govuk-blade');
 
         $this->publishes([
-            __DIR__.'/../../resources/scss/inter.scss' => resource_path('scss/inter.scss'),
-            __DIR__.'/../../resources/fonts/inter' => resource_path('fonts/inter'),
+            __DIR__ . '/../../resources/scss/inter.scss' => resource_path('scss/inter.scss'),
+            __DIR__ . '/../../resources/fonts/inter' => resource_path('fonts/inter'),
         ], 'govuk-fonts');
 
         $this->publishes([
-            __DIR__.'/../../mail/default.css' => resource_path('views/vendor/mail/html/themes/default.css'),
-            __DIR__.'/../../mail/tag.blade.php' => resource_path('views/vendor/mail/html/themes/tag.blade.php'),
+            __DIR__ . '/../../mail/default.css' => resource_path('views/vendor/mail/html/themes/default.css'),
+            __DIR__ . '/../../mail/tag.blade.php' => resource_path('views/vendor/mail/html/themes/tag.blade.php'),
         ], 'govuk-mail');
     }
 
@@ -155,8 +155,8 @@ class GovukServiceProvider extends ServiceProvider
     protected function bootViews(): void
     {
         $this->loadViewsFrom(
-            __DIR__.'/../../resources/views',
-            'govuk'
+            __DIR__ . '/../../resources/views',
+            'govuk',
         );
     }
 }

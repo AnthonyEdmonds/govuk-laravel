@@ -10,7 +10,7 @@ class TimeFormat implements ValidationRule
 {
     use ValidatesAttributes;
 
-    const TIME_FORMATS = [
+    public const TIME_FORMATS = [
         'H:i',   // 17:03
         'h:i a', // 05:03 pm
         'h:ia',  // 05:03pm

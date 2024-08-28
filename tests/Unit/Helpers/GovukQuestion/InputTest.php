@@ -26,7 +26,7 @@ class InputTest extends TestCase
     {
         $this->assertEquals(
             'My question',
-            $this->question->label
+            $this->question->label,
         );
     }
 
@@ -34,7 +34,7 @@ class InputTest extends TestCase
     {
         $this->assertEquals(
             'my_name',
-            $this->question->name
+            $this->question->name,
         );
     }
 
@@ -42,7 +42,7 @@ class InputTest extends TestCase
     {
         $this->assertEquals(
             'numeric',
-            $this->question->type
+            $this->question->type,
         );
     }
 
@@ -50,7 +50,7 @@ class InputTest extends TestCase
     {
         $this->assertEquals(
             'my_id',
-            $this->question->id
+            $this->question->id,
         );
     }
 }

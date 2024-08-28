@@ -21,7 +21,7 @@ class GetMethodTest extends TestCase
     {
         $this->assertEquals(
             Page::POST_METHOD,
-            $this->question->getMethod()
+            $this->question->getMethod(),
         );
     }
 }

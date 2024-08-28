@@ -265,7 +265,7 @@ class Page implements View
         return view(
             "govuk::templates.{$this->template}",
             $this->toArray(),
-            $this->withs
+            $this->withs,
         )
             ->render();
     }

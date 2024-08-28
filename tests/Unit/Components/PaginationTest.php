@@ -35,7 +35,7 @@ class PaginationTest extends TestCase
         $pagination = $this->makePagination([
             'paginator' => $this->stackedPagination(
                 'Next label',
-                'Prev label'
+                'Prev label',
             ),
             'stacked' => true,
         ]);
@@ -53,7 +53,7 @@ class PaginationTest extends TestCase
             'paginator' => $this->stackedPagination(
                 null,
                 null,
-                10
+                10,
             ),
             'stacked' => true,
         ]);

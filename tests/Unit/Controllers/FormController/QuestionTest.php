@@ -45,7 +45,7 @@ class QuestionTest extends TestCase
         $this->response = $this->controller->question(
             TestForm::key(),
             Form::NEW,
-            FirstQuestion::key()
+            FirstQuestion::key(),
         );
     }
 }

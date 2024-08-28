@@ -30,7 +30,7 @@ class BlockQuoteRenderer implements NodeRendererInterface
         return new HtmlElement(
             'blockquote',
             $attrs,
-            $innerSeparator.$filling.$innerSeparator
+            $innerSeparator . $filling . $innerSeparator,
         );
     }
 }

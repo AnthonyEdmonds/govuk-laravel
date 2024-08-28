@@ -41,7 +41,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             'Test question one',
-            $this->page->getData()['title']
+            $this->page->getData()['title'],
         );
     }
 
@@ -56,7 +56,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             'The Second Question',
-            $this->page->getData()['title']
+            $this->page->getData()['title'],
         );
     }
 
@@ -71,12 +71,12 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             'Test question two A',
-            $this->page->getData()['questions'][0]->label
+            $this->page->getData()['questions'][0]->label,
         );
 
         $this->assertEquals(
             'Test question two B',
-            $this->page->getData()['questions'][1]->label
+            $this->page->getData()['questions'][1]->label,
         );
     }
 
@@ -86,7 +86,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             'Save and continue',
-            $this->page->getData()['submitButtonLabel']
+            $this->page->getData()['submitButtonLabel'],
         );
     }
 
@@ -100,7 +100,7 @@ class QuestionTest extends TestCase
                 Form::NEW,
                 FirstQuestion::key(),
             ]),
-            $this->page->getData()['action']
+            $this->page->getData()['action'],
         );
     }
 
@@ -114,7 +114,7 @@ class QuestionTest extends TestCase
                 Form::NEW,
                 SecondQuestion::key(),
             ]),
-            $this->page->getData()['back']
+            $this->page->getData()['back'],
         );
     }
 
@@ -124,7 +124,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             FormModel::startFormRoute(),
-            $this->page->getData()['back']
+            $this->page->getData()['back'],
         );
     }
 
@@ -134,7 +134,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             route('/'),
-            $this->page->getData()['back']
+            $this->page->getData()['back'],
         );
     }
 
@@ -144,7 +144,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             route('forms.summary', [TestForm::key(), Form::EDIT]),
-            $this->page->getData()['back']
+            $this->page->getData()['back'],
         );
     }
 
@@ -154,7 +154,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             Page::POST_METHOD,
-            $this->page->getData()['method']
+            $this->page->getData()['method'],
         );
     }
 
@@ -164,7 +164,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             null,
-            $this->page->getData()['content']
+            $this->page->getData()['content'],
         );
     }
 
@@ -174,7 +174,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             'Skip and continue',
-            $this->page->getData()['otherButtonLabel']
+            $this->page->getData()['otherButtonLabel'],
         );
     }
 
@@ -184,7 +184,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             $this->form::skipRoute(Form::NEW, FirstQuestion::key()),
-            $this->page->getData()['otherButtonHref']
+            $this->page->getData()['otherButtonHref'],
         );
     }
 
@@ -194,7 +194,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             Page::POST_METHOD,
-            $this->page->getData()['otherButtonMethod']
+            $this->page->getData()['otherButtonMethod'],
         );
     }
 
@@ -204,7 +204,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             Page::NORMAL_BUTTON,
-            $this->page->getData()['submitButtonType']
+            $this->page->getData()['submitButtonType'],
         );
     }
 
@@ -214,7 +214,7 @@ class QuestionTest extends TestCase
 
         $this->assertEquals(
             Form::NEW,
-            $this->page->getData()['mode']
+            $this->page->getData()['mode'],
         );
     }
 
@@ -224,7 +224,7 @@ class QuestionTest extends TestCase
 
         $this->assertInstanceOf(
             FormModel::class,
-            $this->page->getData()['subject']
+            $this->page->getData()['subject'],
         );
     }
 

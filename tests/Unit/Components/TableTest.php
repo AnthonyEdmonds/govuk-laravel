@@ -62,14 +62,14 @@ class TableTest extends TestCase
     {
         $this->checkTableData(
             new TestJsonResource((object) $this->baseData[0]),
-            1
+            1,
         );
     }
 
     public function testDataAcceptsAbstractPaginator(): void
     {
         $this->checkTableData(
-            new Paginator($this->baseData, 3, 1)
+            new Paginator($this->baseData, 3, 1),
         );
     }
 
@@ -129,9 +129,9 @@ class TableTest extends TestCase
     {
         $this->setViewSlot(
             'slot',
-            $this->makeTableColumn('Column one', '~c1').
-            $this->makeTableColumn('Column two', '~c2').
-            $this->makeTableColumn('Column three', '~c3')
+            $this->makeTableColumn('Column one', '~c1') .
+            $this->makeTableColumn('Column two', '~c2') .
+            $this->makeTableColumn('Column three', '~c3'),
         );
 
         return $this->assertView('govuk::components.table', [
@@ -147,13 +147,13 @@ class TableTest extends TestCase
 
     protected function makeTableColumn(string $label, string $content): string
     {
-        return '~~'.GovukComponent::makeTableColumnJson(
+        return '~~' . GovukComponent::makeTableColumnJson(
             false,
             '',
             $label,
             false,
             $content,
-        ).'~~';
+        ) . '~~';
     }
 
     protected function makeRow(int $row): array

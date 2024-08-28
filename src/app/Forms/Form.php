@@ -361,7 +361,7 @@ abstract class Form
             }
         }
 
-        throw new QuestionNotFoundException($questionKey.' does not exist in the '.static::key().' form');
+        throw new QuestionNotFoundException($questionKey . ' does not exist in the ' . static::key() . ' form');
     }
 
     protected function getFirstQuestionKey(): string

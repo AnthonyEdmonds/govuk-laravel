@@ -35,11 +35,11 @@ use ReflectionClass;
 
 class GovukExtensionTest extends TestCase
 {
-    const EXPECTED_EXTENSIONS = [
+    public const EXPECTED_EXTENSIONS = [
         StrikethroughExtension::class,
     ];
 
-    const EXPECTED_RENDERERS = [
+    public const EXPECTED_RENDERERS = [
         BlockQuote::class => BlockQuoteRenderer::class,
         Code::class => CodeRenderer::class,
         FencedCode::class => FencedCodeRenderer::class,

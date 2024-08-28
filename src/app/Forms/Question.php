@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 abstract class Question
 {
-    const LOOPS = false;
+    public const LOOPS = false;
 
-    const SKIPPABLE = false;
+    public const SKIPPABLE = false;
 
     // Abstract
     abstract public static function key(): string;

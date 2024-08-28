@@ -165,7 +165,7 @@ class QuestionTest extends TestCase
             'dog',
             $otherButtonLabel,
             'Lizard',
-            Page::START_BUTTON
+            Page::START_BUTTON,
         )->toArray();
     }
 }

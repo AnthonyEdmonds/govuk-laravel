@@ -11,7 +11,7 @@ class CreateTest extends TestCase
     {
         $this->assertInstanceOf(
             Question::class,
-            Question::create('Duck', 'Jim', Question::FILE)
+            Question::create('Duck', 'Jim', Question::FILE),
         );
     }
 }

@@ -86,7 +86,7 @@ trait HasForm
         string $questionKey,
         string $label,
         mixed $value = null,
-        bool $showChange = false
+        bool $showChange = false,
     ): array {
         if (
             is_array($value) === true

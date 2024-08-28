@@ -148,7 +148,7 @@ class LengthAwareTest extends TestCase
                     'Previous',
                     array_key_exists('prev-link', $data) === true
                         ? $data['prev-link']
-                        : 'page-253-url'
+                        : 'page-253-url',
                 ),
                 1 => $this->makeLink('1', 'page-1-url'),
                 2 => $this->makeLink('2', 'page-2-url'),
@@ -167,7 +167,7 @@ class LengthAwareTest extends TestCase
                     'Next',
                     array_key_exists('next-link', $data) === true
                         ? $data['next-link']
-                        : 'page-255-url'
+                        : 'page-255-url',
                 ),
             ],
             'showCounter' => $data['showCounter'] ?? true,

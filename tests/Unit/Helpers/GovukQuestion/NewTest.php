@@ -35,7 +35,7 @@ class NewTest extends TestCase
     {
         $this->assertEquals(
             'My question',
-            $this->question->label
+            $this->question->label,
         );
     }
 
@@ -43,7 +43,7 @@ class NewTest extends TestCase
     {
         $this->assertEquals(
             'my_name',
-            $this->question->name
+            $this->question->name,
         );
     }
 }

@@ -65,7 +65,7 @@ class TaskListTest extends TestCase
         $task->last('div')
             ->hasAttribute('id', 'my-id-status')
             ->first('strong')
-            ->hasClass('govuk-tag--'.TaskList::STATUSES[TaskList::NOT_STARTED])
+            ->hasClass('govuk-tag--' . TaskList::STATUSES[TaskList::NOT_STARTED])
             ->contains(TaskList::NOT_STARTED);
     }
 

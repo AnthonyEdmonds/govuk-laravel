@@ -58,7 +58,7 @@ trait SetsViewVariables
     public function setViewSlot(
         string $slotName = 'slot',
         string $html = '',
-        array $data = []
+        array $data = [],
     ): void {
         $tempDirectory = sys_get_temp_dir();
 
@@ -69,11 +69,11 @@ trait SetsViewVariables
         }
 
         $tempFileInfo = pathinfo(tempnam($tempDirectory, 'laravel-blade'));
-        $tempFile = $tempFileInfo['dirname'].'/'.$tempFileInfo['filename'].'.blade.php';
+        $tempFile = $tempFileInfo['dirname'] . '/' . $tempFileInfo['filename'] . '.blade.php';
         file_put_contents($tempFile, $html);
 
         View::share($slotName, new HtmlString(
-            view($tempFileInfo['filename'], $data)->render()
+            view($tempFileInfo['filename'], $data)->render(),
         ));
     }
 }

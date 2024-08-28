@@ -13,14 +13,14 @@ class HasTest extends TestCase
         Session::put('spoon', true);
 
         $this->assertTrue(
-            GovukForm::has('spoon')
+            GovukForm::has('spoon'),
         );
     }
 
     public function testFalseWhenNotInSession(): void
     {
         $this->assertFalse(
-            GovukForm::has('spoon')
+            GovukForm::has('spoon'),
         );
     }
 }

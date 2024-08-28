@@ -25,7 +25,7 @@ class TimeTest extends TestCase
     {
         $this->assertEquals(
             'My question',
-            $this->question->label
+            $this->question->label,
         );
     }
 
@@ -33,7 +33,7 @@ class TimeTest extends TestCase
     {
         $this->assertEquals(
             'my_name',
-            $this->question->name
+            $this->question->name,
         );
     }
 
@@ -41,7 +41,7 @@ class TimeTest extends TestCase
     {
         $this->assertEquals(
             'my_id',
-            $this->question->id
+            $this->question->id,
         );
     }
 }

@@ -15,7 +15,7 @@ class ClearTest extends TestCase
         GovukForm::clear('potato');
 
         $this->assertFalse(
-            Session::has('potato')
+            Session::has('potato'),
         );
     }
 }
