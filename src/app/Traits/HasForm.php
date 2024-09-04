@@ -77,7 +77,9 @@ trait HasForm
         $summary[$label] = $this->makeSummaryItem(
             $formQuestion::key(),
             $label,
-            $this->$property,
+            $this->hasAttribute($property) === true
+                ? $this->$property
+                : null,
             $showChange,
         );
     }
