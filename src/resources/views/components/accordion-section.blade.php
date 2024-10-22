@@ -22,7 +22,7 @@
         @isset($summary)
             <div
                 class="govuk-accordion__section-summary govuk-body"
-                 id="accordion-{{ $id }}-summary-{{ $subid }}"
+                id="accordion-{{ $id }}-summary-{{ $subid }}"
             >
                 {!! $summary !!}
             </div>
@@ -32,7 +32,6 @@
     <div
         id="accordion-default-content-1"
         class="govuk-accordion__section-content"
-        aria-labelledby="accordion-{{ $id }}-heading-{{ $subid }}"
     >
         {!! $slot !!}
     </div>
