@@ -92,7 +92,7 @@ If you want to override the default GOV.UK Design System colours and fonts, amen
 
 ```scss
 @import 'govuk-variables.scss';
-@import 'node_modules/govuk-frontend/dist/govuk/all';
+@import 'node_modules/govuk-frontend/dist/govuk/index.scss';
 @import '../../vendor/anthonyedmonds/govuk-laravel/src/resources/scss/govuk-laravel.scss';
 ```
 
