@@ -6,6 +6,10 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 5.x from version 4.x
+
+1. Add `$govuk-new-typography-scale: true;` to `govuk.variables.scss` if it has been published
+
 ## Update to version 4.x from version 3.x
 
 1. All Form classes must update their signature for `checkAccess` to accept the subject as the first parameter
