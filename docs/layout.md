@@ -28,9 +28,11 @@ You may add more `meta` and `link` elements for features such as `opengraph` and
 
 ### Header
 
-`header.blade.php` contains the main page banner and navigation, as per the [header component](components/header.md).
+`header.blade.php` contains the main page [header](components/header.md) and [service navigation](components/service-navigation.md).
 
 Default elements are provided for ease of editing.
+
+If you want to set the currently active site section, provide the `$currentSection` variable to the view.
 
 ### Footer
 
