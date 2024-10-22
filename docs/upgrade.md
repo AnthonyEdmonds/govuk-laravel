@@ -8,9 +8,10 @@ Guidance is shown from newest to oldest.
 
 ## Update to version 5.x from version 4.x
 
-1. Make the following amendments to `govuk.variables.scss`, if published:
-    1. Add `$govuk-new-typography-scale: true;` at the top of the file
-    2. Replace `node_modules/govuk-frontend/dist/govuk/all` with `node_modules/govuk-frontend/dist/govuk/index.scss`
+1. Add the following variables to `govuk.variables.scss`, if published:
+   1. Add `$govuk-new-typography-scale: true;` at the top of the file
+   2. Add `$govuk-new-organisation-colours: true` at the top of the file 
+2. Change `app.scss` from `node_modules/govuk-frontend/dist/govuk/all` to `node_modules/govuk-frontend/dist/govuk/index.scss`
 
 ## Update to version 4.x from version 3.x
 
