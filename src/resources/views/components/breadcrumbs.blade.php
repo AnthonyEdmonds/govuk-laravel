@@ -11,7 +11,7 @@
     }
 @endphp
 
-<div class="{{ $classes }}">
+<nav class="{{ $classes }}" aria-label="Breadcrumb">
     <ol class="govuk-breadcrumbs__list">
         @foreach($breadcrumbs as $label => $url)
             <li class="govuk-breadcrumbs__list-item">
@@ -19,4 +19,4 @@
             </li>
         @endforeach
     </ol>
-</div>
+</nav>
