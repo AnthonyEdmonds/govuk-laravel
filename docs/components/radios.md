@@ -111,6 +111,7 @@ Avoid nesting radio inputs, and consider breaking the question into more parts.
 * [file-upload](file-upload.md)
 * [form](form.md)
 * [hidden-input](hidden-input.md)
+* [password](password.md)
 * [select](select.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)

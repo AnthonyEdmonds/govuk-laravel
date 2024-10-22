@@ -9,7 +9,6 @@
 
 <header
     class="govuk-header"
-    role="banner"
     data-module="govuk-header"
 >
     <div class="govuk-header__container govuk-width-container">

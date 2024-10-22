@@ -79,10 +79,11 @@ Include the OnDate, AfterDate, BeforeDate, OnOrAfterDate, or OnOrBeforeDate rule
 ## Also see
 
 * [checkboxes](checkboxes.md)
-* [hidden-input](hidden-input.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)
+* [hidden-input](hidden-input.md)
+* [password](password.md)
 * [radios](radios.md)
 * [select](select.md)
 * [text-input](text-input.md)

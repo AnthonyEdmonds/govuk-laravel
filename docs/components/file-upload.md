@@ -42,6 +42,7 @@ This element is pre-wrapped with `form-group` components, with `label`, `hint`, 
 * [file-upload](file-upload.md)
 * [form](form.md)
 * [hidden-input](hidden-input.md)
+* [password](password.md)
 * [radios](radios.md)
 * [search-bar](search-bar.md)
 * [select](select.md)

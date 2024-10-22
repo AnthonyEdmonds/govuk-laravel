@@ -103,6 +103,40 @@ class ButtonTest extends TestCase
             ->hasClass('govuk-button--inverse');
     }
 
+    public function testHasControls(): void
+    {
+        $this->makeComponent([
+            'controls' => 'my-control',
+        ])
+            ->hasAttribute('aria-controls', 'my-control');
+    }
+
+    public function testHasHidden(): void
+    {
+        $this->makeComponent([
+            'hidden' => true,
+        ])
+            ->hasAttribute('hidden', '');
+    }
+
+
+    public function testHasLabel(): void
+    {
+        $this->makeComponent([
+            'label' => 'My label',
+        ])
+            ->hasAttribute('aria-label', 'My label');
+    }
+
+    public function testHasPassword(): void
+    {
+        $this->makeComponent([
+            'password' => true,
+        ])
+            ->hasClass('govuk-password-input__toggle')
+            ->hasClass('govuk-js-password-input-toggle');
+    }
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My slot');
@@ -110,11 +144,15 @@ class ButtonTest extends TestCase
         return $this->assertView('govuk::components.button', [
             'asLink' => $data['asLink'] ?? false,
             'asStartButton' => $data['asStartButton'] ?? false,
+            'controls' => $data['controls'] ?? null,
             'disabled' => $data['disabled'] ?? false,
             'formAction' => $data['formAction'] ?? null,
             'formMethod' => $data['formMethod'] ?? null,
+            'hidden' => $data['hidden'] ?? false,
             'id' => $data['id'] ?? null,
             'inverted' => $data['inverted'] ?? false,
+            'label' => $data['label'] ?? null,
+            'password' => $data['password'] ?? false,
             'preventDoubleClick' => $data['preventDoubleClick'] ?? false,
             'secondary' => $data['secondary'] ?? false,
             'type' => $data['type'] ?? null,

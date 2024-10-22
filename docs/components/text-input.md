@@ -23,7 +23,7 @@ Create an `input` element of varying forms.
 />
 ```
 
-This element is pre-wrapped with `count` and `form-group` components, with `label`, `hint`, `errors`, and `counter` subcomponents.
+This element is pre-wrapped in a `form-group` component, with `label`, `hint`, and `error` subcomponents.
 
 ## Props
 
@@ -60,6 +60,7 @@ This element is pre-wrapped with `count` and `form-group` components, with `labe
 * [file-upload](file-upload.md)
 * [form](form.md)
 * [hidden-input](hidden-input.md)
+* [password](password.md)
 * [radios](radios.md)
 * [search-bar](search-bar.md)
 * [select](select.md)

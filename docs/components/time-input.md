@@ -45,10 +45,11 @@ A special [rule](../rules.md) is provided for validating times in multiple forma
 
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
-* [hidden-input](hidden-input.md)
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)
+* [hidden-input](hidden-input.md)
+* [password](password.md)
 * [radios](radios.md)
 * [select](select.md)
 * [text-input](text-input.md)
