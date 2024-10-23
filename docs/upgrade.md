@@ -10,7 +10,7 @@ Guidance is shown from newest to oldest.
 
 1. If you have published the `resources/scss/govuk.variables.scss` file:
    1. Add `$govuk-new-typography-scale: true;` at the top of the file
-   2. Add `$govuk-new-organisation-colours: true` at the top of the file 
+   2. Add `$govuk-new-organisation-colours: true;` at the top of the file 
 2. Change `app.scss` from `node_modules/govuk-frontend/dist/govuk/all` to `node_modules/govuk-frontend/dist/govuk/index.scss`
 3. The `govuk` config file has changed to support the new `service-navigation` component
    1. Republish the config file, or manually edit it to get the latest keys
