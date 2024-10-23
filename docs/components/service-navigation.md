@@ -45,7 +45,7 @@ $links = [
 // All routes in the 'Requests' section fall within this group
 Route::prefix('/requests')->name('requests.')->group(...);
 
-// All routes in the 'Requests' section fall within this group
+// All routes in the 'Search' section fall within this group
 Route::prefix('/search')->name('search.')->group(...);
 
 // All routes in the 'Admin' section fall within this group
