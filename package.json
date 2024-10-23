@@ -12,6 +12,7 @@
     "license": "MIT",
     "homepage": "https://github.com/AnthonyEdmonds/govuk-laravel",
     "scripts": {
+        "badges": "php vendor/networkrailbusinesssystems/badges/badges.php",
         "larastan": "php vendor/bin/phpstan analyse --memory-limit 512M",
         "pint": "php ./vendor/bin/pint --preset=per",
         "prepare": "husky install",
@@ -19,7 +20,7 @@
         "test-slow": "php vendor/bin/phpunit"
     },
     "devDependencies": {
-        "govuk-frontend": "^5",
-        "husky": "^8"
+        "govuk-frontend": "^5.7.1",
+        "husky": "^9"
     }
 }
