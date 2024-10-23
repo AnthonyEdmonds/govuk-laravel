@@ -2,7 +2,7 @@
     'logoAlt',
     'logoHeight' => 44,
     'logoImage',
-    'logoLink',
+    'logoRoute',
 ])
 
 <header
@@ -12,7 +12,7 @@
     <div class="govuk-header__container govuk-width-container">
         <div class="govuk-header__logo">
             <a
-                href="{{ $logoLink }}"
+                href="{{ route($logoRoute) }}"
                 class="govuk-header__link govuk-header__link--homepage"
             >
                 <img

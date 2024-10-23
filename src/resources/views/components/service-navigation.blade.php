@@ -29,7 +29,7 @@
         }
 
         if (array_key_exists('can', $link) === true) {
-            if (Auth::user()->can($link['can']) !== true) {
+            if (Auth::user()?->can($link['can']) !== true) {
                 continue;
             }
         }

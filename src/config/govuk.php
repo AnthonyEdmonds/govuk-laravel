@@ -6,9 +6,7 @@ return [
     ],
 
     'header' => [
-        'links' => [
-            'Sign out' => 'sign-out',
-        ],
+        'links' => [],
         'logo' => [
             'alt' => 'GOV.UK',
             'asset' => 'images/asset_name.jpg',

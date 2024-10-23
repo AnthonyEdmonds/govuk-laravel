@@ -4,9 +4,10 @@
     logo-image="{{ asset(config('govuk.header.logo.asset')) }}"
     logo-route="{{ config('govuk.header.route') }}"
 />
+
 <x-govuk::service-navigation
     current-section="{{ $currentSection ?? null }}"
-    :links="{{ config('govuk.header.links') }}"
+    :links="config('govuk.header.links')"
     service-name="{{ config('govuk.header.service_name') }}"
     service-route="{{ config('govuk.header.route') }}"
 />

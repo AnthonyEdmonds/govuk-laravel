@@ -7,7 +7,7 @@ Create a page header with a logo.
     logo-alt="Company name"
     logo-height="44"
     logo-image="{{ asset('images/asset_name.jpg') }}"
-    logo-link="{{ route('home') }}"
+    logo-route="home"
 />
 ```
 
@@ -17,12 +17,12 @@ A header is provided on the default page template `/resources/views/vendor/govuk
 
 ## Props
 
-| Name        | Type   | Default  | Description                                        |
-|-------------|--------|----------|----------------------------------------------------|
-| logoAlt     | string | Required | The `alt` description for the logo                 |
-| logoHeight  | int    | 44       | How tall the logo should be                        |
-| logoImage   | string | Required | The path to the logo image                         |
-| logoLink    | string | Required | The link that the logo should link to when pressed |
+| Name       | Type   | Default  | Description                                    |
+|------------|--------|----------|------------------------------------------------|
+| logoAlt    | string | Required | The `alt` description for the logo             |
+| logoHeight | int    | 44       | How tall the logo should be                    |
+| logoImage  | string | Required | The path to the logo image                     |
+| logoRoute  | string | Required | The route the logo should link to when pressed |
 
 ## Also see
 

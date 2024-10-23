@@ -8,6 +8,13 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class HeaderTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Route::get('/home')->name('home');
+    }
+
     public function test(): void
     {
         $this->makeHeader()
@@ -23,13 +30,11 @@ class HeaderTest extends TestCase
     {
         $this->setViewAttributes();
 
-        Route::get('/home')->name('home');
-
         return $this->assertView('govuk::components.header', [
             'logoAlt' => 'My logo alt',
             'logoHeight' => 44,
             'logoImage' => 'logo.jpg',
-            'logoLink' => route('home'),
+            'logoRoute' => 'home',
         ]);
     }
 }
