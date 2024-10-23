@@ -1,17 +1,18 @@
 @use(Illuminate\Support\Facades\Auth)
 @use(Illuminate\Support\Facades\Route)
-// TODO Test
+
 @props([
     'currentSection' => null,
     'links' => [],
     'serviceName' => null,
+    'serviceRoute' => null,
 ])
 
 @php
     $formattedLinks = [];
 
     if ($currentSection === null) {
-        $currentSection = Route::current()->getName();
+        $currentSection = Route::current()?->getName() ?? ' ';
     }
 
     foreach ($links as $label => $link) {
@@ -64,10 +65,14 @@
         <div class="govuk-service-navigation__container">
             @if($serviceName !== null)
                 <span class="govuk-service-navigation__service-name">
-                    <a
-                        href="{{ route(config('govuk.header.route')) }}"
-                        class="govuk-service-navigation__link"
-                    >{{ $serviceName }}</a>
+                    @if($serviceRoute !== null)
+                        <a
+                            href="{{ route($serviceRoute) }}"
+                            class="govuk-service-navigation__link"
+                        >{{ $serviceName }}</a>
+                    @else
+                        <strong>{{ $serviceName }}</strong>
+                    @endif
                 </span>
             @endif
 

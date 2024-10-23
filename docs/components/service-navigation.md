@@ -1,15 +1,16 @@
-# Header
+# Service Navigation
 
 Create a main navigation bar for your service.
 
 ```html
-<x-govuk::header
-    currentSection="users"
+<x-govuk::service-navigation
+    current-section="users"
     :links="[
         'Manage users' => 'users.index',
         'Sign out' => 'sign-out',
     ]"
     service-name="My service"
+    service-route="home"
 />
 ```
 
@@ -22,6 +23,7 @@ This is included in the default page template `/resources/views/vendor/govuk/lay
 | currentSection | string | null    | The currently active navigation section |
 | links          | array  | []      | A keyed array of URLs                   |
 | serviceName    | string | null    | The service name                        |
+| serviceRoute   | string | null    | The route the service name links to     |
 
 ### Current section
 

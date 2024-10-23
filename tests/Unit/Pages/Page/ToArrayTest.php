@@ -25,6 +25,7 @@ class ToArrayTest extends TestCase
         $page->setOtherButtonHref('other-href');
         $page->setOtherButtonLabel('other-label');
         $page->setOtherButtonMethod(Page::POST_METHOD);
+        $page->setCurrentSection('current');
         $page->setQuestion($question);
         $page->setSubmitButtonLabel('submit-label');
         $page->setSubmitButtonType(Page::SECONDARY_BUTTON);
@@ -42,6 +43,7 @@ class ToArrayTest extends TestCase
                 ],
                 'caption' => 'my-caption',
                 'content' => 'my-content',
+                'currentSection' => 'current',
                 'hideTitle' => true,
                 'method' => Page::POST_METHOD,
                 'otherButtonHref' => 'other-href',

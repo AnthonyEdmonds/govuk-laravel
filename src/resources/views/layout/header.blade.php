@@ -8,8 +8,5 @@
     current-section="{{ $currentSection ?? null }}"
     :links="{{ config('govuk.header.links') }}"
     service-name="{{ config('govuk.header.service_name') }}"
+    service-route="{{ config('govuk.header.route') }}"
 />
-
-// TODO WOrking on 5.6.0
-// https://github.com/alphagov/govuk-frontend/releases?page=1
-// Update configuration.md
