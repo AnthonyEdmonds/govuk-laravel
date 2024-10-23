@@ -68,7 +68,7 @@ class ServiceNavigationTest extends TestCase
         $this->actingAs(new User());
 
         $navigation = $this->makeComponent([
-            'current_section' => 'users.index',
+            'current_section' => 'users',
             'links' => [
                 'Other link' => 'somewhere-else',
                 'Manage users' => [

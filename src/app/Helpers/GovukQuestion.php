@@ -75,6 +75,19 @@ class GovukQuestion
             ->fromArray($settings);
     }
 
+    public static function password(
+        string $label,
+        string $name,
+        ?string $id = null,
+    ): Question {
+        return Question::create(
+            $label,
+            $name,
+            Question::PASSWORD,
+            $id,
+        );
+    }
+
     public static function radios(
         string $label,
         string $name,

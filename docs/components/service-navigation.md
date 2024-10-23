@@ -27,9 +27,30 @@ This is included in the default page template `/resources/views/vendor/govuk/lay
 
 ### Current section
 
-If not provided, the current section is determined by looking at the current route name.
+If not provided, the current section is determined by looking at the first part of the current route name.
 
 This will then be compared against either the `section` key of a link, or the first part of a link's `route`.
+
+For automatic detection of the current section, ensure that your routes are structured against your navigation:
+
+```php
+/** config/govuk.php */
+$links = [
+    'Requests' => 'requests.index',
+    'Search' => 'search.start',
+    'Admin' => 'admin.dashboard',
+];
+
+/** routes/web.php */
+// All routes in the 'Requests' section fall within this group
+Route::prefix('/requests')->name('requests.')->group(...);
+
+// All routes in the 'Requests' section fall within this group
+Route::prefix('/search')->name('search.')->group(...);
+
+// All routes in the 'Admin' section fall within this group
+Route::prefix('/admin')->name('admin.')->group(...);
+```
 
 ### Links
 

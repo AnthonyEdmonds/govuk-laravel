@@ -2,7 +2,7 @@
 @use(Illuminate\Support\Facades\Route)
 
 @props([
-    'currentSection' => null,
+    'currentSection' => '',
     'links' => [],
     'serviceName' => null,
     'serviceRoute' => null,
@@ -11,8 +11,10 @@
 @php
     $formattedLinks = [];
 
-    if ($currentSection === null) {
-        $currentSection = Route::current()?->getName() ?? ' ';
+    if (empty($currentSection) === true) {
+        $currentRoute = Route::current()?->getName() ?? ' .';
+        $index = strpos($currentRoute, '.');
+        $currentSection = substr($currentRoute, 0, $index);
     }
 
     foreach ($links as $label => $link) {
