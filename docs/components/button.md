@@ -14,10 +14,11 @@ Create a `button` element for use with a form.
     id="my-id"
     inverted
     label="My ARIA label"
+    mode="warning"
     password
     prevent-double-click
     secondary
-    :type="$buttonType"
+    type="submit"
     warning
 >My Button</x-govuk::button>
 ```
@@ -36,15 +37,16 @@ Create a `button` element for use with a form.
 | id                 | string | null    | Set an ID on the button                                       |
 | inverted           | bool   | false   | Whether the button colour should be inverted                  |
 | label              | string | null    | The value of the `aria-label` attribute                       |
+| mode               | string | null    | Apply the secondary, start, or warning styles with a variable |
 | password           | bool   | false   | Whether this button is part of a password input               |
 | preventDoubleClick | bool   | false   | Disable the button after it is clicked                        |
 | secondary          | bool   | false   | Style the button as "secondary"                               |
-| type               | string | null    | Apply the secondary, start, or warning styles with a variable |
+| type               | string | null    | Set the "type" attribute of the button                        |
 | warning            | bool   | false   | Style the button as "warning"                                 |
 
-### Type
+### Mode
 
-Use the `type` prop when the style of button is programmatically determined.
+Use the `mode` prop when the style of button is programmatically determined.
 
 ## Also see
 

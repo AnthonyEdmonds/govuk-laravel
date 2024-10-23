@@ -66,9 +66,9 @@ class ButtonTest extends TestCase
     public function testHasType(): void
     {
         $this->makeComponent([
-            'type' => 'warning',
+            'type' => 'submit',
         ])
-            ->hasClass('govuk-button--warning');
+            ->hasAttribute('type', 'submit');
     }
 
     public function testFormatsAsWarning(): void

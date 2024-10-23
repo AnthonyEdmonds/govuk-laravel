@@ -19,6 +19,9 @@ Guidance is shown from newest to oldest.
       * A `section` key has been added if your route names do not match the current route
    3. Remove `resources/vendor/govuk/layout/header.blade.php`, if published
    * The `header` component no longer supports navigation in favour of the `service-navigation` component
+4. Replace any uses of the `type` property on the `button` component with `mode`
+   * Type is now used only to set the native HTML attribute, with mode replacing it functionally
+   * This also includes calls to `setButtonType` on pages and questions, where they have been overridden
 
 ## Update to version 4.x from version 3.x
 

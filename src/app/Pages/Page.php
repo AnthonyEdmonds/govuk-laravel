@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 
 class Page implements View
 {
-    public const array BUTTON_TYPES = [
+    public const array BUTTON_MODES = [
         self::NORMAL_BUTTON,
         self::SECONDARY_BUTTON,
         self::START_BUTTON,
@@ -57,7 +57,7 @@ class Page implements View
 
     protected ?string $submitButtonLabel = null;
 
-    protected string $submitButtonType = self::NORMAL_BUTTON;
+    protected string $submitButtonMode = self::NORMAL_BUTTON;
 
     protected ?string $otherButtonHref = null;
 
@@ -147,9 +147,9 @@ class Page implements View
         return $this;
     }
 
-    public function setSubmitButtonType(string $type): self
+    public function setSubmitButtonMode(string $type): self
     {
-        $this->submitButtonType = in_array($type, self::BUTTON_TYPES, true) === true
+        $this->submitButtonMode = in_array($type, self::BUTTON_MODES, true) === true
             ? $type
             : self::NORMAL_BUTTON;
 
@@ -261,7 +261,7 @@ class Page implements View
             'otherButtonMethod' => $this->otherButtonMethod,
             'questions' => $this->questions,
             'submitButtonLabel' => $this->submitButtonLabel,
-            'submitButtonType' => $this->submitButtonType,
+            'submitButtonMode' => $this->submitButtonMode,
             'summary' => $this->summary,
             'template' => $this->template,
             'title' => $this->title,

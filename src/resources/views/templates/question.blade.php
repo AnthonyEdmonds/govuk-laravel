@@ -7,7 +7,7 @@
         @endforeach
 
         <x-govuk::button-group>
-            <x-govuk::button :type="$submitButtonType" prevent-double-click>
+            <x-govuk::button :mode="$submitButtonMode" prevent-double-click>
                 {{ $submitButtonLabel }}
             </x-govuk::button>
             

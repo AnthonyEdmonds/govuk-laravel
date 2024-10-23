@@ -16,14 +16,14 @@ class GovukPage
         string $method = 'post',
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
-        string $submitButtonType = Page::NORMAL_BUTTON,
+        string $submitButtonMode = Page::NORMAL_BUTTON,
         ?string $caption = null,
     ): Page {
         return Page::create($title)
             ->setAction($action)
             ->setBack($back)
             ->setSubmitButtonLabel($submitButtonLabel)
-            ->setSubmitButtonType($submitButtonType)
+            ->setSubmitButtonMode($submitButtonMode)
             ->setOtherButtonHref($otherButtonHref ?? $back)
             ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setCaption($caption)
@@ -77,7 +77,7 @@ class GovukPage
         ?string $blade = null,
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
-        string $submitButtonType = Page::NORMAL_BUTTON,
+        string $submitButtonMode = Page::NORMAL_BUTTON,
     ): Page {
         $question
             ->isTitle()
@@ -88,7 +88,7 @@ class GovukPage
             ->setAction($action)
             ->setBack($back)
             ->setSubmitButtonLabel($submitButtonLabel)
-            ->setSubmitButtonType($submitButtonType)
+            ->setSubmitButtonMode($submitButtonMode)
             ->setOtherButtonHref($otherButtonHref)
             ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setContent($blade)
@@ -107,13 +107,13 @@ class GovukPage
         ?string $blade = null,
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
-        string $submitButtonType = Page::NORMAL_BUTTON,
+        string $submitButtonMode = Page::NORMAL_BUTTON,
     ): Page {
         return Page::create($title)
             ->setAction($action)
             ->setBack($back)
             ->setSubmitButtonLabel($submitButtonLabel)
-            ->setSubmitButtonType($submitButtonType)
+            ->setSubmitButtonMode($submitButtonMode)
             ->setOtherButtonHref($otherButtonHref)
             ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setContent($blade)
@@ -136,7 +136,7 @@ class GovukPage
             ->setContent($blade)
             ->setMethod($method)
             ->setSubmitButtonLabel($buttonLabel)
-            ->setSubmitButtonType(Page::START_BUTTON)
+            ->setSubmitButtonMode(Page::START_BUTTON)
             ->setTemplate('start');
     }
 
@@ -150,13 +150,13 @@ class GovukPage
         ?string $blade = null,
         ?string $otherButtonLabel = null,
         ?string $otherButtonHref = null,
-        string $submitButtonType = Page::NORMAL_BUTTON,
+        string $submitButtonMode = Page::NORMAL_BUTTON,
     ): Page {
         return Page::create($title)
             ->setAction($action)
             ->setBack($back)
             ->setSubmitButtonLabel($submitButtonLabel)
-            ->setSubmitButtonType($submitButtonType)
+            ->setSubmitButtonMode($submitButtonMode)
             ->setOtherButtonHref($otherButtonHref)
             ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setContent($blade)

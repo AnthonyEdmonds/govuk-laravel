@@ -9,6 +9,7 @@
     'id' => null,
     'inverted' => false,
     'label' => null,
+    'mode' => null,
     'password' => false,
     'preventDoubleClick' => false,
     'secondary' => false,
@@ -19,15 +20,15 @@
 @php
     $classes = 'govuk-button';
     
-    if ($secondary === true || $type === 'secondary') {
+    if ($secondary === true || $mode === 'secondary') {
         $classes .= ' govuk-button--secondary';
     }
 
-    if ($asStartButton === true || $type === 'start') {
+    if ($asStartButton === true || $mode === 'start') {
         $classes .= ' govuk-button--start';
     }
 
-    if ($warning === true || $type === 'warning') {
+    if ($warning === true || $mode === 'warning') {
         $classes .= ' govuk-button--warning';
     }
     
@@ -47,7 +48,11 @@
 <button
     class="{{ $classes }}"
     data-module="govuk-button"
-    
+
+    @if(empty($type) === false)
+        type="{{ $type }}"
+    @endif
+
     @if($formAction !== null)
         formaction="{{$formAction}}"
     @endif
