@@ -68,6 +68,7 @@
             label="Show password"
             password
             secondary
+            type="button"
         >Show</x-govuk::button>
     </div>
 </x-govuk::form-group>
