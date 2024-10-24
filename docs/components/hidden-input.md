@@ -25,6 +25,7 @@ Create a hidden input for a form.
 * [fieldset](fieldset.md)
 * [file-upload](file-upload.md)
 * [form](form.md)
+* [password](password.md)
 * [radios](radios.md)
 * [select](select.md)
 * [text-input](text-input.md)

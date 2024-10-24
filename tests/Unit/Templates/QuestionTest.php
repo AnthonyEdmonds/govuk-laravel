@@ -61,7 +61,7 @@ class QuestionTest extends TestCase
             'method' => $data['method'] ?? 'POST',
             'questions' => $data['questions'] ?? [],
             'submitButtonLabel' => $data['submitButtonLabel'] ?? 'Submit label',
-            'submitButtonType' => $data['submitButtonType'] ?? Page::NORMAL_BUTTON,
+            'submitButtonMode' => $data['submitButtonMode'] ?? Page::NORMAL_BUTTON,
             'title' => 'My page title',
             'otherButtonHref' => $data['otherButtonHref'] ?? null,
             'otherButtonLabel' => $data['otherButtonLabel'] ?? null,

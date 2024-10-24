@@ -84,7 +84,7 @@ abstract class Question
         return 'Save and continue';
     }
 
-    public function getSubmitButtonType(): string
+    public function getSubmitButtonMode(): string
     {
         return Page::NORMAL_BUTTON;
     }

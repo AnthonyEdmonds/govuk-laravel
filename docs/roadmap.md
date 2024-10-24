@@ -5,6 +5,7 @@ My intention is to make GOV.UK Laravel match the Design System in terms of avail
 ## Issues
 
 * CSS does not wrap unrealistic long words
+   * Implement provided GOV.UK helper to force word wrapping 
 * Space after link components
 
 ## Enhancements

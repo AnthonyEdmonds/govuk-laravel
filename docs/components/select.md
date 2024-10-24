@@ -51,6 +51,7 @@ The keyed array passed into options should have the key as the value of the `opt
 * [file-upload](file-upload.md)
 * [form](form.md)
 * [hidden-input](hidden-input.md)
+* [password](password.md)
 * [radios](radios.md)
 * [text-input](text-input.md)
 * [textarea](textarea.md)

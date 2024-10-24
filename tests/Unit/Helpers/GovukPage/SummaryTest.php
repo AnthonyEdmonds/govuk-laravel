@@ -100,13 +100,13 @@ class SummaryTest extends TestCase
         );
     }
 
-    public function testSubmitButtonType(): void
+    public function testSubmitButtonMode(): void
     {
         $this->makePage();
 
         $this->assertEquals(
             Page::START_BUTTON,
-            $this->page['submitButtonType'],
+            $this->page['submitButtonMode'],
         );
     }
 

@@ -6,7 +6,7 @@
 ])
 
 @if($nextPageUrl !== null || $prevPageUrl !== null)
-    <nav class="govuk-pagination govuk-pagination--block" role="navigation" aria-label="results">
+    <nav class="govuk-pagination govuk-pagination--block" aria-label="results">
         @if($prevPageUrl !== null)
             <div class="govuk-pagination__prev">
                 <a class="govuk-link govuk-pagination__link" href="{{ $prevPageUrl }}" rel="prev">

@@ -48,6 +48,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [form](components/form.md)
 * [form-group](components/form-group.md)
 * [hidden-input](components/hidden-input.md)
+* [password](components/password.md)
 * [radios](components/radios.md)
 * [select](components/select.md)
 * [text-input](components/text-input.md)

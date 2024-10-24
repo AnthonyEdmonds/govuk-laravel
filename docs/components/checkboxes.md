@@ -63,6 +63,7 @@ When `exclusive` is applied to a checkbox, it will de-select any other checkboxe
 * [file-upload](file-upload.md)
 * [form](form.md)
 * [hidden-input](hidden-input.md)
+* [password](password.md)
 * [radios](radios.md)
 * [select](select.md)
 * [text-input](text-input.md)

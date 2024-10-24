@@ -10,7 +10,7 @@ class BreadcrumbsTest extends TestCase
     public function testHasBreadcrumbs(): void
     {
         $crumbs = $this->makeComponent()
-            ->first('div')
+            ->first('nav')
             ->hasClass('govuk-breadcrumbs')
             ->first('ol');
 
@@ -35,7 +35,7 @@ class BreadcrumbsTest extends TestCase
         $this->makeComponent([
             'inverted' => true,
         ])
-            ->first('div')
+            ->first('nav')
             ->hasClass('govuk-breadcrumbs--inverse');
     }
 

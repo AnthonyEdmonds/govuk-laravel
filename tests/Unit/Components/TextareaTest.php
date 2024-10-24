@@ -18,9 +18,11 @@ class TextareaTest extends TestCase
 
     public function testHasId(): void
     {
-        $group = $this->makeComponent();
+        $group = $this->makeComponent([
+            'count' => 5,
+        ]);
 
-        $group->last('div > div')
+        $group->last('div')
             ->hasAttribute('id', 'my-id-info');
 
         $group->first('label')
@@ -33,6 +35,7 @@ class TextareaTest extends TestCase
     public function testHasThreshold(): void
     {
         $this->makeComponent([
+            'count' => 5,
             'threshold' => 50,
         ])
             ->first('div')
@@ -74,7 +77,7 @@ class TextareaTest extends TestCase
         $this->makeComponent([
             'isTitle' => true,
         ])
-            ->has('div > div > h1');
+            ->has('div > h1');
     }
 
     public function testHasHint(): void
@@ -82,7 +85,7 @@ class TextareaTest extends TestCase
         $group = $this->makeComponent([
             'hint' => 'My hint',
         ])
-            ->first('div > div');
+            ->first('div');
 
         $group->first('div.govuk-hint')
             ->hasAttribute('id', 'my-id-hint')
@@ -97,7 +100,7 @@ class TextareaTest extends TestCase
         $group = $this->makeComponent([], [
             'my-name' => 'An error',
         ])
-            ->first('div > div');
+            ->first('div');
 
         $group->first('p.govuk-error-message')
             ->hasAttribute('id', 'my-id-error')

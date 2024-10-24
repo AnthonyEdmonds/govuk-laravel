@@ -12,7 +12,6 @@
 <nav
     aria-label="{{ $label }} pagination"
     class="govuk-pagination"
-    role="navigation"
 >
     @if($prevPageUrl !== null)
         <div class="govuk-pagination__prev">

@@ -20,7 +20,7 @@
             @include('govuk::parts.breadcrumbs')
             @include('govuk::parts.back')
             
-            <main class="govuk-main-wrapper " id="content" role="main">
+            <main class="govuk-main-wrapper" id="content">
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-full">
                         @yield('heading')

@@ -8,29 +8,32 @@ use Illuminate\View\ComponentAttributeBag;
 
 class Question
 {
-    public const CHECKBOXES = 'checkboxes';
+    public const string CHECKBOXES = 'checkboxes';
 
-    public const DATE = 'date-input';
+    public const string DATE = 'date-input';
 
-    public const FILE = 'file-upload';
+    public const string FILE = 'file-upload';
 
-    public const HIDDEN = 'hidden-input';
+    public const string HIDDEN = 'hidden-input';
 
-    public const RADIOS = 'radios';
+    public const string PASSWORD = 'password';
 
-    public const SELECT = 'select';
+    public const string RADIOS = 'radios';
 
-    public const TEXT_AREA = 'textarea';
+    public const string SELECT = 'select';
 
-    public const TEXT_INPUT = 'text-input';
+    public const string TEXT_AREA = 'textarea';
 
-    public const TIME = 'time-input';
+    public const string TEXT_INPUT = 'text-input';
 
-    public const QUESTION_FORMATS = [
+    public const string TIME = 'time-input';
+
+    public const array QUESTION_FORMATS = [
         self::CHECKBOXES,
         self::DATE,
         self::FILE,
         self::HIDDEN,
+        self::PASSWORD,
         self::RADIOS,
         self::SELECT,
         self::TEXT_AREA,

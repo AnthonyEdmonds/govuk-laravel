@@ -90,13 +90,13 @@ class ConfirmTest extends TestCase
         );
     }
 
-    public function testHasSubmitButtonType(): void
+    public function testHasSubmitButtonMode(): void
     {
         $this->makePage();
 
         $this->assertEquals(
             Page::WARNING_BUTTON,
-            $this->page['submitButtonType'],
+            $this->page['submitButtonMode'],
         );
     }
 

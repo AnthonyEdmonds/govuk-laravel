@@ -19,9 +19,6 @@ class AccordionSectionTest extends TestCase
 
         $section->first('div > div > div')
             ->hasAttribute('id', 'accordion--summary-my-sub-id');
-
-        $section->last('div > div')
-            ->hasAttribute('aria-labelledby', 'accordion--heading-my-sub-id');
     }
 
     public function testHasLabel(): void

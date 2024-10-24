@@ -10,7 +10,6 @@
 <nav
     aria-label="{{ $label }} pagination"
     class="govuk-pagination"
-    role="navigation"
 >
     @foreach($links as $link)
         @if($loop->first === true)

@@ -6,6 +6,23 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 5.x from version 4.x
+
+1. If you have published the `resources/scss/govuk.variables.scss` file:
+   1. Add `$govuk-new-typography-scale: true;` at the top of the file
+   2. Add `$govuk-new-organisation-colours: true;` at the top of the file 
+2. Change `app.scss` from `node_modules/govuk-frontend/dist/govuk/all` to `node_modules/govuk-frontend/dist/govuk/index.scss`
+3. The `govuk` config file has changed to support the new `service-navigation` component
+   1. Republish the config file, or manually edit it to get the latest keys
+   2. Add your custom header logic into the config
+      * The `link` key for conditional navigation has been changed to `route`
+      * A `section` key has been added if your route names do not match the current route
+   3. Remove `resources/vendor/govuk/layout/header.blade.php`, if published
+   * The `header` component no longer supports navigation in favour of the `service-navigation` component
+4. Replace any uses of the `type` property on the `button` component with `mode`
+   * Type is now used only to set the native HTML attribute, with mode replacing it functionally
+   * This also includes calls to `setButtonType` on pages and questions, where they have been overridden
+
 ## Update to version 4.x from version 3.x
 
 1. All Form classes must update their signature for `checkAccess` to accept the subject as the first parameter

@@ -1,4 +1,8 @@
 // Use this file to override the default style associations in the GOV.UK Design System
+
+$govuk-new-typography-scale: true;
+$govuk-new-organisation-colours: true;
+
 @import 'govuk-frontend/dist/govuk/helpers/_colour.scss';
 
 // GOV.UK Font

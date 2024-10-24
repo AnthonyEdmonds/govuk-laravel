@@ -1,26 +1,12 @@
 # Configuration
 
-## Config
+## Installation
 
-The default configuration file is as follows:
+The default configuration file can be found in `src/config/govuk.php`.
 
-```php
-return [
-    'forms' => [
-        //
-    ],
-    
-    'home' => [
-        'label' => 'Dashboard',
-        'route' => 'dashboard',
-    ],
-    
-    'parts' => [
-        'laracasts_flash' => false,
-        '404lab_impersonate' => false,
-    ],
-];
-```
+You can publish the configuration file by following the [installation guide](install.md).
+
+## Keys
 
 ### Forms
 
@@ -32,6 +18,19 @@ You can register forms built using the GOV.UK Laravel Form by listing them in th
     MyOtherForm::class,
 ],
 ```
+
+### Header
+
+If you are using the provided page layout, you can configure the header and navigation using these keys:
+
+| Key                 | Type   | Usage                                                         |
+|---------------------|--------|---------------------------------------------------------------|
+| header.links        | array  | See [service-navigation](../components/service-navigation.md) |
+| header.logo.alt     | string | The text description if your service logo cannot be found     |
+| header.logo.asset   | string | The literal path to your service logo asset                   |
+| header.logo.height  | int    | The height of your service logo in pixels                     |
+| header.route        | string | The route name for your service logo hyperlink                |
+| header.service_name | string | The service name, defaulted to your `APP_NAME`                |
 
 ### Home
 
@@ -45,4 +44,3 @@ GOV.UK Laravel comes by default with parts for the following libraries:
 * [laracasts\flash](https://github.com/laracasts/flash)
 
 You can enable them by setting the corresponding config value to `true`.
-

@@ -198,13 +198,13 @@ class QuestionTest extends TestCase
         );
     }
 
-    public function testHasSubmitButtonType(): void
+    public function testHasSubmitButtonMode(): void
     {
         $this->makePage();
 
         $this->assertEquals(
             Page::NORMAL_BUTTON,
-            $this->page->getData()['submitButtonType'],
+            $this->page->getData()['submitButtonMode'],
         );
     }
 

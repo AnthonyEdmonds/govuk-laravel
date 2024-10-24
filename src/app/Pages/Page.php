@@ -7,29 +7,29 @@ use Illuminate\Contracts\View\View;
 
 class Page implements View
 {
-    public const BUTTON_TYPES = [
+    public const array BUTTON_MODES = [
         self::NORMAL_BUTTON,
         self::SECONDARY_BUTTON,
         self::START_BUTTON,
         self::WARNING_BUTTON,
     ];
 
-    public const NORMAL_BUTTON = '';
+    public const string NORMAL_BUTTON = '';
 
-    public const SECONDARY_BUTTON = 'secondary';
+    public const string SECONDARY_BUTTON = 'secondary';
 
-    public const START_BUTTON = 'start';
+    public const string START_BUTTON = 'start';
 
-    public const WARNING_BUTTON = 'warning';
+    public const string WARNING_BUTTON = 'warning';
 
-    public const OTHER_BUTTON_LABEL = 'Cancel and back';
+    public const string OTHER_BUTTON_LABEL = 'Cancel and back';
 
-    public const BUTTON_METHODS = [
+    public const array BUTTON_METHODS = [
         self::GET_METHOD,
         self::POST_METHOD,
     ];
 
-    public const FORM_METHODS = [
+    public const array FORM_METHODS = [
         self::DELETE_METHOD,
         self::GET_METHOD,
         self::PATCH_METHOD,
@@ -37,15 +37,15 @@ class Page implements View
         self::PUT_METHOD,
     ];
 
-    public const DELETE_METHOD = 'DELETE';
+    public const string DELETE_METHOD = 'DELETE';
 
-    public const GET_METHOD = 'GET';
+    public const string GET_METHOD = 'GET';
 
-    public const PATCH_METHOD = 'PATCH';
+    public const string PATCH_METHOD = 'PATCH';
 
-    public const POST_METHOD = 'POST';
+    public const string POST_METHOD = 'POST';
 
-    public const PUT_METHOD = 'PUT';
+    public const string PUT_METHOD = 'PUT';
 
     protected ?string $action = null;
 
@@ -53,9 +53,11 @@ class Page implements View
 
     protected ?array $breadcrumbs = null;
 
+    protected ?string $currentSection = null;
+
     protected ?string $submitButtonLabel = null;
 
-    protected string $submitButtonType = self::NORMAL_BUTTON;
+    protected string $submitButtonMode = self::NORMAL_BUTTON;
 
     protected ?string $otherButtonHref = null;
 
@@ -132,6 +134,12 @@ class Page implements View
         return $this;
     }
 
+    public function setCurrentSection(string $section): self
+    {
+        $this->currentSection = $section;
+        return $this;
+    }
+
     public function setSubmitButtonLabel(?string $label = null): self
     {
         $this->submitButtonLabel = $label;
@@ -139,9 +147,9 @@ class Page implements View
         return $this;
     }
 
-    public function setSubmitButtonType(string $type): self
+    public function setSubmitButtonMode(string $type): self
     {
-        $this->submitButtonType = in_array($type, self::BUTTON_TYPES, true) === true
+        $this->submitButtonMode = in_array($type, self::BUTTON_MODES, true) === true
             ? $type
             : self::NORMAL_BUTTON;
 
@@ -245,6 +253,7 @@ class Page implements View
             'breadcrumbs' => $this->breadcrumbs,
             'caption' => $this->caption,
             'content' => $this->content,
+            'currentSection' => $this->currentSection,
             'hideTitle' => $this->hideTitle,
             'method' => $this->method,
             'otherButtonHref' => $this->otherButtonHref,
@@ -252,7 +261,7 @@ class Page implements View
             'otherButtonMethod' => $this->otherButtonMethod,
             'questions' => $this->questions,
             'submitButtonLabel' => $this->submitButtonLabel,
-            'submitButtonType' => $this->submitButtonType,
+            'submitButtonMode' => $this->submitButtonMode,
             'summary' => $this->summary,
             'template' => $this->template,
             'title' => $this->title,

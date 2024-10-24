@@ -6,7 +6,7 @@ use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\Forms\Questions\FirstQuestion;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
-class GetSubmitButtonTypeTest extends TestCase
+class GetSubmitButtonModeTest extends TestCase
 {
     protected FirstQuestion $question;
 
@@ -21,7 +21,7 @@ class GetSubmitButtonTypeTest extends TestCase
     {
         $this->assertEquals(
             Page::NORMAL_BUTTON,
-            $this->question->getSubmitButtonType(),
+            $this->question->getSubmitButtonMode(),
         );
     }
 }

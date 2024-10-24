@@ -163,7 +163,7 @@ abstract class Form
             ->setOtherButtonLabel($questionClass->getOtherButtonLabel())
             ->setOtherButtonHref($questionClass->getOtherButtonRoute($this, $mode))
             ->setOtherButtonMethod($questionClass->getOtherButtonMethod())
-            ->setSubmitButtonType($questionClass->getSubmitButtonType())
+            ->setSubmitButtonMode($questionClass->getSubmitButtonMode())
             ->with('mode', $mode)
             ->with('subject', $subject);
     }
