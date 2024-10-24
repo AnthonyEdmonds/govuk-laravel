@@ -47,7 +47,7 @@ abstract class DateRuleTestCase extends TestCase
     {
         $this->setRuleData(1, 12, '/');
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute year must be a number');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute year must be either two or four digits long');
     }
 
     protected function setRuleData(
