@@ -48,8 +48,11 @@ abstract class DateRule implements DataAwareRule, ValidationRule
             return;
         }
 
-        if ($this->validateDigitsBetween($attribute, $year, [1, 4]) === false) {
-            $fail(':attribute year must be a number');
+        if (
+            $this->validateDigits($attribute, $year, [2]) === false
+            && $this->validateDigits($attribute, $year, [4]) === false
+        ) {
+            $fail(':attribute year must be either two or four digits long');
 
             return;
         }
