@@ -76,6 +76,29 @@ Include the OnDate, AfterDate, BeforeDate, OnOrAfterDate, or OnOrBeforeDate rule
 ]
 ```
 
+## Parsing
+
+A helper is provided for parsing dates from GOV.UK style inputs.
+
+```php
+$date = GovukDate::parse($formRequest, $dateKey);
+
+$dateWithTime = GovukDate::parse(
+    [
+        'birth-day' => 31,
+        'birth-month' => 10,
+        'birth-year' => 2024,
+        'time' => '15:10',
+    ],
+    'birth',
+    'time',
+);
+```
+
+Provide either a `FormRequest` or an `array` of values with the date key, to receive a usable `Carbon` instance.
+
+The time key may also be provided if being used, otherwise the time will be set to midnight.
+
 ## Also see
 
 * [checkboxes](checkboxes.md)

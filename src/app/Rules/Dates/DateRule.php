@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Rules\Dates;
 
+use AnthonyEdmonds\GovukLaravel\Helpers\GovukDate;
 use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
 use Closure;
@@ -57,34 +58,25 @@ abstract class DateRule implements DataAwareRule, ValidationRule
             return;
         }
 
-        $dayFormat = strlen($day) < 2 ? 'j' : 'd';
-        $monthFormat = strlen($month) < 2 ? 'n' : 'm';
-        $yearFormat = strlen($year) < 4 ? 'y' : 'Y';
-        $enteredDate = Carbon::createFromFormat("$yearFormat-$monthFormat-$dayFormat", "$year-$month-$day");
-
         if ($this->timeField !== null) {
             try {
-                $enteredDate->setTimeFrom(
-                    Carbon::parse($this->data[$this->timeField]),
-                );
-
+                Carbon::parse($this->data[$this->timeField]);
                 $this->messageFormat .= ' H:i';
             } catch (InvalidFormatException $exception) {
                 $fail("$this->timeField must be a real time");
-
                 return;
             }
-        } else {
-            $enteredDate->setTime(0, 0);
         }
 
-        if ($enteredDate->isValid() === false) {
+        $date = GovukDate::parse($this->data, $attribute, $this->timeField);
+
+        if ($date->isValid() === false) {
             $fail(':attribute must be a real date');
 
             return;
         }
 
-        if ($this->test($enteredDate) === false) {
+        if ($this->test($date) === false) {
             $fail($this->message);
         }
     }

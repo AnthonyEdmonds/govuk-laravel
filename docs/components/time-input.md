@@ -41,6 +41,23 @@ A special [rule](../rules.md) is provided for validating times in multiple forma
 ]
 ```
 
+## Parsing
+
+A helper is provided for parsing times from GOV.UK style inputs.
+
+```php
+$time = GovukDate::parseTime($formRequest, $timeKey);
+
+$time = GovukDate::parseTime(
+    [
+        'time' => '15:10',
+    ],
+    'time',
+);
+```
+
+Provide either a `FormRequest` or an `array` of values with the time key, to receive a usable `Carbon` instance.
+
 ## Also see
 
 * [checkboxes](checkboxes.md)
