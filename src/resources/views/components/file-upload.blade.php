@@ -33,12 +33,14 @@
     <x-govuk::form-group.hint :id="$id" :hint="$hint" />
     <x-govuk::form-group.error :id="$id" :name="$name" />
 
-    <input
-        accept="{{ $accept }}"
-        class="{{ $inputClasses }}"
-        id="{{ $id }}"
-        name="{{ $name }}"
-        type="file"
-        aria-describedby="{{ $ariaDescription }}"
-    />
+    <div class="govuk-drop-zone" data-module="govuk-file-upload">
+        <input
+            accept="{{ $accept }}"
+            class="{{ $inputClasses }}"
+            id="{{ $id }}"
+            name="{{ $name }}"
+            type="file"
+            aria-describedby="{{ $ariaDescription }}"
+        />
+    </div>
 </x-govuk::form-group>
