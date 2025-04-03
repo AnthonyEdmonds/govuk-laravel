@@ -93,6 +93,38 @@ You may use this with any markup, such as the Laravel route helper:
 </x-govuk::table>
 ```
 
+You may pass an array of values, which will be rendered with line breaks between each item.
+
+```php
+$rows = [
+    [
+        'address' => [
+            'Line 1',
+            'Line 2',
+            ...
+        ],   
+    ],
+    ...
+];
+```
+
+```html
+<x-govuk::table caption="Users" :data="$rows">
+    <x-govuk::table-column>
+        ~address
+    </x-govuk::table-column>
+</x-govuk::table>
+
+<!-- Outputs as -->
+...
+    <td>
+        Line 1<br/>
+        Line 2<br/>
+        ...
+    </td>
+...
+```
+
 Some placeholders are reserved for use by the `table` component, which can be used to output specific information about the `data`:
 
 | Placeholder | Function                                         |

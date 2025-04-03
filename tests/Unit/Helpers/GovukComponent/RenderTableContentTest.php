@@ -4,6 +4,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Helpers\GovukComponent;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukComponent;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use stdClass;
 
 class RenderTableContentTest extends TestCase
 {
@@ -43,11 +44,25 @@ class RenderTableContentTest extends TestCase
 
     public function testSkipsNonScalarValues(): void
     {
+        $nonScalar = new stdClass();
+        $nonScalar->goose = 'Goose';
+
         $this->assertEquals(
             'My name is ~name, OK?',
             GovukComponent::renderTableContent(
                 $this->makeColumn('My name is ~name, OK?'),
-                $this->makeRow(1, ['Goose'], 23),
+                $this->makeRow(1, $nonScalar, 23),
+            ),
+        );
+    }
+
+    public function testOutputsArrayValues(): void
+    {
+        $this->assertEquals(
+            'My name is Goose<br/>Man, OK?',
+            GovukComponent::renderTableContent(
+                $this->makeColumn('My name is ~name, OK?'),
+                $this->makeRow(1, ['Goose', 'Man'], 23),
             ),
         );
     }
@@ -75,7 +90,7 @@ class RenderTableContentTest extends TestCase
 
     protected function makeRow(
         int $id,
-        string|array|null $name,
+        string|array|stdClass|null $name,
         int $age,
     ): array {
         return [
