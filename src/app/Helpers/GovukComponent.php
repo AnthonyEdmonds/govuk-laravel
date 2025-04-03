@@ -42,7 +42,9 @@ class GovukComponent
                 $value = '';
             }
 
-            if (is_scalar($value) !== true) {
+            if (is_array($value) === true) {
+                $value = implode('<br/>', $value);
+            } elseif (is_scalar($value) !== true) {
                 continue;
             }
 
