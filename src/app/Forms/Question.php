@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 abstract class Question
 {
-    public const LOOPS = false;
+    public const bool LOOPS = false;
 
-    public const SKIPPABLE = false;
+    public const bool SKIPPABLE = false;
 
     // Abstract
     abstract public static function key(): string;
@@ -52,7 +52,7 @@ abstract class Question
         return null;
     }
 
-    public function getOtherButtonLabel(): ?string
+    public function getOtherButtonLabel(?Model $subject = null): ?string
     {
         return static::SKIPPABLE === true
             ? 'Skip and continue'

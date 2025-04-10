@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class FirstQuestion extends Question
 {
-    public const SKIPPABLE = true;
+    public const bool SKIPPABLE = true;
 
     public static function key(): string
     {
