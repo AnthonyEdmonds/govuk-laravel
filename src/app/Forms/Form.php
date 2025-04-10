@@ -160,7 +160,7 @@ abstract class Form
             ->setBack($this->getBackRoute($mode, $questionKey, $subject))
             ->setMethod($questionClass->getMethod())
             ->setContent($questionClass->getBlade())
-            ->setOtherButtonLabel($questionClass->getOtherButtonLabel())
+            ->setOtherButtonLabel($questionClass->getOtherButtonLabel($subject))
             ->setOtherButtonHref($questionClass->getOtherButtonRoute($this, $mode))
             ->setOtherButtonMethod($questionClass->getOtherButtonMethod())
             ->setSubmitButtonMode($questionClass->getSubmitButtonMode())
