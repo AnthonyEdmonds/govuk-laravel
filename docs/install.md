@@ -9,11 +9,15 @@ This library features two parts:
 
 Both parts can be installed using Composer:
 
-`composer require anthonyedmonds\govuk-laravel`
+```bash
+composer require anthonyedmonds/govuk-laravel
+```
 
 If the NPM dependencies are not automatically installed, run:
 
-`npm install govuk-frontend --save-dev`
+```bash
+npm install govuk-frontend --save-dev
+```
 
 ## Service Provider
 
