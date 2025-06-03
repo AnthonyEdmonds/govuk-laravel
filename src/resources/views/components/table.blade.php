@@ -36,11 +36,18 @@
         
     } elseif ($data instanceof AbstractPaginator === true) {
         $paginator = $data->toArray();
+    } elseif (
+        is_array($data) === true
+        && array_key_exists('meta', $data) === true
+    ) {
+        $paginator = $data['meta'];
     }
     
     // Rows
     if (is_array($data) === true) {
-        $rows = $data;
+        $rows = array_key_exists('data', $data)
+            ? $data['data']
+            : $data;
     } elseif ($data instanceof ResourceCollection === true) {
         $rows = $data->toArray(request());
     } elseif ($data instanceof JsonResource === true) {
