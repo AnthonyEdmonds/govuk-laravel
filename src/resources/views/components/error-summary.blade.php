@@ -3,6 +3,8 @@
     'title' => 'There is a problem',
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 <div
     class="govuk-error-summary"
     aria-labelledby="error-summary-title"
@@ -17,7 +19,7 @@
         <ul class="govuk-list govuk-error-summary__list">
             @foreach($messages as $id => $message)
                 <li>
-                    <a href="#{{ \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::dotsToBrackets($id) }}">{{ $message }}</a>
+                    <a href="#{{ GovukPage::dotsToBrackets($id) }}">{{ $message }}</a>
                 </li>
             @endforeach
         </ul>

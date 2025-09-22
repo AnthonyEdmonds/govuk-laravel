@@ -2,7 +2,6 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Pages\Page;
 
-use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
@@ -12,12 +11,18 @@ class SetQuestionsTest extends TestCase
     {
         $page = Page::create('My title');
         $page->setQuestions([
-            GovukQuestion::hidden('my-name', 'my-value'),
+            1,
+            2,
+            3,
         ]);
 
         $this->assertEquals(
-            'my-name',
-            $page->toArray()['questions'][0]->name,
+            [
+                1,
+                2,
+                3,
+            ],
+            $page->toArray()['questions'],
         );
     }
 }

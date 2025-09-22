@@ -129,9 +129,9 @@ class TableTest extends TestCase
     {
         $this->setViewSlot(
             'slot',
-            $this->makeTableColumn('Column one', '~c1') .
-            $this->makeTableColumn('Column two', '~c2') .
-            $this->makeTableColumn('Column three', '~c3'),
+            $this->makeTableColumn('Column one', '~c1')
+            . $this->makeTableColumn('Column two', '~c2')
+            . $this->makeTableColumn('Column three', '~c3'),
         );
 
         return $this->assertView('govuk::components.table', [

@@ -11,6 +11,8 @@
     'value' => null,
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 @php
     $hasConditionalInputs = false;
     foreach ($options as $option) {
@@ -22,7 +24,7 @@
 
     $ariaDescription = '';
     $inputClasses = 'govuk-radios';
-    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
+    $oldName = GovukPage::bracketsToDots($name);
 
     if ($isSmall === true) {
         $inputClasses .= ' govuk-radios--small';

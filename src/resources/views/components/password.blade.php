@@ -11,10 +11,12 @@
     'width' => null,
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 @php
     $ariaDescription = '';
     $inputClasses = 'govuk-input govuk-password-input__input govuk-js-password-input-input';
-    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
+    $oldName = GovukPage::bracketsToDots($name);
 
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";

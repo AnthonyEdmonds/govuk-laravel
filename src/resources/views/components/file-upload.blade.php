@@ -8,10 +8,12 @@
     'isTitle' => false,
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 @php
     $ariaDescription = '';
     $inputClasses = 'govuk-file-upload';
-    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
+    $oldName = GovukPage::bracketsToDots($name);
 
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";

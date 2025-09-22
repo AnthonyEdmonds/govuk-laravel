@@ -4,131 +4,75 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Helpers\GovukPage;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
-use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 
 class QuestionTest extends TestCase
 {
     protected array $page;
 
-    protected Question $question;
-
-    public function testHasQuestion(): void
+    public function test(): void
     {
         $this->makePage();
 
-        $this->assertInstanceOf(
-            Question::class,
-            $this->page['questions'][0],
+        $this->assertEquals(
+            [
+                [
+                    'label' => 'hello',
+                    'isTitle' => true,
+                    'labelSize' => 'l',
+                ],
+            ],
+            $this->page['questions'],
         );
-    }
-
-    public function testHasSubmitButtonLabel(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             'for',
             $this->page['submitButtonLabel'],
         );
-    }
-
-    public function testHasAction(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             'toll',
             $this->page['action'],
         );
-    }
-
-    public function testHasBack(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             'cheese',
             $this->page['back'],
         );
-    }
-
-    public function testHasMethod(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             Page::POST_METHOD,
             $this->page['method'],
         );
-    }
-
-    public function testHasBlade(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             'dog',
             $this->page['content'],
         );
-    }
-
-    public function testHasOtherButtonLabel(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             'bird',
             $this->page['otherButtonLabel'],
         );
-    }
-
-    public function testHasOtherButtonHref(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             'Lizard',
             $this->page['otherButtonHref'],
         );
-    }
-
-    public function testSubmitButtonMode(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
             Page::START_BUTTON,
             $this->page['submitButtonMode'],
         );
-    }
-
-    public function testIsTitleIsTrue(): void
-    {
-        $this->makePage();
-
-        $this->assertTrue(
-            $this->question->isTitle,
-        );
-    }
-
-    public function testLabelSizeIsLarge(): void
-    {
-        $this->makePage();
 
         $this->assertEquals(
-            'l',
-            $this->question->labelSize,
-        );
-    }
-
-    public function testPageTitleIsSetByQuestion(): void
-    {
-        $this->makePage();
-
-        $this->assertEquals(
-            'too',
+            'hello',
             $this->page['title'],
+        );
+
+        $this->assertEquals(
+            'question',
+            $this->page['template'],
         );
     }
 
@@ -142,22 +86,11 @@ class QuestionTest extends TestCase
         );
     }
 
-    public function testSetTemplate(): void
-    {
-        $this->makePage();
-
-        $this->assertEquals(
-            'question',
-            $this->page['template'],
-        );
-    }
-
     protected function makePage(
         ?string $otherButtonLabel = 'bird',
     ): void {
-        $this->question = new Question('too', 'strange', Question::CHECKBOXES);
         $this->page = GovukPage::question(
-            $this->question,
+            ['label' => 'hello'],
             'for',
             'toll',
             'cheese',

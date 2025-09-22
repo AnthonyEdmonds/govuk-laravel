@@ -10,10 +10,12 @@
     'value' => null,
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 @php
     $ariaDescription = '';
     $inputClasses = 'govuk-select';
-    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
+    $oldName = GovukPage::bracketsToDots($name);
 
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";

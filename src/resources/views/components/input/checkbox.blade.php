@@ -59,13 +59,8 @@
             class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
             id="conditional-{{ $id }}"
         >
-            @foreach($inputs as $type => $settings)
-                {!!
-                    \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::new(
-                        is_string($type) === true ? $type : \AnthonyEdmonds\GovukLaravel\Questions\Question::TEXT_INPUT,
-                        $settings,
-                    )->toBlade()
-                !!}
+            @foreach($inputs as $settings)
+                <x-govuk::question :settings="$settings" />
             @endforeach
         </div>
     @endif

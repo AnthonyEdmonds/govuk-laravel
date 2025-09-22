@@ -8,10 +8,12 @@
     'words' => null,
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 @php
     $groupClasses = 'govuk-form-group';
 
-    if ($errors->has(\AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name)) === true) {
+    if ($errors->has(GovukPage::bracketsToDots($name)) === true) {
         $groupClasses .= ' govuk-form-group--error';
     }
 

@@ -2,7 +2,6 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Pages;
 
-use AnthonyEdmonds\GovukLaravel\Questions\Question;
 use Illuminate\Contracts\View\View;
 
 class Page implements View
@@ -202,13 +201,6 @@ class Page implements View
         return $this;
     }
 
-    public function setQuestion(?Question $question = null): self
-    {
-        $this->questions = [$question];
-
-        return $this;
-    }
-
     public function setQuestions(?array $questions = null): self
     {
         $this->questions = $questions;
@@ -272,7 +264,7 @@ class Page implements View
     public function render(): string
     {
         return view(
-            "govuk::templates.{$this->template}",
+            "govuk::templates.$this->template",
             $this->toArray(),
             $this->withs,
         )

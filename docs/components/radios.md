@@ -78,10 +78,11 @@ Inputs that should show when the option is selected can be set using the `inputs
                 'label' => 'Phone number',
                 'name' => 'phone',
             ],
-            'date-input' => [
+            [
                 'label' => 'Birthday',
                 'name' => 'bday',
                 'hint' => 'Enter your date of birth',
+                'type' => 'date-input',
             ],
         ],
     ],
@@ -91,9 +92,18 @@ Inputs that should show when the option is selected can be set using the `inputs
 
 By default, a `text-input` component will be shown.
 
-You may specify the type of input by setting the array key to a valid method in the `GovukQuestion` helper.
+You may specify the type of input by setting the `type` key to any form input component:
 
-You must provide an array of keys which are compatible with the input component you want to use.
+* date-input
+* file-upload
+* password
+* radios
+* select
+* text-input
+* textarea
+* time-input
+
+Each input must have all the keys needed for the input you want to use.
 
 The `name` and `label` keys should be considered a minimum for any input type, though some components may have other requirements.
 
