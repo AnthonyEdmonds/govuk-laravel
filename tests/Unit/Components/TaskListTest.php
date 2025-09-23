@@ -84,6 +84,17 @@ class TaskListTest extends TestCase
             ->contains('Plums');
     }
 
+    public function testHasLabelFromDetails(): void
+    {
+        $task = $this->makeComponent()
+            ->first('ul')
+            ->at('li', 4);
+
+        $task->first('div > a')
+            ->hasAttribute('href', 'my-url')
+            ->contains('Inline label');
+    }
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         return $this->assertView('govuk::components.task-list', [
@@ -105,6 +116,11 @@ class TaskListTest extends TestCase
                     'colour' => 'puce',
                     'status' => 'Plums',
                     'url' => 'task-three-url',
+                ],
+                'Details label' => [
+                    'label' => 'Inline label',
+                    'status' => TaskList::NOT_STARTED,
+                    'url' => 'my-url',
                 ],
             ],
             'title' => 'My title',

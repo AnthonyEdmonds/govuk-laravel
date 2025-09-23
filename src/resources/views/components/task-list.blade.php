@@ -1,6 +1,6 @@
 @props([
     'tasks' => [],
-    'title',
+    'title' => null,
 ])
 
 @php
@@ -28,20 +28,23 @@
     }
 @endphp
 
-<x-govuk::h2>{{ $title }}</x-govuk::h2>
+@empty($title)
+@else
+    <x-govuk::h2>{{ $title }}</x-govuk::h2>
+@endempty
 
 <ul class="govuk-task-list">
     @foreach($tasks as $label => $details)
         <li class="govuk-task-list__item{{ $details['item_classes'] }}">
             <div class="govuk-task-list__name-and-hint">
                 @if($details['disabled'] === true)
-                    <span aria-describedby="{{ $details['id'] }}-status">{{ $label }}</span>
+                    <span aria-describedby="{{ $details['id'] }}-status">{{ $details['label'] ?? $label }}</span>
                 @else
                     <a
                         class="govuk-link govuk-task-list__link"
                         href="{{ $details['url'] }}"
                         aria-describedby="{{ $details['id'] }}-status"
-                    >{{ $label }}</a>
+                    >{{ $details['label'] ?? $label }}</a>
                 @endif
 
                 @isset($details['hint'])
