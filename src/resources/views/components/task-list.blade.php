@@ -25,6 +25,12 @@
             $tasks[$label]['item_classes'] = ' govuk-task-list__item--with-link';
             $tasks[$label]['status_classes'] = '';
         }
+
+        if (isset($details['hint']) === true) {
+            if (is_array($details['hint']) === false) {
+                $tasks[$label]['hint'] = [$details['hint']];
+            }
+        }
     }
 @endphp
 
@@ -49,7 +55,9 @@
 
                 @isset($details['hint'])
                     <div id="{{ $details['id'] }}-hint" class="govuk-task-list__hint">
-                        {{ $details['hint'] }}
+                        @foreach($details['hint'] as $hint)
+                            <p>{{ $hint }}</p>
+                        @endforeach
                     </div>
                 @endisset
             </div>

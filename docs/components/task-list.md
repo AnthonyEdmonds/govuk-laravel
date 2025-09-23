@@ -47,14 +47,14 @@ You may include any number of tasks.
 
 Each task may have the following keys:
 
-| Name   | Type   | Default  | Description                           |
-|--------|--------|----------|---------------------------------------|
-| colour | string | null     | The colour of the task's status tag   |
-| hint   | string | null     | Supporting information about the task |
-| id     | string | null     | The ID of the task                    |
-| label  | string | null     | The label of the task                 |
-| status | string | Required | The status of the task                |
-| url    | string | null     | A link to the task                    |
+| Name   | Type          | Default  | Description                               |
+|--------|---------------|----------|-------------------------------------------|
+| colour | string        | null     | The colour of the task's status tag       |
+| hint   | string\|array | null     | Any supporting information about the task |
+| id     | string        | null     | The ID of the task                        |
+| label  | string        | null     | The label of the task                     |
+| status | string        | Required | The status of the task                    |
+| url    | string        | null     | A link to the task                        |
 
 Each task will be assigned an `id` based on a snake-case version of its `label`, if not specified.
 
@@ -70,6 +70,12 @@ The status of each task should correspond to one of the following:
 These statuses and their colours are available in the `TaskList` helper class.
 
 The component will automatically add the relevant `colour` to each tag when using these statuses.
+
+#### Hint
+
+You may pass either a string, or an array of strings if there are multiple hints.
+
+Each hint will be wrapped in a `<p>` tag.
 
 #### Label
 
