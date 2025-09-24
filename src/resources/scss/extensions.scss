@@ -1,50 +1,56 @@
 // Colour overrides
-    @each $name, $colour in $govuk-colours {
-        // Font Colours
-        .app-\!-font-#{$name} {
-            color: $colour !important;
-        }
-
-        // Background Colours
-        .app-\!-background-#{$name} {
-            background-color: $colour !important;
-        }
-
-        // Borders
-        .app-\!-border-#{$name} {
-            border-color: $colour !important;
-        }
+@each $name, $colour in $govuk-colours {
+    // Font Colours
+    .app-\!-font-#{$name} {
+        color: $colour !important;
     }
+
+    // Background Colours
+    .app-\!-background-#{$name} {
+        background-color: $colour !important;
+    }
+
+    // Borders
+    .app-\!-border-#{$name} {
+        border-color: $colour !important;
+    }
+}
 
 // Grid columns
-    div.govuk-grid-column-two-quarters {
-        box-sizing: border-box;
-        width: 50%;
-        float: left;
-    }
+div.govuk-grid-column-two-quarters {
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+}
 
 // Footer navigation margins
-    div.govuk-footer__navigation > div {
-        margin-left: 0;
-        margin-right: 0;
+div.govuk-footer__navigation > div {
+    margin-left: 0;
+    margin-right: 0;
 
-        padding-left: $govuk-gutter-half;
-        padding-right: $govuk-gutter-half;
-    }
+    padding-left: $govuk-gutter-half;
+    padding-right: $govuk-gutter-half;
+}
 
 // Details inside lists
-    li > details {
-        margin-bottom: 0 !important;
-    }
+li > details {
+    margin-bottom: 0 !important;
+}
 
 // No print
-    @media print {
-        .app-no-print {
-            display: none;
-        }
+@media print {
+    .app-no-print {
+        display: none;
     }
+}
 
 // Task list hint paragraphs
-    div.govuk-task-list__hint > p:first-of-type {
-        margin-top: 0;
-    }
+div.govuk-task-list__hint > p:first-of-type {
+    margin-top: 0;
+}
+
+// Tag fix (Tags are too narrow for task list statuses)
+strong.govuk-tag {
+    max-width: none;
+    white-space: nowrap;
+}
