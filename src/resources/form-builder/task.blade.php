@@ -1,7 +1,9 @@
 @extends('govuk::layout.page')
 
 @section('before-main')
-    <x-govuk::tag :colour="$colour" :label="$status" />
+    <x-govuk::p>
+        <x-govuk::tag :colour="$colour" :label="$status" />
+    </x-govuk::p>
 
     @foreach($description as $line)
         <x-govuk::p>{{ $line }}</x-govuk::p>
