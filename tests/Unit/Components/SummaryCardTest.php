@@ -37,13 +37,14 @@ class SummaryCardTest extends TestCase
         $this->makeSummaryCard([
             'My action' => [
                 'hidden' => 'has hidden text',
+                'label' => 'My label',
                 'url' => 'Action_URL',
             ],
         ])
             ->first('ul')
             ->first('a')
             ->hasLink('Action_URL')
-            ->contains('My action')
+            ->contains('My label')
             ->first('span')
             ->contains('has hidden text');
     }

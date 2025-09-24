@@ -13,9 +13,9 @@ Particularly useful for summarising the details held within a model, or a User's
 
 ## Props
 
-| Name       | Type  | Default  | Description |
-| ---------- | ----- | -------- | ----------- |
-| list       | array | Required | A keyed array |
+| Name       | Type  | Default  | Description                          |
+| ---------- | ----- | -------- |--------------------------------------|
+| list       | array | Required | A keyed array                        |
 | no-borders | bool  | false    | Whether to hide borders between rows |
 
 ### List
@@ -36,6 +36,20 @@ If you need to provide multiple values, pass the values as an array:
     'My label' => [
         'A value',
         'Another value',
+    ],
+]
+```
+
+You may also pass the `label` as an array key:
+
+```php
+[
+    [
+        'label' => 'My label',
+        'value' => [
+            'A value',
+            'Another value',
+        ],
     ],
 ]
 ```

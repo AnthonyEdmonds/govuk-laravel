@@ -13,7 +13,7 @@
             @foreach($actions as $label => $action)
                 <li class="govuk-summary-card__action">
                     <a class="govuk-link" href="{{ $action['url'] ?? $action }}">
-                        {{ $label }}
+                        {{ $action['label'] ?? $label }}
                         <span class="govuk-visually-hidden">
                             {{ $action['hidden'] ?? '' }}
                             {{ $title }}
