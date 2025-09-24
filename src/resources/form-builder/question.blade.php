@@ -1,29 +1,32 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+@extends('govuk::layout.page')
 
-<main>
-    <h1>{{ $title }}</h1>
-
-    <x-form-builder::description :description="$description" />
-
-    <form
-        action="{{ $save['link'] }}"
-        enctype="multipart/form-data"
-        method="POST"
-    >
-        @csrf
-        @method('POST')
-
+@section('main')
+    <x-govuk::form action="{{ $save->link }}">
         @forelse($fields as $field)
-            <x-form-builder::field :field="$field" />
+            <x-govuk::question :settings="$field->toArray()" />
         @empty
             <p>No fields have been added to this question.</p>
         @endforelse
 
-        <button>{{ $save['label'] }}</button>
-        @isset($skip)
-            <button formaction="{{ $skip['link'] }}">{{ $skip['label'] }}</button>
-        @endisset
-    </form>
+        <x-govuk::button-group>
+            <x-govuk::button prevent-double-click>{{ $save->label }}</x-govuk::button>
 
-    <x-form-builder::actions :actions="$actions" />
-</main>
+            @isset($skip)
+                <x-govuk::button
+                        form-action="{{ $skip->link }}"
+                        secondary
+                >{{ $skip->label }}</x-govuk::button>
+            @endisset
+
+            @if($actions['back']->link !== $actions['task']->link)
+                <x-govuk::a
+                        href="{{ $actions['back']->link }}"
+                >{{ $actions['back']->label }}</x-govuk::button>
+            @endif
+
+            <x-govuk::a
+                    href="{{ $actions['task']->link }}"
+            >{{ $actions['task']->label }}</x-govuk::button>
+        </x-govuk::button-group>
+    </x-govuk::form>
+@endsection

@@ -1,22 +1,22 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+@extends('govuk::layout.page')
 
-<main>
-    <h1>{{ $title }}</h1>
+@section('before-main')
+    @foreach ($description as $line)
+        <x-govuk::p>{{ $line }}</x-govuk::p>
+    @endforeach
+@endsection
 
-    <x-form-builder::description :description="$description" />
+@section('main')
+    <x-govuk::summary-list :list="$questions" />
 
-    <ul>
-        @forelse($questions as $question)
-            @foreach($question['fields'] as $field)
-                <li>
-                    <a href="{{ $question['link'] }}">{{ $field->label }}</a>
-                    <span>{{ $field->value }}</span>
-                </li>
-            @endforeach
-        @empty
-            <li>No questions have been added to this task.</li>
-        @endforelse
-    </ul>
+    <x-govuk::button-group>
+        <x-govuk::a
+                as-button
+                href="{{ $actions['back']->link }}"
+        >{{ $actions['back']->label }}</x-govuk::a>
 
-    <x-form-builder::actions :actions="$actions" />
-</main>
+        <x-govuk::a
+                href="{{ $actions['exit']->link }}"
+        >{{ $actions['exit']->label }}</x-govuk::button>
+    </x-govuk::button-group>
+@endsection
