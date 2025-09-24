@@ -15,13 +15,14 @@ Useful for showing several summary lists on the same page with distinct formatti
 
 ## Props
 
-| Name       | Type   | Default  | Description                                       |
-|------------|--------|----------|---------------------------------------------------|
-| actions    | array  | []       | One or more actions to be shown next to the title |
-| list       | array  | Required | A keyed array                                     |
-| no-borders | bool   | false    | Whether to hide borders between rows              |
-| title      | string | Required | The <h2> title for the card                       |
-
+| Name          | Type   | Default  | Description                                       |
+|---------------|--------|----------|---------------------------------------------------|
+| actions       | array  | []       | One or more actions to be shown next to the title |
+| list          | array  | Required | A keyed array                                     |
+| no-borders    | bool   | false    | Whether to hide borders between rows              |
+| status        | string | null     | A status to show against the card                 |
+| status-colour | string | null     | The colour of the status, when provided           |
+| title         | string | Required | The <h2> title for the card                       |
 
 ### Actions
 
