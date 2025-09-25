@@ -54,3 +54,9 @@ strong.govuk-tag {
     max-width: none;
     white-space: nowrap;
 }
+
+// Summary list fix (Actions pane is too narrow for tags)
+dd.govuk-summary-list__actions {
+    width: auto;
+    min-width: 20%;
+}
