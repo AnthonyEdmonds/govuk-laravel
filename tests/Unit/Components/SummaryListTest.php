@@ -28,13 +28,6 @@ class SummaryListTest extends TestCase
                 'My list item' => 'My list value',
                 'My list action' => [
                     'value' => 'My action value',
-                    'action' => [
-                        'label' => 'Change',
-                        'hidden' => 'name',
-                        'url' => 'https://my.com/route',
-                        'asButton' => true,
-                        'method' => 'post',
-                    ],
                 ],
             ],
             'noBorders' => $noBorders,

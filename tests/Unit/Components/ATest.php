@@ -36,6 +36,16 @@ class ATest extends TestCase
             ->has('svg');
     }
 
+    public function testRendersAsSecondaryButton(): void
+    {
+        $this->makeComponent([
+            'asButton' => true,
+            'secondary' => true,
+        ])
+            ->first('a')
+            ->hasClass('govuk-button--secondary');
+    }
+
     public function testRendersAsFooterLink(): void
     {
         $this->makeComponent([
@@ -104,6 +114,7 @@ class ATest extends TestCase
             'image' => $data['image'] ?? false,
             'inverted' => $data['inverted'] ?? false,
             'rel' => $data['rel'] ?? null,
+            'secondary' => $data['secondary'] ?? false,
             'target' => $data['target'] ?? '_self',
         ]);
     }

@@ -7,31 +7,36 @@
     'image' => false,
     'inverted' => false,
     'rel' => null,
+    'secondary' => false,
     'target' => '_self',
 ])
 
 @php
     if ($footer === true) {
-        $linkClasses = 'govuk-footer__link';
+        $classes = 'govuk-footer__link';
         
     } elseif ($image === true) {
-        $linkClasses = 'govuk-link-image';
+        $classes = 'govuk-link-image';
         
     } elseif ($asButton === true || $asStartButton === true) {
-        $linkClasses = 'govuk-button';
+        $classes = 'govuk-button';
         
         if ($asStartButton === true) {
-            $linkClasses .= ' govuk-button--start';
+            $classes .= ' govuk-button--start';
         } 
         
         if ($inverted === true) {
-            $linkClasses .= ' govuk-button--inverse';
+            $classes .= ' govuk-button--inverse';
+        }
+
+        if ($secondary === true) {
+            $classes .= ' govuk-button--secondary';
         }
     } else {
-        $linkClasses = 'govuk-link';
+        $classes = 'govuk-link';
         
         if ($inverted === true) {
-            $linkClasses .= ' govuk-link--inverse';
+            $classes .= ' govuk-link--inverse';
         }
     }
 @endphp
@@ -40,7 +45,7 @@
     @if($ariaDescribedby !== null)
         aria-describedby="{{ $ariaDescribedby }}"
     @endif
-    class="{{ $linkClasses }}"
+    class="{{ $classes }}"
     href="{!! $href !!}"
     @if($rel !== null)
         rel="{{ $rel }}"

@@ -1,50 +1,45 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs"/>
+@extends('govuk::layout.page')
 
-<main>
-    <h1>{{ $title }}</h1>
+@section('before-main')
+    @foreach($description as $line)
+        <x-govuk::p>{{ $line }}</x-govuk::p>
+    @endforeach
+@endsection
 
-    <x-form-builder::description :description="$description"/>
-
+@section('main')
     @forelse($summary as $task)
-        <h2>
-            <a href="{{ $task['link'] }}">{{ $task['label'] }}</a>
-            <span class="{{ $task['colour'] }}">{{ $task['status'] }}</span>
-        </h2>
-
-        <ul>
-            @forelse($task['questions'] as $question)
-                <li>
-                    <ul>
-                        @forelse($question['fields'] as $label => $answer)
-                            <li><b>{{ $label }}</b> {{ $answer }}</li>
-                        @empty
-                            <li>No fields have been added to this question.</li>
-                        @endforelse
-                    </ul>
-
-                    <a href="{{ $question['link'] }}">Change</a>
-                </li>
-            @empty
-                <li>No questions have been added to this task.</li>
-            @endforelse
-        </ul>
+        <x-govuk::summary-card
+                :actions="$task['actions']"
+                :list="$task['list']"
+                :status="$task['status']"
+                :status-colour="$task['colour']"
+                :title="$task['title']"
+        />
     @empty
         <p>No tasks have been added to this form.</p>
     @endforelse
 
-    <form
-        action="{{ $submit['link'] }}"
-        enctype="multipart/form-data"
-        method="POST"
-    >
-        @csrf
-        @method('POST')
+    <x-govuk::form action="{{ $submit->link }}">
+        <x-govuk::button-group>
+            <x-govuk::button prevent-double-click>{{ $submit->label }}</x-govuk::button>
 
-        <button>{{ $submit['label'] }}</button>
-        @isset($draft)
-            <button formaction="{{ $draft['link'] }}">{{ $draft['label'] }}</button>
-        @endisset
-    </form>
+            @isset($draft)
+                <x-govuk::button
+                        :form-action="$draft->link"
+                        prevent-double-click
+                        secondary
+                >
+                    {{ $draft->label }}
+                </x-govuk::button>
+            @endif
 
-    <x-form-builder::actions :actions="$actions"/>
-</main>
+            <x-govuk::a
+                    href="{{ $actions['back']->link }}"
+            >{{ $actions['back']->label }}</x-govuk::button>
+
+            <x-govuk::a
+                    href="{{ $actions['exit']->link }}"
+            >{{ $actions['exit']->label }}</x-govuk::button>
+        </x-govuk::button-group>
+    </x-govuk::form>
+@endsection

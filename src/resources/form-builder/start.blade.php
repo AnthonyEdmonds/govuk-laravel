@@ -1,8 +1,18 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+@extends('govuk::layout.page')
 
-<main>
-    <h1>{{ $title }}</h1>
+@section('before-main')
+    @foreach($description as $line)
+        <x-govuk::p>{{ $line }}</x-govuk::p>
+    @endforeach
+@endsection
 
-    <x-form-builder::description :description="$description" />
-    <x-form-builder::actions :actions="$actions" />
-</main>
+@section('main')
+    <x-govuk::button-group>
+        <x-govuk::a
+                as-start-button
+                href="{{ $actions['start']->link }}"
+        >{{ $actions['start']->label }}</x-govuk::a>
+
+        <x-govuk::a href="{{ $actions['exit']->link }}">{{ $actions['exit']->label }}</x-govuk::button>
+    </x-govuk::button-group>
+@endsection

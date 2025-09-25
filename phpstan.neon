@@ -7,4 +7,3 @@ parameters:
         - src
     excludePaths:
         - src/config
-        - src/app/Traits
