@@ -16,6 +16,9 @@ Guidance is shown from newest to oldest.
 3. The `GovukPage::question` and `GovukPage::questions` helpers now accept an array of settings, rather than the removed `Question` class
 4. The `views/templates/question.blade.php` template will need to be updated if you have published it
 5. The `type` of sub-inputs on `radios` and `checkboxes` questions has been moved from the outer array key to a specific property in the settings array
+6. Added support for multiple `summary-list` actions
+   * The `action` attribute has been changed to `actions`
+   * You must now pass an array of arrays
 
 ## Update to version 5.x from version 4.x
 

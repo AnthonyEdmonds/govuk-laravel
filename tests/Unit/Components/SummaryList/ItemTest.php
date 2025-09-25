@@ -7,69 +7,73 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class ItemTest extends TestCase
 {
-    public function testMakesItem(): void
+    public function testWithoutActions(): void
     {
         $item = $this->makeItem([
-            'value' => [
-                'Value one',
-                'Value two',
-            ],
+            'status' => null,
         ]);
 
-        $item->first('dt')->contains('My key');
+        $item->first('div')
+            ->hasClass('govuk-summary-list__row')
+            ->first('dt')
+            ->contains('my-key');
 
-        $contents = $item->first('dd');
-        $contents->first('p')->contains('Value one');
-        $contents->last('p')->contains('Value two');
-
-        $action = $item->last('dd')
-            ->first('a')
-            ->hasAttribute('href', 'https://my.com/route')
-            ->contains('Change')
-            ->first('span')
-            ->contains('name');
+        $item->first('div > dd > p')
+            ->contains('My value');
     }
 
-    public function testHandlesMixedListWithoutAction(): void
+    public function testInMixedList(): void
     {
-        $this->makeItem([
-            'action' => false,
+        $item = $this->makeItem([
             'mixedList' => true,
-        ])->hasClass('govuk-summary-list__row--no-actions');
+        ]);
+
+        $item->first('div')
+            ->hasClass('govuk-summary-list__row--no-actions');
     }
 
-    public function testAsButton(): void
+    public function testWithActions(): void
     {
-        $this->makeItem([
-            'asButton' => true,
-        ])
-            ->first('dd > form')
-            ->hasAttribute('action', 'https://my.com/route')
-            ->hasAttribute('method', 'post')
-            ->first('button')
-            ->contains('Change')
-            ->first('span')
-            ->contains('name');
+        $item = $this->makeItem([
+            'actions' => [
+                'Action one' => 'link-one',
+                [
+                    'label' => 'Action two',
+                    'url' => 'link-two',
+                ],
+            ],
+            'status' => 'Incomplete',
+        ]);
+
+        $actions = $item->first('div > dd > ul');
+
+        $actions->at('li', 0)
+            ->first('strong')
+            ->hasClass('govuk-tag--blue')
+            ->contains('Incomplete');
+
+        $actions->at('li', 1)
+            ->first('a')
+            ->hasAttribute('href', 'link-one')
+            ->contains('Action one');
+
+        $actions->at('li', 2)
+            ->first('a')
+            ->hasAttribute('href', 'link-two')
+            ->contains('Action two');
     }
 
     protected function makeItem(array $data = []): ViewAssertion
     {
         $this->setViewAttributes();
-        $hasAction = $data['action'] ?? true;
 
         return $this->assertView('govuk::components.summary-list.item', [
-            'key' => $data['key'] ?? 'My key',
-            'value' => $data['value'] ?? 'My value',
-            'action' => $hasAction === true
-                ? [
-                    'label' => 'Change',
-                    'hidden' => 'name',
-                    'url' => 'https://my.com/route',
-                    'asButton' => $data['asButton'] ?? false,
-                    'method' => 'post',
-                ]
-                : null,
+            'actions' => $data['actions'] ?? [],
+            'colour' => $data['colour'] ?? 'blue',
+            'key' => $data['key'] ?? 'my-key',
             'mixedList' => $data['mixedList'] ?? false,
+            'status' => $data['status'] ?? null,
+            'value' => $data['value'] ?? 'My value',
         ]);
     }
 }

@@ -12,7 +12,10 @@
     }
 
     foreach ($list as $item) {
-        if (isset($item['action']) === true) {
+        if (
+            isset($item['action']) === true
+            || isset($item['status']) === true
+        ) {
             $mixedList = true;
             break;
         }
