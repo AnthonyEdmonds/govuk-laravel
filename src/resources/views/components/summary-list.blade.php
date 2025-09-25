@@ -25,10 +25,10 @@
 <dl class="{{ $listClasses }}">
     @foreach($list as $key => $data)
         <x-govuk::summary-list.item
+            :actions="$data['actions'] ?? null"
             :key="$key"
-            :value="$data['value'] ?? $data"
-            :action="$data['action'] ?? null"
             :mixed-list="$mixedList"
+            :value="$data['value'] ?? $data"
         />
     @endforeach
 </dl>
