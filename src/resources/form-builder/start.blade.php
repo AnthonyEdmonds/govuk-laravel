@@ -9,8 +9,8 @@
 @section('main')
     <x-govuk::button-group>
         <x-govuk::a
-                as-start-button
-                href="{{ $actions['start']->link }}"
+            as-start-button
+            href="{{ $actions['start']->link }}"
         >{{ $actions['start']->label }}</x-govuk::a>
 
         <x-govuk::a href="{{ $actions['exit']->link }}">{{ $actions['exit']->label }}</x-govuk::button>

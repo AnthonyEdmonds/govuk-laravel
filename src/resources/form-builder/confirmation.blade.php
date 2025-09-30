@@ -2,8 +2,8 @@
 
 @section('main')
     <x-govuk::panel
-            colour="green"
-            :title="$title"
+        colour="green"
+        :title="$title"
     >
         Your reference number is
         <br/><strong>#{{ $model->getKey() }}</strong>
