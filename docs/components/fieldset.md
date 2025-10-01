@@ -17,12 +17,12 @@ Both `checkboxes` and `radios` come with a `fieldset` included.
 
 ## Props
 
-| Name       | Type   | Default  | Description |
-| ---------- | ------ | -------- | ----------- |
-| isTitle    | bool   | false    | Whether the label is the heading for the page |
-| label      | string | Required | A description of what the group of inputs is asking |
-| labelSize  | string | l        | How large to make the label |
-| id         | string | Required | The ID of the input |
+| Name      | Type   | Default  | Description                                         |
+|-----------|--------|----------|-----------------------------------------------------|
+| isTitle   | bool   | false    | Whether the label is the heading for the page       |
+| label     | string | Required | A description of what the group of inputs is asking |
+| labelSize | string | null     | How large to make the label                         |
+| id        | string | Required | The ID of the input                                 |
 
 ## Also see
 
