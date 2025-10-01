@@ -8,16 +8,16 @@ use Illuminate\View\Component;
 class Question extends Component
 {
     public function __construct(
-        public string $type = 'text-input',
+        public string $blade = 'text-input',
         public array $settings = [],
     ) {
-        if (isset($this->settings['type']) === true) {
-            $this->type = $this->settings['type'];
+        if (isset($this->settings['blade']) === true) {
+            $this->blade = $this->settings['blade'];
         }
     }
 
     public function render(): View
     {
-        return view("govuk::components.$this->type", $this->settings);
+        return view("govuk::components.$this->blade", $this->settings);
     }
 }
