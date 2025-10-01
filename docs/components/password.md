@@ -27,7 +27,7 @@ This element is pre-wrapped in a `form-group` component, with `label`, `hint`, a
 | id        | string | $name    | The ID of the input                                                         |
 | inputmode | string | text     | Which virtual keyboard mode to use                                          |
 | label     | string | Required | The label of the input                                                      |
-| labelSize | string | s        | The size of the label                                                       |
+| labelSize | string | null     | The size of the label                                                       |
 | name      | string | Required | The name of the input                                                       |
 | new       | bool   | false    | Whether this input is for creating a new password                           |
 | isTitle   | bool   | bool     | Whether the label is also the page title                                    |

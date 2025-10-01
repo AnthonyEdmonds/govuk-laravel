@@ -79,7 +79,6 @@ class GovukPage
         string $submitButtonMode = Page::NORMAL_BUTTON,
     ): Page {
         $question['isTitle'] = true;
-        $question['labelSize'] = 'l';
 
         return Page::create($question['label'])
             ->hideTitle()

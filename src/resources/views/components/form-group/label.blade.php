@@ -1,9 +1,17 @@
 @props([
     'id',
     'label',
-    'labelSize' => 's',
+    'labelSize' => null,
     'isTitle' => false,
 ])
+
+@php
+    if ($labelSize === null) {
+        $labelSize = $isTitle === true
+            ? 'l'
+            : 's';
+    }
+@endphp
 
 @if($isTitle === true)
     <h1 class="govuk-label-wrapper">

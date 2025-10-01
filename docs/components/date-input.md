@@ -22,19 +22,19 @@ A hidden input is also submitted with the base `name` and a `true` value, for ea
 
 ## Props
 
-| Name         | Type         | Default  | Description |
-| ------------ | ------------ | -------- | ----------- |
-| autocomplete | string       | on       | Whether the date inputs should be automatically filled |
-| hint         | string       | null     | A description of the input |
-| id           | string       | $name    | The ID of the input |
-| isTitle      | bool         | false    | Whether the label is also the page title |
-| label        | string       | Required | The label for the form group |
-| labelSize    | string       | l        | How large the label should be |
-| name         | string       | Required | The name of the input |
-| noDay        | bool         | false    | Hide the day input |
-| noMonth      | bool         | false    | Hide the month input |
-| noYear       | bool         | false    | Hide the year input |
-| values       | Carbon|array | []       | The current values of the inputs |
+| Name         | Type           | Default  | Description                                            |
+|--------------|----------------|----------|--------------------------------------------------------|
+| autocomplete | string         | on       | Whether the date inputs should be automatically filled |
+| hint         | string         | null     | A description of the input                             |
+| id           | string         | $name    | The ID of the input                                    |
+| isTitle      | bool           | false    | Whether the label is also the page title               |
+| label        | string         | Required | The label for the form group                           |
+| labelSize    | string         | null     | How large the label should be                          |
+| name         | string         | Required | The name of the input                                  |
+| noDay        | bool           | false    | Hide the day input                                     |
+| noMonth      | bool           | false    | Hide the month input                                   |
+| noYear       | bool           | false    | Hide the year input                                    |
+| values       | Carbon\| array | []       | The current values of the inputs                       |
 
 ### Autocomplete
 

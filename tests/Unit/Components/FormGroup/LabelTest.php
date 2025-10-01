@@ -21,8 +21,17 @@ class LabelTest extends TestCase
         $this->makeComponent([
             'isTitle' => true,
         ])
-            ->first('h1')
-            ->has('label');
+            ->first('h1 > label')
+            ->hasClass('govuk-label--l');
+    }
+
+    public function testHasLabelSize(): void
+    {
+        $this->makeComponent([
+            'labelSize' => 'm',
+        ])
+            ->first('label')
+            ->hasClass('govuk-label--m');
     }
 
     protected function makeComponent(array $data = []): ViewAssertion
@@ -30,7 +39,7 @@ class LabelTest extends TestCase
         return $this->assertView('govuk::components.form-group.label', [
             'id' => $data['id'] ?? 'my-id',
             'label' => $data['label'] ?? 'My label',
-            'labelSize' => $data['labelSize'] ?? 's',
+            'labelSize' => $data['labelSize'] ?? null,
             'isTitle' => $data['isTitle'] ?? false,
         ]);
     }
