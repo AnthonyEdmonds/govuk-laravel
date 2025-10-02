@@ -19,7 +19,6 @@ class QuestionTest extends TestCase
                 [
                     'label' => 'hello',
                     'isTitle' => true,
-                    'labelSize' => 'l',
                 ],
             ],
             $this->page['questions'],

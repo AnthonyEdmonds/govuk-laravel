@@ -5,7 +5,7 @@
     'id' => $name,
     'inputmode' => 'text',
     'label',
-    'labelSize' => 's',
+    'labelSize' => null,
     'name',
     'placeholder' => null,
     'prefix' => null,
@@ -47,7 +47,7 @@
         :id="$id"
         :label="$label"
         :label-size="$labelSize"
-        :isTitle="$isTitle"
+        :is-title="$isTitle"
     />
     <x-govuk::form-group.hint :id="$id" :hint="$hint" />
     <x-govuk::form-group.error :id="$id" :name="$name" />

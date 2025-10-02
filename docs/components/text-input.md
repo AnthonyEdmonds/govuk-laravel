@@ -35,7 +35,7 @@ This element is pre-wrapped in a `form-group` component, with `label`, `hint`, a
 | id            | string | $name    | The ID of the input                                                         |
 | inputmode     | string | text     | Which virtual keyboard mode to use                                          |
 | label         | string | Required | The label of the input                                                      |
-| labelSize     | string | s        | The size of the label                                                       |
+| labelSize     | string | null     | The size of the label                                                       |
 | name          | string | Required | The name of the input                                                       |
 | placeholder   | string | null     | The placeholder text to show                                                |
 | prefix        | string | null     | Text to show to the left of the input                                       |

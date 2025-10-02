@@ -14,7 +14,7 @@ class FieldsetTest extends TestCase
             ->hasAttribute('aria-describedby', 'my-id-hint')
             ->contains('My content')
             ->first('legend')
-            ->hasClass('govuk-fieldset__legend--l')
+            ->hasClass('govuk-fieldset__legend--s')
             ->contains('My label');
     }
 
@@ -23,7 +23,9 @@ class FieldsetTest extends TestCase
         $this->makeComponent([
             'isTitle' => true,
         ])
-            ->first('fieldset > legend > h1')
+            ->first('fieldset > legend')
+            ->hasClass('govuk-fieldset__legend--l')
+            ->first('h1')
             ->contains('My label');
     }
 
@@ -35,7 +37,7 @@ class FieldsetTest extends TestCase
             'id' => $data['id'] ?? 'my-id',
             'isTitle' => $data['isTitle'] ?? false,
             'label' => $data['label'] ?? 'My label',
-            'labelSize' => $data['labelSize'] ?? 'l',
+            'labelSize' => $data['labelSize'] ?? null,
         ]);
     }
 }

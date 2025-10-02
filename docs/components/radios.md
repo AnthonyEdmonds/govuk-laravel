@@ -23,18 +23,18 @@ Radios also features a leading `hidden` input which contains a null value, to ca
 
 ## Props
 
-| Name       | Type   | Default   | Description                                                |
-|------------|--------|-----------|------------------------------------------------------------|
-| hint       | string | null      | A descriptive hint for the input                           |
-| id         | string | $name     | The ID of the input element                                |
-| isInline   | bool   | false     | Whether the radio buttons should be presented side by side |
-| isSmall    | bool   | false     | Whether the radio buttons should be smaller                |
-| isTitle    | bool   | false     | Whether the label is also the page title                   |
-| label      | string | Required  | The main label of the input                                |
-| labelSize  | string | l         | How large the label should be                              |
-| name       | string | Required  | The name of the input element                              |
-| options    | array  | []        | A keyed array                                              |
-| value      | string | null      | The value of the current selection                         | 
+| Name       | Type   | Default  | Description                                                |
+|------------|--------|----------|------------------------------------------------------------|
+| hint       | string | null     | A descriptive hint for the input                           |
+| id         | string | $name    | The ID of the input element                                |
+| isInline   | bool   | false    | Whether the radio buttons should be presented side by side |
+| isSmall    | bool   | false    | Whether the radio buttons should be smaller                |
+| isTitle    | bool   | false    | Whether the label is also the page title                   |
+| label      | string | Required | The main label of the input                                |
+| labelSize  | string | null     | How large the label should be                              |
+| name       | string | Required | The name of the input element                              |
+| options    | array  | []       | A keyed array                                              |
+| value      | string | null     | The value of the current selection                         | 
 
 ### Options
 

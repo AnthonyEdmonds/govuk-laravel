@@ -13,19 +13,19 @@
 
             @isset($skip)
                 <x-govuk::button
-                        form-action="{{ $skip->link }}"
-                        secondary
+                    form-action="{{ $skip->link }}"
+                    secondary
                 >{{ $skip->label }}</x-govuk::button>
             @endisset
 
             @if($actions['back']->link !== $actions['task']->link)
                 <x-govuk::a
-                        href="{{ $actions['back']->link }}"
+                    href="{{ $actions['back']->link }}"
                 >{{ $actions['back']->label }}</x-govuk::button>
             @endif
 
             <x-govuk::a
-                    href="{{ $actions['task']->link }}"
+                href="{{ $actions['task']->link }}"
             >{{ $actions['task']->label }}</x-govuk::button>
         </x-govuk::button-group>
     </x-govuk::form>

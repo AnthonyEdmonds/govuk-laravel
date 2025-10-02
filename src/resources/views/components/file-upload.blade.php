@@ -3,7 +3,7 @@
     'hint' => null,
     'id' => $name,
     'label',
-    'labelSize' => 's',
+    'labelSize' => null,
     'name',
     'isTitle' => false,
 ])
@@ -30,7 +30,7 @@
         :id="$id"
         :label="$label"
         :label-size="$labelSize"
-        :isTitle="$isTitle"
+        :is-title="$isTitle"
     />
     <x-govuk::form-group.hint :id="$id" :hint="$hint" />
     <x-govuk::form-group.error :id="$id" :name="$name" />

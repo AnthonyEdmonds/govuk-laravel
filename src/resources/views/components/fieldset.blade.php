@@ -2,8 +2,16 @@
     'id',
     'isTitle' => true,
     'label',
-    'labelSize' => 'l',
+    'labelSize' => null,
 ])
+
+@php
+    if ($labelSize === null) {
+        $labelSize = $isTitle === true
+            ? 'l'
+            : 's';
+    }
+@endphp
 
 <fieldset
     class="govuk-fieldset"

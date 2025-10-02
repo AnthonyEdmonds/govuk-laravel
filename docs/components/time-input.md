@@ -24,7 +24,7 @@ Create an `input` element for entering a time.
 | id        | string         | $name    | The ID of the input                      |
 | isTitle   | bool           | false    | Whether the label is also the page title |
 | label     | string         | Required | The label for the form group             |
-| labelSize | string         | l        | How large the label should be            |
+| labelSize | string         | null     | How large the label should be            |
 | name      | string         | Required | The name of the input                    |
 | value     | Carbon\|string | null     | The current value of the inputs          |
 

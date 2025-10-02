@@ -18,15 +18,15 @@ This element is pre-wrapped with `form-group` components, with `label`, `hint`, 
 
 ## Props
 
-| Name         | Type   | Default  | Description |
-| ------------ | ------ | -------- | ----------- |
-| accept       | string | *        | Which file or mime types to accept |
-| hint         | string | null     | A descriptive hint for the input |
-| id           | string | $name    | The ID of the input |
-| label        | string | Required | The label of the input |
-| labelSize    | string | s        | The size of the label |
-| name         | string | Required | The name of the input |
-| isTitle      | bool   | bool     | Whether the label is also the page title |
+| Name      | Type   | Default  | Description                              |
+|-----------|--------|----------|------------------------------------------|
+| accept    | string | *        | Which file or mime types to accept       |
+| hint      | string | null     | A descriptive hint for the input         |
+| id        | string | $name    | The ID of the input                      |
+| label     | string | Required | The label of the input                   |
+| labelSize | string | null     | The size of the label                    |
+| name      | string | Required | The name of the input                    |
+| isTitle   | bool   | bool     | Whether the label is also the page title |
 
 ## Subcomponents
 

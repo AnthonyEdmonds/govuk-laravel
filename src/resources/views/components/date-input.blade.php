@@ -4,7 +4,7 @@
     'id' => $name,
     'isTitle' => false,
     'label',
-    'labelSize' => 'l',
+    'labelSize' => null,
     'name',
     'noDay' => false,
     'noMonth' => false,
@@ -70,7 +70,7 @@
         :id="$id"
         :is-title="$isTitle"
         :label="$label"
-        :labelSize="$labelSize"
+        :label-size="$labelSize"
     >
         <x-govuk::form-group.hint :id="$id" :hint="$hint" />
         <x-govuk::form-group.error :id="$id" :name="$name" />
