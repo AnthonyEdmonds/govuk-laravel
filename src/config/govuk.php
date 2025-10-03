@@ -1,10 +1,6 @@
 <?php
 
 return [
-    'forms' => [
-        //
-    ],
-
     'header' => [
         'links' => [],
         'logo' => [

@@ -28,6 +28,9 @@ class BreadcrumbsTest extends TestCase
             ->first('a')
             ->hasAttribute('href', 'link-three')
             ->contains('Link Three');
+
+        $crumbs->at('li', 3)
+            ->contains('Link Four');
     }
 
     public function testHasInvertedClass(): void
@@ -48,6 +51,7 @@ class BreadcrumbsTest extends TestCase
                 'Link One' => 'link-one',
                 'Link Two' => 'link-two',
                 'Link Three' => 'link-three',
+                'Link Four',
             ],
             'inverted' => $data['inverted'] ?? false,
         ]);

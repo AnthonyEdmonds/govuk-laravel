@@ -3,7 +3,7 @@
 @section('main')
     <x-govuk::form action="{{ $action }}" method="{{ $method }}">
         @foreach($questions as $question)
-            {!! $question->toBlade() !!}
+            <x-govuk::question :settings="$question" />
         @endforeach
 
         <x-govuk::button-group>

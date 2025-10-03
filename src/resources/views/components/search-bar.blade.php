@@ -9,6 +9,8 @@
     'value' => null,
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 <x-govuk::form
     :action="$action"
     :method="$method"
@@ -31,7 +33,7 @@
                 name="{{ $name }}"
                 spellcheck="false"
                 type="search"
-                value="{{ old(\AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name), $value) }}"
+                value="{{ old(GovukPage::bracketsToDots($name), $value) }}"
             />
 
             <x-govuk::button aria-label="Search">

@@ -6,6 +6,20 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 6.x from version 5.x
+
+1. PHP 8.3 is now the minimum required
+2. The inbuilt `Form` class has been removed in favour of a standalone library called [LaravelFormBuilder](https://github.com/AnthonyEdmonds/laravel-form-builder)
+   1. If you want to continue using the inbuilt forms, You will need to replace your existing Form components with the LaravelFormBuilder ones
+   2. Mechanically they are very similar, so it should be a case of switching classes and repointing any links to the new addresses
+   3. Take advantage of the new task-based approach by grouping your form into many smaller tasks; your end-users will appreciate it!
+3. The `GovukPage::question` and `GovukPage::questions` helpers now accept an array of settings, rather than the removed `Question` class
+4. The `views/templates/question.blade.php` template will need to be updated if you have published it
+5. The `type` of sub-inputs on `radios` and `checkboxes` questions has been moved from the outer array key to a specific property in the settings array
+6. Added support for multiple `summary-list` actions
+   * The `action` attribute has been changed to `actions`
+   * You must now pass an array of arrays
+
 ## Update to version 5.x from version 4.x
 
 1. If you have published the `resources/scss/govuk.variables.scss` file:

@@ -7,21 +7,26 @@ Useful for showing several summary lists on the same page with distinct formatti
 ```html
 <x-govuk::summary-card
     :actions="$myActions"
+    id="my-id"
     :list="$myList"
     no-borders
+    status="Incomplete"
+    status-colour="blue"
     title="My Summary Card"
 />
 ```
 
 ## Props
 
-| Name       | Type   | Default  | Description                                       |
-|------------|--------|----------|---------------------------------------------------|
-| actions    | array  | []       | One or more actions to be shown next to the title |
-| list       | array  | Required | A keyed array                                     |
-| no-borders | bool   | false    | Whether to hide borders between rows              |
-| title      | string | Required | The <h2> title for the card                       |
-
+| Name          | Type   | Default  | Description                                       |
+|---------------|--------|----------|---------------------------------------------------|
+| actions       | array  | []       | One or more actions to be shown next to the title |
+| id            | string | null     | An unique ID for the summary card                 |
+| list          | array  | Required | A keyed array                                     |
+| no-borders    | bool   | false    | Whether to hide borders between rows              |
+| status        | string | null     | A status to show against the card                 |
+| status-colour | string | null     | The colour of the status, when provided           |
+| title         | string | Required | The <h2> title for the card                       |
 
 ### Actions
 

@@ -63,13 +63,6 @@ class DateInputTest extends TestCase
             ->contains('When is your birthday?');
     }
 
-    public function testHasLabelSize(): void
-    {
-        $this->makeDateInput()
-            ->first('legend')
-            ->hasClass('govuk-fieldset__legend--l');
-    }
-
     public function testHasName(): void
     {
         $this->makeDateInput()
@@ -149,7 +142,6 @@ class DateInputTest extends TestCase
             'hint' => 'Enter the day, month, and year',
             'id' => 'my-id',
             'label' => 'When is your birthday?',
-            'labelSize' => 'l',
             'name' => 'my-name',
         ], $addon);
     }

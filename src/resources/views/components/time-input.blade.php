@@ -3,7 +3,7 @@
     'id' => $name,
     'isTitle' => false,
     'label',
-    'labelSize' => 'l',
+    'labelSize' => null,
     'name',
     'value' => '',
 ])
@@ -17,9 +17,9 @@
 <x-govuk::text-input
     :hint="$hint"
     :id="$id"
-    :isTitle="$isTitle"
+    :is-title="$isTitle"
     :label="$label"
-    :labelSize="$labelSize"
+    :label-size="$labelSize"
     :name="$name"
     :value="$value"
     width="5"

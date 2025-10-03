@@ -5,7 +5,7 @@
     'id' => $name,
     'inputmode' => 'text',
     'label',
-    'labelSize' => 's',
+    'labelSize' => null,
     'name',
     'placeholder' => null,
     'rows' => 5,
@@ -16,10 +16,12 @@
     'words' => null,
 ])
 
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
+
 @php
     $ariaDescription = '';
     $inputClasses = 'govuk-textarea';
-    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
+    $oldName = GovukPage::bracketsToDots($name);
 
     if ($hint !== null) {
         $ariaDescription .= "{$id}-hint";
@@ -46,7 +48,7 @@
         :id="$id"
         :label="$label"
         :label-size="$labelSize"
-        :isTitle="$isTitle"
+        :is-title="$isTitle"
     />
     <x-govuk::form-group.hint :id="$id" :hint="$hint" />
     <x-govuk::form-group.error :id="$id" :name="$name" />

@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": "^8",
+        "php": "^8.3",
         "illuminate/support": "^12",
         "nunomaduro/laravel-mojito": "^0"
     },

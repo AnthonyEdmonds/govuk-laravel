@@ -23,11 +23,11 @@ class SummaryCardTest extends TestCase
     public function testHasActions(): void
     {
         $this->makeSummaryCard([
-            'My action' => 'Action_URL',
+            'actions' => [
+                'My action' => 'Action_URL',
+            ],
         ])
-            ->first('ul')
-            ->first('li')
-            ->first('a')
+            ->first('ul > li > a')
             ->hasLink('Action_URL')
             ->contains('My action');
     }
@@ -35,15 +35,18 @@ class SummaryCardTest extends TestCase
     public function testHasActionsWhenKeyed(): void
     {
         $this->makeSummaryCard([
-            'My action' => [
-                'hidden' => 'has hidden text',
-                'url' => 'Action_URL',
+            'actions' => [
+                'My action' => [
+                    'hidden' => 'has hidden text',
+                    'label' => 'My label',
+                    'url' => 'Action_URL',
+                ],
             ],
         ])
             ->first('ul')
             ->first('a')
             ->hasLink('Action_URL')
-            ->contains('My action')
+            ->contains('My label')
             ->first('span')
             ->contains('has hidden text');
     }
@@ -56,17 +59,30 @@ class SummaryCardTest extends TestCase
             ->hasClass('govuk-summary-list');
     }
 
-    protected function makeSummaryCard(array $actions = []): ViewAssertion
+    public function testHasStatusWhenKeyed(): void
+    {
+        $this->makeSummaryCard([
+            'status' => 'My status',
+            'statusColour' => 'blue',
+        ])
+            ->first('ul > li > strong')
+            ->hasClass('govuk-tag--blue')
+            ->contains('My status');
+    }
+
+    protected function makeSummaryCard(array $data = []): ViewAssertion
     {
         $this->setViewAttributes();
 
         return $this->assertView('govuk::components.summary-card', [
-            'actions' => $actions,
-            'list' => [
+            'actions' => $data['actions'] ?? [],
+            'id' => $data['id'] ?? 'my id',
+            'list' => $data['list'] ?? [
                 'My list item' => 'My list value',
             ],
-            'title' => 'My title',
-            'id' => 'my id',
+            'status' => $data['status'] ?? null,
+            'status-colour' => $data['statusColour'] ?? null,
+            'title' => $data['title'] ?? 'My title',
         ]);
     }
 }

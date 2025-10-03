@@ -2,7 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
-use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion;
+use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
@@ -20,13 +20,13 @@ class ErrorSummaryTest extends TestCase
         $summary
             ->at('div > ul > li', 0)
             ->first('a')
-            ->hasAttribute('href', '#' . GovukQuestion::dotsToBrackets('id-1'))
+            ->hasAttribute('href', '#' . GovukPage::dotsToBrackets('id-1'))
             ->contains('Message one');
 
         $summary
             ->at('div > ul > li', 1)
             ->first('a')
-            ->hasAttribute('href', '#' . GovukQuestion::dotsToBrackets('id-2'))
+            ->hasAttribute('href', '#' . GovukPage::dotsToBrackets('id-2'))
             ->contains('Message two');
     }
 

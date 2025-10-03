@@ -20,17 +20,17 @@ Select is pre-wrapped within a `form-group` component, with a `hint` and an `err
 
 ## Props
 
-| Name         | Type   | Default  | Description |
-| ------------ | ------ | -------- | ----------- |
-| autocomplete | string | on       | Which type of autocomplete to use |
-| hint         | string | null     | A hint for the input |
-| id           | string | $name    | The ID of the input |
-| label        | string | Required | The main label of the input |
-| labelSize    | string | s        | How large the label should be |
-| name         | string | Required | The name of the input |
-| options      | array  | []       | A keyed array |
+| Name         | Type   | Default  | Description                              |
+|--------------|--------|----------|------------------------------------------|
+| autocomplete | string | on       | Which type of autocomplete to use        |
+| hint         | string | null     | A hint for the input                     |
+| id           | string | $name    | The ID of the input                      |
+| label        | string | Required | The main label of the input              |
+| labelSize    | string | null     | How large the label should be            |
+| name         | string | Required | The name of the input                    |
+| options      | array  | []       | A keyed array                            |
 | isTitle      | bool   | false    | Whether the label is also the page title |
-| value        | string | null     | The currently selected value |
+| value        | string | null     | The currently selected value             |
 
 ### Options
 

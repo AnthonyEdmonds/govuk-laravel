@@ -1,6 +1,6 @@
 @props([
     'tasks' => [],
-    'title',
+    'title' => null,
 ])
 
 @php
@@ -25,28 +25,39 @@
             $tasks[$label]['item_classes'] = ' govuk-task-list__item--with-link';
             $tasks[$label]['status_classes'] = '';
         }
+
+        if (isset($details['hint']) === true) {
+            if (is_array($details['hint']) === false) {
+                $tasks[$label]['hint'] = [$details['hint']];
+            }
+        }
     }
 @endphp
 
-<x-govuk::h2>{{ $title }}</x-govuk::h2>
+@empty($title)
+@else
+    <x-govuk::h2>{{ $title }}</x-govuk::h2>
+@endempty
 
 <ul class="govuk-task-list">
     @foreach($tasks as $label => $details)
         <li class="govuk-task-list__item{{ $details['item_classes'] }}">
             <div class="govuk-task-list__name-and-hint">
                 @if($details['disabled'] === true)
-                    <span aria-describedby="{{ $details['id'] }}-status">{{ $label }}</span>
+                    <span aria-describedby="{{ $details['id'] }}-status">{{ $details['label'] ?? $label }}</span>
                 @else
                     <a
                         class="govuk-link govuk-task-list__link"
                         href="{{ $details['url'] }}"
                         aria-describedby="{{ $details['id'] }}-status"
-                    >{{ $label }}</a>
+                    >{{ $details['label'] ?? $label }}</a>
                 @endif
 
                 @isset($details['hint'])
                     <div id="{{ $details['id'] }}-hint" class="govuk-task-list__hint">
-                        {{ $details['hint'] }}
+                        @foreach($details['hint'] as $hint)
+                            <p>{{ $hint }}</p>
+                        @endforeach
                     </div>
                 @endisset
             </div>

@@ -3,7 +3,6 @@
 namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
-use AnthonyEdmonds\GovukLaravel\Questions\Question;
 
 class GovukPage
 {
@@ -69,7 +68,7 @@ class GovukPage
     }
 
     public static function question(
-        Question $question,
+        array $question,
         string $submitButtonLabel,
         string $action,
         string $back,
@@ -79,11 +78,9 @@ class GovukPage
         ?string $otherButtonHref = null,
         string $submitButtonMode = Page::NORMAL_BUTTON,
     ): Page {
-        $question
-            ->isTitle()
-            ->labelSize('l');
+        $question['isTitle'] = true;
 
-        return Page::create($question->label)
+        return Page::create($question['label'])
             ->hideTitle()
             ->setAction($action)
             ->setBack($back)
@@ -93,7 +90,7 @@ class GovukPage
             ->setOtherButtonLabel($otherButtonLabel ?? Page::OTHER_BUTTON_LABEL)
             ->setContent($blade)
             ->setMethod($method)
-            ->setQuestion($question)
+            ->setQuestions([$question])
             ->setTemplate('question');
     }
 
@@ -163,5 +160,45 @@ class GovukPage
             ->setMethod($method)
             ->setSummary($summary)
             ->setTemplate('summary');
+    }
+
+    public static function dotsToBrackets(string $name): string
+    {
+        if (str_contains($name, '.') === false) {
+            return $name;
+        }
+
+        $pieces = explode('.', $name);
+        $name = '';
+
+        foreach ($pieces as $piece) {
+            $name .= $name === ''
+                ? $piece
+                : "[$piece]";
+        }
+
+        return $name;
+    }
+
+    public static function bracketsToDots(string $name): string
+    {
+        if (
+            str_contains($name, '[') === false
+            || str_contains($name, ']') === false
+        ) {
+            return $name;
+        }
+
+        return str_replace(
+            [
+                '[',
+                ']',
+            ],
+            [
+                '.',
+                '',
+            ],
+            $name,
+        );
     }
 }

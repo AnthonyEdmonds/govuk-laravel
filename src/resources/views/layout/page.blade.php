@@ -3,10 +3,12 @@
     @include('govuk::layout.head')
     @include('govuk::parts.content')
 
+    @use(Illuminate\Support\Facades\View)
+
     @php
-        $hasAside = \Illuminate\Support\Facades\View::hasSection('aside');
+        $hasAside = View::hasSection('aside');
     @endphp
-    
+
     <body class="govuk-template__body">
         <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 

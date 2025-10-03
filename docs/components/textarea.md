@@ -32,7 +32,7 @@ This element is pre-wrapped in a `form-group` component, with `label`, `hint`, a
 | hint         | string | null     | A descriptive hint for the textarea                                           |
 | id           | string | $name    | The ID of the textarea                                                        |
 | label        | string | Required | The label of the textarea                                                     |
-| labelSize    | string | s        | The size of the label                                                         |
+| labelSize    | string | null     | The size of the label                                                         |
 | name         | string | Required | The name of the textarea                                                      |
 | placeholder  | string | null     | The placeholder text to show                                                  |
 | rows         | int    | 5        | The number of text rows to show                                               |

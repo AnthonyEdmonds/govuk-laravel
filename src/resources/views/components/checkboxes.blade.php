@@ -4,11 +4,13 @@
     'isSmall' => false,
     'isTitle' => false,
     'label',
-    'labelSize' => 'l',
+    'labelSize' => null,
     'name',
     'options' => [],
     'value' => null,
 ])
+
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukPage)
 
 @php
     $hasConditionalInputs = false;
@@ -21,7 +23,7 @@
 
     $ariaDescription = '';
     $inputClasses = 'govuk-checkboxes';
-    $oldName = \AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion::bracketsToDots($name);
+    $oldName = GovukPage::bracketsToDots($name);
 
     if ($isSmall === true) {
         $inputClasses .= ' govuk-checkboxes--small';
@@ -42,9 +44,9 @@
 <x-govuk::form-group :name="$name">
     <x-govuk::fieldset
         :id="$id"
-        :isTitle="$isTitle"
+        :is-title="$isTitle"
         :label="$label"
-        :labelSize="$labelSize"
+        :label-size="$labelSize"
     >
         <x-govuk::form-group.hint :id="$id" :hint="$hint" />
         <x-govuk::form-group.error :id="$id" :name="$name" />

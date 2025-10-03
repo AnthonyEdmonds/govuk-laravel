@@ -1,8 +1,10 @@
 @props([
+    'actions' => [],
+    'colour' => null,
     'key',
-    'value',
-    'action' => null,
     'mixedList' => false,
+    'status' => null,
+    'value',
 ])
 
 @php
@@ -12,11 +14,17 @@
 
     $rowClasses = 'govuk-summary-list__row';
 
-    if ($mixedList === true && $action === null) {
-        $rowClasses .= ' govuk-summary-list__row--no-actions';
+    $actionsCount = count($actions);
+    if ($status !== null) {
+        ++$actionsCount;
     }
 
-    $asButton = $action['asButton'] ?? false;
+    if (
+        $mixedList === true
+        && $actionsCount === 0
+    ) {
+        $rowClasses .= ' govuk-summary-list__row--no-actions';
+    }
 @endphp
 
 <div class="{{ $rowClasses }}">
@@ -28,25 +36,34 @@
         @endforeach
     </dd>
 
-    @if ($action !== null)
+    @if($actionsCount > 0)
         <dd class="govuk-summary-list__actions">
-            @if ($asButton === true)
-                <x-govuk::form :action="$action['url']" :method="$action['method'] ?? 'post'">
-                    <x-govuk::button as-link>
-                        {{ $action['label'] }}
-                        @isset($action['hidden'])
-                            <x-govuk::hidden>{{ $action['hidden'] }}</x-govuk::hidden>
-                        @endisset
-                    </x-govuk::button>
-                </x-govuk::form>
-            @else
-                <x-govuk::a href="{{ $action['url'] }}">
-                    {{ $action['label'] }}
-                    @isset($action['hidden'])
-                        <x-govuk::hidden>{{ $action['hidden'] }}</x-govuk::hidden>
-                    @endisset
-                </x-govuk::a>
-            @endif
+            <ul class="govuk-summary-list__actions-list">
+                @if($status !== null)
+                    <li class="govuk-summary-list__actions-list-item">
+                        <x-govuk::tag :colour="$colour" :label="$status" />
+                    </li>
+                @endif
+
+                @foreach($actions as $label => $action)
+                    <li class="govuk-summary-list__actions-list-item">
+                        @if(is_array($action) === true)
+                            <x-govuk::summary-list.action
+                                :asButton="$action['asButton'] ?? false"
+                                :hidden="$action['hidden'] ?? null"
+                                :label="$action['label'] ?? $label"
+                                :method="$action['method'] ?? 'post'"
+                                :url="$action['url']"
+                            />
+                        @else
+                            <x-govuk::summary-list.action
+                                :label="$label"
+                                :url="$action"
+                            />
+                       @endif
+                    </li>
+                @endforeach
+            </ul>
         </dd>
     @endif
 </div>
