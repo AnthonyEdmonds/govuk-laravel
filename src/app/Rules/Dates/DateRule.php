@@ -20,7 +20,7 @@ abstract class DateRule implements DataAwareRule, ValidationRule
 
     protected string $messageFormat = 'd/m/Y';
 
-    abstract protected function test(?Carbon $enteredDate = null): bool;
+    abstract protected function test(Carbon $enteredDate): bool;
 
     public function __construct(
         protected Carbon $date,

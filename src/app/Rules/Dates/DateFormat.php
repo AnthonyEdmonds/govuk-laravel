@@ -6,7 +6,12 @@ use Carbon\Carbon;
 
 class DateFormat extends DateRule
 {
-    protected function test(?Carbon $enteredDate = null): bool
+    public function __construct(?string $timeField = null)
+    {
+        parent::__construct(Carbon::now(), $timeField);
+    }
+
+    protected function test(Carbon $enteredDate): bool
     {
         return true;
     }
