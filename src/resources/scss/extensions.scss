@@ -64,20 +64,25 @@ dd.govuk-summary-list__actions {
 // List types
 ol.govuk-list--lower-alpha {
     list-style-type: lower-alpha;
+    padding-left: govuk-spacing(4);
 }
 
 ol.govuk-list--lower-roman {
     list-style-type: lower-roman;
+    padding-left: govuk-spacing(4);
 }
 
 ol.govuk-list--upper-roman {
     list-style-type: upper-roman;
+    padding-left: govuk-spacing(4);
 }
 
-ul.govuk-list--disc {
-    list-style-type: disc;
+ul.govuk-list--circle {
+    list-style-type: circle;
+    padding-left: govuk-spacing(4);
 }
 
 ul.govuk-list--square {
     list-style-type: square;
+    padding-left: govuk-spacing(4);
 }

@@ -26,7 +26,7 @@ Create a `ul` element, with optional spacing and bullets.
 The type may be any of the following:
 
 * bullet
-* disc
+* circle
 * square
 
 ## Also see
