@@ -60,3 +60,24 @@ dd.govuk-summary-list__actions {
     width: auto;
     min-width: 20%;
 }
+
+// List types
+ol.govuk-list--lower-alpha {
+    list-style-type: lower-alpha;
+}
+
+ol.govuk-list--lower-roman {
+    list-style-type: lower-roman;
+}
+
+ol.govuk-list--upper-roman {
+    list-style-type: upper-roman;
+}
+
+ul.govuk-list--disc {
+    list-style-type: disc;
+}
+
+ul.govuk-list--square {
+    list-style-type: square;
+}
