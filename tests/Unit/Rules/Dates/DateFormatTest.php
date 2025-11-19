@@ -29,10 +29,26 @@ class DateFormatTest extends DateRuleTestCase
         $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute year must be either two or four digits long');
     }
 
-    public function testPassesWhenBeforeDay(): void
+    public function testPasses(): void
     {
         $this->setRuleData(1, 12, 2022);
 
         $this->assertRulePasses($this->rule, self::DATE_FIELD, self::VALUE);
+    }
+
+    protected function setRuleData(
+        int|string $day,
+        int|string $month,
+        int|string $year,
+        ?string $time = null,
+    ): void {
+        $data = [
+            'my-date-day' => $day,
+            'my-date-month' => $month,
+            'my-date-year' => $year,
+        ];
+
+        $this->rule = new $this->ruleClass();
+        $this->rule->setData($data);
     }
 }
