@@ -1,13 +1,14 @@
 @props([
     'bulleted' => false,
     'spaced' => false,
+    'type' => 'bullet',
 ])
 
 @php
     $listClasses = 'govuk-list';
 
     if ($bulleted === true) {
-        $listClasses .= ' govuk-list--bullet';
+        $listClasses .= " govuk-list--$type";
     }
 
     if ($spaced === true) {

@@ -39,6 +39,7 @@ class UlTest extends TestCase
         return $this->assertView('govuk::components.ul', [
             'bulleted' => $data['bulleted'] ?? false,
             'spaced' => $data['spaced'] ?? false,
+            'type' => $data['type'] ?? 'bullet',
         ]);
     }
 }

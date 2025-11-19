@@ -10,7 +10,9 @@ class OlTest extends TestCase
     public function testHasBullets(): void
     {
         $this->makeComponent()
-            ->first('ol > li')
+            ->first('ol')
+            ->hasClass('govuk-list--number')
+            ->first('li')
             ->contains('My item');
     }
 
@@ -29,6 +31,7 @@ class OlTest extends TestCase
 
         return $this->assertView('govuk::components.ol', [
             'spaced' => $data['spaced'] ?? false,
+            'type' => $data['type'] ?? 'number',
         ]);
     }
 }
