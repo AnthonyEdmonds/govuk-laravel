@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 class OnOrBeforeDate extends DateRule
 {
-    protected function test(Carbon $enteredDate): bool
+    protected function test(?Carbon $enteredDate = null): bool
     {
         if ($enteredDate->lessThanOrEqualTo($this->date) === true) {
             return true;

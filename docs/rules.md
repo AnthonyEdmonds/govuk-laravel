@@ -61,6 +61,16 @@ Rule::beforeDate(Carbon::now())
 new BeforeDate(Carbon::now())
 ```
 
+### DateFormat
+
+Ensure that the given date is in GOV.UK format, complete with a `-day`, `-month`, and `-year`.
+
+```php
+Rule::dateFormat()
+// or
+new DateFormat()
+```
+
 ### OnDate
 
 Ensure that the submitted date is on a particular day.
