@@ -37,10 +37,7 @@
         <x-govuk::task-list :tasks="$tasks" />
     @endif
 
-    @isset($draft)
-        <x-govuk::form action="">
-    @endisset
-
+    <x-govuk::form action="">
         <x-govuk::button-group>
             <x-govuk::a
                 as-button
@@ -58,9 +55,6 @@
                 href="{{ $actions['exit']->link }}"
             >{{ $actions['exit']->label }}</x-govuk::button>
         </x-govuk::button-group>
-
-    @isset($draft)
-        </x-govuk::form>
-    @endisset
+    </x-govuk::form>
 @endsection
 
