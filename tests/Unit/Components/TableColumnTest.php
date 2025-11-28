@@ -22,17 +22,19 @@ class TableColumnTest extends TestCase
 
         $this->json = GovukComponent::makeTableColumnJson(
             $data['heading'] ?? false,
-            $data['hide'] ?? false,
+            $data['hide'] ?? null,
             $data['label'] ?? '',
             $data['numeric'] ?? false,
+            $data['show'] ?? null,
             'My content',
         );
 
         return $this->assertView('govuk::components.table-column', [
             'heading' => $data['heading'] ?? false,
-            'hide' => $data['hide'] ?? false,
+            'hide' => $data['hide'] ?? null,
             'label' => $data['label'] ?? '',
             'numeric' => $data['numeric'] ?? false,
+            'show' => $data['show'] ?? null,
         ]);
     }
 }

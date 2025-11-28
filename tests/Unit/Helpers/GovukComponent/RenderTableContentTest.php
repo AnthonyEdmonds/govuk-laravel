@@ -20,13 +20,24 @@ class RenderTableContentTest extends TestCase
         );
     }
 
-    public function testHidesColumns(): void
+    public function testHidesHiddenColumns(): void
     {
         $this->assertEquals(
             '',
             GovukComponent::renderTableContent(
                 $this->makeColumn('My ID is ~id, OK?', '~name'),
                 $this->makeRow(1, 'Bob', 23),
+            ),
+        );
+    }
+
+    public function testHidesShowColumns(): void
+    {
+        $this->assertEquals(
+            '',
+            GovukComponent::renderTableContent(
+                $this->makeColumn('My ID is ~id, OK?', null, '~age'),
+                $this->makeRow(1, 'Bob', null),
             ),
         );
     }
@@ -81,17 +92,19 @@ class RenderTableContentTest extends TestCase
     protected function makeColumn(
         string $html,
         ?string $hide = null,
+        ?string $show = null,
     ): array {
         return [
             'hide' => $hide,
             'html' => $html,
+            'show' => $show,
         ];
     }
 
     protected function makeRow(
         int $id,
         string|array|stdClass|null $name,
-        int $age,
+        ?int $age,
     ): array {
         return [
             'id' => $id,
