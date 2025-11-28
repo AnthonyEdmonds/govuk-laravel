@@ -149,9 +149,10 @@ class TableTest extends TestCase
     {
         return '~~' . GovukComponent::makeTableColumnJson(
             false,
-            '',
+            null,
             $label,
             false,
+            null,
             $content,
         ) . '~~';
     }
