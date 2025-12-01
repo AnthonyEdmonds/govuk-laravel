@@ -67,10 +67,11 @@ class BodyTest extends TestCase
     ): array {
         return [
             'heading' => $heading,
-            'hide' => false,
+            'hide' => null,
             'html' => $content,
             'label' => $label,
             'numeric' => $numeric,
+            'show' => null,
         ];
     }
 

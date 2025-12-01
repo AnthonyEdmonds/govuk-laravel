@@ -16,18 +16,20 @@ class MakeTableColumnJsonTest extends TestCase
                 'html' => 'My HTML',
                 'label' => 'My label',
                 'numeric' => false,
+                'show' => null,
             ]),
             GovukComponent::makeTableColumnJson(
                 true,
                 '',
                 'My label',
                 false,
+                '',
                 'My HTML',
             ),
         );
     }
 
-    public function testTogglesHide(): void
+    public function testToggles(): void
     {
         $this->assertEquals(
             json_encode([
@@ -36,12 +38,14 @@ class MakeTableColumnJsonTest extends TestCase
                 'html' => 'My HTML',
                 'label' => 'My label',
                 'numeric' => true,
+                'show' => 'show',
             ]),
             GovukComponent::makeTableColumnJson(
                 false,
                 'hide',
                 'My label',
                 true,
+                'show',
                 'My HTML',
             ),
         );

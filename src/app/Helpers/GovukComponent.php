@@ -9,6 +9,7 @@ class GovukComponent
         ?string $hide,
         string $label,
         bool $numeric,
+        ?string $show,
         string $slotHtml,
     ): string {
         return json_encode([
@@ -17,6 +18,7 @@ class GovukComponent
             'html' => $slotHtml,
             'label' => $label,
             'numeric' => $numeric === true,
+            'show' => strlen($show) > 1 ? $show : null,
         ]);
     }
 
@@ -35,6 +37,10 @@ class GovukComponent
 
         foreach ($row as $key => $value) {
             if ("~$key" === $column['hide'] && $value == true) {
+                return '';
+            }
+
+            if ("~$key" === $column['show'] && $value != true) {
                 return '';
             }
 

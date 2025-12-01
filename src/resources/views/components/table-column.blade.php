@@ -3,6 +3,7 @@
     'hide' => null,
     'label' => '',
     'numeric' => false,
+    'show' => null,
 ])
 
 @php
@@ -13,6 +14,7 @@
         $hide,
         $label,
         $numeric,
+        $show,
         $slot->toHtml(),
     );
 @endphp
