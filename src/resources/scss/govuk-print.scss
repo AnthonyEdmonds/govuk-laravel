@@ -1,0 +1,86 @@
+@media print {
+    .govuk-template {
+        background-color: #ffffff;
+    }
+
+    body {
+        header.govuk-header,
+        strong.govuk-tag {
+            print-color-adjust: exact;
+        }
+
+        header {
+            div.govuk-header__container {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                align-items: center;
+
+                &::after {
+                    display: none;
+                }
+
+                div.govuk-header__logo {
+                    margin-bottom: 0;
+                    padding-right: 0;
+
+                    a {
+                        margin-right: 0;
+
+                        img {
+                            padding: 10px 0 !important;
+                        }
+                    }
+                }
+
+                nav {
+                    display: none;
+                }
+
+                a.govuk-header__link {
+                    color: #ffffff !important;
+                }
+            }
+        }
+
+        section.govuk-service-navigation {
+            a.govuk-service-navigation__link {
+                @include govuk-font-size($size: 36);
+                font-weight: bold;
+            }
+
+            nav.govuk-service-navigation__wrapper {
+                display: none;
+            }
+        }
+
+        div.govuk-width-container {
+            a.govuk-back-link,
+            div.govuk-phase-banner {
+                display: none;
+            }
+
+            main.govuk-main-wrapper {
+                div.govuk-grid-row {
+                    aside {
+                        display: none;
+                    }
+
+                    div.govuk-grid-column-two-thirds {
+                        width: 100%;
+                    }
+                }
+
+                & a,
+                & button,
+                & dd.govuk-summary-list__actions{
+                    display: none;
+                }
+            }
+        }
+
+        footer.govuk-footer {
+            display: none;
+        }
+    }
+}
