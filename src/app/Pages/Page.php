@@ -278,7 +278,11 @@ class Page implements View
 
     public function with($key, $value = null): self
     {
-        $this->withs[$key] = $value;
+        if (is_array($key) === true) {
+            $this->withs = array_merge($this->withs, $key);
+        } else {
+            $this->withs[$key] = $value;
+        }
 
         return $this;
     }
