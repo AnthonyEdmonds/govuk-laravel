@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Components;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -9,8 +10,12 @@ class Question extends Component
 {
     public function __construct(
         public ?string $blade = null,
-        public array $settings = [],
+        public array|Arrayable $settings = [],
     ) {
+        if ($this->settings instanceof Arrayable === true) {
+            $this->settings = $this->settings->toArray();
+        }
+
         if (array_key_exists('type', $this->settings) === false) {
             $this->settings['type'] = 'text-input';
         }

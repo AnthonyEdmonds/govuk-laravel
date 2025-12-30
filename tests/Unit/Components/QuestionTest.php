@@ -4,6 +4,8 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Components\Question;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Collection;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 class QuestionTest extends TestCase
@@ -13,7 +15,7 @@ class QuestionTest extends TestCase
     #[DataProvider('expectations')]
     public function test(
         ?string $blade,
-        array $settings,
+        array|Arrayable $settings,
         string $expectedType,
         string $expectedBlade,
     ): void {
@@ -36,6 +38,12 @@ class QuestionTest extends TestCase
             [
                 'blade' => 'potato',
                 'settings' => [],
+                'expectedType' => 'text-input',
+                'expectedBlade' => 'potato',
+            ],
+            [
+                'blade' => 'potato',
+                'settings' => new Collection([]),
                 'expectedType' => 'text-input',
                 'expectedBlade' => 'potato',
             ],
