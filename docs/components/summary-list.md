@@ -8,15 +8,19 @@ Particularly useful for summarising the details held within a model, or a User's
 <x-govuk::summary-list
     :list="$myList"
     no-borders
+    numeric
+    wider-key
 />
 ```
 
 ## Props
 
 | Name       | Type  | Default  | Description                          |
-| ---------- | ----- | -------- |--------------------------------------|
+|------------|-------|----------|--------------------------------------|
 | list       | array | Required | A keyed array                        |
 | no-borders | bool  | false    | Whether to hide borders between rows |
+| numeric    | bool  | false    | Whether to right-align values        |
+| wider-key  | bool  | false    | Whether to have a wider key column   |
 
 ### List
 

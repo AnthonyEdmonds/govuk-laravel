@@ -56,21 +56,23 @@ strong.govuk-tag {
 }
 
 // Summary list
+dl.govuk-summary-list {
     // Summary list fix (Actions pane is too narrow for tags)
-    dd.govuk-summary-list__actions {
+    & > div > dd.govuk-summary-list__actions {
         width: auto;
         min-width: 20%;
     }
 
     // Wider key column
-    dl.govuk-summary-list__wider-key > div > dt.govuk-summary-list__key {
+    .govuk-summary-list--wider-key > div > dt.govuk-summary-list__key {
         width: 50%;
     }
 
     // Numeric value column
-    dl.govuk-summary-list__numeric > div > dd.govuk-summary-list__value {
+    .govuk-summary-list--numeric > div > dd.govuk-summary-list__value {
         text-align: right;
     }
+}
 
 // List types
 ol.govuk-list--lower-alpha {

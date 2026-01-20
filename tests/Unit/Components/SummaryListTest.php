@@ -9,9 +9,14 @@ class SummaryListTest extends TestCase
 {
     public function testMakesList(): void
     {
-        $list = $this->makeSummaryList()->hasClass('govuk-summary-list');
-        $list->first('dl > div > dt')->contains('My list item');
-        $list->last('dl > div > dt')->contains('My list action');
+        $summaryList = $this->makeSummaryList();
+
+        $summaryList->hasClass('govuk-summary-list')
+            ->hasClass('govuk-summary-list--numeric')
+            ->hasClass('govuk-summary-list--wider-key');
+
+        $summaryList->first('dl > div > dt')->contains('My list item');
+        $summaryList->last('dl > div > dt')->contains('My list action');
     }
 
     public function testHasNoBorders(): void
@@ -31,6 +36,8 @@ class SummaryListTest extends TestCase
                 ],
             ],
             'noBorders' => $noBorders,
+            'numeric' => true,
+            'widerKey' => true,
         ]);
     }
 }
