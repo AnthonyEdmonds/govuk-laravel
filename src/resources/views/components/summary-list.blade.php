@@ -2,7 +2,7 @@
     'list',
     'noBorders' => false,
     'numeric' => false,
-    'wideKey' => false,
+    'widerKey' => false,
 ])
 
 @php
@@ -17,8 +17,8 @@
         $listClasses .= ' govuk-summary-list--numeric';
     }
 
-    if ($wideKey === true) {
-        $listClasses .= ' govuk-summary-list--wide-key';
+    if ($widerKey === true) {
+        $listClasses .= ' govuk-summary-list--wider-key';
     }
 
     foreach ($list as $item) {
