@@ -64,12 +64,12 @@ dl.govuk-summary-list {
     }
 
     // Wider key column
-    .govuk-summary-list--wider-key > div > dt.govuk-summary-list__key {
+    &.govuk-summary-list--wider-key > div > dt.govuk-summary-list__key {
         width: 50%;
     }
 
     // Numeric value column
-    .govuk-summary-list--numeric > div > dd.govuk-summary-list__value {
+    &.govuk-summary-list--numeric > div > dd.govuk-summary-list__value {
         text-align: right;
     }
 }
