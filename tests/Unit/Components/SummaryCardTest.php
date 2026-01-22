@@ -53,10 +53,15 @@ class SummaryCardTest extends TestCase
 
     public function testHasSummaryList(): void
     {
-        $this->makeSummaryCard()
+        $this->makeSummaryCard([
+            'numeric' => true,
+            'widerKey' => true,
+        ])
             ->first('div.govuk-summary-card__content')
             ->first('div')
-            ->hasClass('govuk-summary-list');
+            ->hasClass('govuk-summary-list')
+            ->hasClass('govuk-summary-list--numeric')
+            ->hasClass('govuk-summary-list--wider-key');
     }
 
     public function testHasStatusWhenKeyed(): void
@@ -80,9 +85,11 @@ class SummaryCardTest extends TestCase
             'list' => $data['list'] ?? [
                 'My list item' => 'My list value',
             ],
+            'numeric' => $data['numeric'] ?? false,
             'status' => $data['status'] ?? null,
             'status-colour' => $data['statusColour'] ?? null,
             'title' => $data['title'] ?? 'My title',
+            'widerKey' => $data['widerKey'] ?? false,
         ]);
     }
 }

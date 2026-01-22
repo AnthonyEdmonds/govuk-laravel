@@ -3,9 +3,11 @@
     'id' => '',
     'list',
     'noBorders' => false,
+    'numeric' => false,
     'title',
     'status' => null,
     'statusColour' => null,
+    'widerKey' => false,
 ])
 
 <div class="govuk-summary-card" @if(empty($id) === false) id="{{ $id }}" @endif>
@@ -39,6 +41,8 @@
         <x-govuk::summary-list
             :list="$list"
             :no-borders="$noBorders"
+            :numeric="$numeric"
+            :widerKey="$widerKey"
         />
     </div>
 </div>

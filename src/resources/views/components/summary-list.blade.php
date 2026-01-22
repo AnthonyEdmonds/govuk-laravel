@@ -1,6 +1,8 @@
 @props([
     'list',
     'noBorders' => false,
+    'numeric' => false,
+    'widerKey' => false,
 ])
 
 @php
@@ -9,6 +11,14 @@
 
     if ($noBorders === true) {
         $listClasses .= ' govuk-summary-list--no-border';
+    }
+
+    if ($numeric === true) {
+        $listClasses .= ' govuk-summary-list--numeric';
+    }
+
+    if ($widerKey === true) {
+        $listClasses .= ' govuk-summary-list--wider-key';
     }
 
     foreach ($list as $item) {

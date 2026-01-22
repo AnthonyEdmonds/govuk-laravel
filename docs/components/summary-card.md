@@ -10,9 +10,11 @@ Useful for showing several summary lists on the same page with distinct formatti
     id="my-id"
     :list="$myList"
     no-borders
+    numeric
     status="Incomplete"
     status-colour="blue"
     title="My Summary Card"
+    wider-key
 />
 ```
 
@@ -24,9 +26,11 @@ Useful for showing several summary lists on the same page with distinct formatti
 | id            | string | null     | An unique ID for the summary card                 |
 | list          | array  | Required | A keyed array                                     |
 | no-borders    | bool   | false    | Whether to hide borders between rows              |
+| numeric       | bool   | false    | Whether to right-align values                     |
 | status        | string | null     | A status to show against the card                 |
 | status-colour | string | null     | The colour of the status, when provided           |
 | title         | string | Required | The <h2> title for the card                       |
+| wider-key     | bool   | false    | Whether to have a wider key column                |
 
 ### Actions
 

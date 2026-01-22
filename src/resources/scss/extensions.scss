@@ -55,10 +55,23 @@ strong.govuk-tag {
     white-space: nowrap;
 }
 
-// Summary list fix (Actions pane is too narrow for tags)
-dd.govuk-summary-list__actions {
-    width: auto;
-    min-width: 20%;
+// Summary list
+dl.govuk-summary-list {
+    // Summary list fix (Actions pane is too narrow for tags)
+    & > div > dd.govuk-summary-list__actions {
+        width: auto;
+        min-width: 20%;
+    }
+
+    // Wider key column
+    &.govuk-summary-list--wider-key > div > dt.govuk-summary-list__key {
+        width: 50%;
+    }
+
+    // Numeric value column
+    &.govuk-summary-list--numeric > div > dd.govuk-summary-list__value {
+        text-align: right;
+    }
 }
 
 // List types
