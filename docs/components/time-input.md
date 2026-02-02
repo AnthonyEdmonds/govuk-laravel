@@ -60,6 +60,7 @@ Provide either a `FormRequest` or an `array` of values with the time key, to rec
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [fieldset](fieldset.md)

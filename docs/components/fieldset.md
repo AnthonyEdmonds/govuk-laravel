@@ -26,6 +26,7 @@ Both `checkboxes` and `radios` come with a `fieldset` included.
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [file-upload](file-upload.md)

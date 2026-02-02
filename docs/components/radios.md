@@ -115,6 +115,7 @@ Avoid nesting radio inputs, and consider breaking the question into more parts.
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [fieldset](fieldset.md)

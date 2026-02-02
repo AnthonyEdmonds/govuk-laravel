@@ -36,6 +36,7 @@ This element is pre-wrapped with `form-group` components, with `label`, `hint`, 
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [fieldset](fieldset.md)

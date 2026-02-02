@@ -23,6 +23,7 @@ The `@csrf` and `@method` Laravel components are automatically included when the
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [button](button.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)

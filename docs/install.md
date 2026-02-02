@@ -88,6 +88,8 @@ initAll();
 
 The `govuk-laravel.js` file contains overrides to improve some of the GOV.UK Design System behaviour, however it may be omitted if you prefer the default experience.
 
+
+
 ### SCSS
 
 Import the GOV.UK Design System followed by the GOV.UK Laravel scss styles in `/resources/scss/app.scss` file.
@@ -108,3 +110,20 @@ Publish `govuk-font` to copy [Inter](https://fonts.google.com/specimen/Inter), a
 @import 'inter.scss';
 // GOV.UK and other imports...
 ```
+
+## Accessible autocomplete
+
+Support for the [accessible autocomplete](https://github.com/alphagov/accessible-autocomplete) component is available, with a few extra steps:
+
+1. Install the autocomplete package using:
+   ```bash
+   npm install accessible-autocomplete --save-dev
+   ```
+2. Import the autocomplete component in `/resources/js/app.js`:
+   ```js
+   import accessibleAutocomplete from 'accessible-autocomplete';
+   ```
+3. Add the styles to `/resources/scss/app.scss`
+   ```scss
+   @import 'accessible-autocomplete';
+   ```

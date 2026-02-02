@@ -42,6 +42,7 @@ The counter is used with a `textarea` component, and should be set directly on t
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [file-upload](file-upload.md)

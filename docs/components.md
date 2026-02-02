@@ -41,6 +41,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 
 ## Forms and inputs
 
+* [autocomplete](components/autocomplete.md)
 * [checkboxes](components/checkboxes.md)
 * [date-input](components/date-input.md)
 * [fieldset](components/fieldset.md)

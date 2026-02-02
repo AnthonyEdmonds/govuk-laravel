@@ -43,6 +43,7 @@ This element is pre-wrapped in a `form-group` component, with `label`, `hint`, a
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [fieldset](fieldset.md)

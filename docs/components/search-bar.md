@@ -45,6 +45,7 @@ You may pass any additional search inputs into the provided slot.
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [button](button.md)
 * [checkboxes](checkboxes.md)
 * [fieldset](fieldset.md)

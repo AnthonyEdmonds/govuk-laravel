@@ -20,6 +20,7 @@ Create a hidden input for a form.
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [fieldset](fieldset.md)

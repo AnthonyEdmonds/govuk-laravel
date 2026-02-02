@@ -45,6 +45,7 @@ The keyed array passed into options should have the key as the value of the `opt
 
 ## Also see
 
+* [autocomplete](autocomplete.md)
 * [checkboxes](checkboxes.md)
 * [date-input](date-input.md)
 * [fieldset](fieldset.md)
