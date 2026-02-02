@@ -25,7 +25,7 @@
     $oldName = GovukPage::bracketsToDots($name);
     
     if ($hint !== null) {
-        $ariaDescription .= "{$id}-hint";
+        $ariaDescription .= "$id-hint";
     }
     
     if ($extraSpacing === true) {
@@ -37,7 +37,7 @@
     }
 
     if ($errors->has($oldName) === true) {
-        $ariaDescription .= " {$id}-error";
+        $ariaDescription .= " $id-error";
         $inputClasses .= ' govuk-input--error';
     }
 @endphp

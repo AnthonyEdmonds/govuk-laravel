@@ -50,5 +50,6 @@
         </div>
 
         @include('govuk::layout.footer')
+        @stack('post-scripts')
     </body>
 </html>

@@ -1,49 +1,62 @@
 @props([
-    'autoselect' => false,
     'id' => $name,
-    'initialData' => [],
+    'data' => [],
+    'hint' => null,
+    'isTitle' => false,
     'label',
+    'labelSize' => null,
     'minLength' => 0,
     'name',
-    'placeholder' => '',
-    'required' => false,
     'route' => null,
     'value' => null,
 ])
 
 @php
     $containerId = "$id-container";
+    $data = json_encode($data);
 @endphp
 
-<!-- TODO Add GOV.UK wrapper and styling? -->
-<label>{{ $label }}</label>
-<div id="{{ $containerId }}"></div>
+<!-- error styling -->
+<x-govuk::form-group
+        :name="$name"
+>
+    <x-govuk::form-group.label
+        :id="$id"
+        :label="$label"
+        :label-size="$labelSize"
+        :is-title="$isTitle"
+    />
+    <x-govuk::form-group.hint :id="$id" :hint="$hint" />
+    <x-govuk::form-group.error :id="$id" :name="$name" />
 
-<script>
-    accessibleAutocomplete({
-        autoselect: {{ $autoselect }},
-        confirmOnBlur: true,
-        cssNamespace: 'autocomplete', // SCSC namespace class, should not be needed
-        defaultValue: '{{ old($name, $value) }}',
-        displayMenu: 'inline', // "inline" or "overlay" menu type
-        element: document.getElementById('{{ $containerId }}'),
-        hintClasses: '', // string list of classes
-        id: '{{ $id }}',
-        inputClasses: '', // string list of classes
-        menuAttributes: {}, // object of HTML attributes to put on menu
-        menuClasses: '', // string list of classes
-        minLength: {{ $minLength }},
-        name: '{{ $name }}',
-        placeholder: '{{ $placeholder }}',
-        required: {{ $required }},
-        showAllValues: false, // Whether to show values when user clicks input
-        showNoOptionsFound: false, // Whether to show "no results" pane
-        source: function (query, populate) {
-            const results = '{{ $route }}'.length < 1
-                ? {{ $initialData }}
-                : ajax();
+    <div
+        class="govuk-!-width-one-half"
+        id="{{ $containerId }}"
+    ></div>
+</x-govuk::form-group>
 
-            populate(results);
-        },
-    });
-</script>
+@push('post-scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.accessibleAutocomplete({
+                defaultValue: '{{ old($name, $value) }}',
+                element: document.getElementById('{{ $containerId }}'),
+                id: '{{ $id }}',
+                menuClasses: 'govuk-body',
+                minLength: {{ $minLength }},
+                name: '{{ $name }}',
+                showNoOptionsFound: true,
+                source: function (query, populate) {
+                    const results = '{{ $route }}'.length < 1
+                        ? JSON.parse('{!! $data !!}')
+                            .filter(function (item) {
+                                return item.includes(query);
+                            })
+                        : ajax(); // TODO Own implementation or AXIOS?
+
+                    populate(results);
+                },
+            });
+        });
+    </script>
+@endpush
