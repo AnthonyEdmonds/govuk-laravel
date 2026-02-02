@@ -122,6 +122,8 @@ Support for the [accessible autocomplete](https://github.com/alphagov/accessible
 2. Import the autocomplete component in `/resources/js/app.js`:
    ```js
    import accessibleAutocomplete from 'accessible-autocomplete';
+   
+   window.accessibleAutocomplete = accessibleAutocomplete;
    ```
 3. Add the styles to `/resources/scss/app.scss`
    ```scss

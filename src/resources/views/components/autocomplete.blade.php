@@ -16,22 +16,22 @@
     $data = json_encode($data);
 @endphp
 
-<!-- error styling -->
+        <!-- error styling -->
 <x-govuk::form-group
         :name="$name"
 >
     <x-govuk::form-group.label
-        :id="$id"
-        :label="$label"
-        :label-size="$labelSize"
-        :is-title="$isTitle"
+            :id="$id"
+            :label="$label"
+            :label-size="$labelSize"
+            :is-title="$isTitle"
     />
     <x-govuk::form-group.hint :id="$id" :hint="$hint" />
     <x-govuk::form-group.error :id="$id" :name="$name" />
 
     <div
-        class="govuk-!-width-one-half"
-        id="{{ $containerId }}"
+            class="govuk-!-width-one-half"
+            id="{{ $containerId }}"
     ></div>
 </x-govuk::form-group>
 
@@ -47,14 +47,36 @@
                 name: '{{ $name }}',
                 showNoOptionsFound: true,
                 source: function (query, populate) {
-                    const results = '{{ $route }}'.length < 1
-                        ? JSON.parse('{!! $data !!}')
-                            .filter(function (item) {
-                                return item.includes(query);
-                            })
-                        : ajax(); // TODO Own implementation or AXIOS?
+                    let results = [];
 
-                    populate(results);
+                    if ('{{ $route }}'.length < 1) {
+                        populate(
+                            JSON.parse('{!! $data !!}')
+                                .filter(function (item) {
+                                    return item.includes(query);
+                                }),
+                        );
+
+                    } else {
+                        const ajax = new XMLHttpRequest();
+
+                        ajax.open('GET', '{{ $route }}');
+                        ajax.setRequestHeader('Content-Type', 'text/json');
+                        ajax.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}')
+                        ajax.onload = () => {
+                            populate(
+                                ajax.status === 200
+                                    ? JSON.parse(ajax.responseText)
+                                    : [],
+                            );
+
+                            <!-- Cast results to string -->
+                            <!-- Debounce -->
+                        }
+                        ajax.send({
+                            query: query,
+                        });
+                    }
                 },
             });
         });
