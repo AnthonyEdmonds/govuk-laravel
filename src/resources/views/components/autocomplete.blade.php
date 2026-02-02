@@ -26,9 +26,9 @@
         cssNamespace: 'autocomplete', // SCSC namespace class, should not be needed
         defaultValue: '{{ old($name, $value) }}',
         displayMenu: 'inline', // "inline" or "overlay" menu type
-        element: document.getElementById({{ $id }}),
+        element: document.getElementById('{{ $containerId }}'),
         hintClasses: '', // string list of classes
-        id: '{{ $containerId }}',
+        id: '{{ $id }}',
         inputClasses: '', // string list of classes
         menuAttributes: {}, // object of HTML attributes to put on menu
         menuClasses: '', // string list of classes
