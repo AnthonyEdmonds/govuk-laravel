@@ -34,6 +34,14 @@ abstract class DateRuleTestCase extends TestCase
         $this->setRuleData('/', 12, 2022);
 
         $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute day must be a number');
+
+        $this->setRuleData(0, 12, 2022);
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute day must be between 1 and 31');
+
+        $this->setRuleData(32, 12, 2022);
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute day must be between 1 and 31');
     }
 
     public function testFailsWhenInvalidMonth(): void
@@ -41,6 +49,14 @@ abstract class DateRuleTestCase extends TestCase
         $this->setRuleData(1, '/', 2022);
 
         $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute month must be a number');
+
+        $this->setRuleData(1, 0, 2022);
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute month must be between 1 and 12');
+
+        $this->setRuleData(1, 13, 2022);
+
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute month must be between 1 and 12');
     }
 
     public function testFailsWhenInvalidYear(): void
