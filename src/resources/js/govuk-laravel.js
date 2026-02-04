@@ -19,4 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    document.addEventListener('visibilitychange', function (event) {
+        let buttons = document.getElementsByTagName('button');
+
+        for (const button of buttons) {
+            button.setAttribute('aria-disabled', 'false');
+            button.disabled = false;
+        }
+    });
 });
