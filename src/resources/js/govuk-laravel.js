@@ -19,4 +19,23 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    document.addEventListener('visibilitychange', function (event) {
+        let buttons = document.getElementsByTagName('button');
+
+        for (const button of buttons) {
+            if (button.hasAttribute('data-prevent-double-click') === false) {
+                continue;
+            }
+
+            if (button.getAttribute('data-prevent-double-click') === false) {
+                continue;
+            }
+
+            if (button.disabled === true) {
+                button.setAttribute('aria-disabled', 'false');
+                button.disabled = false;
+            }
+        }
+    });
 });
