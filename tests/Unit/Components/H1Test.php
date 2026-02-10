@@ -7,29 +7,18 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class H1Test extends TestCase
 {
-    public function testHasContent(): void
-    {
-        $this->makeComponent()
-            ->first('h1')
-            ->contains('My content');
-    }
-
-    public function testHasSize(): void
-    {
-        $this->makeComponent([
-            'size' => 'l',
-        ])
-            ->first('h1')
-            ->hasClass('govuk-heading-l');
-    }
-
-    public function testHasIdWhenSet(): void
+    public function test(): void
     {
         $this->makeComponent([
             'id' => 'my-id',
+            'size' => 'l',
+            'marginBottom' => 9,
         ])
             ->first('h1')
-            ->hasAttribute('id', 'my-id');
+            ->hasAttribute('id', 'my-id')
+            ->hasClass('govuk-heading-l')
+            ->hasClass('govuk-\!-margin-bottom-9')
+            ->contains('My content');
     }
 
     protected function makeComponent(array $data = []): ViewAssertion
@@ -39,6 +28,7 @@ class H1Test extends TestCase
         return $this->assertView('govuk::components.h1', [
             'id' => $data['id'] ?? null,
             'size' => $data['size'] ?? 'm',
+            'marginBottom' => $data['marginBottom'] ?? null,
         ]);
     }
 }
