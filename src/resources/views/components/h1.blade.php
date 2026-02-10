@@ -5,12 +5,11 @@
 ])
 
 @php
-
     $classes = "govuk-heading-$size";
+
     if ($marginBottom !== null) {
         $classes .= " govuk-!-margin-bottom-$marginBottom";
     }
-
 @endphp
 
 <h1
