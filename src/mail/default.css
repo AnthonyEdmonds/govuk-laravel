@@ -266,6 +266,7 @@ div.table {
     font-size: 19px;
     text-decoration: none;
     -webkit-text-size-adjust: none;
+    padding-bottom: 8px;
 }
 
 .button-green,
@@ -275,7 +276,7 @@ div.table {
     background-color: #005a30;
     border-top: 10px solid #005a30;
     border-right: 18px solid #005a30;
-    border-bottom: 10px solid #002d18;
+    border-bottom: 2px solid #002d18;
     border-left: 18px solid #005a30;
 }
 
@@ -284,7 +285,7 @@ div.table {
     background-color: #dbdad9;
     border-top: 10px solid #dbdad9;
     border-right: 18px solid #dbdad9;
-    border-bottom: 10px solid #929191;
+    border-bottom: 2px solid #929191;
     border-left: 18px solid #dbdad9;
 }
 
@@ -294,7 +295,7 @@ div.table {
     background-color: #aa2a16;
     border-top: 10px solid #aa2a16;
     border-right: 18px solid #aa2a16;
-    border-bottom: 10px solid #55150b;
+    border-bottom: 2px solid #55150b;
     border-left: 18px solid #aa2a16;
 }
 
