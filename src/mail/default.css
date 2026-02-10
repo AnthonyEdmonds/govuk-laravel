@@ -346,19 +346,19 @@ div.table {
 
 .tag-blue,
 .tag-primary {
-    background-color: #bbd4ea;
-    color: #0c2d4a;
+    background-color: #d2e2f1;
+    color: #0f385c;
 }
 
 .tag-green,
 .tag-success {
-    background-color: #cce2d8;
-    color: #005a30;
+    background-color: #cfe4dc;
+    color: #083d29;
 }
 
 .tag-grey {
-    background-color: #e5e6e7;
-    color: #282d30;
+    background-color: #cecece;
+    color: #0b0c0c;
 }
 
 .tag-light-blue {
@@ -367,33 +367,33 @@ div.table {
 }
 
 .tag-orange {
-    background-color: #fcd6c3;
-    color: #6e3619;
+    background-color: #fde4d7;
+    color: #7a3c1c;
 }
 
-.tag-pink {
-    background-color: #f9e1ec;
-    color: #6b1c40;
+.tag-magenta {
+    background-color: #f4d7e5;
+    color: #651b3e;
 }
 
 .tag-purple {
-    background-color: #efdfed;
-    color: #491644;
+    background-color: #ddd6ec;
+    color: #2a1950;
 }
 
 .tag-red,
 .tag-error {
-    background-color: #f4cdc6;
-    color: #2a0b06;
+    background-color: #f4d7d7;
+    color: #651b1b;
 }
 
-.tag-turquoise {
-    background-color: #d4ecea;
-    color: #10403c;
+.tag-teal {
+    background-color: #d0e6e7;
+    color: #0b4144;
 }
 
 .tag-yellow,
 .tag-warning {
-    background-color: #fff7bf;
-    color: #594d00;
+    background-color: #ffee80;
+    color: #7a3c1c;
 }

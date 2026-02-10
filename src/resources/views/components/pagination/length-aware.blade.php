@@ -58,7 +58,7 @@
             @if($links[$loop->index - 1]['label'] === '...' || $links[$loop->index + 1]['label'] === '...')
                 @continue
             @elseif($link['label'] === '...')
-                <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+                <li class="govuk-pagination__item govuk-pagination__item--ellipsis">&ctdot;</li>
             @else
                 <li @class([
                     'govuk-pagination__item',

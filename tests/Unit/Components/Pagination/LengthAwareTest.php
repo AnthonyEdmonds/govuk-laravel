@@ -43,7 +43,7 @@ class LengthAwareTest extends TestCase
     {
         $this->makePagination()
             ->at('ul > li', 1)
-            ->hasClass('govuk-pagination__item--ellipses');
+            ->hasClass('govuk-pagination__item--ellipsis');
     }
 
     public function testHasCurrentSubTwo(): void
@@ -91,7 +91,7 @@ class LengthAwareTest extends TestCase
     {
         $this->makePagination()
             ->at('ul > li', 7)
-            ->hasClass('govuk-pagination__item--ellipses');
+            ->hasClass('govuk-pagination__item--ellipsis');
     }
 
     public function testHasLastPage(): void

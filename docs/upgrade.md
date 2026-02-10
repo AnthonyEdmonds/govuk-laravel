@@ -6,6 +6,20 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 7.x from version 6.x
+
+1. Update `govuk-frontend` to `^6` in your `package.json`
+2. Remove the following flags from your SCSS, if present
+   * `$govuk-new-organisation-colours`
+   * `$govuk-new-typography-scale`
+3. Replace any tags with the following colours:
+   * light-blue => Pick another colour
+   * turquoise => teal
+   * pink => magenta
+4. Update your `govuk-variables.scss` with the new map format
+5. Republish or overwrite the `mail/default.css` file
+6. Check for any other colour changes per the [GOV.UK Release Guide](https://github.com/alphagov/govuk-frontend/releases/tag/v6.0.0)
+
 ## Update to version 6.x from version 5.x
 
 1. PHP 8.3 is now the minimum required

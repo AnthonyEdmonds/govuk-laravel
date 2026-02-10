@@ -1,31 +1,39 @@
 // Use this file to override the default style associations in the GOV.UK Design System
 
-$govuk-new-typography-scale: true;
-$govuk-new-organisation-colours: true;
-
 @import 'govuk-frontend/dist/govuk/helpers/_colour.scss';
 
-// GOV.UK Font
+//== GOV.UK Font
 $govuk-font-family: 'Inter', 'Helvetica', 'Arial', 'sans-serif';
 
-// GOV.UK Colour Association
-$govuk-text-colour: govuk-colour('black');
-$govuk-secondary-text-colour: govuk-colour('dark-grey');
+//== GOV.UK Colour Association
+// These can be:
+// a hex colour     secondary-text: #ff0000,
+// a variable       secondary-text: $colour,
+// a named colour   secondary-text: (name: 'black'),
+// a variant        secondary-text: (name: 'black', variant: 'tint-95'),
 
-$govuk-link-colour: govuk-colour('blue');
-$govuk-link-hover-colour: govuk-colour('dark-blue');
-$govuk-link-visited-colour: govuk-colour('purple');
-$govuk-link-active-colour: govuk-colour('black');
+$govuk-functional-colours: (
+    // body-background:,
+    // border:,
+    // brand:,
+    // error:,
+    // focus-text:,
+    // focus:,
+    // hover:,
+    // input-border:,
+    // link-active:,
+    // link-hover:,
+    // link-visited:,
+    // link:,
+    // print-text:,
+    // secondary-text:,
+    // success:,
+    // surface-background:,
+    // surface-border:,
+    // surface-text:,
+    // template-background:,
+    // text:,
+);
 
-$govuk-border-colour: govuk-colour('mid-grey');;
-$govuk-input-border-colour: govuk-colour('black');
-
-$govuk-focus-colour: govuk-colour('yellow');
-$govuk-focus-text-colour: govuk-colour('black');
-
-$govuk-brand-colour: govuk-colour('blue');
-$govuk-error-colour: govuk-colour('red');
-$govuk-success-colour: govuk-colour('green');
-
-// $govuk-button-background-colour: govuk-colour("yellow");
-// $govuk-button-text-colour: govuk-colour("black");
+//== Sizing
+$govuk-page-width: 1100px;
