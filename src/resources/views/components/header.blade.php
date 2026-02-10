@@ -13,7 +13,7 @@
         <div class="govuk-header__logo">
             <a
                 href="{{ route($logoRoute) }}"
-                class="govuk-header__link govuk-header__link--homepage"
+                class="govuk-header__homepage-link"
             >
                 <img
                     src="{{ $logoImage }}"
