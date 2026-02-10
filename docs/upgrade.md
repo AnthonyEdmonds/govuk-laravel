@@ -6,6 +6,15 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 7.x from version 6.x
+
+1. Update `govuk-frontend` to `^6` in your `package.json`
+2. Remove the `$govuk-new-typography-scale` from your SCSS, if present
+3. Replace any tags with the following colours:
+   * light-blue => Pick another colour
+   * turquoise => teal
+   * pink => magenta
+
 ## Update to version 6.x from version 5.x
 
 1. PHP 8.3 is now the minimum required

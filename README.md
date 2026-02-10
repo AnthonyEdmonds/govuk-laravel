@@ -19,7 +19,7 @@ Published under the MIT licence.
 
 ## What's in the box?
 
-* [GOV.UK Design System](https://design-system.service.gov.uk) version 5.9
+* [GOV.UK Design System](https://design-system.service.gov.uk) version ^6
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
 * Laravel 12 Blade components of the GOV.UK Design System components
 * Laravel 12 Blade templates of the main GOV.UK Design System pages
