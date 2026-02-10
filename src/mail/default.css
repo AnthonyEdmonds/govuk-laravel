@@ -33,6 +33,15 @@ blockquote {
     text-align: left;
 }
 
+blockquote {
+    border-left: 10px solid #b1b4b6;
+    margin-left: 0;
+    padding-bottom: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
 ol,
 ul {
     padding-inline: 1rem;
