@@ -1,3 +1,8 @@
+// Header
+a.govuk-header__homepage-link:not(:focus) {
+    background-color: transparent;
+}
+
 // Grid columns
 div.govuk-grid-column-two-quarters {
     box-sizing: border-box;
