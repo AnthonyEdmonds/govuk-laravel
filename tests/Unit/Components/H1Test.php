@@ -11,8 +11,8 @@ class H1Test extends TestCase
     {
         $this->makeComponent([
             'id' => 'my-id',
-            'size' => 'l',
             'marginBottom' => 9,
+            'size' => 'l',
         ])
             ->first('h1')
             ->hasAttribute('id', 'my-id')
@@ -27,8 +27,8 @@ class H1Test extends TestCase
 
         return $this->assertView('govuk::components.h1', [
             'id' => $data['id'] ?? null,
-            'size' => $data['size'] ?? 'm',
             'marginBottom' => $data['marginBottom'] ?? null,
+            'size' => $data['size'] ?? 'm',
         ]);
     }
 }
