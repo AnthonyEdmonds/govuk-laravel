@@ -13,6 +13,6 @@
 @endphp
 
 <h1
-    class="{{ $classes }} "
+    class="{{ $classes }}"
     @if($id !== null) id="{{ $id }}" @endif
 >{{ $slot }}</h1>
