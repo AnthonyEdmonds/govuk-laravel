@@ -103,4 +103,9 @@ ul.govuk-list--square {
         background-color: govuk-functional-colour('success');
         border-color: govuk-functional-colour('success');
     }
+
+    &.app-\!-notification-banner-warning {
+        background-color: govuk-colour('yellow');
+        border-color: govuk-colour('yellow');
+    }
 }

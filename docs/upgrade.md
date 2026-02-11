@@ -26,6 +26,7 @@ Guidance is shown from newest to oldest.
          * info => `govuk-colour('blue')`
          * error => `govuk-functional-colour('error')`
          * success => `govuk-functional-colour('success')`
+         * warning => `govuk-colour('yellow')`
 7. Check for any other colour changes per the [GOV.UK Release Guide](https://github.com/alphagov/govuk-frontend/releases/tag/v6.0.0)
 
 ## Update to version 6.x from version 5.x
