@@ -4,6 +4,7 @@
     'data',
     'emptyMessage' => 'No results found',
     'id' => null,
+    'marginBottom' => null,
     'paginator' => null,
     'showCounter' => false,
 ])
@@ -59,13 +60,20 @@
     } else {
         $rows = (array)$data;        
     }
+
+     $classes = "govuk-table__caption govuk-table__caption--$captionSize";
+
+    if ($marginBottom !== null) {
+        $classes .= " govuk-!-margin-bottom-$marginBottom";
+    }
+
 @endphp
 
 <table
     class="govuk-table"
     @if($id !== null) id="{{ $id }}" @endif
 >
-    <caption class="govuk-table__caption govuk-table__caption--{{ $captionSize }}">
+    <caption class="{{ $classes }}">
         {{ $caption }}
     </caption>
 

@@ -87,9 +87,11 @@ class TableTest extends TestCase
     {
         $this->makeTable([
             'captionSize' => 'l',
+            'marginBottom' => 9,
         ])
             ->first('table > caption')
             ->hasClass('govuk-table__caption--l')
+            ->hasClass('govuk-\!-margin-bottom-9')
             ->contains('My caption');
     }
 
@@ -140,6 +142,7 @@ class TableTest extends TestCase
             'data' => $data['data'] ?? null,
             'emptyMessage' => $data['emptyMessage'] ?? 'No results found',
             'id' => $data['id'] ?? 'my-id',
+            'marginBottom' => $data['marginBottom'] ?? null,
             'paginator' => $data['paginator'] ?? null,
             'showCounter' => $data['showCounter'] ?? false,
         ]);
