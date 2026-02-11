@@ -1,9 +1,18 @@
 @props([
     'id' => null,
-    'size' => 'l'
+    'marginBottom' => null,
+    'size' => 'l',
 ])
 
+@php
+    $classes = "govuk-heading-$size";
+
+    if ($marginBottom !== null) {
+        $classes .= " govuk-!-margin-bottom-$marginBottom";
+    }
+@endphp
+
 <h1
-    class="govuk-heading-{{ $size }}"
+    class="{{ $classes }}"
     @if($id !== null) id="{{ $id }}" @endif
 >{{ $slot }}</h1>
