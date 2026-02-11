@@ -4,7 +4,7 @@ Create an informational banner of any colour, such as a completion or failure me
 
 ```html
 <x-govuk::notification-banner
-    colour="red"
+    colour="error"
     title="Danger"
 >
     <x-govuk::notification-banner.heading>
@@ -17,10 +17,10 @@ Create an informational banner of any colour, such as a completion or failure me
 
 ## Props
 
-| Name   | Type   | Default     | Description             |
-| ------ | ------ | ----------- |-------------------------|
-| colour | string | blue        | Any GOV.UK colour       |
-| title  | string | Information | The title of the banner |
+| Name   | Type   | Default     | Description                                             |
+| ------ | ------ |-------------|---------------------------------------------------------|
+| colour | string | null        | The colour of the banner: info, error, success, warning |
+| title  | string | Information | The title of the banner                                 |
 
 ## Slots
 

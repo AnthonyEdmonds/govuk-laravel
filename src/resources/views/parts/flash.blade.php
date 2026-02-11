@@ -3,22 +3,22 @@
         @php
             switch ($message['level']) {
                 case 'danger':
-                    $colour = 'red';
+                    $colour = 'error';
                     $title = 'Error';
                     break;
 
                 case 'success':
-                    $colour = 'green';
+                    $colour = 'success';
                     $title = 'Success';
                     break;
 
                 case 'warning':
-                    $colour = 'yellow';
+                    $colour = 'warning';
                     $title = 'Warning';
                     break;
 
                 default:
-                    $colour = 'blue';
+                    $colour = 'info';
                     $title = 'Information';
             }
         @endphp

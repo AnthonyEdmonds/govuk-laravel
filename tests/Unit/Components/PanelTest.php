@@ -7,27 +7,16 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class PanelTest extends TestCase
 {
-    public function testHasColour(): void
+    public function test(): void
     {
-        $this->makePanel()
-            ->first('div')
-            ->hasAttribute(
-                'class',
-                'govuk-panel govuk-panel--confirmation app-!-background-dark-blue',
-            );
-    }
+        $panel = $this->makePanel()
+            ->hasClass('govuk-panel')
+            ->hasClass('govuk-panel--confirmation');
 
-    public function testHasTitle(): void
-    {
-        $this->makePanel()
-            ->first('h1')
+        $panel->first('h1')
             ->contains('Application complete');
-    }
 
-    public function testRendersSlot(): void
-    {
-        $this->makePanel()
-            ->first('div div')
+        $panel->first('div')
             ->contains('Your reference number')
             ->has('strong')
             ->contains('HDJ2123F');
@@ -43,7 +32,6 @@ class PanelTest extends TestCase
         );
 
         return $this->assertView('govuk::components.panel', [
-            'colour' => 'dark-blue',
             'title' => 'Application complete',
         ]);
     }
