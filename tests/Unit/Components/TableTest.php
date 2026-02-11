@@ -86,8 +86,8 @@ class TableTest extends TestCase
     public function testHasCaption(): void
     {
         $this->makeTable([
+            'captionMarginBottom' => 9,
             'captionSize' => 'l',
-            'marginBottom' => 9,
         ])
             ->first('table > caption')
             ->hasClass('govuk-table__caption--l')
@@ -138,11 +138,11 @@ class TableTest extends TestCase
 
         return $this->assertView('govuk::components.table', [
             'caption' => $data['caption'] ?? 'My caption',
+            'captionMarginBottom' => $data['captionMarginBottom'] ?? null,
             'captionSize' => $data['captionSize'] ?? 'm',
             'data' => $data['data'] ?? null,
             'emptyMessage' => $data['emptyMessage'] ?? 'No results found',
             'id' => $data['id'] ?? 'my-id',
-            'marginBottom' => $data['marginBottom'] ?? null,
             'paginator' => $data['paginator'] ?? null,
             'showCounter' => $data['showCounter'] ?? false,
         ]);

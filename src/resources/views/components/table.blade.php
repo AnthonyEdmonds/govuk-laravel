@@ -1,10 +1,10 @@
 @props([
     'caption',
+    'captionMarginBottom' => null,
     'captionSize' => 'm',
     'data',
     'emptyMessage' => 'No results found',
     'id' => null,
-    'marginBottom' => null,
     'paginator' => null,
     'showCounter' => false,
 ])
@@ -61,10 +61,10 @@
         $rows = (array)$data;        
     }
 
-     $classes = "govuk-table__caption govuk-table__caption--$captionSize";
+     $captionClasses = "govuk-table__caption govuk-table__caption--$captionSize";
 
-    if ($marginBottom !== null) {
-        $classes .= " govuk-!-margin-bottom-$marginBottom";
+    if ($captionMarginBottom !== null) {
+        $captionClasses .= " govuk-!-margin-bottom-$captionMarginBottom";
     }
 
 @endphp
@@ -73,7 +73,7 @@
     class="govuk-table"
     @if($id !== null) id="{{ $id }}" @endif
 >
-    <caption class="{{ $classes }}">
+    <caption class="{{ $captionClasses }}">
         {{ $caption }}
     </caption>
 
