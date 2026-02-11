@@ -1,10 +1,18 @@
 @props([
-    'colour' => 'blue',
+    'colour' => null,
     'title' => 'Information',
 ])
 
+@php
+    $classes = 'govuk-notification-banner';
+
+    if ($colour !== null) {
+        $classes .= " app-!-notification-banner-$colour";
+    }
+@endphp
+
 <div
-    class="govuk-notification-banner app-!-background-{{ $colour }} app-!-border-{{ $colour }}"
+    class="{{ $classes }}"
     role="region"
     aria-labelledby="govuk-notification-banner-title"
     data-module="govuk-notification-banner"
@@ -13,12 +21,8 @@
         <h2
             class="govuk-notification-banner__title"
             id="govuk-notification-banner-title"
-        >
-            {{ $title }}
-        </h2>
+        >{{ $title }}</h2>
     </div>
 
-    <div class="govuk-notification-banner__content">
-        {{ $slot }}
-    </div>
+    <div class="govuk-notification-banner__content">{{ $slot }}</div>
 </div>

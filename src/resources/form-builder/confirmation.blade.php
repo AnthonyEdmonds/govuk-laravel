@@ -2,7 +2,6 @@
 
 @section('main')
     <x-govuk::panel
-        colour="green"
         :title="$title"
     >
         Your reference number is

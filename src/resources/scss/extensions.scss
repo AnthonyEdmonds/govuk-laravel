@@ -86,3 +86,21 @@ ul.govuk-list--square {
     list-style-type: square;
     padding-left: govuk-spacing(4);
 }
+
+// Notification banner
+.govuk-notification-banner {
+    &.app-\!-notification-banner-error {
+        background-color: govuk-functional-colour('error');
+        border-color: govuk-functional-colour('error');
+    }
+
+    &.app-\!-notification-banner-info {
+        background-color: govuk-colour('blue');
+        border-color: govuk-colour('blue');
+    }
+
+    &.app-\!-notification-banner-success {
+        background-color: govuk-functional-colour('success');
+        border-color: govuk-functional-colour('success');
+    }
+}

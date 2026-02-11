@@ -7,26 +7,18 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class NotificationBannerTest extends TestCase
 {
-    public function testHasTitle(): void
+    public function test(): void
     {
-        $this->makeComponent()
-            ->first('div > div > h2')
-            ->contains('My title');
-    }
+        $banner = $this->makeComponent();
 
-    public function testHasContent(): void
-    {
-        $this->makeComponent()
-            ->last('div > div')
-            ->contains('My content');
-    }
-
-    public function testHasColour(): void
-    {
-        $this->makeComponent()
+        $banner
             ->first('div')
-            ->hasClass('app-\!-background-blue')
-            ->hasClass('app-\!-border-blue');
+            ->hasClass('app-\!-notification-banner-info')
+            ->first('h2')
+            ->contains('My title');
+
+        $banner->last('div')
+            ->contains('My content');
     }
 
     protected function makeComponent(array $data = []): ViewAssertion
@@ -35,7 +27,7 @@ class NotificationBannerTest extends TestCase
         $this->setViewSlot('title', 'My title');
 
         return $this->assertView('govuk::components.notification-banner', [
-            'colour' => $data['colour'] ?? 'blue',
+            'colour' => $data['colour'] ?? 'info',
             'title' => $data['title'] ?? 'My title',
         ]);
     }

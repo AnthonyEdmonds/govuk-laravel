@@ -1,9 +1,8 @@
 @props([
-    'colour' => 'green',
     'title'
 ])
 
-<div class="govuk-panel govuk-panel--confirmation app-!-background-{{ $colour }}">
+<div class="govuk-panel govuk-panel--confirmation">
     <h1 class="govuk-panel__title">
         {{ $title }}
     </h1>

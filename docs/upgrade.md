@@ -18,7 +18,15 @@ Guidance is shown from newest to oldest.
    * pink => magenta
 4. Update your `govuk-variables.scss` with the new map format
 5. Republish or overwrite the `mail/default.css` file
-6. Check for any other colour changes per the [GOV.UK Release Guide](https://github.com/alphagov/govuk-frontend/releases/tag/v6.0.0)
+6. GOV.UK removed the ability to override colours
+   * This impacts the `notification-banner` and `panel` components
+      * Panel can no longer have its colour changed
+      * The colour property of `notification-banner` can be set to:
+         * null (default) => `govuk-functional-colour('brand')`
+         * info => `govuk-colour('blue')`
+         * error => `govuk-functional-colour('error')`
+         * success => `govuk-functional-colour('success')`
+7. Check for any other colour changes per the [GOV.UK Release Guide](https://github.com/alphagov/govuk-frontend/releases/tag/v6.0.0)
 
 ## Update to version 6.x from version 5.x
 
