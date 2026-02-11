@@ -5,6 +5,7 @@ Create a `table` element of varying forms, with conditional rendering and pagina
 ```html
 <x-govuk::table
     caption="Users"
+    captionMarginBottom="9"
     caption-size="m"
     :data="$rows"
     empty-message="No results were found"
@@ -40,15 +41,16 @@ Each table contains several `table-column` components, which define the layout o
 
 ## Props
 
-| Name          | Type                                                | Default          | Description                                    |
-|---------------|-----------------------------------------------------|------------------|------------------------------------------------|
-| caption       | string                                              | Required         | A description of the table contents            |
-| captionSize   | string                                              | m                | How large the caption should be                |
-| data          | array, ResourceCollection, JsonResource, Collection | Required         | An array of arrays                             |
-| emptyMessage  | string                                              | No results found | The message to show when the `data` is empty   |
-| id            | string                                              | null             | The ID of the table                            |
-| paginator     | array or AbstractPaginator                          | null             | The table pagination information               |
-| showCounter   | bool                                                | false            | Whether to show the pagination results counter |
+| Name                | Type                                                  | Default          | Description                                    |
+|---------------------|-------------------------------------------------------|------------------|------------------------------------------------|
+| caption             | string                                                | Required         | A description of the table contents            |
+| captionMarginBottom | integer                                               | null             | How large the bottom margin should be          |
+| captionSize         | string                                                | m                | How large the caption should be                |
+| data                | array, ResourceCollection, JsonResource, Collection   | Required         | An array of arrays                             |
+| emptyMessage        | string                                                | No results found | The message to show when the `data` is empty   |
+| id                  | string                                                | null             | The ID of the table                            |
+| paginator           | array or AbstractPaginator                            | null             | The table pagination information               |
+| showCounter         | bool                                                  | false            | Whether to show the pagination results counter |
 
 ### Data
 

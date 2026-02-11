@@ -1,5 +1,6 @@
 @props([
     'caption',
+    'captionMarginBottom' => null,
     'captionSize' => 'm',
     'data',
     'emptyMessage' => 'No results found',
@@ -59,13 +60,20 @@
     } else {
         $rows = (array)$data;        
     }
+
+     $captionClasses = "govuk-table__caption govuk-table__caption--$captionSize";
+
+    if ($captionMarginBottom !== null) {
+        $captionClasses .= " govuk-!-margin-bottom-$captionMarginBottom";
+    }
+
 @endphp
 
 <table
     class="govuk-table"
     @if($id !== null) id="{{ $id }}" @endif
 >
-    <caption class="govuk-table__caption govuk-table__caption--{{ $captionSize }}">
+    <caption class="{{ $captionClasses }}">
         {{ $caption }}
     </caption>
 
