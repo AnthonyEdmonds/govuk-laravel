@@ -5,7 +5,7 @@ Create a `table` element of varying forms, with conditional rendering and pagina
 ```html
 <x-govuk::table
     caption="Users"
-    CaptionMarginBottom="9"
+    captionMarginBottom="9"
     caption-size="m"
     :data="$rows"
     empty-message="No results were found"
