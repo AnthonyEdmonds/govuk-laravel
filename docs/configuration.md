@@ -8,17 +8,6 @@ You can publish the configuration file by following the [installation guide](ins
 
 ## Keys
 
-### Forms
-
-You can register forms built using the GOV.UK Laravel Form by listing them in the array.
-
-```php
-'forms' => [
-    MyForm::class,
-    MyOtherForm::class,
-],
-```
-
 ### Header
 
 If you are using the provided page layout, you can configure the header and navigation using these keys:
