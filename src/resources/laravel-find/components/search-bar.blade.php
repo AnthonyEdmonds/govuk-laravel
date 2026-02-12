@@ -56,9 +56,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <x-govuk::p>
-            <x-govuk::a href="{{ $finder->clearLink }}">
-                Clear all applied filters, searches, and sorts
-            </x-govuk::a>.
+            <x-govuk::a href="{{ $finder->clear->ink }}">{{ $finder->clear->label }}</x-govuk::a>.
         </x-govuk::p>
     </div>
 </div>
