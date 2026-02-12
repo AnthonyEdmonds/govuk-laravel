@@ -76,12 +76,6 @@ If you are using the [Laravel Form Builder](https://github.com/AnthonyEdmonds/la
 
 * /resources/views/vendor/form-builder
 
-### laravel-find
-
-If you are using the [Laravel Find](https://github.com/AnthonyEdmonds/laravel-find/) library, you can use this tag to publish GOV.UK styles views for it.
-
-* /resources/views/vendor/laravel-find
-
 ## Hook up the CSS, JS, and assets
 
 ### JS

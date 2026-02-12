@@ -65,10 +65,6 @@ class GovukServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../resources/form-builder' => resource_path('views/vendor/form-builder'),
         ], 'govuk-form-builder');
-
-        $this->publishes([
-            __DIR__ . '/../../resources/laravel-find' => resource_path('views/vendor/laravel-find'),
-        ], 'govuk-laravel-find');
     }
 
     protected function bootRules(): void
