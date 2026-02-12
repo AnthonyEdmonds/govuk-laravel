@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-quarter">
         <x-govuk::search-bar
-            action="{{ $finder->route }}"
+            action="{{ $finder->searchLink }}"
             label="Search"
             name="search"
             value="{{ old('search', $finder->currentSearch) }}"
