@@ -70,6 +70,18 @@ This command will publish theme files to make your Laravel Mailables use the GOV
 * /resources/views/vendor/mail/html/themes/default.css
 * /resources/views/vendor/mail/html/tag.blade.php
 
+### govuk-form-builder
+
+If you are using the [Laravel Form Builder](https://github.com/AnthonyEdmonds/laravel-form-builder) library, you can use this tag to publish GOV.UK styled views for it.
+
+* /resources/views/vendor/form-builder
+
+### laravel-find
+
+If you are using the [Laravel Find](https://github.com/AnthonyEdmonds/laravel-find/) library, you can use this tag to publish GOV.UK styles views for it.
+
+* /resources/views/vendor/laravel-find
+
 ## Hook up the CSS, JS, and assets
 
 ### JS
