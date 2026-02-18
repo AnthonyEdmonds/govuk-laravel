@@ -33,6 +33,6 @@ class MinWordsTest extends TestCase
 
     public function testFalseWhenBelowLimit(): void
     {
-        $this->assertRuleFails($this->rule, 'name', 'Two few', ':attribute must be 3 words or more.');
+        $this->assertRuleFails($this->rule, 'name', 'Two few', ':Attribute must be 3 words or more.');
     }
 }

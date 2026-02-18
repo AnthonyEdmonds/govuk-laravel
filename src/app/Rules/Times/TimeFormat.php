@@ -23,7 +23,7 @@ class TimeFormat implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if ($this->validateDateFormat($attribute, $value, self::TIME_FORMATS) === false) {
-            $fail(':attribute must be in 24 or 12 hour format. When using 12-hour format you must specify "am" or "pm".');
+            $fail(':Attribute must be in 24 or 12 hour format. When using 12-hour format you must specify "am" or "pm".');
         }
     }
 }

@@ -37,7 +37,7 @@ class AtOrAfterTimeTest extends TestCase
             $this->rule,
             'my-time',
             Carbon::now()->subMinute(),
-            ':attribute must be after ' . $this->now->format('H:i'),
+            ":Attribute must be after {$this->now->format('H:i')}.",
         );
     }
 

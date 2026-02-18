@@ -12,7 +12,7 @@ class OnDate extends DateRule
             return true;
         }
 
-        $this->message = ':attribute must be the same day as ' . $this->date->format($this->messageFormat);
+        $this->message = ":Attribute must be the same day as {$this->date->format($this->messageFormat)}.";
 
         return false;
     }

@@ -24,7 +24,7 @@ class MaxWords implements ValidationRule
         }
 
         if (substr_count($value, ' ') > $this->max - 1) {
-            $fail(":attribute must be {$this->max} words or fewer.");
+            $fail(":Attribute must be {$this->max} words or fewer.");
         }
     }
 }
