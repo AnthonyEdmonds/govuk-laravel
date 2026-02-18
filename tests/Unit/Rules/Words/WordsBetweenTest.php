@@ -18,7 +18,7 @@ class WordsBetweenTest extends TestCase
 
     public function testFalseWhenAboveLimit(): void
     {
-        $this->assertRuleFails($this->rule, 'name', 'Seven is just out of the question', ':Attribute must be between 3 and 6 words.');
+        $this->assertRuleFails($this->rule, 'name', 'Seven is just out of the question', ':Attribute must be between 3 and 6 words');
     }
 
     public function testTrueWhenAtMaxLimit(): void
@@ -43,6 +43,6 @@ class WordsBetweenTest extends TestCase
 
     public function testFalseWhenBelowLimit(): void
     {
-        $this->assertRuleFails($this->rule, 'name', 'Two low', ':Attribute must be between 3 and 6 words.');
+        $this->assertRuleFails($this->rule, 'name', 'Two low', ':Attribute must be between 3 and 6 words');
     }
 }

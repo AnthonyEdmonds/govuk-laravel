@@ -17,7 +17,7 @@ class AtTime implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (Carbon::parse($value)->setDate(2000, 1, 1)->isSameMinute($this->date) === false) {
-            $fail(":Attribute must be the same time as {$this->date->format('H:i')}.");
+            $fail(":Attribute must be the same time as {$this->date->format('H:i')}");
         }
     }
 }

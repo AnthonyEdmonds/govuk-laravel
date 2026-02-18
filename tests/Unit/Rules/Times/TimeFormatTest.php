@@ -53,6 +53,6 @@ class TimeFormatTest extends TestCase
 
     public function testFailsWhenInvalid(): void
     {
-        $this->assertRuleFails($this->rule, 'time', '25:61', ':Attribute must be in 24 or 12 hour format. When using 12-hour format you must specify "am" or "pm".');
+        $this->assertRuleFails($this->rule, 'time', '25:61', ':Attribute must be in 24 or 12 hour format. When using 12-hour format you must specify "am" or "pm"');
     }
 }

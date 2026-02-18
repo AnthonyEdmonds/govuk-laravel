@@ -33,6 +33,6 @@ class MaxWordsTest extends TestCase
 
     public function testFalseWhenAboveLimit(): void
     {
-        $this->assertRuleFails($this->rule, 'name', 'Four is too many', ':Attribute must be 3 words or fewer.');
+        $this->assertRuleFails($this->rule, 'name', 'Four is too many', ':Attribute must be 3 words or fewer');
     }
 }
