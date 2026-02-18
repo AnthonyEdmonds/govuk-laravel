@@ -77,9 +77,9 @@ return [
     'in_array' => ':Attribute must exist in :other',
     'in_array_keys' => ':Attribute must contain at least one of: :values',
     'integer' => ':Attribute must be a whole number',
-    'ip' => ':Attribute must be a valid IP address',
-    'ipv4' => ':Attribute must be a valid IPv4 address',
-    'ipv6' => ':Attribute must be a valid IPv6 address',
+    'ip' => ':Attribute must be a valid IP address, like 141.193.213.10',
+    'ipv4' => ':Attribute must be a valid IPv4 address, like 141.193.213.10',
+    'ipv6' => ':Attribute must be a valid IPv6 address, like 2607:f8b0:4004:c08::8a',
     'json' => ':Attribute must be a valid JSON string',
     'list' => ':Attribute must be a list',
     'lowercase' => ':Attribute must be lowercase',
@@ -95,7 +95,7 @@ return [
         'numeric' => ':Attribute must be at most :value',
         'string' => ':Attribute must have at most :value characters',
     ],
-    'mac_address' => ':Attribute must be a valid MAC address',
+    'mac_address' => ':Attribute must be a valid MAC address, like 12-34-56-78-9A-BC',
     'max' => [
         'array' => ':Attribute must have at most :max items',
         'file' => ':Attribute must be at most :maxkB',
@@ -163,9 +163,9 @@ return [
     'unique' => ':Attribute has already been taken',
     'uploaded' => ':Attribute failed to upload',
     'uppercase' => ':Attribute must be uppercase',
-    'url' => ':Attribute must be a valid link',
-    'ulid' => ':Attribute must be a valid ULID',
-    'uuid' => ':Attribute must be a valid UUID',
+    'url' => ':Attribute must be a valid link, like https://www.example.com',
+    'ulid' => ':Attribute must be a valid ULID, like 01ARZ3NDEKTSV4RRFFQ69G5FAV',
+    'uuid' => ':Attribute must be a valid UUID, like 8be4df61-93ca-11d2-aa0d-00e098032b8c',
 
     /*
     |--------------------------------------------------------------------------
