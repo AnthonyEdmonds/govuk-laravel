@@ -28,7 +28,7 @@ class AfterTimeTest extends TestCase
             $this->rule,
             'my-time',
             Carbon::now(),
-            ":Attribute must be after {$this->now->format('H:i')}",
+            ':Attribute must be after ' . $this->now->format('H:i'),
         );
     }
 
@@ -38,7 +38,7 @@ class AfterTimeTest extends TestCase
             $this->rule,
             'my-time',
             Carbon::now()->subMinute(),
-            ":Attribute must be after {$this->now->format('H:i')}",
+            ':Attribute must be after ' . $this->now->format('H:i'),
         );
     }
 
