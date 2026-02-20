@@ -35,6 +35,7 @@ class GovukServiceProvider extends ServiceProvider
     {
         $this->bootPublishes();
         $this->bootRules();
+        $this->bootTranslations();
         $this->bootViews();
     }
 
@@ -127,6 +128,11 @@ class GovukServiceProvider extends ServiceProvider
         Rule::macro('wordsBetween', function (int $min, int $max) {
             return new WordsBetween($min, $max);
         });
+    }
+
+    protected function bootTranslations(): void
+    {
+        $this->loadTranslationsFrom(__DIR__ . "/../../resources/lang");
     }
 
     protected function bootViews(): void

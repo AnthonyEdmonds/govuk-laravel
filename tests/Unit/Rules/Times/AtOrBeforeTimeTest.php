@@ -37,7 +37,7 @@ class AtOrBeforeTimeTest extends TestCase
             $this->rule,
             'my-time',
             Carbon::now()->addMinute(),
-            ':attribute must be before ' . $this->now->format('H:i'),
+            ':Attribute must be before ' . $this->now->format('H:i'),
         );
     }
 

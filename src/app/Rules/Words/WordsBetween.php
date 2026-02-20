@@ -29,7 +29,7 @@ class WordsBetween implements ValidationRule
             $count < $this->min - 1
             || $count > $this->max - 1
         ) {
-            $fail(":attribute must be between {$this->min} and {$this->max} words.");
+            $fail(":Attribute must be between $this->min and $this->max words");
         }
     }
 }

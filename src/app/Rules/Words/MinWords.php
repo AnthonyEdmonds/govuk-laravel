@@ -24,7 +24,7 @@ class MinWords implements ValidationRule
         }
 
         if (substr_count($value, ' ') < $this->min - 1) {
-            $fail(":attribute must be {$this->min} words or more.");
+            $fail(":Attribute must be $this->min words or more");
         }
     }
 }

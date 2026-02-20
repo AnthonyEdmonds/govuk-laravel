@@ -17,7 +17,7 @@ class BeforeTime implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (Carbon::parse($value)->setDate(2000, 1, 1)->isBefore($this->date) === false) {
-            $fail(':attribute must be before ' . $this->date->format('H:i'));
+            $fail(':Attribute must be before ' . $this->date->format('H:i'));
         }
     }
 }

@@ -37,7 +37,7 @@ class AtTimeTest extends TestCase
             $this->rule,
             'my-time',
             Carbon::now()->subMinute(),
-            ':attribute must be the same time as ' . $this->now->format('H:i'),
+            ':Attribute must be the same time as ' . $this->now->format('H:i'),
         );
     }
 
@@ -47,7 +47,7 @@ class AtTimeTest extends TestCase
             $this->rule,
             'my-time',
             Carbon::now()->addMinute(),
-            ':attribute must be the same time as ' . $this->now->format('H:i'),
+            ':Attribute must be the same time as ' . $this->now->format('H:i'),
         );
     }
 }
