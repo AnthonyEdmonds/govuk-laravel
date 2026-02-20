@@ -146,7 +146,7 @@ return [
         'string' => ':Attribute must be :size characters',
     ],
     'starts_with' => ':Attribute must start with one of: :values',
-    'string' => ':Attribute must be text',
+    'string' => ':Attribute cannot be blank',
     'timezone' => 'Enter a valid timezone',
     'unique' => ':Attribute has already been taken',
     'uploaded' => ':Attribute failed to upload',
