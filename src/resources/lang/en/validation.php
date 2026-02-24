@@ -62,7 +62,7 @@ return [
     'hex_color' => 'Enter a hexadecimal colour, like #7c878e',
     'image' => 'Select an image to upload',
     'in' => 'Enter one of: :values',
-    'in_array' => 'Select :attribute which is selected in :other',
+    'in_array' => 'Select :attribute from the :other list',
     'in_array_keys' => 'Select one or more options containing at least one of: :values',
     'integer' => 'Enter a whole number',
     'ip' => 'Enter an IP address, like 141.193.213.10',
