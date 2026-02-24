@@ -12,14 +12,14 @@ class AfterDateTest extends DateRuleTestCase
     {
         $this->setRuleData(2, 12, 2022);
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be after 02/12/2022');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute must be after 02/12/2022');
     }
 
     public function testFailsWhenBeforeDay(): void
     {
         $this->setRuleData(1, 12, 2022);
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be after 02/12/2022');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute must be after 02/12/2022');
     }
 
     public function testPassesWhenFutureDay(): void
@@ -33,14 +33,14 @@ class AfterDateTest extends DateRuleTestCase
     {
         $this->setRuleData(2, 12, 2022, '17:05');
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be after 02/12/2022 17:05');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute must be after 02/12/2022 17:05');
     }
 
     public function testFailsWhenBeforeMinute(): void
     {
         $this->setRuleData(2, 12, 2022, '17:04');
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be after 02/12/2022 17:05');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute must be after 02/12/2022 17:05');
     }
 
     public function testPassesWhenFutureMinute(): void

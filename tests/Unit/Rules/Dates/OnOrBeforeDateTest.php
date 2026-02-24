@@ -26,7 +26,7 @@ class OnOrBeforeDateTest extends DateRuleTestCase
     {
         $this->setRuleData(3, 12, 2022);
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be the same day or before 02/12/2022');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute must be the same day or before 02/12/2022');
     }
 
     public function testPassesWhenSameMinute(): void
@@ -47,6 +47,6 @@ class OnOrBeforeDateTest extends DateRuleTestCase
     {
         $this->setRuleData(2, 12, 2022, '17:06');
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute must be the same day or before 02/12/2022 17:05');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute must be the same day or before 02/12/2022 17:05');
     }
 }

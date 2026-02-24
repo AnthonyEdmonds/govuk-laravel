@@ -8,6 +8,7 @@
     action="{{ $action }}"
     enctype="multipart/form-data"
     method="{{ $method === 'get' ? 'get' : 'post' }}"
+    novalidate
 >
     @if($method !== 'get')
         @csrf

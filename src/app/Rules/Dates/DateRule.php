@@ -38,12 +38,12 @@ abstract class DateRule implements DataAwareRule, ValidationRule
         $year = $this->data["$attribute-year"];
 
         if ($this->validateDigitsBetween($attribute, $day, [1, 2]) === false) {
-            $fail(':attribute day must be a number');
+            $fail(':Attribute day must be a number');
             return;
         }
 
         if ($this->validateDigitsBetween($attribute, $month, [1, 2]) === false) {
-            $fail(':attribute month must be a number');
+            $fail(':Attribute month must be a number');
             return;
         }
 
@@ -51,17 +51,17 @@ abstract class DateRule implements DataAwareRule, ValidationRule
             $this->validateDigits($attribute, $year, [2]) === false
             && $this->validateDigits($attribute, $year, [4]) === false
         ) {
-            $fail(':attribute year must be either two or four digits long');
+            $fail(':Attribute year must be either two or four digits long');
             return;
         }
 
         if ($day < 1 || $day > 31) {
-            $fail(':attribute day must be between 1 and 31');
+            $fail(':Attribute day must be between 1 and 31');
             return;
         }
 
         if ($month < 1 || $month > 12) {
-            $fail(':attribute month must be between 1 and 12');
+            $fail(':Attribute month must be between 1 and 12');
             return;
         }
 
@@ -78,7 +78,7 @@ abstract class DateRule implements DataAwareRule, ValidationRule
         $date = GovukDate::parse($this->data, $attribute, $this->timeField);
 
         if ($date->isValid() === false) {
-            $fail(':attribute must be a real date');
+            $fail(':Attribute must be a real date');
 
             return;
         }

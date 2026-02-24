@@ -17,7 +17,7 @@ class AtOrAfterTime implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (Carbon::parse($value)->setDate(2000, 1, 1)->isAfter($this->date->subSecond()) === false) {
-            $fail(':attribute must be after ' . $this->date->format('H:i'));
+            $fail(':Attribute must be after ' . $this->date->format('H:i'));
         }
     }
 }

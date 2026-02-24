@@ -12,21 +12,21 @@ class DateFormatTest extends DateRuleTestCase
     {
         $this->setRuleData('', 12, 2022);
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute day must be a number');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute day must be a number');
     }
 
     public function testFailsWhenMissingMonth(): void
     {
         $this->setRuleData(2, '', 2022);
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute month must be a number');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute month must be a number');
     }
 
     public function testFailsWhenMissingYear(): void
     {
         $this->setRuleData(2, 12, '');
 
-        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':attribute year must be either two or four digits long');
+        $this->assertRuleFails($this->rule, self::DATE_FIELD, self::VALUE, ':Attribute year must be either two or four digits long');
     }
 
     public function testPasses(): void
