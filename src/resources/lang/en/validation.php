@@ -27,7 +27,7 @@ return [
     'current_password' => 'Enter your password',
     'date' => 'Enter a date, like 28/01/2026',
     'date_equals' => 'Enter :date',
-    'date_format' => 'Enter a date in the :format format',
+    'date_format' => 'Enter a date in :format format',
     'decimal' => 'Enter a number with :decimal decimal places',
     'declined' => 'Decline the :attribute',
     'declined_if' => 'Decline the :attribute when :other is :value',
