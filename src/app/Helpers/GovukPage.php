@@ -3,6 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Helpers;
 
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
+use Illuminate\Contracts\Support\Arrayable;
 
 class GovukPage
 {
@@ -68,7 +69,7 @@ class GovukPage
     }
 
     public static function question(
-        array $question,
+        array|Arrayable $question,
         string $submitButtonLabel,
         string $action,
         string $back,
@@ -78,6 +79,10 @@ class GovukPage
         ?string $otherButtonHref = null,
         string $submitButtonMode = Page::NORMAL_BUTTON,
     ): Page {
+        if (is_array($question) === false) {
+            $question = $question->toArray();
+        }
+
         $question['isTitle'] = true;
 
         return Page::create($question['label'])

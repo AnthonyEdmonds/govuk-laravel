@@ -5,6 +5,7 @@ namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use AnthonyEdmonds\GovukLaravel\Pages\Page;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Support\Collection;
 
 class QuestionTest extends TestCase
 {
@@ -72,6 +73,27 @@ class QuestionTest extends TestCase
         $this->assertEquals(
             'question',
             $this->page['template'],
+        );
+    }
+
+    public function testHandlesArrayable(): void
+    {
+        $this->page = GovukPage::question(
+            new Collection([
+                'label' => 'hello',
+            ]),
+            'for',
+            'toll',
+            'cheese',
+        )->toArray();
+
+        $this->assertEquals(
+            [
+                [
+                    'label' => 'hello',
+                ],
+            ],
+            $this->page['questions'],
         );
     }
 
