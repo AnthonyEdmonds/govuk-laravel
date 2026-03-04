@@ -91,6 +91,7 @@ class QuestionTest extends TestCase
             [
                 [
                     'label' => 'hello',
+                    'isTitle' => true,
                 ],
             ],
             $this->page['questions'],
