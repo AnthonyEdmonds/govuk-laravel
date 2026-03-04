@@ -41,7 +41,6 @@ Published under the MIT licence.
 * [Pages](docs/pages.md)
 
 ### Laravel & Classes
-* [Forms](docs/forms.md)
 * [Markdown](docs/markdown.md)
 * [Page](docs/classes/page.md)
 * [Rules](docs/rules.md)

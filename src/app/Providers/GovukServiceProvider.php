@@ -62,10 +62,6 @@ class GovukServiceProvider extends ServiceProvider
             __DIR__ . '/../../mail/default.css' => resource_path('views/vendor/mail/html/themes/default.css'),
             __DIR__ . '/../../mail/tag.blade.php' => resource_path('views/vendor/mail/html/themes/tag.blade.php'),
         ], 'govuk-mail');
-
-        $this->publishes([
-            __DIR__ . '/../../resources/form-builder' => resource_path('views/vendor/form-builder'),
-        ], 'govuk-form-builder');
     }
 
     protected function bootRules(): void
