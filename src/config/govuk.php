@@ -21,4 +21,6 @@ return [
         'laracasts_flash' => false,
         '404lab_impersonate' => false,
     ],
+
+    'support_link' => '',
 ];
