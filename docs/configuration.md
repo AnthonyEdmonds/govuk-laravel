@@ -20,7 +20,6 @@ If you are using the provided page layout, you can configure the header and navi
 | header.logo.height  | int    | The height of your service logo in pixels                     |
 | header.route        | string | The route name for your service logo hyperlink                |
 | header.service_name | string | The service name, defaulted to your `APP_NAME`                |
-| support_link        | string | The support link for your system                              |
 
 ### Home
 
