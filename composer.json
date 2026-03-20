@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "illuminate/support": "^12",
+        "illuminate/support": "^13",
         "nunomaduro/laravel-mojito": "^0"
     },
     "require-dev": {
@@ -23,8 +23,8 @@
         "larastan/larastan": "^3",
         "laravel/pint": "^1",
         "league/commonmark": "^2",
-        "networkrailbusinesssystems/badges": "^1",
-        "orchestra/testbench": "^10",
+        "networkrailbusinesssystems/badges": "dev-laravel-13",
+        "orchestra/testbench": "^11",
         "phpunit/phpunit": "^12"
     },
     "autoload": {
