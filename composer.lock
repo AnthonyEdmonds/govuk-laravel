@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0732e3073a2ff1f359163dfff0b4bc17",
+    "content-hash": "a2e90e6eb7db0bd8f80aca8dc367ab77",
     "packages": [
         {
             "name": "brick/math",
@@ -6978,16 +6978,16 @@
         },
         {
             "name": "networkrailbusinesssystems/badges",
-            "version": "dev-laravel-13",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Network-Rail-Business-Systems/badges.git",
-                "reference": "8f7040d6bd511d99a8d8c32c967011dfd25bcc78"
+                "reference": "4ede45770810072c21ff3ca749ecc6cf0add7ba9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Network-Rail-Business-Systems/badges/zipball/8f7040d6bd511d99a8d8c32c967011dfd25bcc78",
-                "reference": "8f7040d6bd511d99a8d8c32c967011dfd25bcc78",
+                "url": "https://api.github.com/repos/Network-Rail-Business-Systems/badges/zipball/4ede45770810072c21ff3ca749ecc6cf0add7ba9",
+                "reference": "4ede45770810072c21ff3ca749ecc6cf0add7ba9",
                 "shasum": ""
             },
             "type": "library",
@@ -7008,9 +7008,9 @@
             ],
             "description": "Generate readme badges during your pre-push",
             "support": {
-                "source": "https://github.com/Network-Rail-Business-Systems/badges/tree/laravel-13"
+                "source": "https://github.com/Network-Rail-Business-Systems/badges/tree/1.5.0"
             },
-            "time": "2026-03-20T14:11:24+00:00"
+            "time": "2026-03-23T08:53:02+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -8200,16 +8200,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.21",
+            "version": "v0.12.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "4821fab5b7cd8c49a673a9fd5754dc9162bb9e97"
+                "reference": "3be75d5b9244936dd4ac62ade2bfb004d13acf0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4821fab5b7cd8c49a673a9fd5754dc9162bb9e97",
-                "reference": "4821fab5b7cd8c49a673a9fd5754dc9162bb9e97",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/3be75d5b9244936dd4ac62ade2bfb004d13acf0f",
+                "reference": "3be75d5b9244936dd4ac62ade2bfb004d13acf0f",
                 "shasum": ""
             },
             "require": {
@@ -8273,9 +8273,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.21"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.22"
             },
-            "time": "2026-03-06T21:21:28+00:00"
+            "time": "2026-03-22T23:03:24+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -9355,9 +9355,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "networkrailbusinesssystems/badges": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
