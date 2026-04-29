@@ -39,7 +39,7 @@ return [
     'doesnt_contain' => 'Enter :attribute without any of: :values',
     'doesnt_end_with' => 'Enter :attribute not ending with one of: :values',
     'doesnt_start_with' => 'Enter :attribute not starting with one of: :values',
-    'email' => 'Enter an email address in the correct format, like name@examplecom',
+    'email' => 'Enter an email address in the correct format, like name@example.com',
     'encoding' => 'Enter :attribute encoded in :encoding',
     'ends_with' => 'Enter :attribute ending with one of: :values',
     'enum' => 'Select only allowed :attribute options',
