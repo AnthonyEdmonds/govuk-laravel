@@ -8,4 +8,6 @@
     <x-govuk::p>
         If you believe you should have access to this page, <x-govuk::a href="{{ route('sign-out') }}">sign out</x-govuk::a>, sign back in, and try again.
     </x-govuk::p>
+
+    @include('errors.support')
 @endsection

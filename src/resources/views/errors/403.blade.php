@@ -5,4 +5,6 @@
 
 @section('main')
     <x-govuk::p>The last action you attempted is not allowed.</x-govuk::p>
+
+    @include('errors.support')
 @endsection
