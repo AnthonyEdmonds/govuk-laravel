@@ -1,3 +1,5 @@
+@use 'govuk-frontend/dist/govuk';
+
 @media print {
     .govuk-template {
         background-color: #ffffff;
@@ -45,7 +47,7 @@
 
         section.govuk-service-navigation {
             a.govuk-service-navigation__link {
-                @include govuk-font-size($size: 36);
+                @include govuk.govuk-font-size($size: 36);
                 font-weight: bold;
             }
 

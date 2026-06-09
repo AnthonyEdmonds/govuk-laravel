@@ -19,11 +19,11 @@ Published under the MIT licence.
 
 ## What's in the box?
 
-* [GOV.UK Design System](https://design-system.service.gov.uk) version ^6
+* [GOV.UK Design System](https://design-system.service.gov.uk) version ^6.2
 * [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font
-* Laravel 12 Blade components of the GOV.UK Design System components
-* Laravel 12 Blade templates of the main GOV.UK Design System pages
-* Laravel 12 Rules for dates, times, and words
+* Laravel 13 Blade components of the GOV.UK Design System components
+* Laravel 13 Blade templates of the main GOV.UK Design System pages
+* Laravel 13 Rules for dates, times, and words
 * PHP 8.3 Classes to support the creation of standard and custom pages
 
 ## Documentation

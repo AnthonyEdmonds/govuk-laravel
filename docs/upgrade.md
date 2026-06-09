@@ -6,6 +6,30 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 8.x from version 7.x
+
+1. Replace uses of `@import` in your SCSS to `@use`
+2. Add the new `with` block to your GOV.UK `@use` in `app.scss`
+   ```scss
+   @use 'govuk-variables.scss';
+   @use 'govuk-frontend/dist/govuk' with (
+       $govuk-font-family: govuk-variables.$fonts,
+       $govuk-functional-colours: govuk-variables.$functional-colours,
+       $govuk-page-width: govuk-variables.$page-width,
+   );
+   ```
+3. Update the variables in `govuk-variables.scss` to their new names:
+
+   | Old name                  | New name            |
+   |---------------------------|---------------------|
+   | $govuk-font-family        | $fonts              |
+   | $govuk-functional-colours | $functional-colours |
+   | $govuk-page-width         | $page-width         | 
+4. Check your custom SCSS for any GOV.UK variables or helpers
+   * To modify those files, add `@use 'govuk-frontend/dist/govuk';` at the top of each file
+   * Then add the `govuk.` namespace to each usage, such as `govuk.$govuk-gutter-half`
+5. Check for any other changes per the [GOV.UK Release Guide](https://github.com/alphagov/govuk-frontend/releases/tag/v6.2.0)
+
 ## Update to version 7.x from version 6.x
 
 1. Update `govuk-frontend` to `^6` in your `package.json`
