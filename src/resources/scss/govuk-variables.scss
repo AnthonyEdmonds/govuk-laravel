@@ -1,9 +1,7 @@
 // Use this file to override the default style associations in the GOV.UK Design System
 
-@import 'govuk-frontend/dist/govuk/helpers/_colour.scss';
-
 //== GOV.UK Font
-$govuk-font-family: 'Inter', 'Helvetica', 'Arial', 'sans-serif';
+$font: 'Inter', 'Helvetica', 'Arial', 'sans-serif';
 
 //== GOV.UK Colour Association
 // These can be:
@@ -12,7 +10,7 @@ $govuk-font-family: 'Inter', 'Helvetica', 'Arial', 'sans-serif';
 // a named colour   secondary-text: (name: 'black'),
 // a variant        secondary-text: (name: 'black', variant: 'tint-95'),
 
-$govuk-functional-colours: (
+$functional-colours: (
     // body-background:,
     // border:,
     // brand:,
@@ -36,4 +34,4 @@ $govuk-functional-colours: (
 );
 
 //== Sizing
-$govuk-page-width: 1100px;
+$page-width: 1100px;

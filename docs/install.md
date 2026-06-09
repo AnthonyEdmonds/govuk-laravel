@@ -95,9 +95,13 @@ Import the GOV.UK Design System followed by the GOV.UK Laravel scss styles in `/
 If you want to override the default GOV.UK Design System colours and fonts, amend `/resources/scss/govuk-variables.scss` file and import it before both the GOV.UK Design System and GOV.UK Laravel.
 
 ```scss
-@import 'govuk-variables.scss';
-@import 'node_modules/govuk-frontend/dist/govuk/index.scss';
-@import '../../vendor/anthonyedmonds/govuk-laravel/src/resources/scss/govuk-laravel.scss';
+@use 'govuk-variables.scss';
+@use 'govuk-frontend/dist/govuk' with (
+    $govuk-font-family: govuk-variables.$fonts,
+    $govuk-functional-colours: govuk-variables.$functional-colours,
+    $govuk-page-width: govuk-variables.$page-width,
+);
+@use '../../vendor/anthonyedmonds/govuk-laravel/src/resources/scss/govuk-laravel.scss';
 ```
 
 ### Font
@@ -105,6 +109,6 @@ If you want to override the default GOV.UK Design System colours and fonts, amen
 Publish `govuk-font` to copy [Inter](https://fonts.google.com/specimen/Inter), a free close replacement for the official GOV.UK font, and import the related `fonts.scss` file in `/resources/scss/app.scss` before the GOV.UK Design System.
 
 ```scss
-@import 'inter.scss';
+@use 'inter.scss';
 // GOV.UK and other imports...
 ```

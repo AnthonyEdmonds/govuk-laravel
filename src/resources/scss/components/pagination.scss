@@ -1,8 +1,10 @@
+@use 'govuk-frontend/dist/govuk';
+
 nav.govuk-pagination {
     align-items: center;
 
     table.govuk-table + & {
-        margin-top: -(govuk-spacing(5));
+        margin-top: -(govuk.govuk-spacing(5));
     }
 
     & > div:first-of-type {
@@ -11,7 +13,7 @@ nav.govuk-pagination {
     
     & > div.govuk-pagination__details {
         flex-basis: 100%;
-        margin-top: govuk-spacing(2);
+        margin-top: govuk.govuk-spacing(2);
         
         & > p {
             margin: 0;

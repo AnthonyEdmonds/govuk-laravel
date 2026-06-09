@@ -1,3 +1,5 @@
+@use 'govuk-frontend/dist/govuk';
+
 // Header
 a.govuk-header__homepage-link:not(:focus) {
     background-color: transparent;
@@ -15,8 +17,8 @@ div.govuk-footer__navigation > div {
     margin-left: 0;
     margin-right: 0;
 
-    padding-left: $govuk-gutter-half;
-    padding-right: $govuk-gutter-half;
+    padding-left: govuk.$govuk-gutter-half;
+    padding-right: govuk.$govuk-gutter-half;
 }
 
 // Details inside lists
@@ -64,48 +66,48 @@ dl.govuk-summary-list {
 // List types
 ol.govuk-list--lower-alpha {
     list-style-type: lower-alpha;
-    padding-left: govuk-spacing(4);
+    padding-left: govuk.govuk-spacing(4);
 }
 
 ol.govuk-list--lower-roman {
     list-style-type: lower-roman;
-    padding-left: govuk-spacing(4);
+    padding-left: govuk.govuk-spacing(4);
 }
 
 ol.govuk-list--upper-roman {
     list-style-type: upper-roman;
-    padding-left: govuk-spacing(4);
+    padding-left: govuk.govuk-spacing(4);
 }
 
 ul.govuk-list--circle {
     list-style-type: circle;
-    padding-left: govuk-spacing(4);
+    padding-left: govuk.govuk-spacing(4);
 }
 
 ul.govuk-list--square {
     list-style-type: square;
-    padding-left: govuk-spacing(4);
+    padding-left: govuk.govuk-spacing(4);
 }
 
 // Notification banner
 .govuk-notification-banner {
     &.app-\!-notification-banner-error {
-        background-color: govuk-functional-colour('error');
-        border-color: govuk-functional-colour('error');
+        background-color: govuk.govuk-functional-colour('error');
+        border-color: govuk.govuk-functional-colour('error');
     }
 
     &.app-\!-notification-banner-info {
-        background-color: govuk-colour('blue');
-        border-color: govuk-colour('blue');
+        background-color: govuk.govuk-colour('blue');
+        border-color: govuk.govuk-colour('blue');
     }
 
     &.app-\!-notification-banner-success {
-        background-color: govuk-functional-colour('success');
-        border-color: govuk-functional-colour('success');
+        background-color: govuk.govuk-functional-colour('success');
+        border-color: govuk.govuk-functional-colour('success');
     }
 
     &.app-\!-notification-banner-warning {
-        background-color: govuk-colour('yellow');
-        border-color: govuk-colour('yellow');
+        background-color: govuk.govuk-colour('yellow');
+        border-color: govuk.govuk-colour('yellow');
     }
 }

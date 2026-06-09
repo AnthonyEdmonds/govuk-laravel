@@ -51,28 +51,11 @@ class CellTest extends TestCase
             ->hasAttribute('class', 'govuk-table__cell');
     }
 
-    public function testHasColourWhenSet(): void
-    {
-        $this->makeCell([
-            'colour' => 'blue',
-        ])
-            ->first('td')
-            ->hasClass('app-\!-font-blue');
-    }
-
-    public function testDoesntWhenColourNotSet(): void
-    {
-        $this->makeCell()
-            ->first('td')
-            ->hasAttribute('class', 'govuk-table__cell');
-    }
-
     protected function makeCell(array $data = []): ViewAssertion
     {
         $this->setViewSlot('slot', 'My slot content');
 
         return $this->assertView('govuk::components.table.cell', [
-            'colour' => $data['colour'] ?? null,
             'colspan' => $data['colspan'] ?? 1,
             'heading' => $data['heading'] ?? false,
             'numeric' => $data['numeric'] ?? false,

@@ -1,10 +1,10 @@
 @charset "utf-8";
 
 // GOV.UK Styles
-@import 'extensions.scss';
-@import 'govuk-print.scss';
+@use 'extensions.scss';
+@use 'govuk-print.scss';
 
 // Custom Components
-@import 'components/button.scss';
-@import 'components/pagination.scss';
-@import 'components/search-bar.scss';
+@use 'components/button.scss';
+@use 'components/pagination.scss';
+@use 'components/search-bar.scss';
