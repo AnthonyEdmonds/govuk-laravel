@@ -1,5 +1,4 @@
 @props([
-    'colour' => null,
     'colspan' => 1,
     'heading' => false,
     'numeric' => false,
@@ -13,10 +12,6 @@
     
     if ($numeric == true) {
         $cellClasses .= " govuk-table__{$type}--numeric";
-    }
-
-    if ($colour !== null) {
-        $cellClasses .= " app-!-font-{$colour}";
     }
 @endphp
 

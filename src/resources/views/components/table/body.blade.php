@@ -7,10 +7,7 @@
 <tbody class="govuk-table__body">
     @empty($rows)
         <x-govuk::table.row>
-            <x-govuk::table.cell
-                colour="dark-grey"
-                colspan="{{ count($columns) }}"
-            >
+            <x-govuk::table.cell colspan="{{ count($columns) }}">
                 {!! $emptyMessage !!}
             </x-govuk::table.cell>
         </x-govuk::table.row>
