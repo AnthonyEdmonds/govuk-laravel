@@ -11,8 +11,13 @@ use PHPUnit\Framework\Attributes\DataProvider;
 class ParseTimeTest extends TestCase
 {
     #[DataProvider('formats')]
-    public function test(FormRequest|array $data, Carbon $expectation): void
-    {
+    public function test(
+        FormRequest|array $data,
+        Carbon $expectation,
+        Carbon $now,
+    ): void {
+        Carbon::setTestNow($now);
+
         $date = GovukDate::parseTime($data, 'time');
 
         $this->assertTrue(
@@ -27,19 +32,29 @@ class ParseTimeTest extends TestCase
                 'data' => [
                     'time' => '15:10',
                 ],
-                'expectation' => Carbon::now()->setTime(15, 10),
+                'now' => Carbon::create(2026, 3, 28, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 28, 15, 10, timezone: 'UTC'),
             ],
             'short_array' => [
                 'data' => [
                     'time' => '3:10pm',
                 ],
-                'expectation' => Carbon::now()->setTime(15, 10),
+                'now' => Carbon::create(2026, 3, 28, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 28, 15, 10, timezone: 'UTC'),
             ],
             'form_request' => [
                 'data' => new FormRequest([
                     'time' => '1am',
                 ]),
-                'expectation' => Carbon::now()->setTime(1, 0),
+                'now' => Carbon::create(2026, 3, 28, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 28, 1, timezone: 'UTC'),
+            ],
+            'timezone' => [
+                'data' => [
+                    'time' => '01:00',
+                ],
+                'now' => Carbon::create(2026, 3, 30, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 30, timezone: 'UTC'),
             ],
         ];
     }

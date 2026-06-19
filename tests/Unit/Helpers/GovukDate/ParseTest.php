@@ -11,8 +11,14 @@ use PHPUnit\Framework\Attributes\DataProvider;
 class ParseTest extends TestCase
 {
     #[DataProvider('formats')]
-    public function test(FormRequest|array $data, Carbon $expectation, ?string $timeKey): void
-    {
+    public function test(
+        FormRequest|array $data,
+        Carbon $expectation,
+        ?string $timeKey,
+        Carbon $now,
+    ): void {
+        Carbon::setTestNow($now);
+
         $date = GovukDate::parse($data, 'date', $timeKey);
 
         $this->assertTrue(
@@ -25,31 +31,56 @@ class ParseTest extends TestCase
         return [
             'long_array' => [
                 'data' => [
-                    'date-day' => 15,
-                    'date-month' => 10,
-                    'date-year' => 2024,
+                    'date-day' => 28,
+                    'date-month' => 3,
+                    'date-year' => 2026,
                 ],
-                'expectation' => Carbon::create(2024, 10, 15),
+                'now' => Carbon::create(2026, 3, 28, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 28, timezone: 'UTC'),
                 'timeKey' => null,
             ],
             'short_array' => [
                 'data' => [
-                    'date-day' => 5,
-                    'date-month' => 9,
-                    'date-year' => 24,
+                    'date-day' => 28,
+                    'date-month' => 3,
+                    'date-year' => 26,
                     'time' => '3:10pm',
                 ],
-                'expectation' => Carbon::create(2024, 9, 5, 15, 10),
+                'now' => Carbon::create(2026, 3, 28, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 28, 15, 10, timezone: 'UTC'),
                 'timeKey' => 'time',
             ],
             'form_request' => [
                 'data' => new FormRequest([
-                    'date-day' => 5,
-                    'date-month' => 9,
-                    'date-year' => 24,
+                    'date-day' => 28,
+                    'date-month' => 3,
+                    'date-year' => 26,
                     'time' => '1am',
                 ]),
-                'expectation' => Carbon::create(2024, 9, 5, 1),
+                'now' => Carbon::create(2026, 3, 28, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 28, 1, timezone: 'UTC'),
+                'timeKey' => 'time',
+            ],
+            'timezone' => [
+                'data' => [
+                    'date-day' => 30,
+                    'date-month' => 3,
+                    'date-year' => 2026,
+                    'time' => '01:00',
+                ],
+                'now' => Carbon::create(2026, 3, 30, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 30, timezone: 'UTC'),
+                'timeKey' => 'time',
+            ],
+            'date-rolls-back' => [
+                'data' => [
+                    'date-day' => 30,
+                    'date-month' => 3,
+                    'date-year' => 2026,
+                    'time' => '00:00',
+                ],
+                'now' => Carbon::create(2026, 3, 30, timezone: 'Europe/London'),
+                'expectation' => Carbon::create(2026, 3, 29, 23, timezone: 'UTC'),
                 'timeKey' => 'time',
             ],
         ];
