@@ -60,6 +60,10 @@ class StandardiseTimeTest extends TestCase
                 'time' => '5pm',
                 'expected' => '17:00',
             ],
+            [
+                'time' => '05.32pm',
+                'expected' => '17:32',
+            ],
         ];
     }
 }
