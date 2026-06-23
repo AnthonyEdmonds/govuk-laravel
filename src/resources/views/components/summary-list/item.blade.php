@@ -7,8 +7,12 @@
     'value',
 ])
 
+@use(Illuminate\Contracts\Support\Arrayable)
+
 @php
-    if (is_array($value) !== true) {
+    if ($value instanceof Arrayable === true) {
+        $value = $value->toArray();
+    } elseif (is_array($value) !== true) {
         $value = [$value];
     }
 
@@ -41,7 +45,7 @@
             <ul class="govuk-summary-list__actions-list">
                 @if($status !== null)
                     <li class="govuk-summary-list__actions-list-item">
-                        <x-govuk::tag :colour="$colour" :label="$status" />
+                        <x-govuk::tag :colour="$colour" :label="$status"/>
                     </li>
                 @endif
 
@@ -49,18 +53,18 @@
                     <li class="govuk-summary-list__actions-list-item">
                         @if(is_array($action) === true)
                             <x-govuk::summary-list.action
-                                :asButton="$action['asButton'] ?? false"
-                                :hidden="$action['hidden'] ?? null"
-                                :label="$action['label'] ?? $label"
-                                :method="$action['method'] ?? 'post'"
-                                :url="$action['url']"
+                                    :asButton="$action['asButton'] ?? false"
+                                    :hidden="$action['hidden'] ?? null"
+                                    :label="$action['label'] ?? $label"
+                                    :method="$action['method'] ?? 'post'"
+                                    :url="$action['url']"
                             />
                         @else
                             <x-govuk::summary-list.action
-                                :label="$label"
-                                :url="$action"
+                                    :label="$label"
+                                    :url="$action"
                             />
-                       @endif
+                        @endif
                     </li>
                 @endforeach
             </ul>
