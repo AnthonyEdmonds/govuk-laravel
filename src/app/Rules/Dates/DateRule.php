@@ -75,7 +75,9 @@ abstract class DateRule implements DataAwareRule, ValidationRule
             }
         }
 
-        $date = GovukDate::parse($this->data, $attribute, $this->timeField);
+        $date = $this->timeField !== null
+            ? GovukDate::parseDateTime($this->data, $attribute, $this->timeField)
+            : GovukDate::parseDate($this->data, $attribute);
 
         if ($date->isValid() === false) {
             $fail(':Attribute must be a real date');
