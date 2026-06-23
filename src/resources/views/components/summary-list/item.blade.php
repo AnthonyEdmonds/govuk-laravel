@@ -53,16 +53,16 @@
                     <li class="govuk-summary-list__actions-list-item">
                         @if(is_array($action) === true)
                             <x-govuk::summary-list.action
-                                    :asButton="$action['asButton'] ?? false"
-                                    :hidden="$action['hidden'] ?? null"
-                                    :label="$action['label'] ?? $label"
-                                    :method="$action['method'] ?? 'post'"
-                                    :url="$action['url']"
+                                :asButton="$action['asButton'] ?? false"
+                                :hidden="$action['hidden'] ?? null"
+                                :label="$action['label'] ?? $label"
+                                :method="$action['method'] ?? 'post'"
+                                :url="$action['url']"
                             />
                         @else
                             <x-govuk::summary-list.action
-                                    :label="$label"
-                                    :url="$action"
+                                :label="$label"
+                                :url="$action"
                             />
                         @endif
                     </li>
