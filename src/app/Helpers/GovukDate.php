@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use DateException;
 use Deprecated;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class GovukDate
 {
@@ -94,9 +95,10 @@ class GovukDate
 
     public static function standardiseTime(FormRequest|array $request, string $key): string
     {
-        $time = $request[$key];
-        $time = str_replace(' ', '', $time);
-        $time = strtolower($time);
+        $time = Str::of($request[$key])
+            ->replace(' ', '')
+            ->replace('.', ':')
+            ->lower();
 
         foreach (self::TIME_FORMATS as $format) {
             if (Carbon::canBeCreatedFromFormat($time, $format) === true) {
