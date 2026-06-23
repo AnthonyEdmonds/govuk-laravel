@@ -19,7 +19,7 @@ Create a checkboxes input, with almost identical options to the [radios](radios.
 The only key differences between `checkboxes` and `radios` are:
 
 * You may pass the `exclusive` key on an option in the `options` prop
-* You may pass an array of values to the `value` prop
+* You may pass a single value, an array of values, or an `Arrayable` object to the `value` prop
 * You cannot use the `is-inline` prop
 
 ## Props
