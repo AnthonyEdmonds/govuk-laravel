@@ -3,6 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Support\Collection;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class CheckboxesTest extends TestCase
@@ -160,7 +161,19 @@ class CheckboxesTest extends TestCase
             ->contains('My label');
     }
 
-    protected function makeSimpleCheckboxes(): ViewAssertion
+    public function testHandlesCollection(): void
+    {
+        $values = new Collection([
+            'value-two',
+        ]);
+
+        $this
+            ->makeSimpleCheckboxes($values)
+            ->first('#my-id_2')
+            ->hasAttribute('checked', 'checked');
+    }
+
+    protected function makeSimpleCheckboxes(Collection|array|string $value = 'value-two'): ViewAssertion
     {
         $this->setViewAttributes();
         $this->setViewErrors();
@@ -177,7 +190,7 @@ class CheckboxesTest extends TestCase
                 'value-two' => 'Option two',
                 'value-three' => 'Option three',
             ],
-            'value' => 'value-two',
+            'value' => $value,
         ]);
     }
 
