@@ -7,8 +7,12 @@
     'value',
 ])
 
+@use(Illuminate\Contracts\Support\Arrayable)
+
 @php
-    if (is_array($value) !== true) {
+    if ($value instanceof Arrayable === true) {
+        $value = $value->toArray();
+    } elseif (is_array($value) !== true) {
         $value = [$value];
     }
 
@@ -41,7 +45,7 @@
             <ul class="govuk-summary-list__actions-list">
                 @if($status !== null)
                     <li class="govuk-summary-list__actions-list-item">
-                        <x-govuk::tag :colour="$colour" :label="$status" />
+                        <x-govuk::tag :colour="$colour" :label="$status"/>
                     </li>
                 @endif
 
@@ -60,7 +64,7 @@
                                 :label="$label"
                                 :url="$action"
                             />
-                       @endif
+                        @endif
                     </li>
                 @endforeach
             </ul>
