@@ -3,6 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components\SummaryList;
 
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use Illuminate\Support\Collection;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class ItemTest extends TestCase
@@ -61,6 +62,21 @@ class ItemTest extends TestCase
             ->first('a')
             ->hasAttribute('href', 'link-two')
             ->contains('Action two');
+    }
+
+    public function testHandlesCollection(): void
+    {
+        $list = $this->makeItem([
+            'value' => new Collection([
+                'First',
+                'Second',
+            ]),
+        ]);
+
+        $values = $list->first('dd');
+
+        $values->first('p')->contains('First');
+        $values->last('p')->contains('Second');
     }
 
     protected function makeItem(array $data = []): ViewAssertion

@@ -37,13 +37,13 @@ The summary list can be provided either as a keyed array, where the index key is
 ]
 ```
 
-| Name     | Type          | Default  | Description                                           |
-|----------|---------------|----------|-------------------------------------------------------|
-| actions  | array         | []       | Any actions the user can take in relation to the item |
-| colour   | string        | null     | The colour of the status, when provided               |
-| label    | string        | null     | A heading for the item, such as "Name"                |
-| status   | string        | null     | The status of the item                                |
-| value    | string\|array | Required | The value of the item, or an array of values          |
+| Name     | Type                     | Default  | Description                                                       |
+|----------|--------------------------|----------|-------------------------------------------------------------------|
+| actions  | array                    | []       | Any actions the user can take in relation to the item             |
+| colour   | string                   | null     | The colour of the status, when provided                           |
+| label    | string                   | null     | A heading for the item, such as "Name"                            |
+| status   | string                   | null     | The status of the item                                            |
+| value    | string\|array\|Arrayable | Required | The value of the item, an array of values, or an Arrayable object |
 
 If you want to provide multiple values, pass the values as an array:
 
