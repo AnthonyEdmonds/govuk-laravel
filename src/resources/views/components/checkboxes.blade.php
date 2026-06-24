@@ -48,10 +48,10 @@
 
 <x-govuk::form-group :name="$name">
     <x-govuk::fieldset
-            :id="$id"
-            :is-title="$isTitle"
-            :label="$label"
-            :label-size="$labelSize"
+        :id="$id"
+        :is-title="$isTitle"
+        :label="$label"
+        :label-size="$labelSize"
     >
         <x-govuk::form-group.hint :id="$id" :hint="$hint"/>
         <x-govuk::form-group.error :id="$id" :name="$name"/>
@@ -59,11 +59,11 @@
         <div class="{{ $inputClasses }}" data-module="govuk-checkboxes">
             @foreach($options as $optionValue => $option)
                 <x-govuk::input.checkbox
-                        id="{{ $id }}_{{ $loop->iteration }}"
-                        name="{{$name}}[]"
-                        :option="$option"
-                        :selections="$value"
-                        :value="$optionValue"
+                    id="{{ $id }}_{{ $loop->iteration }}"
+                    name="{{$name}}[]"
+                    :option="$option"
+                    :selections="$value"
+                    :value="$optionValue"
                 />
             @endforeach
         </div>
