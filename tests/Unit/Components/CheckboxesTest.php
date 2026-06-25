@@ -183,13 +183,13 @@ class CheckboxesTest extends TestCase
             ->first('div .govuk-checkboxes__item')
             ->contains('1')
             ->first('input')
-            ->hasAttribute('value', 'One');
+            ->hasAttribute('value', '1');
 
         $checkboxes
             ->last('div .govuk-checkboxes__item')
             ->contains('3')
             ->first('input')
-            ->hasAttribute('value', 'Three');
+            ->hasAttribute('value', '3');
     }
 
     protected function makeSimpleCheckboxes(

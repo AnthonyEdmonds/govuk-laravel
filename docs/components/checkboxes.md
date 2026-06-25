@@ -32,7 +32,7 @@ As per `radios`, except:
 
 ### Options
 
-You may pass a `BackedEnum` to the `options` prop, which will be turned into a simple `value => label` pair, with the `name` of the `Enum` as the value.
+You may pass a `BackedEnum` to the `options` prop, which will be turned into a simple `value => label` pair, with the `value` of the `Enum` as both parts.
 
 When `exclusive` is applied to a checkbox, it will de-select any other checkboxes. This is useful for a "none of the above" style option.
 

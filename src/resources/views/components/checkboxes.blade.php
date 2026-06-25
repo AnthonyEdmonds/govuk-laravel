@@ -32,7 +32,7 @@
         $list = [];
 
         foreach ($options as $option) {
-            $list[$option->name] = $option->value;
+            $list[$option->value] = $option->value;
         }
 
         $options = $list;
