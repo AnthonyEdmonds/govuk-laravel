@@ -15,11 +15,27 @@
 
 @php
     $hasConditionalInputs = false;
+    $isEnum = false;
+
     foreach ($options as $option) {
-        if (isset($option['inputs']) === true) {
+        if ($option instanceof BackedEnum) {
+            $isEnum = true;
+            break;
+
+        } elseif (isset($option['inputs']) === true) {
             $hasConditionalInputs = true;
             break;
         }
+    }
+
+    if ($isEnum === true) {
+        $list = [];
+
+        foreach ($options as $option) {
+            $list[$option->name] = $option->value;
+        }
+
+        $options = $list;
     }
 
     $ariaDescription = '';
