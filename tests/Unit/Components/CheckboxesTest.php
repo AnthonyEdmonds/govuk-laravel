@@ -2,7 +2,9 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
+use AnthonyEdmonds\GovukLaravel\Tests\Models\MyEnum;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
+use BackedEnum;
 use Illuminate\Support\Collection;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
@@ -173,8 +175,31 @@ class CheckboxesTest extends TestCase
             ->hasAttribute('checked', 'checked');
     }
 
-    protected function makeSimpleCheckboxes(Collection|array|string $value = 'value-two'): ViewAssertion
+    public function testHandlesEnum(): void
     {
+        $checkboxes = $this->makeSimpleCheckboxes(options: MyEnum::cases());
+
+        $checkboxes
+            ->first('div .govuk-checkboxes__item')
+            ->contains('1')
+            ->first('input')
+            ->hasAttribute('value', '1');
+
+        $checkboxes
+            ->last('div .govuk-checkboxes__item')
+            ->contains('3')
+            ->first('input')
+            ->hasAttribute('value', '3');
+    }
+
+    protected function makeSimpleCheckboxes(
+        Collection|array|string $value = 'value-two',
+        BackedEnum|array $options = [
+            'value-one' => 'Option one',
+            'value-two' => 'Option two',
+            'value-three' => 'Option three',
+        ],
+    ): ViewAssertion {
         $this->setViewAttributes();
         $this->setViewErrors();
 
@@ -185,11 +210,7 @@ class CheckboxesTest extends TestCase
             'label' => 'My label',
             'labelSize' => 'xl',
             'name' => 'my-name',
-            'options' => [
-                'value-one' => 'Option one',
-                'value-two' => 'Option two',
-                'value-three' => 'Option three',
-            ],
+            'options' => $options,
             'value' => $value,
         ]);
     }
