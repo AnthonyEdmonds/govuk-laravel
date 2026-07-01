@@ -51,6 +51,11 @@ class TimeFormatTest extends TestCase
         $this->assertRulePasses($this->rule, 'time', '5pm');
     }
 
+    public function testPassesWhenDotHourFormat(): void
+    {
+        $this->assertRulePasses($this->rule, 'time', '17.35');
+    }
+
     public function testFailsWhenInvalid(): void
     {
         $this->assertRuleFails($this->rule, 'time', '25:61', ':Attribute must be in 24 or 12 hour format. When using 12-hour format you must specify "am" or "pm"');
