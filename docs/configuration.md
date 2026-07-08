@@ -34,6 +34,6 @@ GOV.UK Laravel comes by default with parts for the following libraries:
 
 You can enable them by setting the corresponding config value to `true`.
 
-#### Favicons
+### Favicons
 
-The `favicons` key allows you to provide the name of the blade which contains your favicons.
+The `favicons` key allows you to provide the name of the blade which contains your list of favicons.
