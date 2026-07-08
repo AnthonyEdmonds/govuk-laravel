@@ -10,12 +10,12 @@ class GovukComponent
         string $label,
         bool $numeric,
         ?string $show,
-        string $slotHtml,
+        ?string $slotHtml,
     ): string {
         return json_encode([
             'heading' => $heading === true,
             'hide' => strlen($hide) > 1 ? $hide : null,
-            'html' => $slotHtml,
+            'html' => $slotHtml ?? '',
             'label' => $label,
             'numeric' => $numeric === true,
             'show' => strlen($show) > 1 ? $show : null,
