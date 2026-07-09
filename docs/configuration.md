@@ -33,3 +33,7 @@ GOV.UK Laravel comes by default with parts for the following libraries:
 * [laracasts\flash](https://github.com/laracasts/flash)
 
 You can enable them by setting the corresponding config value to `true`.
+
+### Favicons
+
+The `favicons` key allows you to provide the name of the blade which contains your list of favicons.
