@@ -12,14 +12,14 @@ You can publish the configuration file by following the [installation guide](ins
 
 If you are using the provided page layout, you can configure the header and navigation using these keys:
 
-| Key                 | Type   | Usage                                                                       |
-|---------------------|--------|-----------------------------------------------------------------------------|
-| header.links        | array  | See [service-navigation](../components/service-navigation.md)               |
-| header.logo.alt     | string | The text description if your service logo cannot be found                   |
-| header.logo.asset   | string | The name of a route, and asset path, or a literal path to your service logo |
-| header.logo.height  | int    | The height of your service logo in pixels                                   |
-| header.route        | string | The route name for your service logo hyperlink                              |
-| header.service_name | string | The service name, defaulted to your `APP_NAME`                              |
+| Key                 | Type   | Usage                                                                      |
+|---------------------|--------|----------------------------------------------------------------------------|
+| header.links        | array  | See [service-navigation](../components/service-navigation.md)              |
+| header.logo.alt     | string | The text description if your service logo cannot be found                  |
+| header.logo.asset   | string | The name of a route, an asset path, or a literal path to your service logo |
+| header.logo.height  | int    | The height of your service logo in pixels                                  |
+| header.route        | string | The route name for your service logo hyperlink                             |
+| header.service_name | string | The service name, defaulted to your `APP_NAME`                             |
 
 ### Home
 
