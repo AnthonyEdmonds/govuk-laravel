@@ -6,6 +6,14 @@ Each section should be followed in sequence, starting with your current version 
 
 Guidance is shown from newest to oldest.
 
+## Update to version 9.x from version 8.x
+
+1. Update the `govuk` config file
+   * The logo asset has been changed to accept any route instead of only assets
+   * Change the `header.logo.asset` key to `header.logo.route`
+   * Set a `route()`, `asset()`, or other complete path as the value
+   * `'asset' => 'images/asset_name.jpg'` becomes `'route' => asset('images/asset_name.jpg')`
+
 ## Update to version 8.x from version 7.x
 
 1. Replace uses of `@import` in your SCSS to `@use`

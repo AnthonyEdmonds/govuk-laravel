@@ -1,7 +1,7 @@
 <x-govuk::header
     logo-alt="{{ config('govuk.header.logo.alt') }}"
     logo-height="{{ config('govuk.header.logo.height') }}"
-    logo-image="{{ asset(config('govuk.header.logo.asset')) }}"
+    logo-image="{{ config('govuk.header.logo.route') }}"
     logo-route="{{ config('govuk.header.route') }}"
 />
 
