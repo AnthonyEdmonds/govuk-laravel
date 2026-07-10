@@ -3,15 +3,12 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests;
 
 use AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider;
-use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestForm;
-use AnthonyEdmonds\GovukLaravel\Tests\Forms\TestFormAlt;
 use AnthonyEdmonds\GovukLaravel\Tests\Models\User;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\AssertsValidationRules;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\FakesRoute;
 use AnthonyEdmonds\GovukLaravel\Tests\Traits\SetsViewVariables;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
 use InvalidArgumentException;
 use NunoMaduro\LaravelMojito\InteractsWithViews;
 use Orchestra\Testbench\TestCase as BaseTestCase;
@@ -48,18 +45,6 @@ abstract class TestCase extends BaseTestCase
         return [
             GovukServiceProvider::class,
         ];
-    }
-
-    protected function useForms(): void
-    {
-        Config::set('govuk.forms', [
-            TestForm::class,
-            TestFormAlt::class,
-        ]);
-
-        $router = app('router');
-        $router->get('/')->name('/');
-        $router->govukLaravelForms();
     }
 
     protected function useDatabase(): void

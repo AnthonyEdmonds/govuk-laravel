@@ -5,7 +5,7 @@ return [
         'links' => [],
         'logo' => [
             'alt' => 'GOV.UK',
-            'route' => asset('images/asset_name.jpg'),
+            'asset' => 'images/asset_name.jpg',
             'height' => 44,
         ],
         'route' => 'home',
