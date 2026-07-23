@@ -2,6 +2,7 @@
 
 namespace AnthonyEdmonds\GovukLaravel\Components;
 
+use BackedEnum;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -18,6 +19,8 @@ class Question extends Component
 
         if (array_key_exists('type', $this->settings) === false) {
             $this->settings['type'] = 'text-input';
+        } elseif ($this->settings['type'] instanceof BackedEnum === true) {
+            $this->settings['type'] = $this->settings['type']->value;
         }
 
         if ($this->blade === null) {
