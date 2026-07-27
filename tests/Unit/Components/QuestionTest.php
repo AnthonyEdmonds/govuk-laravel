@@ -3,6 +3,7 @@
 namespace AnthonyEdmonds\GovukLaravel\Tests\Unit\Components;
 
 use AnthonyEdmonds\GovukLaravel\Components\Question;
+use AnthonyEdmonds\GovukLaravel\Tests\Models\MyEnum;
 use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
@@ -132,6 +133,14 @@ class QuestionTest extends TestCase
                 'blade' => null,
                 'settings' => [],
                 'expectedType' => 'text-input',
+                'expectedBlade' => 'text-input',
+            ],
+            [
+                'blade' => null,
+                'settings' => [
+                    'type' => MyEnum::One,
+                ],
+                'expectedType' => MyEnum::One->value,
                 'expectedBlade' => 'text-input',
             ],
         ];
