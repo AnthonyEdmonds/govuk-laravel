@@ -94,20 +94,36 @@ ul.govuk-list--square {
     &.app-\!-notification-banner-error {
         background-color: govuk.govuk-functional-colour('error');
         border-color: govuk.govuk-functional-colour('error');
+
+        & > div.govuk-notification-banner__header {
+            background-color: govuk.govuk-functional-colour('error');
+        }
     }
 
     &.app-\!-notification-banner-info {
         background-color: govuk.govuk-colour('blue');
         border-color: govuk.govuk-colour('blue');
+
+        & > div.govuk-notification-banner__header {
+            background-color: govuk.govuk-colour('blue');
+        }
     }
 
     &.app-\!-notification-banner-success {
         background-color: govuk.govuk-functional-colour('success');
         border-color: govuk.govuk-functional-colour('success');
+
+        & > div.govuk-notification-banner__header {
+            background-color: govuk.govuk-functional-colour('success');
+        }
     }
 
     &.app-\!-notification-banner-warning {
         background-color: govuk.govuk-colour('yellow');
         border-color: govuk.govuk-colour('yellow');
+
+        & > div.govuk-notification-banner__header {
+            background-color: govuk.govuk-colour('yellow');
+        }
     }
 }
