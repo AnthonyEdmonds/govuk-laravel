@@ -6,12 +6,12 @@
     'logoRoute',
 ])
 
-<div class="govuk-header">
-    <div class="govuk-header__container govuk-width-container">
-        <div class="govuk-header__logo">
+<div class="govuk-generic-header">
+    <div class="govuk-generic-header__container govuk-width-container">
+        <div class="govuk-generic-header__logo">
             <a
                 href="{{ route($logoRoute) }}"
-                class="govuk-header__homepage-link"
+                class="govuk-generic-header__homepage-link"
             >
                 <img
                     src="{{ $logoImage }}"

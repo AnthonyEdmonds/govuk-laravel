@@ -1,8 +1,8 @@
 # Header
 
-Create a GOV.UK page header with a logo.
+Create a generic page header with a logo.
 
-Non-GOV.UK systems should use the [generic-header](generic-header.md) component.
+Official GOV.UK systems should use the [header](header.md) component.
 
 ```html
 <x-govuk::header
@@ -16,7 +16,7 @@ Non-GOV.UK systems should use the [generic-header](generic-header.md) component.
 
 Navigation and service labelling are provided by the [service-navigation](service-navigation.md) component.
 
-A header is provided on the default page template `/resources/views/vendor/govuk/layout/header.blade.php` which can be configured from the `govuk` config file.
+A generic-header is provided on the default page template `/resources/views/vendor/govuk/layout/header.blade.php` which can be configured from the `govuk` config file.
 
 ## Props
 
@@ -31,5 +31,5 @@ A header is provided on the default page template `/resources/views/vendor/govuk
 ## Also see
 
 * [footer](footer.md)
-* [generic-header](generic-header.md)
+* [header](header.md)
 * [service-navigation](service-navigation.md)

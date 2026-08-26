@@ -18,7 +18,7 @@ class HeaderTest extends TestCase
     public function test(): void
     {
         $this->makeHeader()
-            ->has('header')
+            ->has('div')
             ->has('nav');
     }
 
@@ -27,7 +27,7 @@ class HeaderTest extends TestCase
         $this->makeHeader([
             'asset' => 'images/asset.jpg',
         ])
-            ->first('header > div > div > a > img')
+            ->first('div > div > div > a > img')
             ->hasAttribute('src', 'http://localhost/images/asset.jpg');
     }
 
@@ -36,7 +36,7 @@ class HeaderTest extends TestCase
         $this->makeHeader([
             'asset' => 'https://my-site.com/images/asset.jpg',
         ])
-            ->first('header > div > div > a > img')
+            ->first('div > div > div > a > img')
             ->hasAttribute('src', 'https://my-site.com/images/asset.jpg');
     }
 
@@ -45,7 +45,7 @@ class HeaderTest extends TestCase
         $this->makeHeader([
             'asset' => 'home',
         ])
-            ->first('header > div > div > a > img')
+            ->first('div > div > div > a > img')
             ->hasAttribute('src', 'http://localhost/home');
     }
 

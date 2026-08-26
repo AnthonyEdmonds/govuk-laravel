@@ -14,6 +14,7 @@ If you are using the provided page layout, you can configure the header and navi
 
 | Key                 | Type   | Usage                                                                      |
 |---------------------|--------|----------------------------------------------------------------------------|
+| header.label        | string | The text to used next to your logo, if needed                              |
 | header.links        | array  | See [service-navigation](../components/service-navigation.md)              |
 | header.logo.alt     | string | The text description if your service logo cannot be found                  |
 | header.logo.asset   | string | The name of a route, an asset path, or a literal path to your service logo |
