@@ -5,7 +5,7 @@ Create a generic page header with a logo.
 Official GOV.UK systems should use the [header](header.md) component.
 
 ```html
-<x-govuk::header
+<x-govuk::generic-header
     label="My label"
     logo-alt="Company name"
     logo-height="44"
