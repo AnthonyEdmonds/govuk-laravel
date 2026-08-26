@@ -14,6 +14,7 @@ class ATest extends TestCase
             ->hasClass('govuk-link')
             ->hasAttribute('href', 'my-link')
             ->hasAttribute('target', '_self')
+            ->hasAttribute('role', 'link')
             ->contains('My content');
     }
 
@@ -23,7 +24,8 @@ class ATest extends TestCase
             'asButton' => true,
         ])
             ->first('a')
-            ->hasClass('govuk-button');
+            ->hasClass('govuk-button')
+            ->hasAttribute('role', 'button');
     }
 
     public function testRendersAsStartButton(): void

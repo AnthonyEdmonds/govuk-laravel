@@ -68,6 +68,27 @@ class GovukPage
         return Page::create($title);
     }
 
+    public static function interruption(
+        string $title,
+        string $confirmLabel,
+        string $confirmUrl,
+        string $cancelLabel,
+        string $cancelUrl,
+        ?string $contentBlade = null,
+        ?string $backUrl = null,
+    ): Page {
+        return Page::create($title)
+            ->setBack($backUrl ?? $cancelUrl)
+            ->setContent($contentBlade)
+            ->setTemplate('interruption')
+            ->with([
+                'confirmLabel' => $confirmLabel,
+                'confirmUrl' => $confirmUrl,
+                'cancelLabel' => $cancelLabel,
+                'cancelUrl' => $cancelUrl,
+            ]);
+    }
+
     public static function question(
         array|Arrayable $question,
         string $submitButtonLabel,

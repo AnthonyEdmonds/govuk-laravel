@@ -7,9 +7,9 @@ use NunoMaduro\LaravelMojito\ViewAssertion;
 
 class PanelTest extends TestCase
 {
-    public function test(): void
+    public function testConfirmation(): void
     {
-        $panel = $this->makePanel()
+        $panel = $this->makePanel(false)
             ->hasClass('govuk-panel')
             ->hasClass('govuk-panel--confirmation');
 
@@ -20,11 +20,29 @@ class PanelTest extends TestCase
             ->contains('Your reference number')
             ->has('strong')
             ->contains('HDJ2123F');
+
+        $buttons = $panel->first('div.govuk-button-group');
+
+        $buttons->first('a')
+            ->hasAttribute('href', 'Confirm-url')
+            ->contains('Confirm label');
+
+        $buttons->last('a')
+            ->hasAttribute('href', 'Cancel-url')
+            ->contains('Cancel label');
     }
 
-    protected function makePanel(): ViewAssertion
+    public function testInterruption(): void
+    {
+        $this->makePanel(true)
+            ->hasClass('govuk-panel')
+            ->hasClass('govuk-panel--interruption');
+    }
+
+    protected function makePanel(bool $interruption): ViewAssertion
     {
         $this->setViewAttributes();
+
         $this->setViewSlot(
             'slot',
             'Your reference number
@@ -32,7 +50,12 @@ class PanelTest extends TestCase
         );
 
         return $this->assertView('govuk::components.panel', [
+            'interruption' => $interruption,
             'title' => 'Application complete',
+            'confirmLabel' => 'Confirm label',
+            'confirmUrl' => 'Confirm-url',
+            'cancelLabel' => 'Cancel label',
+            'cancelUrl' => 'Cancel-url',
         ]);
     }
 }
