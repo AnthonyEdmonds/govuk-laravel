@@ -81,6 +81,7 @@ class GovukPage
             ->setBack($backUrl ?? $cancelUrl)
             ->setContent($contentBlade)
             ->setTemplate('interruption')
+            ->hideTitle()
             ->with([
                 'confirmLabel' => $confirmLabel,
                 'confirmUrl' => $confirmUrl,
