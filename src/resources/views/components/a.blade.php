@@ -12,6 +12,8 @@
 ])
 
 @php
+    $role = 'link';
+
     if ($footer === true) {
         $classes = 'govuk-footer__link';
         
@@ -19,6 +21,7 @@
         $classes = 'govuk-link-image';
         
     } elseif ($asButton === true || $asStartButton === true) {
+        $role = 'button';
         $classes = 'govuk-button';
         
         if ($asStartButton === true) {
@@ -50,6 +53,7 @@
     @if($rel !== null)
         rel="{{ $rel }}"
     @endif
+    role="{{ $role }}"
     target="{{ $target }}"
 >{{ $slot }}@if($asStartButton === true)
     <svg
