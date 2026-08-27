@@ -6,7 +6,7 @@ use AnthonyEdmonds\GovukLaravel\Tests\TestCase;
 use Illuminate\Support\Facades\Route;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 
-class HeaderTest extends TestCase
+class GenericHeaderTest extends TestCase
 {
     protected function setUp(): void
     {
@@ -32,7 +32,7 @@ class HeaderTest extends TestCase
     {
         $this->setViewAttributes();
 
-        return $this->assertView('govuk::components.header', [
+        return $this->assertView('govuk::components.generic-header', [
             'label' => 'My label',
             'logoAlt' => 'My logo alt',
             'logoHeight' => 44,

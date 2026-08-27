@@ -2,6 +2,7 @@
 
 return [
     'header' => [
+        'label' => '',
         'links' => [],
         'logo' => [
             'alt' => 'GOV.UK',

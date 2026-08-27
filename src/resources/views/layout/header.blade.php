@@ -8,7 +8,8 @@ if (str_contains($logoPath, '://') === false) {
 }
 @endphp
 
-<x-govuk::header
+<x-govuk::generic-header
+    label="{{ config('govuk.header.label') }}"
     logo-alt="{{ config('govuk.header.logo.alt') }}"
     logo-height="{{ config('govuk.header.logo.height') }}"
     logo-image="{{ $logoPath }}"

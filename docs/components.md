@@ -35,6 +35,7 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 
 ## Layout
 * [footer](components/footer.md)
+* [generic-header](components/generic-header.md)
 * [grid-column](components/grid-column.md)
 * [grid-row](components/grid-row.md)
 * [header](components/header.md)
