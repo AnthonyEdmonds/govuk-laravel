@@ -19,9 +19,9 @@ return [
     ],
 
     'parts' => [
-        'laracasts_flash' => false,
         '404lab_impersonate' => false,
         'back_to_top' => 'Back to top',
+        'laracasts_flash' => false,
     ],
 
     'favicons' => 'govuk::parts.favicons',

@@ -38,4 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
+    document.addEventListener('resize', function () {
+        document.getElementById('back-to-top').hidden = document.body.offsetHeight < window.innerHeight;
+    });
 });

@@ -37,9 +37,9 @@ You can enable them by setting the corresponding config value to `true`.
 
 Parts are also provided for the following configuration settings:
 
-| Key                | Type   | Usage                                                                            |
-|--------------------|--------|----------------------------------------------------------------------------------|
-| parts.back_to_top  | string | The label for the "Back to top" button at the foot of each page, or null to hide |
+| Key                | Type   | Usage                                                           |
+|--------------------|--------|-----------------------------------------------------------------|
+| parts.back_to_top  | string | The label for the "Back to top" button at the foot of each page |
 
 ### Favicons
 
