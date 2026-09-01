@@ -35,6 +35,12 @@ GOV.UK Laravel comes by default with parts for the following libraries:
 
 You can enable them by setting the corresponding config value to `true`.
 
+Parts are also provided for the following configuration settings:
+
+| Key                | Type   | Usage                                                                            |
+|--------------------|--------|----------------------------------------------------------------------------------|
+| parts.back_to_top  | string | The label for the "Back to top" button at the foot of each page, or null to hide |
+
 ### Favicons
 
 The `favicons` key allows you to provide the name of the blade which contains your list of favicons.
