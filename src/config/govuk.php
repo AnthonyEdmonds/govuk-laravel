@@ -24,4 +24,16 @@ return [
     ],
 
     'favicons' => 'govuk::parts.favicons',
+
+    'feedback' => [
+        'header' => 'Help us improve this service',
+        'description' => 'Tell us about your experience using this service.',
+        'link_label' => 'Give us your feedback',
+        'route' => null,
+    ],
+
+    'languages' => [
+        'list' => [],
+        'route' => null,
+    ],
 ];

@@ -66,6 +66,8 @@ Input and form elements take advantage of Laravel's inbuilt validation and error
 * [details](components/details.md)
 * [error-summary](components/error-summary.md)
 * [exit-this-page](components/exit-this-page.md)
+* [feedback](components/feedback.md)
+* [languages](components/languages.md)
 * [notification-banner](components/notification-banner.md)
 * [pagination](components/pagination.md)
 * [panel](components/panel.md)

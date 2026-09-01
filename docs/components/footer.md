@@ -11,6 +11,10 @@ Create a page footer, complete with area for navigation, meta links, content lic
     :meta-links="$metaLinks"
     :navigation-links="$navigationLinks"
 >
+    <x-slot name="start">
+        // After the opening <footer> tag, but before the width container
+    </x-slot>
+    
     <x-slot name="information">
         // Site and service details...
     </x-slot>
@@ -135,13 +139,20 @@ As with the `meta` prop, you may provide a keyed array as the value of a link fo
 
 ## Slots
 
-| Name        | Optional | Location                              | Usage                                         |
-|-------------|----------|---------------------------------------|-----------------------------------------------|
-| information | Yes      | Bottom-left corner                    | Descriptive text, such as service ownership   |
-| licence     | Yes      | Bottom-left corner, below information | A licence declaration for the page, with logo | 
-| logos       | Yes      | Bottom-right corner                   | Company and service logos                     |
+| Name        | Optional | Location                              | Usage                                                              |
+|-------------|----------|---------------------------------------|--------------------------------------------------------------------|
+| start       | Yes      | Above other slots                     | Any additional content which needs to be in the `<footer>` element |
+| information | Yes      | Bottom-left corner                    | Descriptive text, such as service ownership                        |
+| licence     | Yes      | Bottom-left corner, below information | A licence declaration for the page, with logo                      | 
+| logos       | Yes      | Bottom-right corner                   | Company and service logos                                          |
 
 All of these slots are optional.
+
+### Start
+
+Any content passed into this slot will be shown inside the `<footer>` element, but before the main footer contents.
+
+This is used for end-of-page content, such as the [feedback](feedback.md) component.
 
 ### Information
 
@@ -171,5 +182,6 @@ You do not need to wrap any content passed into the slot, however you may includ
 
 ## Also see
 
+* [feedback](feedback.md)
 * [header](header.md)
 * [service-navigation](service-navigation.md)

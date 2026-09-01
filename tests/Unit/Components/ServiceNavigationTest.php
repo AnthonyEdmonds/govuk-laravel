@@ -132,6 +132,15 @@ class ServiceNavigationTest extends TestCase
             ->hasAttribute('target', '_self');
     }
 
+    public function testHasEndSlot(): void
+    {
+        $this->setViewSlot('end', '<p>My end</p>');
+
+        $this->makeComponent()
+            ->last('p')
+            ->contains('My end');
+    }
+
     protected function makeComponent(array $data = []): ViewAssertion
     {
         $this->setViewAttributes();

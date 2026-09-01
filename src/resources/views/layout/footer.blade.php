@@ -5,6 +5,17 @@
     :meta-links="[]"
     :navigation-links="[]"
 >
+    @if(config('govuk.feedback.route') !== null)
+        <x-slot name="start">
+            <x-govuk::feedback
+                header="{{ config('govuk.feedback.header') }}"
+                description="{{ config('govuk.feedback.description') }}"
+                link-label="{{ config('govuk.feedback.link_label') }}"
+                route="{{ config('govuk.feedback.route') }}"
+            />
+        </x-slot>
+    @endif
+
     <x-slot name="information">
         Built by the
         <a

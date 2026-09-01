@@ -131,6 +131,18 @@ class FooterTest extends TestCase
             ->hasAttribute('target', '_self');
     }
 
+    public function testRendersStartSlot(): void
+    {
+        $this->setViewSlot(
+            'start',
+            '<p>Go!</p>',
+        );
+
+        $this->makeFooter()
+            ->first('footer > p')
+            ->contains('Go!');
+    }
+
     public function testRendersInformationSlot(): void
     {
         $this->setViewSlot(

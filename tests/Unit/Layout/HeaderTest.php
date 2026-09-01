@@ -13,13 +13,17 @@ class HeaderTest extends TestCase
         parent::setUp();
 
         Route::get('/home')->name('home');
+        Route::get('/languages')->name('languages');
+
+        config()->set('govuk.languages.route', 'languages');
     }
 
     public function test(): void
     {
         $this->makeHeader()
             ->has('div')
-            ->has('nav');
+            ->first('section.govuk-service-navigation')
+            ->has('nav.govuk-language-navigation');
     }
 
     public function testLogoAsset(): void

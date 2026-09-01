@@ -63,7 +63,7 @@
     class="govuk-service-navigation"
     data-module="govuk-service-navigation"
 >
-    <div class="govuk-width-container">
+    <div class="govuk-width-container govuk-service-navigation__inlining-container">
         <div class="govuk-service-navigation__container">
             @if($serviceName !== null)
                 <span class="govuk-service-navigation__service-name">
@@ -108,5 +108,9 @@
                 </ul>
             </nav>
         </div>
+
+        @isset($end)
+            {!! $end !!}
+        @endisset
     </div>
 </section>
