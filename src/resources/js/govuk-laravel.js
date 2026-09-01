@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let buttons = document.getElementsByTagName('button');
+    let backToTop = document.getElementById('back-to-top');
 
     for (const button of buttons) {
         if (button.hasAttribute('data-prevent-double-click') === false) {
@@ -20,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    backToTop.hidden = document.body.offsetHeight < window.innerHeight;
+
     document.addEventListener('visibilitychange', function (event) {
         let buttons = document.getElementsByTagName('button');
 
@@ -39,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.addEventListener('resize', function () {
-        document.getElementById('back-to-top').hidden = document.body.offsetHeight < window.innerHeight;
+    window.addEventListener('resize', function () {
+        backToTop.hidden = document.body.offsetHeight < window.innerHeight;
     });
 });
