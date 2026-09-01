@@ -8,6 +8,10 @@
 ])
 
 <footer class="govuk-footer">
+    @isset($start)
+        {!! $start !!}
+    @endisset
+
     <div class="govuk-width-container">
         <x-govuk::footer.navigation
             :navigation="$navigationLinks"

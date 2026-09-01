@@ -38,3 +38,18 @@ You can enable them by setting the corresponding config value to `true`.
 ### Favicons
 
 The `favicons` key allows you to provide the name of the blade which contains your list of favicons.
+
+### Feedback
+
+Customise the [feedback](https://design-system.service.gov.uk/components/feedback/) component on the page template, which is presented just above the page footer.
+
+| Key                  | Type   | Usage                                                              |
+|----------------------|--------|--------------------------------------------------------------------|
+| feedback.header      | string | The text of the feedback component header                          |
+| feedback.description | string | The text of the feedback component description                     |
+| feedback.link_label  | string | The text of the link to give feedback                              |
+| feedback.route       | string | The name of the route where users should be taken to give feedback |
+
+The page template will not show the feedback component when the `route` is set to `null`.
+
+This does not interfere with the [feedback component](../components/feedback.md) itself, which you may use directly.
