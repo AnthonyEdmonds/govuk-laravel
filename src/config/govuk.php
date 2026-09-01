@@ -31,4 +31,9 @@ return [
         'link_label' => 'Give us your feedback',
         'route' => null,
     ],
+
+    'languages' => [
+        'list' => [],
+        'route' => null,
+    ],
 ];

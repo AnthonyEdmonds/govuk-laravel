@@ -11,7 +11,11 @@ Create a main navigation bar for your service.
     ]"
     service-name="My service"
     service-route="home"
-/>
+>
+    <x-slot name="end">
+        // End content, such as the languages component
+    </x-slot>
+</x-govuk::service-navigation>
 ```
 
 This is included in the default page template `/resources/views/vendor/govuk/layout/header.blade.php` along with a `header`.
@@ -87,7 +91,20 @@ For conditional navigation you may provide a keyed array with the label as the k
 
 You may opt to include either `auth` or `can`, instead of using both.
 
+## Slots
+
+| Name | Optional | Location                | Usage                                                          |
+|------|----------|-------------------------|----------------------------------------------------------------|
+| end  | Yes      | After the `nav` element | Any additional navigation content, such as a language switcher |
+
+### End
+
+Any content passed into this slot will be shown after the `<nav>` element, aligned to the right.
+
+This is used for extra navigation content, such as the [languages](languages.md) component.
+
 ## Also see
 
 * [header](header.md)
 * [footer](footer.md)
+* [languages](languages.md)

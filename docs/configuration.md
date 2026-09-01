@@ -53,3 +53,17 @@ Customise the [feedback](https://design-system.service.gov.uk/components/feedbac
 The page template will not show the feedback component when the `route` is set to `null`.
 
 This does not interfere with the [feedback component](../components/feedback.md) itself, which you may use directly.
+
+### Languages
+
+Customise the languages component on the page template, which is presented within the [service navigation](../components/service-navigation.md) component.
+
+| Key             | Type   | Usage                                                   |
+|-----------------|--------|---------------------------------------------------------|
+| languages.list  | array  | The list of available languages in code => label format |
+| languages.route | string | The endpoint which controls language switching          |
+
+The page template will not show the languages component when the `route` is set to `null`.
+
+This does not interfere with the [languages component](../components/languages.md) itself, which you may use directly.
+                                           |

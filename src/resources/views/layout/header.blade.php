@@ -21,4 +21,13 @@ if (str_contains($logoPath, '://') === false) {
     :links="config('govuk.header.links')"
     service-name="{{ config('govuk.header.service_name') }}"
     service-route="{{ config('govuk.header.route') }}"
-/>
+>
+    <x-slot name="end">
+        @if(config('govuk.languages.route') !== null)
+            <x-govuk::languages
+                :languages="config('govuk.languages.list')"
+                route="{{ config('govuk.languages.route') }}"
+            />
+        @endempty
+    </x-slot>
+</x-govuk::service-navigation>

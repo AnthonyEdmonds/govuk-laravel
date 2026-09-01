@@ -32,4 +32,5 @@ A header is provided on the default page template `/resources/views/vendor/govuk
 
 * [footer](footer.md)
 * [generic-header](generic-header.md)
+* [languages](languages.md)
 * [service-navigation](service-navigation.md)
