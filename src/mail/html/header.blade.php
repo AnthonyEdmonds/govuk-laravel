@@ -8,11 +8,13 @@
 {{ config('govuk.mail.header.title') }}
 </a>
 </td>
+@if(config('govuk.mail.header.logo') !== null)
 <td class="content-cell" align="right">
 <a href="{{ $url }}" style="display: inline-block;">
 <img src="{{ config('govuk.mail.header.logo') }}" height="50" width="133" alt="{{ config('govuk.mail.header.logo_alt') }}" />
 </a>
 </td>
+@endif
 </tr>
 </table>
 </td>

@@ -40,6 +40,10 @@ width: 100% !important;
 <!-- Body content -->
 <tr>
 <td class="content-cell">
+@if(\Illuminate\Support\Facades\App::isProduction() === false)
+<p>This message has been sent from a testing environment.</p>
+@endif
+
 {!! Illuminate\Mail\Markdown::parse($slot) !!}
 
 {!! $subcopy ?? '' !!}

@@ -42,11 +42,11 @@ return [
         'copyright' => env('APP_NAME'),
         'header' => [
             'title' => env('APP_NAME'),
-            'logo' => '',
+            'logo' => null,
             'logo_alt' => 'GOV.UK',
         ],
         'footer' => [
-            'logo' => '',
+            'logo' => null,
             'logo_alt' => 'GOV.UK',
         ],
     ],

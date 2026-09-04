@@ -66,4 +66,19 @@ Customise the languages component on the page template, which is presented withi
 The page template will not show the languages component when the `route` is set to `null`.
 
 This does not interfere with the [languages component](../components/languages.md) itself, which you may use directly.
-                                           |
+
+### Mail
+
+Customise the GOV.UK style mail template, or disable it if you do not want to use it.
+
+| Key                  | Type   | Default       | Usage                                                         |
+|----------------------|--------|---------------|---------------------------------------------------------------|
+| mail.enabled         | bool   | true          | Whether to use the GOV.UK mail template without publishing it |
+| mail.copyright       | string | env(APP_NAME) | The company name used in the footer copyright label           |
+| mail.header.title    | string | env(APP_NAME) | The name used in the header                                   |
+| mail.header.logo     | string | null          | An asset path or URL for the header logo                      |
+| mail.header.logo_alt | string | GOV.UK        | The alt label for the header logo, if used                    |
+| mail.footer.logo     | string | null          | An asset path or URL for the footer logo                      |
+| mail.footer.logo_alt | string | GOV.UK        | The alt label for the footer logo, if used                    |
+
+The e-mail template includes a disclaimer when sent from a non-production environment.
