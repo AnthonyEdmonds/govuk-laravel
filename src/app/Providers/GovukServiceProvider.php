@@ -49,6 +49,11 @@ class GovukServiceProvider extends ServiceProvider
         $themes = config('mail.markdown.paths');
         $themes[] = __DIR__ . '../../mail';
         config()->set('mail.markdown.paths', $themes);
+        config()->set('mail.markdown.theme', 'govuk');
+
+        /* TODO
+         * Mail components do not recognise namespace without vendor override and must be replaced
+         */
     }
 
     protected function bootPublishes(): void
