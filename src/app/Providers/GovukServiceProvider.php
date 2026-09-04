@@ -33,10 +33,22 @@ class GovukServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $this->bootMail();
         $this->bootPublishes();
         $this->bootRules();
         $this->bootTranslations();
         $this->bootViews();
+    }
+
+    protected function bootMail(): void
+    {
+        if (config('govuk.mail.enabled') !== true) {
+            return;
+        }
+
+        $themes = config('mail.markdown.paths');
+        $themes[] = __DIR__ . '../../mail';
+        config()->set('mail.markdown.paths', $themes);
     }
 
     protected function bootPublishes(): void
@@ -59,8 +71,7 @@ class GovukServiceProvider extends ServiceProvider
         ], 'govuk-fonts');
 
         $this->publishes([
-            __DIR__ . '/../../mail/default.css' => resource_path('views/vendor/mail/html/themes/default.css'),
-            __DIR__ . '/../../mail/tag.blade.php' => resource_path('views/vendor/mail/html/themes/tag.blade.php'),
+            __DIR__ . '/../../mail' => resource_path('views/vendor/mail'),
         ], 'govuk-mail');
     }
 

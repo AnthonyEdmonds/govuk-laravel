@@ -36,4 +36,18 @@ return [
         'list' => [],
         'route' => null,
     ],
+
+    'mail' => [
+        'enabled' => true,
+        'copyright' => env('APP_NAME'),
+        'header' => [
+            'title' => env('APP_NAME'),
+            'logo' => '',
+            'logo_alt' => 'GOV.UK',
+        ],
+        'footer' => [
+            'logo' => '',
+            'logo_alt' => 'GOV.UK',
+        ],
+    ],
 ];

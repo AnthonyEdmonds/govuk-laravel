@@ -1,0 +1,1 @@
+{{ strtoupper($label) }}
