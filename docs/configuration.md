@@ -71,14 +71,18 @@ This does not interfere with the [languages component](../components/languages.m
 
 Customise the GOV.UK style mail template, or disable it if you do not want to use it.
 
-| Key                  | Type   | Default       | Usage                                                         |
-|----------------------|--------|---------------|---------------------------------------------------------------|
-| mail.enabled         | bool   | true          | Whether to use the GOV.UK mail template without publishing it |
-| mail.copyright       | string | env(APP_NAME) | The company name used in the footer copyright label           |
-| mail.header.title    | string | env(APP_NAME) | The name used in the header                                   |
-| mail.header.logo     | string | null          | An asset path or URL for the header logo                      |
-| mail.header.logo_alt | string | GOV.UK        | The alt label for the header logo, if used                    |
-| mail.footer.logo     | string | null          | An asset path or URL for the footer logo                      |
-| mail.footer.logo_alt | string | GOV.UK        | The alt label for the footer logo, if used                    |
+| Key                     | Type   | Default       | Usage                                                         |
+|-------------------------|--------|---------------|---------------------------------------------------------------|
+| mail.enabled            | bool   | true          | Whether to use the GOV.UK mail template without publishing it |
+| mail.copyright          | string | env(APP_NAME) | The company name used in the footer copyright label           |
+| mail.header.title       | string | env(APP_NAME) | The name used in the header                                   |
+| mail.header.logo        | string | null          | An asset path or URL for the header logo                      |
+| mail.header.logo_alt    | string | GOV.UK        | The alt label for the header logo, if used                    |
+| mail.header.logo_height | int    | null          | The height to display the header logo at                      |
+| mail.header.logo_width  | int    | null          | The width to display the header logo at                       |
+| mail.footer.logo        | string | null          | An asset path or URL for the footer logo                      |
+| mail.footer.logo_alt    | string | GOV.UK        | The alt label for the footer logo, if used                    |
+| mail.footer.logo_height | int    | null          | The height to display the footer logo at                      |
+| mail.footer.logo_width  | int    | null          | The width to display the footer logo at                       |
 
 The e-mail template includes a disclaimer when sent from a non-production environment.

@@ -12,7 +12,7 @@
 </td>
 @if(config('govuk.mail.footer.logo') !== null)
 <td class="content-cell" align="right">
-<img src="{{ config('govuk.mail.footer.logo') }}" height="75" width="147" alt="{{ config('govuk.mail.footer.logo_alt') }}" />
+<img src="{{ config('govuk.mail.footer.logo') }}" height="{{ config('govuk.mail.footer.logo_height') }}" width="{{ config('govuk.mail.footer.logo_width') }}" alt="{{ config('govuk.mail.footer.logo_alt') }}" />
 </td>
 @endif
 </tr>
