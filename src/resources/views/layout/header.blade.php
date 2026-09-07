@@ -1,18 +1,10 @@
-@php
-$logoPath = config('govuk.header.logo.asset');
-
-if (str_contains($logoPath, '://') === false) {
-    $logoPath = str_contains($logoPath, '/') === true
-        ? asset($logoPath)
-        : route($logoPath);
-}
-@endphp
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukUrl)
 
 <x-govuk::generic-header
     label="{{ config('govuk.header.label') }}"
     logo-alt="{{ config('govuk.header.logo.alt') }}"
     logo-height="{{ config('govuk.header.logo.height') }}"
-    logo-image="{{ $logoPath }}"
+    logo-image="{{ GovukUrl::resolvePathFromConfig('govuk.header.logo.asset') }}"
     logo-route="{{ config('govuk.header.route') }}"
 />
 

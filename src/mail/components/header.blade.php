@@ -1,4 +1,5 @@
 @props(['url'])
+@use(AnthonyEdmonds\GovukLaravel\Helpers\GovukUrl)
 <tr>
 <td class="background-header">
 <table class="header" valign="center" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
@@ -11,7 +12,7 @@
 @if(config('govuk.mail.header.logo') !== null)
 <td class="content-cell" align="right">
 <a href="{{ $url }}" style="display: inline-block;">
-<img src="{{ config('govuk.mail.header.logo') }}" height="{{ config('govuk.mail.header.logo_height') }}" width="{{ config('govuk.mail.header.logo_width') }}" alt="{{ config('govuk.mail.header.logo_alt') }}" />
+<img src="{{ GovukUrl::resolvePathFromConfig('govuk.mail.header.logo') }}" height="{{ config('govuk.mail.header.logo_height') }}" width="{{ config('govuk.mail.header.logo_width') }}" alt="{{ config('govuk.mail.header.logo_alt') }}" />
 </a>
 </td>
 @endif
