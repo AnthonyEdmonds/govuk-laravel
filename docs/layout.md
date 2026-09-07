@@ -44,7 +44,6 @@ Default elements are provided for ease of editing.
 
 `foot.blade.php` contains the call to load the `app.js` JavaScript file.
 
-
 ## GovukPages and content blades
 
 When passing a blade into certain GovukPages, your blade may define any of the sections except for `main`, as the `main` section is used for the template content.

@@ -38,6 +38,7 @@
                         @yield('before-main')
                         @yield('main')
                         @yield('after-main')
+                        @include('govuk::parts.back-to-top')
                     </div>
 
                     @if($hasAside === true)
