@@ -1,5 +1,6 @@
 @props([
     'bold' => false,
+    'id' => null,
     'lead' => false,
     'small' => false,
 ])
@@ -18,6 +19,9 @@
     }
 @endphp
 
-<p class="{{ $classes }}">
+<p
+    class="{{ $classes }}"
+    @isset($id) id="{{ $id }}" @endisset
+>
     {{ $slot }}
 </p>
