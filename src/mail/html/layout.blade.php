@@ -41,7 +41,10 @@ width: 100% !important;
 <tr>
 <td class="content-cell">
 @if(\Illuminate\Support\Facades\App::isProduction() === false)
-<p>This message has been sent from a testing environment.</p>
+<p class="phase-banner">
+<x-mail::tag colour="primary" label="Testing" />
+This message was sent from a testing environment
+</p>
 @endif
 
 {!! Illuminate\Mail\Markdown::parse($slot) !!}

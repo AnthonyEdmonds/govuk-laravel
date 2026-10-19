@@ -1,9 +1,7 @@
 <x-mail::layout>
 {{-- Header --}}
 <x-slot:header>
-<x-mail::header :url="config('app.url')">
-{{ config('app.name') }}
-</x-mail::header>
+<x-mail::header :url="config('app.url')" />
 </x-slot:header>
 
 {{-- Body --}}
@@ -20,8 +18,6 @@
 
 {{-- Footer --}}
 <x-slot:footer>
-<x-mail::footer>
-© {{ date('Y') }} {{ config('govuk.mail.copyright') }}. {{ __('All rights reserved.') }}
-</x-mail::footer>
+<x-mail::footer />
 </x-slot:footer>
 </x-mail::layout>
