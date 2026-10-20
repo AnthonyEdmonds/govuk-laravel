@@ -144,7 +144,7 @@ img {
     width: 570px;
 }
 
-.header td {
+.header * {
     color: #ffffff;
     font-size: 24px;
     font-weight: bold;
@@ -154,8 +154,8 @@ img {
 /* Body */
 .body {
     background-color: #ffffff;
-    border-bottom: 1px solid #edeff2;
-    border-top: 1px solid #edeff2;
+    border-bottom: 1px solid #cecece;
+    border-top: 1px solid #cecece;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -176,7 +176,7 @@ img {
 
 /* Subcopy */
 .subcopy {
-    border-top: 1px solid #edeff2;
+    border-top: 1px solid #cecece;
     margin-top: 25px;
     padding-top: 25px;
 }
@@ -342,7 +342,7 @@ div.table {
 }
 
 /* Custom Styles */
-.background-black {
+.background-header {
     background-color: #2d3748;
     color: #ffffff;
 }
@@ -406,4 +406,11 @@ div.table {
 .tag-warning {
     background-color: #ffee80;
     color: #7a3c1c;
+}
+
+/* Phase Banner */
+.phase-banner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cecece;
 }

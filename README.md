@@ -25,6 +25,7 @@ Published under the MIT licence.
 * Laravel 13 Blade templates of the main GOV.UK Design System pages
 * Laravel 13 Rules for dates, times, and words
 * PHP 8.3 Classes to support the creation of standard and custom pages
+* A GOV.UK style Laravel Mail template
 
 ## Documentation
 
@@ -41,6 +42,7 @@ Published under the MIT licence.
 * [Pages](docs/pages.md)
 
 ### Laravel & Classes
+* [Mail](docs/mail.md)
 * [Markdown](docs/markdown.md)
 * [Page](docs/classes/page.md)
 * [Rules](docs/rules.md)
