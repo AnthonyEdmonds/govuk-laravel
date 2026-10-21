@@ -8,11 +8,11 @@ class BeforeDate extends DateRule
 {
     protected function test(Carbon $enteredDate): bool
     {
-        if ($enteredDate->lessThan($this->date) === true) {
+        if ($enteredDate->lessThan($this->comparedTo) === true) {
             return true;
         }
 
-        $this->message = ':Attribute must be before ' . $this->date->format($this->messageFormat);
+        $this->message = ':Attribute must be before ' . $this->comparedTo->format($this->messageFormat);
 
         return false;
     }

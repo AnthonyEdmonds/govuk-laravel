@@ -8,8 +8,10 @@
     'value' => '',
 ])
 
+@use(Carbon\Carbon)
+
 @php
-    if (is_a($value, Carbon\Carbon::class) === true) {
+    if (is_a($value, Carbon::class) === true) {
         $value = $value->format('H:i');
     }
 @endphp

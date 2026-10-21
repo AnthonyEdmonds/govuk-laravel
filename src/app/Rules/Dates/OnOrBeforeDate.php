@@ -8,11 +8,11 @@ class OnOrBeforeDate extends DateRule
 {
     protected function test(Carbon $enteredDate): bool
     {
-        if ($enteredDate->lessThanOrEqualTo($this->date) === true) {
+        if ($enteredDate->lessThanOrEqualTo($this->comparedTo) === true) {
             return true;
         }
 
-        $this->message = ':Attribute must be the same day or before ' . $this->date->format($this->messageFormat);
+        $this->message = ':Attribute must be the same day or before ' . $this->comparedTo->format($this->messageFormat);
 
         return false;
     }

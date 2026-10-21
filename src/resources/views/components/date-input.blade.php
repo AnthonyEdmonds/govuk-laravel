@@ -12,6 +12,8 @@
     'value' => [],
 ])
 
+@use(Carbon\Carbon)
+
 @php
     $dayName = "$name-day";
     $monthName = "$name-month";
@@ -20,8 +22,6 @@
     $dayId = "$id-day";
     $monthId = "$id-month";
     $yearId = "$id-year";
-
-    use Carbon\Carbon;
     
     switch ($autocomplete) {
         case 'bday':

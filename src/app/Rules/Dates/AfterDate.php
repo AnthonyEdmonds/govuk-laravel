@@ -6,14 +6,12 @@ use Carbon\Carbon;
 
 class AfterDate extends DateRule
 {
-    protected function test(Carbon $enteredDate): bool
+    protected function test(Carbon $enteredDate, Carbon $comparisonDate): ?string
     {
-        if ($enteredDate->greaterThan($this->date) === true) {
-            return true;
+        if ($enteredDate->greaterThan($comparisonDate) === false) {
+            return ':Attribute must be after ' . $comparisonDate->format($this->messageFormat);
         }
 
-        $this->message = ':Attribute must be after ' . $this->date->format($this->messageFormat);
-
-        return false;
+        return null;
     }
 }
